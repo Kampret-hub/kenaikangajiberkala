@@ -15,7 +15,7 @@
 |
 */
 // $config['base_url']	= 'http://localhost/pos/';
-$config['base_url']	= 'http://localhost:8080/app/kenaikangajiberkala/';
+$config['base_url']	= 'http://localhost/kenaikangajiberkala/';
 
 /*
 |--------------------------------------------------------------------------
@@ -27,7 +27,7 @@ $config['base_url']	= 'http://localhost:8080/app/kenaikangajiberkala/';
 | variable so that it is blank.
 |
 */
-$config['index_page'] = '';
+$config['index_page'] = 'index.php';
 
 /*
 |--------------------------------------------------------------------------

@@ -31,8 +31,9 @@
                         </div>
                         <div class="col pr-0">
                           <p class="small text-muted mb-0">Anggota Masuk</p>
-                          <span class="h3 mb-0">1,869</span>
-                          <span class="small text-success"></span>
+                          <span class="h3 mb-0"></span>
+                          <span class="h3 mr-2 mb-0">0</span>
+                          <span class="small text-muted">Anggota</span>
                         </div>
                       </div>
                     </div>
@@ -51,7 +52,8 @@
                           <p class="small text-muted mb-0">Anggota Pensiun</p>
                           <div class="row align-items-center no-gutters">
                             <div class="col-auto">
-                              <span class="h3 mr-2 mb-0"> 86.6% </span>
+                              <span class="h3 mr-2 mb-0">0</span>
+                              <span class="small text-muted">Anggota</span>
                             </div>
                             <div class="col-md-12 col-lg">
                                <!--<div class="progress progress-sm mt-2" style="height:3px">
@@ -75,7 +77,8 @@
                         </div>
                         <div class="col">
                           <p class="small text-muted mb-0">Anggota Meninggal</p>
-                          <span class="h3 mb-0">0</span>
+                          <span class="h3 mr-2 mb-0">0</span>
+                          <span class="small text-muted">Anggota</span>
                         </div>
                       </div>
                     </div>

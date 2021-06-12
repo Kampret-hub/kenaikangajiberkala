@@ -6,7 +6,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <link rel="icon" href="<?php echo base_url() ?>favicon.ico">
-    <title>Tiny Dashboard - A Bootstrap Dashboard Template</title>
+    <title>SIMPEG POLRES KARAWANG</title>
     <!-- Simple bar CSS -->
     <link rel="stylesheet" href="<?php echo base_url() ?>css/simplebar.css">
     <!-- Fonts CSS -->
@@ -19,41 +19,43 @@
     <link rel="stylesheet" href="<?php echo base_url() ?>css/app-light.css" id="lightTheme" disabled>
     <link rel="stylesheet" href="<?php echo base_url() ?>css/app-dark.css" id="darkTheme">
   </head>
- <body class="bg-gradient-primary" >
-
-  <div class="container">
-    <?php echo form_open('auth/login'); ?>
-    <!-- Outer Row -->
-    <div class="row justify-content-center">
-      <div class="col-xl-5 col-lg-12 col-md-9">
-        <div class="card o-hidden border-0 shadow-lg my-5">
-          <div class="card-body p-0">
-            <!-- Nested Row within Card Body -->
-            <div class="row">
-              <div class="col-lg-12">
-                <div class="p-5">
-                  <?php echo $this->session->flashdata('msg')?>
-                  <div class="text-center">
-                    <div class=""><img src="<?= base_url() ?>assets/img/logo2.png" alt="" title="" /></div>
-                      <span style="font-size: 20px;">SIMPEG POLRI KARAWANG </span>
-                      <hr>
-                      <br>
-                    <h1 class="h4 text-gray-900 mb-4">Login Page !</h1>
-                  </div>
-                  <form class="user" method="post" action="<?= base_url ('auth'); ?>">    
-                  <div class="form-group">
-                      <span><label>Username</label></span>
-                      <span><input class="form-control form-control-user" type="text" name="username" class="" id="active" placeholder="Username"></span>
-                      <!--<?= form_error ('email', '<small class="text-danger pl-3">','</small>')?>-->
-                  </div>  
-                  <div class="form-group">
-                       <span><label>Password</label></span>
-                      <input class="form-control form-control-user" type="password" name="password" class="" placeholder="Password">
-                  </div><div class="form-group">
-                     <input class="btn btn-primary btn-lg btn-block" type="submit" name="submit" onclick="myFunction()" value="LOGIN" >
-                     <p class="mt-5 mb-3 text-muted text-center">SIMPEG POLRES KARAWANG © 2020</p>
-                  </div>
-                    </form>
+  <body class="bg-gradient-primary" >
+      <div class="container">
+        <?php echo form_open('auth/login'); ?>
+        <!-- Outer Row -->
+        <div class="row justify-content-center">
+          <div class="col-xl-5 col-lg-12 col-md-9">
+            <div class="card o-hidden border-0 shadow-lg my-5">
+              <div class="card-body p-0">
+                <!-- Nested Row within Card Body -->
+                <div class="row">
+                  <div class="col-lg-12">
+                    <div class="p-5">
+                      <?php echo $this->session->flashdata('msg')?>
+                      <div class="text-center">
+                        <div class=""><img src="<?= base_url() ?>assets/img/logo2.png" alt="" title="" /></div>
+                          <span style="font-size: 20px;">SIMPEG POLRI KARAWANG </span>
+                          <hr>
+                          <br>
+                        <h1 class="h4 text-gray-900 mb-4">Login Page !</h1>
+                      </div>
+                        <form class="user" method="post" action="<?= base_url ('auth'); ?>">    
+                          <div class="form-group">
+                              <span><label>Username</label></span>
+                              <span><input class="form-control form-control-user" type="text" name="username" class="" id="active" placeholder="Username"></span>
+                              <!--<?= form_error ('email', '<small class="text-danger pl-3">','</small>')?>-->
+                          </div>  
+                          <div class="form-group">
+                               <span><label>Password</label></span>
+                              <input class="form-control form-control-user" type="password" name="password" class="" placeholder="Password">
+                          </div>
+                          <div class="form-group">
+                             <input class="btn btn-primary btn-lg btn-block" type="submit" name="submit" onclick="myFunction()" value="LOGIN" >
+                             <p class="mt-5 mb-3 text-muted text-center">SIMPEG POLRES KARAWANG © 2021</p>
+                          </div>
+                        </form>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -62,8 +64,6 @@
         </div>
       </div>
     </div>
-  </div>
-</div>
     </div>
     <script src="<?php echo base_url() ?>js/jquery.min.js"></script>
     <script src="<?php echo base_url() ?>js/popper.min.js"></script>

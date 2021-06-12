@@ -16,8 +16,8 @@ public function index() {
 		   $data['title'] = 'Page Admin';
            $data['user'] = $this->db->get_where('user', ['nama_lengkap' => $this->session->userdata('nama_lengkap')])->row_array(); 
 		   $data['username'] = $this->session->userdata('username');
- 		   $this->template->load('template/dashboard_template','admin/index',$data);
-           ;
+ 		  $this->template->load('template/dashboard_template','admin/index',$data);
+           
 }
 }
 ?>

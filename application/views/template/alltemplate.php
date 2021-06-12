@@ -29,6 +29,7 @@
 <?php if($this->session->userdata('role_id')=== '1'):?>
   <body class="vertical  dark  ">
     <div class="wrapper">
+      <!-- Header -->
       <nav class="topnav navbar navbar-light">
         <button type="button" class="navbar-toggler text-muted mt-2 p-0 mr-3 collapseSidebar">
           <i class="fe fe-menu navbar-toggler-icon"></i>
@@ -69,27 +70,20 @@
             </div>
           </li>
         </ul>
-      </nav>
+      </nav><!-- End Header -->
+
+      <!-- nav bar -->
       <aside class="sidebar-left border-right bg-white shadow" id="leftSidebar" data-simplebar>
         <a href="#" class="btn collapseSidebar toggle-btn d-lg-none text-muted ml-2 mt-3" data-toggle="toggle">
           <i class="fe fe-x"><span class="sr-only"></span></i>
         </a>
         <nav class="vertnav navbar navbar-light">
-          <!-- nav bar -->
           <div class="w-100 mb-4 d-flex">
             <a class="navbar-brand mx-auto mt-2 flex-fill text-center" href="">
              <img src="<?= base_url() ?>assets/img/logo2.png" alt="" title="" /><p>
-              <p class="flex-fill text-center small">SISTEM INFORMASI PEGAWAI</p>
-              <!--<svg version="1.1" id="logo" class="navbar-brand-img brand-sm" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 120 120" xml:space="preserve">
-                <g>
-                  <polygon class="st0" points="78,105 15,105 24,87 87,87  " />
-                  <polygon class="st0" points="96,69 33,69 42,51 105,51   " />
-                  <polygon class="st0" points="78,33 15,33 24,15 87,15  " />
-                </g>
-              </svg>-->
+              <p class="flex-fill text-center small text-muted nav-heading mb-1">SISTEM INFORMASI PEGAWAI</p>
             </a>
           </div>
-
             <span class="text-muted nav-heading mb-1">Navigator</span>
               </ul>
             </li>
@@ -97,8 +91,9 @@
           <ul class="navbar-nav flex-fill w-100 mb-2">
             <li class="nav-item w-100">
               <a class="nav-link" href="<?= base_url('admin/c_admin') ?>">
-                <i class="fe fe-calendar fe-16"></i>
+                <i class="fe fe-home fe-16"></i>
                 <span class="ml-3 item-text">Dashboard</span>
+                <span class="badge badge-pill badge-primary">Home</span>
               </a>
             </li>
             <li class="nav-item dropdown">
@@ -114,27 +109,7 @@
                 <a class="nav-link pl-3" href=""><span class="ml-1">Anggota Meninggal</span></a>
               </ul>
             </li>
-            <!--<li class="nav-item dropdown">
-              <a href="#contact" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle nav-link">
-                <i class="fe fe-book fe-16"></i>
-                <span class="ml-3 item-text">Riwayat Keluarga</span>
-              </a>
-              <ul class="collapse list-unstyled pl-4 w-100" id="contact">
-                <a class="nav-link pl-3" href="./contacts-list.html"><span class="ml-1">Suami / Istri</span></a>
-                <a class="nav-link pl-3" href="./contacts-grid.html"><span class="ml-1">Anak</span></a>
-                <a class="nav-link pl-3" href="./contacts-new.html"><span class="ml-1">Orang Tua</span></a>
-              </ul>
-            </li>
-            <li class="nav-item dropdown">
-              <a href="#profile" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle nav-link">
-                <i class="fe fe-user fe-16"></i>
-                <span class="ml-3 item-text">Riwayat Pendidikan</span>
-              </a>
-              <ul class="collapse list-unstyled pl-4 w-100" id="profile">
-                <a class="nav-link pl-3" href="./profile.html"><span class="ml-1">Pendidikan</span></a>
-                <a class="nav-link pl-3" href="./profile-settings.html"><span class="ml-1">Bahasa</span></a>
-              </ul>
-            </li>-->
+            
             <li class="nav-item w-100">
               <a class="nav-link" href="">
                 <i class="fe fe-calendar fe-16"></i>
@@ -142,23 +117,11 @@
               </a>
             </li>
             <li class="nav-item w-100">
-              <a class="nav-link" href=">">
+              <a class="nav-link" href="<?php echo base_url().'kgb'?>">
                 <i class="fe fe-mail fe-16"></i>
                 <span class="ml-3 item-text">KGB</span>
               </a>
             </li>
-            <!-- <li class="nav-item w-100">
-              <a class="nav-link" href="">
-                <i class="fe fe-calendar fe-16"></i>
-                <span class="ml-3 item-text">SKP</span>
-              </a>
-            </li>
-           <li class="nav-item w-100">
-              <a class="nav-link" href="">
-                <i class="fe fe-calendar fe-16"></i>
-                <span class="ml-3 item-text">Rekapitulasi</span>
-              </a>
-            </li>-->
             <li class="nav-item dropdown">
               <a href="#report" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle nav-link">
                 <i class="fe fe-folder fe-16"></i>
@@ -175,7 +138,6 @@
                 <span class="ml-3 item-text">User Setup</span>
               </a>
             </li>
-
             <li class="nav-item dropdown">
               <a href="#fileman" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle nav-link">
                 <i class="fe fe-settings fe-16"></i>
@@ -184,14 +146,12 @@
               <ul class="collapse list-unstyled pl-4 w-100" id="fileman">
                 <a class="nav-link pl-3" href="<?php echo base_url().'pangkat'?>"><span class="ml-1">Pangkat</span></a>
                 <a class="nav-link pl-3" href="<?php echo base_url().'jabatan'?>"><span class="ml-1">Jabatan</span></a>
-                <a class="nav-link pl-3" href="<?php echo base_url().'Bagian'?>l"><span class="ml-1">Bagian</span></a>
+                <a class="nav-link pl-3" href="<?php echo base_url().'bagian'?>"><span class="ml-1">Bagian</span></a>
                 <a class="nav-link pl-3" href="<?php echo base_url().'golongan'?>"><span class="ml-1">Golongan</span></a>
                 <a class="nav-link pl-3" href="<?php echo base_url().'gaji_pokok'?>"><span class="ml-1">Gaji Pokok</span></a>
               </ul>
             </li>
           </ul>
-
-          
           <div class="btn-box w-100 mt-4 mb-1">
             <a href="<?php echo base_url().'auth/logout'?>" class="btn mb-2 btn-primary btn-lg btn-block">
               <i class="fe fe-log-out fe-16 small"></i>
@@ -199,86 +159,37 @@
             </a>
           </div>
         </nav>
-      </aside>
+      </aside><!-- Endnav bar-->
 
       <!-- Content-->
         <main role="main" class="main-content">
         <div class="container-fluid">
           <div class="row justify-content-center">
             <div class="col-12">
-                  <table class="table table-borderless table-striped">
-                        <div id="page-wrapper"   >
-                          <div id="page-inner">
-                                  <?php echo $contents; ?>
-                          </div>
-                        </div>
+                <table class="table table-borderless table-striped">
+                    <div id="page-wrapper"   >
+                     <div id="page-inner">
+                         <?php echo $contents; ?>
+                       </div>
+                    </div>
                   </table>
-                </div>
+               </div> 
             </div>
           </div>
         </main>
       <!-- End Content-->
-
-                    <!-- ShortCut end -->      
-                    <div class="modal fade modal-shortcut modal-slide" tabindex="-1" role="dialog" aria-labelledby="defaultModalLabel" aria-hidden="true">
-                    <div class="modal-dialog" role="document">
-                      <div class="modal-content">
-                        <div class="modal-header">
-                          <h5 class="modal-title" id="defaultModalLabel">Shortcuts</h5>
-                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                          </button>
-                        </div>
-                        <div class="modal-body px-5">
-                          <div class="row align-items-center">
-                            <div class="col-6 text-center">
-                              <div class="squircle bg-success justify-content-center">
-                                <i class="fe fe-cpu fe-32 align-self-center text-white"></i>
-                              </div>
-                              <p>Control area</p>
-                            </div>
-                            <div class="col-6 text-center">
-                              <div class="squircle bg-primary justify-content-center">
-                                <i class="fe fe-activity fe-32 align-self-center text-white"></i>
-                              </div>
-                              <p>Activity</p>
-                            </div>
-                          </div>
-                          <div class="row align-items-center">
-                            <div class="col-6 text-center">
-                              <div class="squircle bg-primary justify-content-center">
-                                <i class="fe fe-droplet fe-32 align-self-center text-white"></i>
-                              </div>
-                              <p>Droplet</p>
-                            </div>
-                            <div class="col-6 text-center">
-                              <div class="squircle bg-primary justify-content-center">
-                                <i class="fe fe-upload-cloud fe-32 align-self-center text-white"></i>
-                              </div>
-                              <p>Upload</p>
-                            </div>
-                          </div>
-                          <div class="row align-items-center">
-                            <div class="col-6 text-center">
-                              <div class="squircle bg-primary justify-content-center">
-                                <i class="fe fe-users fe-32 align-self-center text-white"></i>
-                              </div>
-                              <p>Users</p>
-                            </div>
-                            <div class="col-6 text-center">
-                              <div class="squircle bg-primary justify-content-center">
-                                <i class="fe fe-settings fe-32 align-self-center text-white"></i>
-                              </div>
-                              <p>Settings</p>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </main> <!-- main -->
-              </div> <!-- ShortCut end -->
-
+            
+            <div class="d-flex flex-column min-vh-100">
+              <main class="flex-fill"></main>
+              <footer>
+                <div class="card shadow footer-copyright text-center py-3">© 2021 Copyright SIMPEG POLRES KARWANG
+                </div>
+              </footer>
+            </div>
+            <!-- main -->
+            <!-- ShortCut end -->
+            
+               
                 <!-- Notify -->
                 <div class="modal fade modal-notif modal-slide" tabindex="-1" role="dialog" aria-labelledby="defaultModalLabel" aria-hidden="true">
                 <div class="modal-dialog modal-sm" role="document">
