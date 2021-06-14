@@ -21,7 +21,6 @@
   </head>
   <body class="bg-gradient-primary" >
       <div class="container">
-        
         <?php echo form_open('auth/login'); ?>
         <!-- Outer Row -->
         <div class="row justify-content-center">

@@ -38,7 +38,7 @@ class kgb extends ci_controller{
         }
         else{
             //$this->load->view('user/form_input');
-             $this->template->load('template/alltemplate','user/form_input', $data);
+             $this->template->load('template/alltemplate','kgb/form_input', $data);
         }
     }
     
@@ -60,6 +60,14 @@ class kgb extends ci_controller{
         }
     }
 
+    function history()
+    {
+        $data['user'] = $this->db->get_where('user', ['nama_lengkap' => $this->session->userdata('nama_lengkap')])->row_array(); 
+        
+        $data['record']=  $this->model_kgb->tampildatahistory();
+        //$this->load->view('user/lihat_data',$data);
+        $this->template->load('template/alltemplate','history_kgb/lihat_data',$data);
+    }
   
     
     

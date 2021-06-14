@@ -20,6 +20,12 @@ class model_kgb extends CI_Model{
         return $this->db->get('t_kgb');
     }
     
+    function tampildatahistory()
+    {
+        return $this->db->get('history_kbg');
+    }
+    
+    
     function get_one($id)
     {
         $param  =   array('id_kgb'=>$id);
