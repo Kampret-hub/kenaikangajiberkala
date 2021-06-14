@@ -29,11 +29,17 @@ class model_kgb extends CI_Model{
     function edit()
     {
         $data=array(
-                'id_anggota'=> $this->input->post('id_anggota'),
-                'nama_lengkap'=> $this->input->post('nama'),
-                'nrp'=> $this->input->post('nrp'),
-                    );
-        $this->db->where('id_anggota',$this->input->post('id_anggota'));
-        $this->db->update('anggota',$data);
+                'id_kgb'    => $this->input->post('id_kgb'),
+                'nrp'       => $this->input->post('nrp'),
+                'gpl'       => $this->input->post('gpl'),
+                'gpb'       => $this->input->post('gpb'),
+                'mkgg'      => $this->input->post('mkgg'),
+                'tmtl'      => $this->input->post('tmtl'),
+                'tmtb'      => $this->input->post('tmtb'),
+                'nosk'      => $this->input->post('nosk'),
+                'kgbb'      => $this->input->post('kgbb')
+        );
+        $this->db->where('id_kgb',$this->input->post('id_kgb'));
+        $this->db->update('t_kgb',$data);
     }
 }

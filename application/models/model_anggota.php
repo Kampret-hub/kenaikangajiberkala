@@ -29,10 +29,11 @@ class model_anggota extends CI_Model{
     function edit()
     {
         $data=array(
-                'id_anggota'=> $this->input->post('id_anggota'),
-                'nama_lengkap'=> $this->input->post('nama'),
-                'nrp'=> $this->input->post('nrp'),
-                    );
+                'id_anggota'    => $this->input->post('id_anggota'),
+                'nama_lengkap'  => $this->input->post('nama'),
+                'nrp'           => $this->input->post('nrp'),
+                't_lahir'           => $this->input->post('t_lahir')
+        );
         $this->db->where('id_anggota',$this->input->post('id_anggota'));
         $this->db->update('anggota',$data);
     }

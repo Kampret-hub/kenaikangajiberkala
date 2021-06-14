@@ -4,6 +4,7 @@ class kgb extends ci_controller{
    function __construct() {
         parent::__construct();
         $this->load->model('model_kgb');
+        $this->load->model('model_history_kgb');
         if ($this->session->userdata('username')=="") {
       redirect('auth');
         }
@@ -47,30 +48,19 @@ class kgb extends ci_controller{
         
         if(isset($_POST['submit'])){
             // proses kategori
-            $id         =  $this->input->post('id',true);
-            $nama       =  $this->input->post('nama',true);
-            $username   =  $this->input->post('username',true);
-            $password   =  $this->input->post('password',true);
-            if(empty($password)){
-                 $data  =  array(   'nama_lengkap'=>$nama,
-                                    'username'=>$username);
-            }
-            else{
-                  $data =  array(   'nama_lengkap'=>$nama,
-                                    'username'=>$username,
-                                    'password'=>md5($password));
-            }
-             $this->db->where('user_id',$id);
-             $this->db->update('user',$data);
-             redirect('user');
+             $this->model_kgb->edit();
+             $this->model_history_kgb->insert();
+             redirect('kbg');
         }
         else{
             $id=  $this->uri->segment(3);
-            $data['record']=  $this->model_user->get_one($id)->row_array();
+            $data['record']=  $this->model_kgb->get_one($id)->row_array();
             //$this->load->view('user/form_edit',$data);
-            $this->template->load('template/alltemplate','user/form_edit',$data);
+            $this->template->load('template/alltemplate','kgb/form_edit',$data);
         }
     }
+
+  
     
     
     function delete()

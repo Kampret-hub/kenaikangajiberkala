@@ -11,8 +11,9 @@
                             <tr>
                                 <th>No.</th> 
                                 <th>Nrp</th>
+                                <th>Nama</th>
                                 <th>Gaji Pokok Lama</th>
-                                <th>gaji Pokok Baru</th>
+                                <th>Gaji Pokok Baru</th>
                                 <th>MKGG</th>
                                 <th>TMT Lama</th>
                                 <th>TMT Baru</th>
@@ -26,6 +27,7 @@
                             <tr class="">
                                 <td><?php echo $no ?></td>
                                 <td><?php echo $r->nrp ?></td>
+                                 <td><?php echo $r->nama ?></td>
                                 <td><?php echo $r->gpl ?></td>
                                 <td><?php echo $r->gpb ?></td>
                                 <td><?php echo $r->mkgg ?></td>

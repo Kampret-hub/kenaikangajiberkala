@@ -14,13 +14,10 @@
 | path to your installation.
 |
 */
-// $config['base_url']	= 'http://localhost/pos/';
-<<<<<<< HEAD
-$config['base_url']	= 'http://localhost/kenaikangajiberkala/';
-=======
+
 // ini config laptop gua beda port
 $config['base_url']	= 'http://localhost:8080/app/kenaikangajiberkala/';
->>>>>>> ce11e02aab07ea98342cac1e738a5a0c73b0fc10
+
 
 /*
 |--------------------------------------------------------------------------
