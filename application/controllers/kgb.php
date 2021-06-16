@@ -60,7 +60,14 @@ class kgb extends ci_controller{
         }
     }
 
-  
+    function history()
+    {
+        $data['user'] = $this->db->get_where('user', ['nama_lengkap' => $this->session->userdata('nama_lengkap')])->row_array(); 
+        $nrp=  $this->uri->segment(3);
+        $data['record']=  $this->model_history_kgb->get_one($nrp);
+        //$this->load->view('user/lihat_data',$data);
+        $this->template->load('template/alltemplate','kgb/history_kgb',$data);
+    }
     
     
     function delete()

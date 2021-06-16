@@ -23,7 +23,9 @@ class model_history_kgb extends CI_Model{
     function get_one($nrp)
     {
         $param  =   array('nrp'=>$nrp);
-        return $this->db->get_where('history_kbg',$param);
+        $result =  $this->db->where($param)
+                            ->order_by('periode')
+                           ->get('history_kbg');
     }
 
     function insert()
