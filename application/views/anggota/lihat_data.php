@@ -30,8 +30,7 @@
                                 <td><?php echo $r->nrp ?></td>
                                 <td></td>
                                 <td></td>
-                                
-                                <td></td>
+                                <td><?php echo $r->agama ?></td>
                                 <td></td>
                                 <td></td>
                                 <td><?php echo $r->pangkat ?></td>

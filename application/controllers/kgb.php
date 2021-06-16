@@ -9,14 +9,15 @@ class kgb extends ci_controller{
       redirect('auth');
         }
     } 
-        function index()
+    
+    function index()
     {
         $data['user'] = $this->db->get_where('user', ['nama_lengkap' => $this->session->userdata('nama_lengkap')])->row_array(); 
         
-        $data['title'] = 'Data KGB';
+		$data['title'] = 'Data KGB';
         $data['record']=  $this->model_kgb->tampildata();
         //$this->load->view('user/lihat_data',$data);
-        $this->template->load('template/alltemplate','kgb/lihat_data',$data);
+        $this->template->load('template/template_admin','kgb/lihat_data',$data);
     }
     
     function post()
@@ -38,7 +39,7 @@ class kgb extends ci_controller{
         }
         else{
             //$this->load->view('user/form_input');
-             $this->template->load('template/alltemplate','kgb/form_input', $data);
+             $this->template->load('template/template_admin','kgb/form_input', $data);
         }
     }
     
@@ -56,10 +57,10 @@ class kgb extends ci_controller{
             $id=  $this->uri->segment(3);
             $data['record']=  $this->model_kgb->get_one($id)->row_array();
             //$this->load->view('user/form_edit',$data);
-            $this->template->load('template/alltemplate','kgb/form_edit',$data);
+            $this->template->load('template/template_admin','kgb/form_edit',$data);
         }
     }
-
+  
     
     function delete()
     {

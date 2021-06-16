@@ -37,4 +37,12 @@ class model_anggota extends CI_Model{
         $this->db->where('id_anggota',$this->input->post('id_anggota'));
         $this->db->update('anggota',$data);
     }
-}
+
+    public function get_prov($title)
+    {
+      $this->db->like('nrp', $title, 'BOTH');
+      $this->db->order_by('id_anggota', 'asc');
+      $this->db->limit(10);
+      return $this->db->get('anggota')->result();
+    }
+} 

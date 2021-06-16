@@ -1,5 +1,5 @@
 <?php
-class anggota extends ci_controller{
+class anggota_masuk extends ci_controller{
     
    function __construct() {
         parent::__construct();
@@ -15,7 +15,7 @@ class anggota extends ci_controller{
         
         $data['record']=  $this->model_anggota->tampildata();
         //$this->load->view('user/lihat_data',$data);
-        $this->template->load('template/template_admin','anggota/lihat_data',$data);
+        $this->template->load('template/template_admin','anggota_masuk/form_input',$data);
     }
     
     function post()
@@ -38,7 +38,7 @@ class anggota extends ci_controller{
             
             $data       =  array(   'nama_lengkap'=>$nama,
                                     'nrp'=>$username,
-                                    'tmpt_lahir'=>$tempatlahir, 
+                                    'tmpt_lahir'=>$tempatlahir,  
                                     't_lahir'=>$tanggallahir,
                                     'jk'=>$jk,
                                     'agama'=>$agama,
@@ -84,9 +84,20 @@ class anggota extends ci_controller{
         redirect('anggota');
     }
 
-    public function cari(){
-        $nrp=$_GET['nrp'];
-        $cari =$this->model_anggota->cari($nrp)->result();
-        echo json_encode($cari);
-    } 
+    function get_autocomplete()
+  {
+    if (isset($_GET['term'])) {
+      $result = $this->model_anggota->get_prov($_GET['term']);
+      if (count($result) > 0) {
+        foreach ($result as $row)
+        $result_array[] = array(
+            'label'=>$row->nrp,
+            'nama_lengkap'=>strtoupper($row->nama_lengkap),
+            'agama'=>strtoupper($row->agama),
+            'pangkat'=>strtoupper($row->pangkat)
+          );
+        echo json_encode($result_array);
+      }
+    }
+  }
 }
