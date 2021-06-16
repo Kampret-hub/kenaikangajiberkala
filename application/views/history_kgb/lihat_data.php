@@ -3,7 +3,7 @@
     <div class="col-md-12">
         <div class="card shadow">
             <div class="card-body">
-              <h2 class="mb-2 page-title">History KGB</h2>
+              <h2 class="mb-2 page-title"><?php echo $title ?></h2>
                 <!--<?php echo anchor('anggota/post','Tambah Data',array('class'=>'btn btn-danger btn-sm')) ?>-->
 
                  <table class="table datatables" id="dataTable-1">
@@ -31,8 +31,8 @@
                                     <span class="text-muted sr-only">Action</span>
                                   </button>
                                   <div class="dropdown-menu dropdown-menu-right">
-                                    <!--<a class="dropdown-item" href=""><?php echo anchor('kgb/edit/'.$r->id_kgb,'<span class="btn">  <span>Edit</span>'); ?></a>
-                                    <a class="dropdown-item" href=""><?php echo anchor('kgb/history/'.$r->nrp,'<span class="btn">  History</span>'); ?></a>-->
+                                    <a class="dropdown-item" href=""><?php echo anchor('history/edit/'.$r->id,'<span class="btn">  <span>Edit</span>'); ?></a>
+                                    <!-- <a class="dropdown-item" href=""><?php echo anchor('kgb/history/'.$r->id,'<span class="btn">  History</span>'); ?></a> -->
                                   </div>
                                 </td>
                                 

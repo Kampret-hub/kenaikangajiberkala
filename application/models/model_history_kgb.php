@@ -20,12 +20,10 @@ class model_history_kgb extends CI_Model{
         return $this->db->get('history_kbg');
     }
     
-    function get_one($nrp)
+    function get_one($id)
     {
-        $param  =   array('nrp'=>$nrp);
-        $result =  $this->db->where($param)
-                            ->order_by('periode')
-                           ->get('history_kbg');
+        $param  =   array('id'=>$id);
+        return $this->db->get_where('history_kbg',$param);
     }
 
     function insert()
@@ -56,17 +54,15 @@ class model_history_kgb extends CI_Model{
     function edit()
     {
         $data=array(
-                'id_kgb'    => $this->input->post('id_kgb'),
-                'nrp'       => $this->input->post('nrp'),
-                'gpl'       => $this->input->post('gpl'),
-                'gpb'       => $this->input->post('gpb'),
-                'mkgg'      => $this->input->post('mkgg'),
-                'tmtl'      => $this->input->post('tmtl'),
-                'tmtb'      => $this->input->post('tmtb'),
-                'nosk'      => $this->input->post('nosk'),
-                'kgbb'      => $this->input->post('kgbb')
+                'id'         => $this->input->post('id'),
+                'nrp'        => $this->input->post('nrp'),
+                'nama'       => $this->input->post('nama'),
+                'periode'    => $this->input->post('periode'),
+                'gaji'       => $this->input->post('gaji'),
+                'tmt'        => $this->input->post('tmt')
+               
         );
-        $this->db->where('id_kgb',$this->input->post('id_kgb'));
-        $this->db->update('history_kgb',$data);
+        $this->db->where('id',$this->input->post('id'));
+        $this->db->update('history_kbg',$data);
     }
 }

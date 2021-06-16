@@ -1,22 +1,22 @@
 <?php
-class kgb extends ci_controller{
+class History extends ci_controller{
     
    function __construct() {
         parent::__construct();
-        $this->load->model('model_kgb');
         $this->load->model('model_history_kgb');
         if ($this->session->userdata('username')=="") {
       redirect('auth');
         }
     } 
-        function index()
+    
+    function index()
     {
         $data['user'] = $this->db->get_where('user', ['nama_lengkap' => $this->session->userdata('nama_lengkap')])->row_array(); 
         
-        $data['title'] = 'Data KGB';
-        $data['record']=  $this->model_kgb->tampildata();
+        $data['title'] = 'History KGB';
+        $data['record']=  $this->model_history_kgb->tampildata();
         //$this->load->view('user/lihat_data',$data);
-        $this->template->load('template/alltemplate','kgb/lihat_data',$data);
+        $this->template->load('template/alltemplate','history_kgb/lihat_data',$data);
     }
     
     function post()
@@ -46,19 +46,20 @@ class kgb extends ci_controller{
     {
         $data['user'] = $this->db->get_where('user', ['nama_lengkap' => $this->session->userdata('nama_lengkap')])->row_array(); 
         
+        $data['title'] = 'Edit History KGB';
         if(isset($_POST['submit'])){
             // proses kategori
-             $this->model_kgb->edit();
-             $this->model_history_kgb->insert();
-             redirect('kbg');
+             $this->model_history_kgb->edit();
+             redirect('history');
         }
         else{
             $id=  $this->uri->segment(3);
-            $data['record']=  $this->model_kgb->get_one($id)->row_array();
+            $data['record']=  $this->model_history_kgb->get_one($id)->row_array();
             //$this->load->view('user/form_edit',$data);
-            $this->template->load('template/alltemplate','kgb/form_edit',$data);
+            $this->template->load('template/alltemplate','history_kgb/form_edit',$data);
         }
     }
+
 
     
     function delete()

@@ -20,11 +20,7 @@ class model_kgb extends CI_Model{
         return $this->db->get('t_kgb');
     }
     
-    function tampildatahistory()
-    {
-        return $this->db->get('history_kbg');
-    }
-    
+   
     
     function get_one($id)
     {
@@ -48,4 +44,5 @@ class model_kgb extends CI_Model{
         $this->db->where('id_kgb',$this->input->post('id_kgb'));
         $this->db->update('t_kgb',$data);
     }
+
 }
