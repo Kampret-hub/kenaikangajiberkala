@@ -18,6 +18,8 @@
 // ini config laptop gua beda port
 $config['base_url']	= 'http://localhost:8080/app/kenaikangajiberkala/';
 
+//port anjunt
+// $config['base_url']	= 'http://localhost/kenaikangajiberkala/';
 
 /*
 |--------------------------------------------------------------------------
