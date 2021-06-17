@@ -16,7 +16,7 @@
                     <div class="col-md-12">
                         <div class="panel panel-default">
                             <div class="panel-body">
-                                <?php echo form_open('anggota/post'); ?>
+                                <?php echo form_open('anggota/insert'); ?>
                                 <div class="form-group">
                                     <label>Nama Lengkap</label>
                                     <input type="text" class="form-control" name="nama_lengkap" placeholder="nama lengkap">
@@ -27,11 +27,11 @@
                                 </div>
                                 <div class="form-group">
                                     <label>Tempat Lahir</label>
-                                    <input type="text" class="form-control" name="tempatlahir" placeholder="tempat lahir">
+                                    <input type="text" class="form-control" name="tmpat_lahir" placeholder="tempat lahir">
                                 </div>
                                  <div class="form-group">
                                     <label>tanggal Lahir</label>
-                                    <input type="date" class="form-control" name="tanggallahir" placeholder="tanggal lahir">
+                                    <input type="date" class="form-control" name="t_lahir" placeholder="tanggal lahir">
                                 </div>
                                  <div class="form-group">
                                     <label>Jenis Kelamin</label>
@@ -44,7 +44,7 @@
                                     <label>Agama</label>
                                     <select type="option" class="form-control"  name="agama">
                                         <option >-- Agama --</option>
-                                        <option value="Islam">Islamn</option>
+                                        <option value="Islam">Islam</option>
                                         <option value="Kristen Katholik">Kristen Katholik</option>
                                         <option value="Kristen Protestan">Kristen Protestan</option>
                                         <option value="Hindu">Hindu</option>

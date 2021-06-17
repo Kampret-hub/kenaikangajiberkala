@@ -4,7 +4,7 @@
         <div class="card shadow">
             <div class="card-body">
               <h2 class="mb-2 page-title">Data Anggota Aktif</h2>
-                <?php echo anchor('anggota/post','Tambah Data',array('class'=>'btn btn-danger btn-sm')) ?>
+                <?php echo anchor('anggota/insert','Tambah Data',array('class'=>'btn btn-danger btn-sm')) ?>
 
                  <table class="table datatables" id="dataTable-1">
                         <thead>
@@ -39,7 +39,7 @@
                                   </button>
                                   <div class="dropdown-menu dropdown-menu-right">
                                     <a class="dropdown-item" href=""><?php echo anchor('anggota/edit/'.$r->id_anggota,'<span class="btn">  Edit</span>'); ?></a>
-                                    <a class="dropdown-item" href=""><?php echo anchor('anggota/delete/'.$r->id_anggota,'<span class="btn">  Hapus</span>'); ?></a>
+                                    <a class="dropdown-item" href=""><?php echo anchor('anggota/delete/'.$r->nrp,'<span class="btn">  Hapus</span>'); ?></a>
                                   </div>
                                 </td>
                                 

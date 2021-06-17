@@ -26,6 +26,12 @@ class model_anggota extends CI_Model{
         return $this->db->get_where('anggota',$param);
     }
 
+    public function insert_data($data, $table)
+    {
+        $this->db->insert($table, $data);
+    }
+
+
     function edit()
     {
         $data=array(
