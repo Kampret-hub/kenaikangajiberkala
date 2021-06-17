@@ -32,6 +32,7 @@
                                     <label>Password</label>
                                     <input type="password" class="form-control"  name="password" placeholder="password">
                                 </div>
+                                 <input type="hidden" name="date" value="<?php echo date("Y-m-d"); ?>">
                                 <button type="submit" name="submit" class="btn btn-primary btn-sm">Simpan</button> | 
                                 <?php echo anchor('user','Kembali',array('class'=>'btn btn-danger btn-sm'))?>
                                 </form>
@@ -41,3 +42,5 @@
                     </div>
                 </div>
                 <!-- /. ROW  -->
+
+               
