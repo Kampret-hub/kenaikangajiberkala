@@ -127,8 +127,8 @@ class anggota extends ci_controller{
             $where = array ('nrp' => $nrp);
             $this->model_kgb->update_data('anggota', $edit_anggota, $where);
             $this->model_kgb->update_data('t_kgb', $edit_kgb, $where);
-
             // update table user tidak berhasil di karenakan tidak ada filed bernama NRP
+            //$this->model_kgb->update_data('user', $edit_kgb, $where);
             redirect('anggota');
         }
         else{
