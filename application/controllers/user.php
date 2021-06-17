@@ -28,10 +28,12 @@ class user extends ci_controller{
             $username   =  $this->input->post('username',true);
             $bagian   =  $this->input->post('bagian',true); 
             $password   =  $this->input->post('password',true);
+            $date   =  $this->input->post('date',true);
             $data       =  array(   'nama_lengkap'=>$nama,
                                     'username'=>$username,
                                     'role_id'=>$bagian,
-                                    'password'=>md5($password));
+                                    'password'=>md5($password),
+                                    'date_created'=>$date);
             $this->db->insert('user',$data);
             redirect('user', $data);
         }
