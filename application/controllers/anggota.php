@@ -116,7 +116,7 @@ class anggota extends ci_controller{
                 'status'        =>$status
             );
              $edit_kgb = array(
-                             'nama'          =>$nama_lengkap
+                'nama'          =>$nama_lengkap
                 
             );
             $edit_user = array (

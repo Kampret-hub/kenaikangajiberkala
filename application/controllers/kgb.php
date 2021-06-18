@@ -4,7 +4,6 @@ class kgb extends ci_controller{
    function __construct() {
         parent::__construct();
         $this->load->model('model_kgb');
-        $this->load->model('model_history_kgb');
         if ($this->session->userdata('username')=="") {
       redirect('auth');
         }
@@ -15,58 +14,63 @@ class kgb extends ci_controller{
         $data['user'] = $this->db->get_where('user', ['nama_lengkap' => $this->session->userdata('nama_lengkap')])->row_array(); 
         
 		$data['title'] = 'Data KGB';
-        $data['record']=  $this->model_kgb->tampildata();
+        $data['record']=  $this->model_kgb->get_data('t_kgb');
         //$this->load->view('user/lihat_data',$data);
         $this->template->load('template/template_admin','kgb/lihat_data',$data);
     }
-    
-    function post()
-    {
-        $data['user'] = $this->db->get_where('user', ['nama_lengkap' => $this->session->userdata('nama_lengkap')])->row_array(); 
         
-        if(isset($_POST['submit'])){
-            // proses data
-            $nama       =  $this->input->post('nama',true);
-            $username   =  $this->input->post('username',true);
-            $bagian   =  $this->input->post('bagian',true); 
-            $password   =  $this->input->post('password',true);
-            $data       =  array(   'nama_lengkap'=>$nama,
-                                    'username'=>$username,
-                                    'role_id'=>$bagian,
-                                    'password'=>md5($password));
-            $this->db->insert('user',$data);
-            redirect('user', $data);
-        }
-        else{
-            //$this->load->view('user/form_input');
-             $this->template->load('template/template_admin','kgb/form_input', $data);
-        }
-    }
-    
     function edit()
     {
         $data['user'] = $this->db->get_where('user', ['nama_lengkap' => $this->session->userdata('nama_lengkap')])->row_array(); 
         
         if(isset($_POST['submit'])){
-            // proses kategori
-             $this->model_kgb->edit();
-             $this->model_history_kgb->insert();
-             redirect('kbg');
+            $id_kgb        =  $this->input->post('id_kgb',true);
+            $nrp           =  $this->input->post('nrp',true);
+            $nama          =  $this->input->post('nama',true);
+            $gpl           =  $this->input->post('gpl',true);
+            $gpb           =  $this->input->post('gpb',true);
+            $mkgg          =  $this->input->post('mkgg',true); 
+            $tmtl          =  $this->input->post('tmtl',true);
+            $tmtb          =  $this->input->post('tmtb',true);
+            $nosk          =  $this->input->post('nosk',true);
+            $kgbb          =  $this->input->post('kgbb',true);
+          
+          
+
+
+            $edit_kgb = array(
+                'nrp'       => $nrp,
+                'nama'      => $nama,
+                'gpl'       => $gpl,
+                'gpb'       => $gpb,
+                'mkgg'      => $mkgg,
+                'tmtl'      => $tmtl,
+                'tmtb'      => $tmtb,
+                'nosk'      => $nosk,
+                'kgbb'      => $kgbb
+            );
+
+            $insert_history =  array(   
+                'nrp'     => $nrp,
+                'nama'    => $nama,
+                'periode' => $mkgg, 
+                'gaji'    => $gpb,
+                'tmt'     => $tmtb 
+            );
+
+             // proses kategori
+            $where = array ('id_kgb' => $id_kgb);
+            $this->model_kgb->update_data('t_kgb', $edit_kgb, $where);
+             $this->model_kgb->insert_data($insert_history, 'history_kbg');
+             redirect('kgb');
         }
         else{
             $id=  $this->uri->segment(3);
-            $data['record']=  $this->model_kgb->get_one($id)->row_array();
-            //$this->load->view('user/form_edit',$data);
+            $param  =   array('id_kgb'=>$id);
+            // $data['record']=  $this->model_kgb->get_one($id)->row_array();
+            $data['record']= $this->model_kgb->find_data($param, 't_kgb')->row_array();
             $this->template->load('template/template_admin','kgb/form_edit',$data);
         }
     }
-  
-    
-    function delete()
-    {
-        $id=  $this->uri->segment(3);
-        $this->db->where('user_id',$id);
-        $this->db->delete('user');
-        redirect('user');
-    }
+
 }

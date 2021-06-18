@@ -39,7 +39,7 @@
                                 </div>
                                
                                 <button type="submit" name="submit" class="btn btn-primary btn-sm">Edit</button> | 
-                                <?php echo anchor('history','Kembali',array('class'=>'btn btn-danger btn-sm'))?>
+                                <?php echo anchor('history/index/'.$record['nrp'],'Kembali',array('class'=>'btn btn-danger btn-sm'))?>
                                 </form>
                             </div>
                         </div>
