@@ -12,7 +12,7 @@
                             <tr>
                                 <th>No.</th> 
                                 <th>Nama</th>
-                                <th>Nrp</th>
+                                <th>username</th>
                                 <th>Gaji Pokok Lama</th>
                                 <th>Gaji Pokok Baru</th>
                                 <th>MKGG</th>
@@ -41,7 +41,7 @@
                                   </button>
                                   <div class="dropdown-menu dropdown-menu-right">
                                     <a class="dropdown-item" href=""><?php echo anchor('kgb/edit/'.$r->id_kgb,'<span class="btn"> <span class="fe fe-edit"> Edit</span>'); ?></a>
-                                    <a class="dropdown-item" href=""><?php echo anchor('history/index/'.$r->nrp,'<span class="btn"> <span class="fe fe-archive"> History</span>'); ?></a>
+                                    <a class="dropdown-item" href=""><?php echo anchor('history/index/'.$r->username,'<span class="btn"> <span class="fe fe-archive"> History</span>'); ?></a>
                                   </div>
                                 </td>
                                 

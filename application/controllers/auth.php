@@ -16,7 +16,7 @@ class auth extends CI_Controller{
 
     function login (){
       // infutan di form login
-    $username    = $this->input->post('username',TRUE);
+    $username    = $this->input->post('nrp',TRUE);
     $password = md5($this->input->post('password',TRUE));
 
     // validasi data username dan password
@@ -26,7 +26,7 @@ class auth extends CI_Controller{
     if($validate->num_rows() > 0){
         $data  = $validate->row_array();
         $nama_lengkap  = $data['nama_lengkap'];
-        $username = $data['username'];
+        $username = $data['nrp'];
         $role_id = $data['role_id'];
         $sesdata = array(
             'nama_lengkap'  => $nama_lengkap,
@@ -58,7 +58,7 @@ class auth extends CI_Controller{
     {   
         // hapus data user ketika keluar
         //$this->session->sess_destroy('username','role_id');
-        $this->session->unset_userdata('username');
+        $this->session->unset_userdata('nrp');
         $this->session->unset_userdata('role_id');
 
         $this->session->set_flashdata('msg', '<div class="alert alert-success text-center" role="alert">You have been logout!</div>');

@@ -29,11 +29,11 @@
                       </div>
                       <div class="form-group mb-3">
                         <label for="" class="control-label">Tempat Lahir</label>
-                        <input type="text" name="tempatlahir" id="tempatlahir" class="form-control" readonly="" placeholder="Input Tempat Lahir">
+                        <input type="text" name="tmpt_lahir" id="tmpt_lahir" class="form-control" readonly="" placeholder="Input Tempat Lahir">
                       </div>
                       <div class="form-group mb-3">
                         <label for="" class="control-label">Tanggal Lahir</label>
-                        <input type="date" name="tanggallahir" id="tanggallahir" class="form-control" readonly="" placeholder="Input Tamggal Lahir">
+                        <input type="date" name="t_lahir" id="t_lahir" class="form-control" readonly="" placeholder="Input Tamggal Lahir">
                       </div>
                     </div> <!-- /.col -->
                     <div class="col-md-6">
@@ -71,6 +71,8 @@
       select: function(event, ui){
         $('[name="title"]').val(ui.item.label);
         $('[name="nama_lengkap"]').val(ui.item.nama_lengkap);
+        $('[name="tmpt_lahir"]').val(ui.item.t_lahir);
+        $('[name="t_lahir"]').val(ui.item.t_lahir);
         $('[name="agama"]').val(ui.item.agama);
         $('[name="pangkat"]').val(ui.item.pangkat);
 

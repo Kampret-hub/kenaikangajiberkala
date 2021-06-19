@@ -8,24 +8,24 @@
     <link rel="shortcut icon" href="<?= base_url() ?>assets/img/fav.png" src="">
     <title>SIMPEG POLRES KARAWANG</title>
     <!-- Simple bar CSS -->
-    <link rel="stylesheet" href="<?php echo base_url() ?>css/simplebar.css">
+    <link rel="stylesheet" href="<?php echo base_url() ?>assets/css/simplebar.css">
     <!-- Fonts CSS -->
     <link href="https://fonts.googleapis.com/css2?family=Overpass:ital,wght@0,100;0,200;0,300;0,400;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
     <!-- Icons CSS -->
-    <link rel="stylesheet" href="<?php echo base_url() ?>css/feather.css">
-    <link rel="stylesheet" href="<?php echo base_url() ?>css/select2.css">
-    <link rel="stylesheet" href="<?php echo base_url() ?>css/dropzone.css">
-    <link rel="stylesheet" href="<?php echo base_url() ?>css/uppy.min.css">
-    <link rel="stylesheet" href="<?php echo base_url() ?>css/jquery.steps.css">
-    <link rel="stylesheet" href="<?php echo base_url() ?>css/jquery.timepicker.css">
-    <link rel="stylesheet" href="<?php echo base_url() ?>css/quill.snow.css">
+    <link rel="stylesheet" href="<?php echo base_url() ?>assets/css/feather.css"> 
+    <link rel="stylesheet" href="<?php echo base_url() ?>assets/css/select2.css">
+    <link rel="stylesheet" href="<?php echo base_url() ?>assets/css/dropzone.css">
+    <link rel="stylesheet" href="<?php echo base_url() ?>assets/css/uppy.min.css">
+    <link rel="stylesheet" href="<?php echo base_url() ?>assets/css/jquery.steps.css">
+    <link rel="stylesheet" href="<?php echo base_url() ?>assets/css/jquery.timepicker.css">
+    <link rel="stylesheet" href="<?php echo base_url() ?>assets/css/quill.snow.css">
     <!-- Date Range Picker CSS -->
-    <link rel="stylesheet" href="<?php echo base_url() ?>css/daterangepicker.css">
+    <link rel="stylesheet" href="<?php echo base_url() ?>assets/css/daterangepicker.css">
     <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
     <!-- App CSS -->
-    <link rel="stylesheet" href="<?php echo base_url() ?>css/app-light.css" id="lightTheme" disabled>
-    <link rel="stylesheet" href="<?php echo base_url() ?>css/app-dark.css" id="darkTheme">
-    <link rel="stylesheet" href="<?php echo base_url() ?>css/custom.css">
+    <link rel="stylesheet" href="<?php echo base_url() ?>assets/css/app-light.css" id="lightTheme" disabled>
+    <link rel="stylesheet" href="<?php echo base_url() ?>assets/css/app-dark.css" id="darkTheme">
+    <link rel="stylesheet" href="<?php echo base_url() ?>assets/css/custom.css">
     <!-- Sweat Alert 2-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://lipis.github.io/bootstrap-sweetalert/dist/sweetalert.js"></script>
@@ -59,7 +59,6 @@
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle text-muted pr-0" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               <span class="avatar avatar-sm mt-2">
-
                 <img  src="<?php echo base_url(); ?>./assets/avatars/face.png" alt="..." class="avatar-img rounded-circle">
               </span>
             </a>
@@ -111,7 +110,6 @@
                 <a class="nav-link pl-3" href=""><span class="ml-1">Anggota Meninggal</span></a>
               </ul>
             </li>
-            
             <li class="nav-item w-100">
               <a class="nav-link" href="">
                 <i class="fe fe-calendar fe-16"></i>
@@ -178,19 +176,19 @@
                </div> 
             </div>
           </div>
-
         </main>
       <!-- End Content-->
-            
+       
+      <!-- Footer -->      
             <div class="d-flex flex-column min-vh-100">
               <main class="flex-fill"></main>
               <footer>
                 <div class="card shadow footer-copyright text-center py-3">© 2021 Copyright SIMPEG POLRES KARWANG
                 </div>
               </footer>
-            </div>
-            <!-- main -->
-            <!-- ShortCut end -->
+            </div><!-- End Footer -->
+          
+            
             
                
                 <!-- Notify -->
@@ -261,22 +259,22 @@
                   </div>
                 </div>
               </div><!-- Notify End -->
-
+              <!-- ShortCut end -->
 
             <?php endif?>
 
     <!--Datatable-->
-    <script src="<?php echo base_url() ?>js/jquery.min.js"></script>
-    <script src="<?php echo base_url() ?>js/popper.min.js"></script>
-    <script src="<?php echo base_url() ?>js/moment.min.js"></script>
-    <script src="<?php echo base_url() ?>js/bootstrap.min.js"></script>
-    <script src="<?php echo base_url() ?>js/simplebar.min.js"></script>
-    <script src='<?php echo base_url() ?>js/daterangepicker.js'></script>
-    <script src='<?php echo base_url() ?>js/jquery.stickOnScroll.js'></script>
-    <script src="<?php echo base_url() ?>js/tinycolor-min.js"></script>
-    <script src="<?php echo base_url() ?>js/config.js"></script>
-    <script src='<?php echo base_url() ?>js/jquery.dataTables.min.js'></script>
-    <script src='<?php echo base_url() ?>js/dataTables.bootstrap4.min.js'></script>
+    <script src="<?php echo base_url() ?>assets/js/jquery.min.js"></script>
+    <script src="<?php echo base_url() ?>assets/js/popper.min.js"></script>
+    <script src="<?php echo base_url() ?>assets/js/moment.min.js"></script>
+    <script src="<?php echo base_url() ?>assets/js/bootstrap.min.js"></script>
+    <script src="<?php echo base_url() ?>assets/js/simplebar.min.js"></script>
+    <script src='<?php echo base_url() ?>assets/js/daterangepicker.js'></script>
+    <script src='<?php echo base_url() ?>assets/js/jquery.stickOnScroll.js'></script>
+    <script src="<?php echo base_url() ?>assets/js/tinycolor-min.js"></script>
+    <script src="<?php echo base_url() ?>assets/js/config.js"></script>
+    <script src='<?php echo base_url() ?>assets/js/jquery.dataTables.min.js'></script>
+    <script src='<?php echo base_url() ?>assets/js/dataTables.bootstrap4.min.js'></script>
     <script>
       $('#dataTable-1').DataTable(
       {
@@ -288,87 +286,62 @@
       });
     </script>
 
-    <script  src="<?php echo base_url(); ?>js/d3.min.js"></script>
-    <script  src="<?php echo base_url(); ?>js/topojson.min.js"></script>
-    <script  src="<?php echo base_url(); ?>js/datamaps.all.min.js"></script>
-    <script  src="<?php echo base_url(); ?>js/datamaps-zoomto.js"></script>
-    <script  src="<?php echo base_url(); ?>js/datamaps.custom.js"></script>
-    <script  src="<?php echo base_url(); ?>js/Chart.min.js"></script>
+    <script  src="<?php echo base_url(); ?>assets/js/d3.min.js"></script>
+    <script  src="<?php echo base_url(); ?>assets/js/topojson.min.js"></script>
+    <script  src="<?php echo base_url(); ?>assets/js/datamaps.all.min.js"></script>
+    <script  src="<?php echo base_url(); ?>assets/js/datamaps-zoomto.js"></script>
+    <script  src="<?php echo base_url(); ?>assets/js/datamaps.custom.js"></script>
+    <script  src="<?php echo base_url(); ?>assets/js/Chart.min.js"></script>
     <script>
       /* defind global options */
       Chart.defaults.global.defaultFontFamily = base.defaultFontFamily;
       Chart.defaults.global.defaultFontColor = colors.mutedColor;
     </script>
-    <script  src="<?php echo base_url(); ?>js/gauge.min.js"></script>
-    <script  src="<?php echo base_url(); ?>js/jquery.sparkline.min.js"></script>
-    <script  src="<?php echo base_url(); ?>js/apexcharts.min.js"></script>
-    <script  src="<?php echo base_url(); ?>js/apexcharts.custom.js"></script>
-    <script  src='<?php echo base_url(); ?>js/jquery.mask.min.js'></script>
-    <script  src='<?php echo base_url(); ?>js/select2.min.js'></script>
-    <script  src='<?php echo base_url(); ?>js/jquery.steps.min.js'></script>
-    <script  src='<?php echo base_url(); ?>js/jquery.validate.min.js'></script>
-    <script  src='<?php echo base_url(); ?>js/jquery.timepicker.js'></script>
-    <script  src='<?php echo base_url(); ?>js/dropzone.min.js'></script>
-    <script  src='<?php echo base_url(); ?>js/uppy.min.js'></script>
-    <script  src='<?php echo base_url(); ?>js/quill.min.js'></script>
+    <script  src="<?php echo base_url(); ?>assets/js/gauge.min.js"></script>
+    <script  src="<?php echo base_url(); ?>assets/js/jquery.sparkline.min.js"></script>
+    <script  src="<?php echo base_url(); ?>assets/js/apexcharts.min.js"></script>
+    <script  src="<?php echo base_url(); ?>assets/js/apexcharts.custom.js"></script>
+    <script  src='<?php echo base_url(); ?>assets/js/jquery.mask.min.js'></script>
+    <script  src='<?php echo base_url(); ?>assets/js/select2.min.js'></script>
+    <script  src='<?php echo base_url(); ?>assets/js/jquery.steps.min.js'></script>
+    <script  src='<?php echo base_url(); ?>assets/js/jquery.validate.min.js'></script>
+    <script  src='<?php echo base_url(); ?>assets/js/jquery.timepicker.js'></script>
+    <script  src='<?php echo base_url(); ?>assets/js/dropzone.min.js'></script>
+    <script  src='<?php echo base_url(); ?>assets/js/uppy.min.js'></script>
+    <script  src='<?php echo base_url(); ?>assets/js/quill.min.js'></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <script>
+        //Get the button
+        var mybutton = document.getElementById("myBtn");
 
+        // When the user scrolls down 20px from the top of the document, show the button
+        window.onscroll = function() {scrollFunction()};
 
-//Get the button
-var mybutton = document.getElementById("myBtn");
+        function scrollFunction() {
+          if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+            mybutton.style.display = "block";
+          } else {
+            mybutton.style.display = "none";
+          }
+        }
 
-// When the user scrolls down 20px from the top of the document, show the button
-window.onscroll = function() {scrollFunction()};
-
-function scrollFunction() {
-  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-    mybutton.style.display = "block";
-  } else {
-    mybutton.style.display = "none";
-  }
-}
-
-// When the user clicks on the button, scroll to the top of the document
-function topFunction() {
-  document.body.scrollTop = 0;
-  document.documentElement.scrollTop = 0;
-}
-</script>
-    <script>
-      var uptarg = document.getElementById('drag-drop-area');
-      if (uptarg)
-      {
-        var uppy = Uppy.Core().use(Uppy.Dashboard,
-        {
-          inline: true,
-          target: uptarg,
-          proudlyDisplayPoweredByUppy: false,
-          theme: 'dark',
-          width: 770,
-          height: 210,
-          plugins: ['Webcam']
-        }).use(Uppy.Tus,
-        {
-          endpoint: 'https://master.tus.io/files/'
-        });
-        uppy.on('complete', (result) =>
-        {
-          console.log('Upload complete! We’ve uploaded these files:', result.successful)
-        });
-      }
-    </script>
-    <script  src="<?php echo base_url(); ?>js/apps.js"></script>
+        // When the user clicks on the button, scroll to the top of the document
+        function topFunction() {
+          document.body.scrollTop = 0;
+          document.documentElement.scrollTop = 0;
+        }
+  </script>
+    <script  src="<?php echo base_url(); ?>assets/js/apps.js"></script>
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script>
-      window.dataLayer = window.dataLayer || [];
+        window.dataLayer = window.dataLayer || [];
 
-      function gtag()
-      {
-        dataLayer.push(arguments);
-      }
-      gtag('js', new Date());
-      gtag('config', 'UA-56159088-1');
+        function gtag()
+        {
+          dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+        gtag('config', 'UA-56159088-1');
     </script>
   </body>
 </html>

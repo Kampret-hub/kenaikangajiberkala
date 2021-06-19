@@ -25,7 +25,7 @@ class anggota extends ci_controller{
         if(isset($_POST['submit'])){
             // proses data
             $nama_lengkap   =  $this->input->post('nama_lengkap');
-            $nrp            =  $this->input->post('nrp');
+            $nrp              =  $this->input->post('nrp');
             $tmpt_lahir     =  $this->input->post('tmpt_lahir');
             $t_lahir        =  $this->input->post('t_lahir');
             $jk             =  $this->input->post('jk');
@@ -53,10 +53,10 @@ class anggota extends ci_controller{
                 'nrp'           =>$nrp,
                 'nama'          =>$nama_lengkap
                 
-            );
+            ); 
             $input_user = array (
                 'nama_lengkap'  =>$nama_lengkap,
-                'username'      =>$nrp,
+                'nrp'           =>$nrp,
                 'password'      => 'ee11cbb19052e40b07aac0ca060c23ee',
                 'role_id'       => '2',
                 'status'        => '1',
@@ -77,11 +77,13 @@ class anggota extends ci_controller{
      
     function edit()
     {
+        $this->load->model('model_kgb');
+         $data['record']=  $this->model_kgb->get_data('anggota');
+
          $data['user'] = $this->db->get_where('user', ['nama_lengkap' => $this->session->userdata('nama_lengkap')])->row_array(); 
          
         if(isset($_POST['submit'])){
             // proses kategori
-            $id_anggota    =  $this->input->post('id_anggota');
             $nama_lengkap   =  $this->input->post('nama_lengkap');
             $nrp            =  $this->input->post('nrp');
             $tmpt_lahir     =  $this->input->post('tmpt_lahir');
@@ -127,14 +129,18 @@ class anggota extends ci_controller{
             $where = array ('nrp' => $nrp);
             $this->model_kgb->update_data('anggota', $edit_anggota, $where);
             $this->model_kgb->update_data('t_kgb', $edit_kgb, $where);
-            // update table user tidak berhasil di karenakan tidak ada filed bernama NRP
-            //$this->model_kgb->update_data('user', $edit_kgb, $where);
+            // update table user tidak berhasil di karenakan tidak ada filed bernama username
+            $this->model_kgb->update_data('user', $edit_user, $where);
             redirect('anggota');
         }
         else{
             $id=  $this->uri->segment(3);
-            $param  =   array('id_anggota'=>$id);
-            // $data['record']=  $this->model_kgb->get_one($id)->row_array();
+            $param  =   array('nrp'=>$id);
+
+            //menampilkan data db di edit select option
+            $data['anggota']=  $this->model_kgb->get_data('anggota')->result();
+
+
             $data['record']= $this->model_kgb->find_data($param, 'anggota')->row_array();
             $this->template->load('template/template_admin','anggota/form_edit',$data);
         }
@@ -146,8 +152,9 @@ class anggota extends ci_controller{
         $where = array ('nrp' => $id);
         $this->model_kgb->delete_data($where, 'anggota');
         $this->model_kgb->delete_data($where, 't_kgb');
-        // update table user tidak berhasil di karenakan tidak ada filed bernama NRP
-        // $this->model_kgb->delete_data($where, 'user');
+        $this->model_kgb->delete_data($where, 'user');
+        // update table user tidak berhasil di karenakan tidak ada filed bernama username
+        $this->model_kgb->delete_data($where, 'user');
 
 
         // $id=  $this->uri->segment(3);
@@ -156,9 +163,9 @@ class anggota extends ci_controller{
         redirect('anggota');
     }
 
-    // public function cari(){
-    //     $nrp=$_GET['nrp'];
-    //     $cari =$this->model_anggota->cari($nrp)->result();
-    //     echo json_encode($cari);
-    // } 
+     public function cari(){
+         $username=$_GET['username'];
+         $cari =$this->model_kgb->cari($username)->result();
+         echo json_encode($cari);
+     } 
 }

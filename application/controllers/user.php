@@ -75,11 +75,27 @@ class user extends ci_controller{
     }
     
     
-    function delete()
+   // function delete()
+    //{
+    //    $id=  $this->uri->segment(3);
+    //    $this->db->where('user_id',$id);
+    //    $this->db->delete('user');
+    //    redirect('user');
+   // }
+
+     function delete($id)
     {
-        $id=  $this->uri->segment(3);
-        $this->db->where('user_id',$id);
-        $this->db->delete('user');
+        $where = array ('username' => $id);
+        $this->model_kgb->delete_data($where, 'anggota');
+        $this->model_kgb->delete_data($where, 't_kgb');
+        $this->model_kgb->delete_data($where, 'user');
+        // update table user tidak berhasil di karenakan tidak ada filed bernama username
+        // $this->model_kgb->delete_data($where, 'user');
+
+
+        //    $id=  $this->uri->segment(3);
+        //    $this->db->where('user_id',$id);
+        //    $this->db->delete('user');
         redirect('user');
     }
 }

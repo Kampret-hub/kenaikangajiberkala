@@ -42,7 +42,7 @@
                         <form class="user" method="post" action="<?= base_url ('auth'); ?>">    
                           <div class="form-group">
                               <span><label>Username</label></span>
-                              <span><input class="form-control form-control-user" type="text" name="username" class="" id="active" placeholder="Username"></span>
+                              <span><input class="form-control form-control-user" type="text" name="nrp" class="" id="active" placeholder="Username"></span>
                               <!--<?= form_error ('email', '<small class="text-danger pl-3">','</small>')?>-->
                           </div>  
                           <div class="form-group">

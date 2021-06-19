@@ -10,11 +10,10 @@
                         <thead>
                             <tr>
                                 <th>No.</th> 
+                                 <th>NRP / NIP </th>
                                 <th>Nama Lengkap</th>
-                                <th>NRP / NIP </th>
                                 <th>Tempat Lahir</th>
                                 <th>Tanggal Lahir</th>
-                                
                                 <th>Agama </th>
                                 <th>Alamat</th>
                                 <th>Pendidikan</th>
@@ -26,21 +25,20 @@
                             <?php $no=1; foreach ($record->result() as $r) { ?>
                             <tr class="">
                                 <td><?php echo $no ?></td>
-                                <td><?php echo $r->nama_lengkap ?></td>
                                 <td><?php echo $r->nrp ?></td>
-                                <td></td>
-                                <td></td>
+                                <td><?php echo $r->nama_lengkap ?></td>
+                                <td><?php echo $r->tmpt_lahir ?></td>
+                                <td><?php echo $r->t_lahir ?></td>
                                 <td><?php echo $r->agama ?></td>
-                                <td></td>
-                                <td></td>
+                                <td><?php echo $r->alamat ?></td>
+                                <td><?php echo $r->pendidikan ?></td>
                                 <td><?php echo $r->pangkat ?></td>
                                 <td><button class="btn btn-sm dropdown-toggle more-horizontal" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     <span class="text-muted sr-only">Action</span>
                                   </button>
-                                  <div class="dropdown-menu dropdown-menu-right">
-                                    <a class="dropdown-item" href=""><?php echo anchor('anggota/edit/'.$r->id_anggota,'<span class="btn">  Edit</span>'); ?></a>
-                                    <a class="dropdown-item" href=""><?php echo anchor('anggota/delete/'.$r->nrp,'<span class="btn">  Hapus</span>'); ?></a>
-                                  </div>
+                                  <div class="dropdown-menu dropdown-menu-right " >
+                                    <a href=" <?php echo base_url('anggota/edit/'.$r->nrp) ?>" class="btn btn-primary btn-small" style='margin-left: 5px;'><i class="fe fe-edit"></i>Edit</a>
+                                    <a href="<?php echo base_url('anggota/delete/'.$r->nrp)?>" class="btn btn-danger btn-small" ><i class="fe fe-trash"></i>Hapus</a>
                                 </td>
                                 
                             </tr>

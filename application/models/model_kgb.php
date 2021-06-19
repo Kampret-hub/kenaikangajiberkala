@@ -41,4 +41,12 @@ class model_kgb extends CI_Model{
         $this->db->delete($table, $where);
     }
 
+     public function get_prov($title)
+    {
+      $this->db->like('username', $title, 'BOTH');
+      $this->db->order_by('id_anggota', 'asc');
+      $this->db->limit(10);
+      return $this->db->get('anggota')->result();
+    }
+
 }

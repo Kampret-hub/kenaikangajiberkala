@@ -25,7 +25,7 @@
                                     <tr id="<?php echo $r->user_id?>">
                                         <td><?php echo $no ?></td>
                                         <td><?php echo $r->nama_lengkap ?></td>
-                                        <td><?php echo $r->username ?></td>
+                                        <td><?php echo $r->nrp ?></td>
                                         <td>
                                     <?php if($r->role_id == 1 ){ 
                                          echo '<div class="">Admin</div>';

@@ -18,16 +18,17 @@
                             <div class="panel-body">
                                 <?php echo form_open('anggota/insert'); ?>
                                 <div class="form-group">
+                                    <label>/ Nrp</label>
+                                    <input type="text" class="form-control" name="nrp" placeholder="username / nip username">
+                                </div>
+                                <div class="form-group">
                                     <label>Nama Lengkap</label>
                                     <input type="text" class="form-control" name="nama_lengkap" placeholder="nama lengkap">
                                 </div>
-                                <div class="form-group">
-                                    <label>NRP / NIP Username</label>
-                                    <input type="text" class="form-control" name="nrp" placeholder="nrp / nip username">
-                                </div>
+                                
                                 <div class="form-group">
                                     <label>Tempat Lahir</label>
-                                    <input type="text" class="form-control" name="tmpat_lahir" placeholder="tempat lahir">
+                                    <input type="text" class="form-control" name="tmpt_lahir" placeholder="tempat lahir">
                                 </div>
                                  <div class="form-group">
                                     <label>tanggal Lahir</label>

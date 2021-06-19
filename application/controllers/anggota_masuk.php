@@ -3,7 +3,7 @@ class anggota_masuk extends ci_controller{
     
    function __construct() {
         parent::__construct();
-        $this->load->model('model_anggota');
+        $this->load->model('model_kgb');
        if ($this->session->userdata('username')=="") {
       redirect('auth');
         }
@@ -13,7 +13,7 @@ class anggota_masuk extends ci_controller{
     {
          $data['user'] = $this->db->get_where('user', ['nama_lengkap' => $this->session->userdata('nama_lengkap')])->row_array();  
         
-        $data['record']=  $this->model_anggota->tampildata();
+        $data['record']=  $this->model_kgb->get_data('anggota');
         //$this->load->view('user/lihat_data',$data);
         $this->template->load('template/template_admin','anggota_masuk/form_input',$data);
     }
@@ -87,12 +87,14 @@ class anggota_masuk extends ci_controller{
     function get_autocomplete()
   {
     if (isset($_GET['term'])) {
-      $result = $this->model_anggota->get_prov($_GET['term']);
+      $result = $this->model_kgb->get_prov($_GET['term']);
       if (count($result) > 0) {
         foreach ($result as $row)
         $result_array[] = array(
-            'label'=>$row->nrp,
+            'label'=>$row->username,
             'nama_lengkap'=>strtoupper($row->nama_lengkap),
+            'tmpt_lahir'=>strtoupper($row->tmpt_lahir),
+            't_lahir'=>strtoupper($row->t_lahir),
             'agama'=>strtoupper($row->agama),
             'pangkat'=>strtoupper($row->pangkat)
           );
