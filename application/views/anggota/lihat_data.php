@@ -6,7 +6,15 @@
               <h2 class="mb-2 page-title">Data Anggota Aktif</h2>
                 <?php echo anchor('anggota/insert','Tambah Data',array('class'=>'btn btn-danger btn-sm')) ?>
 
-                 <table class="table datatables" id="dataTable-1">
+            <table class="table datatables" id="dataTable-1">
+                <div class="alert alert-dismissible fade show">
+                    <strong>
+                        <?php echo $this->session->flashdata('msg')?>
+                    </strong>
+                    <button type="button" class="close" data-dismiss="alert" arial-label="Close">
+                        <span aria-hodden="true">&times;</span>
+                    </button>
+                </div>
                         <thead>
                             <tr>
                                 <th>No.</th> 
@@ -38,13 +46,49 @@
                                   </button>
                                   <div class="dropdown-menu dropdown-menu-right " >
                                     <a href=" <?php echo base_url('anggota/edit/'.$r->nrp) ?>" class="btn btn-primary btn-small" style='margin-left: 5px;'><i class="fe fe-edit"></i>Edit</a>
-                                    <a href="<?php echo base_url('anggota/delete/'.$r->nrp)?>" class="btn btn-danger btn-small" ><i class="fe fe-trash"></i>Hapus</a>
+                                    <a href="<?php echo base_url('anggota/delete/'.$r->nrp)?>" class="btn btn-danger btn-small hapus" id="" ><i class="fe fe-trash"></i>Hapus</a>
                                 </td>
                                 
                             </tr>
                         <?php $no++; } ?>
                         </tbody>
-                </table>
-            </td>
-        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script type="text/javascript">
+        jQuery(document).ready(function($){
+            $('.hapus').on('click',function(e){
+                e.preventDefault();
+                var getLink = $(this).attr('href');
+                swal({
+                        title: "Anda Yakin ?",
+                        text: "Data Yang Sudah Dihapus Tidak Bisa Dikembalikan Lagi!",
+                        type:  "warning",
+                        html: true,
+                        showCancelButton: true,
+
+                        confirmButtonColor: "#DD6B55",
+                        confirmButtonText: "Ya, Hapus !",
+                        showCancelButton: "Janagan Hapus!",
+                        closeOnConfirm:    false,
+                        closeOnCancel: false,
+                        },function(isConfirm){
+                            if (isConfirm) {
+                                swal("Terhapus!", "Data berhasil dihapus." , "success");
+                                window.location.href = getLink
+                            }else{
+                            {
+                                swal("Cancelled","Data Tidak Jadi Dihapus :)", "error");
+                            }
+                        }
+                    });
+                return false;
+            });
+        });
+    </script>
             
+
+<!--onclick="return confirm('Anda yakin mau menghapus data ini ?')"--> 

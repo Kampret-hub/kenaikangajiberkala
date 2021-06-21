@@ -30,7 +30,7 @@
                           </span>
                         </div>
                         <div class="col pr-0">
-                          <p class="small text-muted mb-0">Anggota Masuk</p>
+                          <p class="small text-muted mb-0">Anggota Keluar</p>
                           <span class="h3 mb-0"></span>
                           <span class="h3 mr-2 mb-0">0</span>
                           <span class="small text-muted">Anggota</span>

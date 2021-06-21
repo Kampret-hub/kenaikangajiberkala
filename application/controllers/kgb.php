@@ -62,6 +62,8 @@ class kgb extends ci_controller{
             $where = array ('id_kgb' => $id_kgb);
             $this->model_kgb->update_data('t_kgb', $edit_kgb, $where);
              $this->model_kgb->insert_data($insert_history, 'history_kbg');
+
+             echo $this->session->set_flashdata('msg','<div class="alert alert-success text-center" role="alert">Data Berhasil Di Simpan</div>');
              redirect('kgb');
         }
         else{

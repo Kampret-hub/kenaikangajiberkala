@@ -44,6 +44,8 @@ class History extends ci_controller{
             // proses kategori
             $where = array ('id' => $id);
             $this->model_kgb->update_data('history_kbg', $data, $where);
+
+            echo $this->session->set_flashdata('msg','<div class="alert alert-success text-center" role="alert">Data Berhasil Di Simpan</div>');
             redirect('history/index/'.$nrp);
         }
         else{
@@ -54,5 +56,16 @@ class History extends ci_controller{
             //$this->load->view('user/form_edit',$data);
             $this->template->load('template/template_admin','history_kgb/form_edit',$data);
         }
+    }
+
+    function delete($id)
+    {   
+        $where = array ('id' => $id);
+        $this->model_kgb->delete_data($where, 'history_kgb');
+        //$id=  $this->uri->segment(3);
+        //$this->db->where('id',$id);
+        //$this->db->delete('history_kbg');
+        echo $this->session->set_flashdata('msg','<div class="alert alert-danger text-center" role="alert">Data Berhasil Di Hapus</div>');
+        redirect('history');
     }
 }

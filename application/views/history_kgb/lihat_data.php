@@ -4,9 +4,18 @@
         <div class="card shadow">
             <div class="card-body">
               <h2 class="mb-2 page-title"><?php echo $title ?></h2>
+
                 <!--<?php echo anchor('anggota/post','Tambah Data',array('class'=>'btn btn-danger btn-sm')) ?>-->
 
                  <table class="table datatables" id="dataTable-1">
+                    <div class="alert alert-dismissible fade show">
+                    <strong>
+                        <?php echo $this->session->flashdata('msg')?>
+                    </strong>
+                    <button type="button" class="close" data-dismiss="alert" arial-label="Close">
+                        <span aria-hodden="true">&times;</span>
+                    </button>
+                </div>
                         <thead>
                             <tr>
                                 <th>No.</th> 
@@ -31,8 +40,9 @@
                                     <span class="text-muted sr-only">Action</span>
                                   </button>
                                   <div class="dropdown-menu dropdown-menu-right">
-                                    <a class="dropdown-item" href=""><?php echo anchor('history/edit/'.$r->id,'<span class="btn">  <span>Edit</span>'); ?></a>
-                                    <!-- <a class="dropdown-item" href=""><?php echo anchor('kgb/history/'.$r->id,'<span class="btn">  History</span>'); ?></a> -->
+                                    <a href=" <?php echo base_url('history/edit/'.$r->id) ?>" class="btn btn-primary btn-small" style='margin-left: 5px;'><i class="fe fe-edit"></i> Edit</a>
+                                    <a href="<?php echo base_url('history/delete/'.$r->id)?>" class="btn btn-danger btn-small" id="" ><i class="fe fe-trash"></i> Hapus</a>
+                                    <a href="<?php echo base_url('history/cetak/'.$r->id)?>" class="btn btn-info btn-small" id="" ><i class="fe fe-printer"></i> Cetak KGB</a>
                                   </div>
                                 </td>
                                 
@@ -42,4 +52,4 @@
                 </table>
             </td>
         </tr>
-            <?php echo anchor('kgb',' Kembali',array('class'=>'btn btn-danger btn-sm fe fe-skip-back'))?>
+            <?php echo anchor('kgb',' Kembali',array('class'=>'btn btn-danger btn-sm fe fe-arrow-left'))?>

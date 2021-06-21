@@ -9,17 +9,19 @@
      </div>
  </div>
  <span>
-                <!-- /. ROW  -->
-
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="panel panel-default">
-                            <div class="panel-body">
+  <!-- /. ROW  -->
+<div class="card shadow mb-4">
+    <div class="card-header">
+        <strong class="card-title">Form Edit</strong>
+    </div>
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-6">
                                 <?php echo form_open('kgb/edit'); ?>
                                 <input type="hidden" value="<?php echo $record['id_kgb']?>" name="id_kgb">
                                 <div class="form-group">
                                     <label>username</label>
-                                    <input type="text" class="form-control" name="username" readonly="" value="<?php echo $record['username']?>">
+                                    <input type="text" class="form-control" name="nrp" readonly="" value="<?php echo $record['nrp']?>">
                                 </div>
                                 <div class="form-group">
                                     <label>Nama</label>
@@ -37,6 +39,8 @@
                                     <label>Mkgg</label>
                                     <input type="text" class="form-control" name="mkgg" value="<?php echo $record['mkgg']?>">
                                 </div>
+                            </div>
+                            <div class="col-md-6">
                                 <div class="form-group">
                                     <label>TMT Lama</label>
                                     <input type="date" class="form-control" name="tmtl" value="<?php echo $record['tmtl']?>">
@@ -53,9 +57,9 @@
                                     <label>kgbb</label>
                                     <input type="text" class="form-control" name="kgbb" value="<?php echo $record['kgbb']?>">
                                 </div>
-                               
-                                <button type="submit" name="submit" class="btn btn-primary btn-sm">Edit</button> | 
-                                <?php echo anchor('kgb','Kembali',array('class'=>'btn btn-danger btn-sm'))?>
+                               </div>
+                               <span  style="margin-left: 15px;"><button type="submit" name="submit" class="btn btn-primary btn-sm">Edit</button></span> 
+                                <span style="margin-left: 5px; "><?php echo anchor('kgb','Kembali',array('class'=>'btn btn-danger btn-sm'))?></span>
                                 </form>
                             </div>
                         </div>

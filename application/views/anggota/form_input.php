@@ -1,5 +1,3 @@
-
-
 <div class="row my-4">
     <!-- Small table -->
     <div class="col-md-12">
@@ -9,77 +7,75 @@
             </div>
          </div> 
      </div>
- </div>
- <span>
+</div>
  
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="panel panel-default">
-                            <div class="panel-body">
-                                <?php echo form_open('anggota/insert'); ?>
-                                <div class="form-group">
-                                    <label>/ Nrp</label>
-                                    <input type="text" class="form-control" name="nrp" placeholder="username / nip username">
-                                </div>
-                                <div class="form-group">
-                                    <label>Nama Lengkap</label>
-                                    <input type="text" class="form-control" name="nama_lengkap" placeholder="nama lengkap">
-                                </div>
-                                
-                                <div class="form-group">
-                                    <label>Tempat Lahir</label>
-                                    <input type="text" class="form-control" name="tmpt_lahir" placeholder="tempat lahir">
-                                </div>
-                                 <div class="form-group">
-                                    <label>tanggal Lahir</label>
-                                    <input type="date" class="form-control" name="t_lahir" placeholder="tanggal lahir">
-                                </div>
-                                 <div class="form-group">
-                                    <label>Jenis Kelamin</label>
-                                    <select type="option" class="form-control"  name="jk">
-                                        <option >-- Jenis Kelamin --</option>
-                                        <option value="P">Pria</option>
-                                        <option value="W">Wanita</option>
-                                    </select>
-                                     <div class="form-group">
-                                    <label>Agama</label>
-                                    <select type="option" class="form-control"  name="agama">
-                                        <option >-- Agama --</option>
-                                        <option value="Islam">Islam</option>
-                                        <option value="Kristen Katholik">Kristen Katholik</option>
-                                        <option value="Kristen Protestan">Kristen Protestan</option>
-                                        <option value="Hindu">Hindu</option>
-                                        <option value="Budha">Budha</option>
-                                        <option value="Kong Hu Chu">Kong Hu Chu</option>
-                                    </select>
-                                </div>
-                                </div>
-                                <diiv class="form-group">
-                                    <label>Alamat</label>
-                                    <input type="text" class="form-control" name="alamat" placeholder="alamat">
-                                </div>
-                                <div class="form-group">
-                                    <label>Pendidikan</label>
-                                    <input type="text" class="form-control" name="pendidikan" placeholder="pendidikan">
-                                </div>
-                                <div class="form-group">
-                                    <label>Pangkat</label>
-                                    <input type="text" class="form-control" name="pangkat" placeholder="pangkat">
-                                </div>
-                                <div class="form-group">
-                                    <label>Jabatan</label>
-                                    <input type="text" class="form-control" name="jabatan" placeholder="jabatan">
-                                </div>
-                                <div class="form-group">
-                                    <label>Bagian</label>
-                                    <input type="text" class="form-control" name="bagian" placeholder="bagian">
-                                </div>
-                                <button type="submit" name="submit" class="btn btn-primary btn-sm">Simpan</button> | 
-                                <?php echo anchor('anggota','Kembali',array('class'=>'btn btn-danger btn-sm'))?>
-                                </form>
-                            </div>
-                        </div>
-                        <!-- /. PANEL  -->
-                    </div>
-                </div>
-                <!-- /. ROW  -->
+<span>
+<div class="card shadow mb-4">
+    <div class="card-header">
+        <strong class="card-title">Form Input</strong>
+    </div>
+    <div class="card-body">
+      <div class="row">
+          <div class="col-md-6">
+              <?php echo form_open('anggota/insert'); ?>
+                  <div class="form-group mb-3">
+                    <label for="" class="control-label">NRP / NIP Username</label>
+                    <input type="text" name="nrp" id="nrp"  class="form-control" list="" placeholder="Input NRP / NIP">
+                  </div>  
+                  <div class="form-group mb-3">
+                    <label for="" class="control-label">Nama Lengkap</label>
+                    <input type="text" class="form-control" name="nama_lengkap" id="nama_lengkap"  placeholder="Input Nama lengkap">
+                  </div>
+                  <div class="form-group mb-3">
+                    <label for="" class="control-label">Tempat Lahir</label>
+                    <input type="text" name="tmpt_lahir" id="tmpt_lahir" class="form-control"  placeholder="Input Tempat Lahir">
+                  </div>
+                  <div class="form-group mb-3">
+                    <label for="" class="control-label">Tanggal Lahir</label>
+                    <input type="date" name="t_lahir" id="t_lahir" class="form-control"  placeholder="Input Tamggal Lahir">
+                  </div>
+          
+                  <div class="form-group mb-3">
+                      <label for="" class="control-label">Agama</label>
+                      <select type="option" class="form-control"  name="agama">
+                        <!-- Ambil data di DB-->
+                        <?php foreach ($agama as $b) {
+                            echo "<option value='$b->nama_agama'>$b->nama_agama</option>"; 
+                        }?>
+                      </select>
+                  </div>
+          </div> <!-- /.col -->
+          <div class="col-md-6">
+                  <div class="form-group mb-3">
+                      <label>Jenis Kelamin</label>
+                      <select type="option" class="form-control"  name="jk">
+                         <!-- Ambil data di DB-->
+                         <?php foreach ($jk as $a) {
+                          echo "<option value='$a->nama_jk'>$a->nama_jk</option>"; 
+                        }?>
+                      </select>
+                  </div>
+                  <div class="form-group mb-3">
+                      <label for="" class="control-label">Alamat</label>
+                      <textarea type="text" name="alamat" id="alamat" class="form-control"   placeholder="Input Alamat"></textarea>
+                  </div>
+                  <div class="form-group mb-3">
+                      <label for="" class="control-label">Pendidikan</label>
+                      <input type="text" class="form-control" name="pendidikan" id="pendidikan"   placeholder="Input Pendidikan">
+                  </div>
+                  <div class="form-group mb-3">
+                       <label for="" class="control-label">Pangkat</label>
+                                <select  type="option" class="form-control"  name="pangkat">
+                                    <option type="option" class="form-control"  name="pangkat" ></option>
+                                        <!-- Ambil data di DB-->
+                                       <?php foreach ($pangkat as $c) {
+                                            echo "<option value='$c->nama_pangkat'>$c->nama_pangkat</option>"; 
+                                        }?>
+                                </select>          
+                  </div>
+          </div>
+                              <span  style="margin-left: 15px;"><button type="submit" name="submit" value="Submit" id="submit" class="btn btn-primary btn-sm">Simpan</button></span>   
+                              <span style="margin-left: 5px;" ><?php echo anchor('anggota','Kembali',array('class'=>'btn btn-danger btn-sm' ))?></span>
+          </form>
+      </div><!-- /. PANEL  -->
+</div><!-- /. ROW  -->

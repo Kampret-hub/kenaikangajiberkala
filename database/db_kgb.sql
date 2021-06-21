@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: 19 Jun 2021 pada 15.17
+-- Generation Time: 21 Jun 2021 pada 09.38
 -- Versi Server: 5.6.16
 -- PHP Version: 5.5.11
 
@@ -75,7 +75,8 @@ CREATE TABLE IF NOT EXISTS `anggota` (
 --
 
 INSERT INTO `anggota` (`nrp`, `nama_lengkap`, `tmpt_lahir`, `t_lahir`, `jk`, `agama`, `alamat`, `pendidikan`, `pangkat`, `jabatan`, `bagian`, `golongan`, `masa_kerja`, `gaji_pokok`, `status`) VALUES
-('12345', 'tes3', 'jakarta', '2021-06-09', '12345', '12345', 'tes3', 'tes3', 'tes3', 'tes3', 'tes3', '', '', '', '-- status ');
+('32150108079', 'andri', 'karawang', '1996-07-08', 'Laki-laki', 'Islam', 'karawang', 's1', 'AIPTU', '0', '0', '', '', '', ''),
+('tes2', 'tes3', 'bandung', '2021-06-16', 'Laki-laki', 'Islam', 'qq', 'q', 'PENATA TK I', '0', '0', '', '', '', '');
 
 -- --------------------------------------------------------
 
@@ -256,39 +257,40 @@ INSERT INTO `gaji_pokok` (`id_gaji`, `kode_gapok`, `gaji`, `masa_kerja`, `golong
 --
 
 CREATE TABLE IF NOT EXISTS `golongan` (
-  `id_golongan` int(11) NOT NULL AUTO_INCREMENT,
+  `id_golongan` int(11) NOT NULL,
   `nama_golongan` varchar(15) NOT NULL,
+  `pangkat` varchar(30) NOT NULL,
   PRIMARY KEY (`id_golongan`),
   UNIQUE KEY `golongan` (`nama_golongan`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=23 ;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data untuk tabel `golongan`
 --
 
-INSERT INTO `golongan` (`id_golongan`, `nama_golongan`) VALUES
-(1, 'I.a'),
-(2, 'I.b'),
-(3, 'I.c'),
-(4, 'I.d'),
-(5, 'I.e'),
-(6, 'I.f'),
-(7, 'II.a'),
-(8, 'II.b'),
-(9, 'II.c'),
-(10, 'II.d'),
-(11, 'II.e'),
-(12, 'II.f'),
-(13, 'III.a'),
-(14, 'III.b'),
-(15, 'III.c'),
-(16, 'IV.a'),
-(17, 'IV.b'),
-(18, 'IV.c'),
-(19, 'IV.d'),
-(20, 'IV.e'),
-(21, 'IV.f'),
-(22, 'IV.g');
+INSERT INTO `golongan` (`id_golongan`, `nama_golongan`, `pangkat`) VALUES
+(1, 'I.a', 'BHAYANGKARA DUA'),
+(2, 'I.b', 'BHAYANGKARA SATU'),
+(3, 'I.c', 'BHAYANGKARA KEPALA'),
+(4, 'I.d', 'AJUN BRIGADIR POLISI DUA'),
+(5, 'I.e', 'AJUN BRIGADIR POLISI SATU'),
+(6, 'I.f', 'AJUN BRIGADIR POLISI'),
+(7, 'II.a', 'BRIGADIR POLISI DUA'),
+(8, 'II.b', 'BRIGADIR POLISI SATU'),
+(9, 'II.c', 'BRIGADIR POLISI'),
+(10, 'II.d', 'BRIGADIR POLISI KEPALA'),
+(11, 'II.e', 'AJUN INSPEKTUR POLISI DUA'),
+(12, 'II.f', 'AJUN INSPEKTUR POLISI SATU'),
+(13, 'III.a', 'INSPEKTUR POLISI DUA'),
+(14, 'III.b', 'INSPEKTUR POLISI SATU'),
+(15, 'III.c', 'AJUN KOMISARIS POLISI'),
+(16, 'IV.a', 'KOMISARIS POLISI'),
+(17, 'IV.b', 'AJUN KOMISARIS BESAR POLISI '),
+(18, 'IV.c', 'KOMISARIS BESAR POLISI '),
+(19, 'IV.d', 'BRIGADIR JENDRAL POLISI'),
+(20, 'IV.e', 'INSPEKTUR JENDRAL POLISI'),
+(21, 'IV.f', 'KOMISARIS JENDRAL POLISI'),
+(22, 'IV.g', 'JENDRAL POLISI');
 
 -- --------------------------------------------------------
 
@@ -313,21 +315,23 @@ CREATE TABLE IF NOT EXISTS `history` (
 --
 
 CREATE TABLE IF NOT EXISTS `history_kbg` (
-  `id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `nrp` varchar(20) NOT NULL,
   `nama` varchar(100) NOT NULL,
   `periode` varchar(10) NOT NULL,
   `gaji` varchar(20) NOT NULL,
-  `tmt` date NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `tmt` date NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=8 ;
 
 --
 -- Dumping data untuk tabel `history_kbg`
 --
 
 INSERT INTO `history_kbg` (`id`, `nrp`, `nama`, `periode`, `gaji`, `tmt`) VALUES
-(2048, '3333', 'aff', '6', '2300000', '2023-06-21'),
-(2049, '3333', 'aff', '8', '2500000', '2027-06-21');
+(2, 'tes2', 'tes3', '1', '111111', '2021-06-22'),
+(3, '3215010807960007', 'andri', '1', '1', '2021-06-25'),
+(7, '3215010807960007', 'andri', '1q', '1', '2021-06-25');
 
 -- --------------------------------------------------------
 
@@ -1065,7 +1069,7 @@ CREATE TABLE IF NOT EXISTS `suratkgb` (
 --
 
 CREATE TABLE IF NOT EXISTS `t_kgb` (
-  `id_kgb` int(11) NOT NULL,
+  `id_kgb` int(11) NOT NULL AUTO_INCREMENT,
   `nrp` varchar(30) NOT NULL,
   `nama` varchar(100) NOT NULL,
   `gpl` decimal(50,0) NOT NULL,
@@ -1074,16 +1078,17 @@ CREATE TABLE IF NOT EXISTS `t_kgb` (
   `tmtl` date NOT NULL,
   `tmtb` date NOT NULL,
   `nosk` varchar(150) NOT NULL,
-  `kgbb` varchar(20) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `kgbb` varchar(20) NOT NULL,
+  PRIMARY KEY (`id_kgb`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
 
 --
 -- Dumping data untuk tabel `t_kgb`
 --
 
 INSERT INTO `t_kgb` (`id_kgb`, `nrp`, `nama`, `gpl`, `gpb`, `mkgg`, `tmtl`, `tmtb`, `nosk`, `kgbb`) VALUES
-(0, 'test', 'test', '0', '0', '', '0000-00-00', '0000-00-00', '', ''),
-(0, '12345', 'tes3', '0', '0', '', '0000-00-00', '0000-00-00', '', '');
+(1, '3215010807960007', 'andri', '11111', '1', '1q', '2021-06-21', '2021-06-25', '1', '1'),
+(2, 'tes2', 'tes3', '11111', '111111', '1', '2021-06-21', '2021-06-22', '1', '1');
 
 -- --------------------------------------------------------
 
@@ -1101,7 +1106,7 @@ CREATE TABLE IF NOT EXISTS `user` (
   `status` int(11) NOT NULL,
   `date_created` varchar(11) NOT NULL,
   PRIMARY KEY (`user_id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=1265 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=1303 ;
 
 --
 -- Dumping data untuk tabel `user`
@@ -1109,8 +1114,8 @@ CREATE TABLE IF NOT EXISTS `user` (
 
 INSERT INTO `user` (`user_id`, `nama_lengkap`, `nrp`, `password`, `role_id`, `image`, `status`, `date_created`) VALUES
 (1222, 'Admin', 'admin', '21232f297a57a5a743894a0e4a801fc3', 1, 0, 1, '2021-06-05'),
-(1258, 'test', 'test', 'ee11cbb19052e40b07aac0ca060c23ee', 2, 0, 1, '2021-06-18 '),
-(1264, 'tes3', '12345', 'ee11cbb19052e40b07aac0ca060c23ee', 2, 0, 1, '2021-06-19 ');
+(1301, 'andri', '3215010807960007', 'ee11cbb19052e40b07aac0ca060c23ee', 2, 0, 1, '2021-06-21 '),
+(1302, 'tes3', 'tes2', 'ee11cbb19052e40b07aac0ca060c23ee', 2, 0, 1, '2021-06-21 ');
 
 -- --------------------------------------------------------
 

@@ -4,6 +4,7 @@ class anggota extends ci_controller{
    function __construct() {
         parent::__construct();
         $this->load->model('model_kgb');
+        $this->load->library('form_validation');
        if ($this->session->userdata('username')=="") {
       redirect('auth');
         }
@@ -20,6 +21,7 @@ class anggota extends ci_controller{
     
     function insert()
     {
+
         $data['anggota'] = $this->db->get_where('anggota', ['nama_lengkap' => $this->session->userdata('nama_lengkap')])->row_array(); 
         
         if(isset($_POST['submit'])){
@@ -38,7 +40,7 @@ class anggota extends ci_controller{
             
             $input_anggota =  array(   
                 'nama_lengkap'  =>$nama_lengkap,
-                'nrp'           =>$nrp,
+                'nrp'           =>$nrp, 
                 'tmpt_lahir'    =>$tmpt_lahir, 
                 't_lahir'       =>$t_lahir,
                 'jk'            =>$jk,
@@ -66,9 +68,15 @@ class anggota extends ci_controller{
             $this->model_kgb->insert_data($input_anggota, 'anggota');
             $this->model_kgb->insert_data($input_kgb, 't_kgb');
             $this->model_kgb->insert_data($input_user, 'user');
+            echo $this->session->set_flashdata('msg','<div class="alert alert-success text-center" role="alert">Data Berhasil Di Simpan</div>');
             redirect('anggota', $data);
         }
         else{
+             $data['jk']=  $this->model_kgb->get_data('jk')->result();
+             $data['agama']=  $this->model_kgb->get_data('agama')->result();
+             $data['pangkat']=  $this->model_kgb->get_data('pangkat')->result();
+
+
             //$this->load->view('user/form_input');
             $this->template->load('template/template_admin','anggota/form_input', $data);
         }
@@ -131,6 +139,7 @@ class anggota extends ci_controller{
             $this->model_kgb->update_data('t_kgb', $edit_kgb, $where);
             // update table user tidak berhasil di karenakan tidak ada filed bernama username
             $this->model_kgb->update_data('user', $edit_user, $where);
+            echo $this->session->set_flashdata('msg','<div class="alert alert-success text-center" role="alert">Data Berhasil Di Ubah</div>');
             redirect('anggota');
         }
         else{
@@ -138,7 +147,13 @@ class anggota extends ci_controller{
             $param  =   array('nrp'=>$id);
 
             //menampilkan data db di edit select option
-            $data['anggota']=  $this->model_kgb->get_data('anggota')->result();
+            $data['jk']=  $this->model_kgb->get_data('jk')->result();
+            $data['agama']=  $this->model_kgb->get_data('agama')->result();
+            $data['pangkat']=  $this->model_kgb->get_data('pangkat')->result();
+            $data['jabatan']=  $this->model_kgb->get_data('jabatan')->result();
+            $data['bagian']=  $this->model_kgb->get_data('bagian')->result();
+            $data['golongan']=  $this->model_kgb->get_data('golongan')->result();
+            $data['gaji_pokok']=  $this->model_kgb->get_data('gaji_pokok')->result();
 
 
             $data['record']= $this->model_kgb->find_data($param, 'anggota')->row_array();
@@ -160,6 +175,7 @@ class anggota extends ci_controller{
         // $id=  $this->uri->segment(3);
         // $this->db->where('id_anggota',$id);
         // $this->db->delete('anggota');
+        echo $this->session->set_flashdata('msg','<div class="alert alert-danger text-center" role="alert">Data Berhasil Di Hapus</div>');
         redirect('anggota');
     }
 

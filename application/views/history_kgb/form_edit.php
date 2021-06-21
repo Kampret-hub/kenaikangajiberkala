@@ -9,12 +9,13 @@
      </div>
  </div>
  <span>
-                <!-- /. ROW  -->
-
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="panel panel-default">
-                            <div class="panel-body">
+ <div class="card shadow mb-4">
+    <div class="card-header">
+        <strong class="card-title">Form Edit</strong>
+    </div>
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-12">
                                 <?php echo form_open('history/edit'); ?>
                                 <input type="hidden" value="<?php echo $record['id']?>" name="id">
                                 <div class="form-group">
@@ -38,7 +39,7 @@
                                     <input type="date" class="form-control" name="tmt" value="<?php echo $record['tmt']?>">
                                 </div>
                                
-                                <button type="submit" name="submit" class="btn btn-primary btn-sm">Edit</button> | 
+                                <button type="submit" name="submit" class="btn btn-primary btn-sm">Edit</button> 
                                 <?php echo anchor('history/index/'.$record['nrp'],'Kembali',array('class'=>'btn btn-danger btn-sm'))?>
                                 </form>
                             </div>

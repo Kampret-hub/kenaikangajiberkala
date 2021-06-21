@@ -4,10 +4,20 @@
         <div class="card shadow">
             <div class="card-body">
               <h2 class="mb-2 page-title"><?php echo $title ?></h2>
-
-               <?php echo anchor('kgb/post','Tambah Data',array('class'=>'btn btn-danger btn-sm')) ?>
+          </div>
+      </div>
+  </div>
+               <!--<?php echo anchor('kgb/post','Tambah Data',array('class'=>'btn btn-danger btn-sm')) ?>-->
 
                  <table class="table datatables" id="dataTable-1">
+                    <div class="alert alert-dismissible fade show">
+                        <strong>
+                            <?php echo $this->session->flashdata('msg')?>
+                        </strong>
+                        <button type="button" class="close" data-dismiss="alert" arial-label="Close">
+                            <span aria-hodden="true">&times;</span>
+                        </button>
+                    </div>
                         <thead>
                             <tr>
                                 <th>No.</th> 
@@ -40,8 +50,8 @@
                                     <span class="text-muted sr-only">Action</span>
                                   </button>
                                   <div class="dropdown-menu dropdown-menu-right">
-                                    <a class="dropdown-item" href=""><?php echo anchor('kgb/edit/'.$r->id_kgb,'<span class="btn"> <span class="fe fe-edit"> Edit</span>'); ?></a>
-                                    <a class="dropdown-item" href=""><?php echo anchor('history/index/'.$r->username,'<span class="btn"> <span class="fe fe-archive"> History</span>'); ?></a>
+                                    <a href=" <?php echo base_url('kgb/edit/'.$r->id_kgb) ?>" class="btn btn-primary btn-small" style='margin-left: 5px;'><i class="fe fe-edit"></i> Edit</a>
+                                    <a href="<?php echo base_url('history/index/'.$r->nrp)?>" class="btn btn-info btn-small" id="" ><i class="fe fe-archive"></i> History</a>
                                   </div>
                                 </td>
                                 
