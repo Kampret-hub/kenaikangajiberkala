@@ -77,9 +77,7 @@
                             <label for="" class="control-label">Status</label>
                                 <select type="option" class="form-control"  name="status">
                                         <option value="aktif">Aktif</option>
-                                        <option value="keluar">keluar</option>
-                                        <option value="pensiun">Aktif</option>
-                                        <option value="meninggal">keluar</option>
+                                      
                                 </select>
                   </div>
           </div>
