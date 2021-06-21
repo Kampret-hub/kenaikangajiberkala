@@ -16,7 +16,8 @@ class History extends ci_controller{
         $data['title'] = 'History KGB';
 
         $param  =   array('nrp'=>$id);
-        $data['record']= $this->model_kgb->find_data($param, 'history_kbg');
+        $data['record']= $this->model_kgb->find_data($param, 'history_kbg')->result();
+        // $data['record1']= $this->db->query('select distinct nrp, nama from history_kbg where nrp = '.$id);
         //$this->load->view('user/lihat_data',$data);
         $this->template->load('template/template_admin','history_kgb/lihat_data',$data);
     }

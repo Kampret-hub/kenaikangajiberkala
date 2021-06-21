@@ -103,11 +103,11 @@
                 <span class="ml-3 item-text">Anggota</span>
               </a>
               <ul class="collapse list-unstyled pl-4 w-100" id="anggota">
-                <a class="nav-link pl-3" href="<?php echo base_url().'anggota'?>"><span class="ml-1">Anggota Aktif</span></a>
+                <a class="nav-link pl-3" href="<?php echo base_url().'anggota/index/'?>aktif"><span class="ml-1">Anggota Aktif</span></a>
                 <!--<a class="nav-link pl-3" href="<?php echo base_url().'anggota_masuk'?>"><span class="ml-1">Anggota Masuk</span></a>-->
-                <a class="nav-link pl-3" href="<?php echo base_url().'anggota_keluar'?>"><span class="ml-1">Anggota Keluar</span></a>
-                <a class="nav-link pl-3" href="<?php echo base_url().'anggota_pensiun'?>"><span class="ml-1">Anggota Pensiun</span></a>
-                <a class="nav-link pl-3" href="<?php echo base_url().'anggota_meninggal'?>"><span class="ml-1">Anggota Meninggal</span></a>
+                <a class="nav-link pl-3" href="<?php echo base_url().'anggota/index/'?>keluar"><span class="ml-1">Anggota Keluar</span></a>
+                <a class="nav-link pl-3" href="<?php echo base_url().'anggota/index/'?>pensiun"><span class="ml-1">Anggota Pensiun</span></a>
+                <a class="nav-link pl-3" href="<?php echo base_url().'anggota/index/'?>meninggal"><span class="ml-1">Anggota Meninggal</span></a>
               </ul>
             </li>
             <li class="nav-item w-100">

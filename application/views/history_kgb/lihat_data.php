@@ -6,7 +6,7 @@
               <h2 class="mb-2 page-title"><?php echo $title ?></h2>
 
                 <!--<?php echo anchor('anggota/post','Tambah Data',array('class'=>'btn btn-danger btn-sm')) ?>-->
-
+            
                  <table class="table datatables" id="dataTable-1">
                     <div class="alert alert-dismissible fade show">
                     <strong>
@@ -28,7 +28,7 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <?php $no=1; foreach ($record->result() as $r) { ?>
+                            <?php $no=1; foreach ($record as $r) { ?>
                             <tr class="">
                                 <td><?php echo $no ?></td>
                                 <td><?php echo $r->nrp ?></td>

@@ -11,53 +11,6 @@
      </div>
  </div>
  <span>
- 
-               <!-- <div class="row">
-                    <div class="col-md-12">
-                        <div class="panel panel-default">
-                            <div class="panel-body">
-                                <?php echo form_open('anggota/post'); ?>
-                                <div class="form-group">
-                                    <label>Nama Lengkap</label>
-                                    <input type="text" class="form-control" name="nama_lengkap" placeholder="nama lengkap">
-                                </div>
-                                <div class="form-group">
-                                    <label>NRP / NIP Username</label>
-                                    <input type="text" class="form-control" name="nrp" placeholder="nrp / nip username">
-                                </div>
-                                <div class="form-group">
-                                    <label>Gaji Pokok Lama</label>
-                                    <input type="text" class="form-control" name="tempatlahir" placeholder="tempat lahir">
-                                </div>
-                                 <div class="form-group">
-                                    <label>Gaji Pokok Baru</label>
-                                    <input type="date" class="form-control" name="tanggallahir" placeholder="tanggal lahir">
-                                </div>
-                                <diiv class="form-group">
-                                    <label>TMT Lama</label>
-                                    <input type="text" class="form-control" name="alamat" placeholder="alamat">
-                                </div>
-                                <div class="form-group">
-                                    <label>TMT Baru</label>
-                                    <input type="text" class="form-control" name="pendidikan" placeholder="pendidikan">
-                                </div>
-                                <div class="form-group">
-                                    <label>No SK</label>
-                                    <input type="text" class="form-control" name="pangkat" placeholder="pangkat">
-                                </div>
-                                <div class="form-group">
-                                    <label>KGB Berikutnyan</label>
-                                    <input type="text" class="form-control" name="jabatan" placeholder="jabatan">
-                                </div>
-                                <button type="submit" name="submit" class="btn btn-primary btn-sm">Simpan</button> | 
-                                <?php echo anchor('anggota','Kembali',array('class'=>'btn btn-danger btn-sm'))?>
-                                </form>
-                            </div>
-                        </div>
-                       
-                    </div>
-                </div>-->
-                <!-- /. ROW  --> <!-- /. PANEL  -->
 
                 <div class="card shadow mb-4">
                 <div class="card-header">

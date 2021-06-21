@@ -73,9 +73,18 @@
                                         }?>
                                 </select>          
                   </div>
+                  <div class="form-group mb-3">
+                            <label for="" class="control-label">Status</label>
+                                <select type="option" class="form-control"  name="status">
+                                        <option value="aktif">Aktif</option>
+                                        <option value="keluar">keluar</option>
+                                        <option value="pensiun">Aktif</option>
+                                        <option value="meninggal">keluar</option>
+                                </select>
+                  </div>
           </div>
                               <span  style="margin-left: 15px;"><button type="submit" name="submit" value="Submit" id="submit" class="btn btn-primary btn-sm">Simpan</button></span>   
-                              <span style="margin-left: 5px;" ><?php echo anchor('anggota','Kembali',array('class'=>'btn btn-danger btn-sm' ))?></span>
+                              <span style="margin-left: 5px;" ><?php echo anchor('anggota/index/aktif','Kembali',array('class'=>'btn btn-danger btn-sm' ))?></span>
           </form>
       </div><!-- /. PANEL  -->
 </div><!-- /. ROW  -->

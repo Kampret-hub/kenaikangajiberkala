@@ -10,13 +10,33 @@ class anggota extends ci_controller{
         }
     }
     
-    function index()
+    function index($id)
     {
          $data['user'] = $this->db->get_where('user', ['nama_lengkap' => $this->session->userdata('nama_lengkap')])->row_array();  
         
-        $data['record']=  $this->model_kgb->get_data('anggota');
-        //$this->load->view('user/lihat_data',$data);
-        $this->template->load('template/template_admin','anggota/lihat_data',$data);
+        // $data['record']=  $this->model_kgb->get_data('anggota');
+        // //$this->load->view('user/lihat_data',$data);
+        // $this->template->load('template/template_admin','anggota/lihat_data',$data);
+        $param = array ('status' => $id);
+        
+        if( $id == 'aktif')
+        {
+             $data['record1']= $this->model_kgb->find_data($param, 'anggota')->result();
+            $this->template->load('template/template_admin','anggota/anggota_aktif',$data);
+        } else if ($id == 'keluar')
+        {
+            $data['record1']= $this->model_kgb->find_data($param, 'anggota')->result();
+             $this->template->load('template/template_admin','anggota/anggota_keluar',$data);
+        } else if ($id == 'meninggal')
+        {
+            $data['record1']= $this->model_kgb->find_data($param, 'anggota')->result();
+             $this->template->load('template/template_admin','anggota/anggota_meninggal',$data);
+        } else
+        {
+            $data['record1']= $this->model_kgb->find_data($param, 'anggota')->result();
+             $this->template->load('template/template_admin','anggota/anggota_pensiun',$data);
+        }
+
     }
     
     function insert()
@@ -37,6 +57,7 @@ class anggota extends ci_controller{
             $pangkat        =  $this->input->post('pangkat');
             $jabatan        =  $this->input->post('jabatan');
             $bagian         =  $this->input->post('bagian');
+            $status         =  $this->input->post('status');
             
             $input_anggota =  array(   
                 'nama_lengkap'  =>$nama_lengkap,
@@ -49,7 +70,8 @@ class anggota extends ci_controller{
                 'pendidikan'    =>$pendidikan,
                 'pangkat'       =>$pangkat,
                 'jabatan'       =>$jabatan, 
-                'bagian'        =>$bagian
+                'bagian'        =>$bagian,
+                'status'        =>$status
             );
             $input_kgb = array(
                 'nrp'           =>$nrp,
@@ -69,7 +91,7 @@ class anggota extends ci_controller{
             $this->model_kgb->insert_data($input_kgb, 't_kgb');
             $this->model_kgb->insert_data($input_user, 'user');
             echo $this->session->set_flashdata('msg','<div class="alert alert-success text-center" role="alert">Data Berhasil Di Simpan</div>');
-            redirect('anggota', $data);
+            redirect('anggota/index/'.$status, $data);
         }
         else{
              $data['jk']=  $this->model_kgb->get_data('jk')->result();
@@ -127,6 +149,7 @@ class anggota extends ci_controller{
             );
              $edit_kgb = array(
                 'nama'          =>$nama_lengkap
+
                 
             );
             $edit_user = array (
@@ -137,10 +160,9 @@ class anggota extends ci_controller{
             $where = array ('nrp' => $nrp);
             $this->model_kgb->update_data('anggota', $edit_anggota, $where);
             $this->model_kgb->update_data('t_kgb', $edit_kgb, $where);
-            // update table user tidak berhasil di karenakan tidak ada filed bernama username
             $this->model_kgb->update_data('user', $edit_user, $where);
             echo $this->session->set_flashdata('msg','<div class="alert alert-success text-center" role="alert">Data Berhasil Di Ubah</div>');
-            redirect('anggota');
+            redirect('anggota/index/'.$status);
         }
         else{
             $id=  $this->uri->segment(3);
@@ -155,28 +177,25 @@ class anggota extends ci_controller{
             $data['golongan']=  $this->model_kgb->get_data('golongan')->result();
             $data['gaji_pokok']=  $this->model_kgb->get_data('gaji_pokok')->result();
 
-
+            
             $data['record']= $this->model_kgb->find_data($param, 'anggota')->row_array();
             $this->template->load('template/template_admin','anggota/form_edit',$data);
         }
     }
     
     
-    function delete($id)
+    function delete($id, $stat)
     {
+        $stat = $this->uri->segment(4);
         $where = array ('nrp' => $id);
+        $data['record']= $this->model_kgb->find_data($where, 'anggota')->row_array();
+
         $this->model_kgb->delete_data($where, 'anggota');
         $this->model_kgb->delete_data($where, 't_kgb');
         $this->model_kgb->delete_data($where, 'user');
-        // update table user tidak berhasil di karenakan tidak ada filed bernama username
-        $this->model_kgb->delete_data($where, 'user');
-
-
-        // $id=  $this->uri->segment(3);
-        // $this->db->where('id_anggota',$id);
-        // $this->db->delete('anggota');
+      
         echo $this->session->set_flashdata('msg','<div class="alert alert-danger text-center" role="alert">Data Berhasil Di Hapus</div>');
-        redirect('anggota');
+        redirect('anggota/index/'.$stat);
     }
 
      public function cari(){

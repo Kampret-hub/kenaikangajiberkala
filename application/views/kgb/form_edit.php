@@ -20,7 +20,7 @@
                                 <?php echo form_open('kgb/edit'); ?>
                                 <input type="hidden" value="<?php echo $record['id_kgb']?>" name="id_kgb">
                                 <div class="form-group">
-                                    <label>username</label>
+                                    <label>Nrp</label>
                                     <input type="text" class="form-control" name="nrp" readonly="" value="<?php echo $record['nrp']?>">
                                 </div>
                                 <div class="form-group">

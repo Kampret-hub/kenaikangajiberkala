@@ -130,13 +130,15 @@
                             <label for="" class="control-label">Status</label>
                                 <select type="option" class="form-control"  name="status">
                                         <option value="<?php echo $record['status'];?>"><?php echo $record['status'];?></option>
-                                        <option value="1">Aktif</option>
-                                        <option value="0">Tidak Aktif</option>
+                                        <option value="aktif">Aktif</option>
+                                        <option value="keluar">keluar</option>
+                                        <option value="meninggal">meninggal</option>
+                                        <option value="meninggal">pensiun</option>
                                 </select>
                         </div>
             </div>
                                 <span  style="margin-left: 15px;"><button type="submit" name="submit" value="Submit" id="submit" class="btn btn-primary btn-sm">Edit</button></span>   
-                                <span style="margin-left: 5px;" ><?php echo anchor('anggota','Kembali',array('class'=>'btn btn-danger btn-sm' ))?></span>
+                                <span style="margin-left: 5px;" ><?php echo anchor('anggota/index/'.$record['status'],'Kembali',array('class'=>'btn btn-danger btn-sm' ))?></span>
                             </form>
                         </div>
                     </div><!-- /. PANEL  -->

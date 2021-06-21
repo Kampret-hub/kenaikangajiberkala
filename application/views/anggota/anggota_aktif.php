@@ -30,7 +30,7 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <?php $no=1; foreach ($record->result() as $r) { ?>
+                            <?php $no=1; foreach ($record1 as $r) { ?>
                             <tr class="">
                                 <td><?php echo $no ?></td>
                                 <td><?php echo $r->nrp ?></td>
@@ -46,7 +46,7 @@
                                   </button>
                                   <div class="dropdown-menu dropdown-menu-right " >
                                     <a href=" <?php echo base_url('anggota/edit/'.$r->nrp) ?>" class="btn btn-primary btn-small" style='margin-left: 5px;'><i class="fe fe-edit"></i>Edit</a>
-                                    <a href="<?php echo base_url('anggota/delete/'.$r->nrp)?>" class="btn btn-danger btn-small hapus" id="" ><i class="fe fe-trash"></i>Hapus</a>
+                                    <a href="<?php echo base_url('anggota/delete/'.$r->nrp.'/'.$r->status)?>" class="btn btn-danger btn-small hapus" id="" ><i class="fe fe-trash"></i>Hapus</a>
                                 </td>
                                 
                             </tr>

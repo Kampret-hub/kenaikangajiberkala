@@ -57,6 +57,7 @@ class user extends ci_controller{
                  $data  =  array(   'nama_lengkap'=>$nama,
                                     'username'=>$username);
             }
+
             else{
                   $data =  array(   'nama_lengkap'=>$nama,
                                     'username'=>$username,
@@ -85,7 +86,7 @@ class user extends ci_controller{
 
      function delete($id)
     {
-        $where = array ('username' => $id);
+        $where = array ('nrp' => $id);
         $this->model_kgb->delete_data($where, 'anggota');
         $this->model_kgb->delete_data($where, 't_kgb');
         $this->model_kgb->delete_data($where, 'user');
