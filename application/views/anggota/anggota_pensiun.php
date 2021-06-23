@@ -6,7 +6,7 @@
               <h2 class="mb-2 page-title">Data Anggota Pensiun</h2>
                
 
-            <table class="table datatables" id="dataTable-1">
+            <table class="table table-striped table-bordered table-hover datatables" id="dataTable-1">
                 <div class="alert alert-dismissible fade show">
                     <strong>
                         <?php echo $this->session->flashdata('msg')?>
@@ -15,8 +15,8 @@
                         <span aria-hodden="true">&times;</span>
                     </button>
                 </div>
-                        <thead>
-                            <tr>
+                        <thead style="border: 2px; solid black; border-collapse: collapse;">
+                            <tr style="background-color: #0275d8;">
                                 <th>No.</th> 
                                  <th>NRP / NIP </th>
                                 <th>Nama Lengkap</th>

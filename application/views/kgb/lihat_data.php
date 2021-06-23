@@ -9,7 +9,7 @@
   </div>
                <!--<?php echo anchor('kgb/post','Tambah Data',array('class'=>'btn btn-danger btn-sm')) ?>-->
 
-                 <table class="table datatables" id="dataTable-1">
+                 <table class="table table-striped table-bordered table-hover datatables" id="dataTable-1">
                     <div class="alert alert-dismissible fade show">
                         <strong>
                             <?php echo $this->session->flashdata('msg')?>
@@ -18,8 +18,8 @@
                             <span aria-hodden="true">&times;</span>
                         </button>
                     </div>
-                        <thead>
-                            <tr>
+                        <thead style="border: 2px; solid black; border-collapse: collapse;">
+                            <tr style="background-color: #0275d8;">
                                 <th>No.</th> 
                                 <th>Nrp</th>
                                 <th>Nama</th>
@@ -41,7 +41,7 @@
                                 <td><?php echo $r->nama ?></td>
                                 <td><?php echo $r->gpl ?></td>
                                 <td><?php echo $r->gpb ?></td>
-                                <td><?php echo $r->mkgg ?></td>
+                                <td><?php echo $r->mkgg1  ?> - <?php echo $r->mkgg2  ?></td>
                                 <td><?php echo $r->tmtl ?></td>
                                 <td><?php echo $r->tmtb ?></td>
                                 <td><?php echo $r->nosk ?></td>

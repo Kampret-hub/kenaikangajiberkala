@@ -9,9 +9,9 @@
                 <?php echo anchor('user/post','Tambah Data',array('class'=>'btn btn-danger btn-sm')) ?>
             </div>
             </div>
-                         <table class="table datatables" id="dataTable-1">
-                                <thead>
-                                    <tr>
+                         <table class="table table-striped table-bordered table-hover datatables" id="dataTable-1">
+                                <thead style="border: 2px; solid black; border-collapse: collapse;">
+                                    <tr style="background-color: #0275d8;">
                                         <th>No.</th> 
                                         <th>Nama Lengkap</th>
                                         <th>NRP / NIP Username</th>
@@ -35,9 +35,7 @@
                                         <!--<td><?php echo $r->last_login ?></td>-->
                                         <td class="center">
                                             <a href=" <?php echo base_url('user/edit/'.$r->user_id) ?>" class="btn btn-primary btn-small" ><i class="fe fe-edit"></i>Edit</a>
-                                            <a href="<?php echo base_url('user/delete/'.$r->user_id)?>" class="btn btn-danger btn-small remove" ><i class="fe fe-trash"></i>Hapus</a>
-                                        <!--<?php echo anchor('user/edit/'.$r->user_id,'<span class="btn btn-info">Edit</span>'); ?>  
-                                        <?php echo anchor('user/delete/'.$r->user_id,'<span class="btn btn-danger remove">Hapus</span>'); ?>-->
+                                            <!--<a href="<?php echo base_url('user/delete/'.$r->user_id)?>" class="btn btn-danger btn-small remove" ><i class="fe fe-trash"></i>Hapus</a>-->
                                         </td>
                                     </tr>
                                 <?php $no++; } ?>
@@ -45,8 +43,8 @@
                         </table>
                     </td>
                 </tr>
-                <
- <script type="text/javascript">
+                
+ <!--<script type="text/javascript">
     $(".remove").click(function(e){
         e.preventDefault();
         const id = $(this).parents("tr").attr("id");
@@ -82,7 +80,7 @@
      
     });
     
-</script>
+</script>-->
        <!--<script type="text/javascript">
 
          $(".remove").click(function(e){

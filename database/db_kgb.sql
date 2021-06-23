@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: 21 Jun 2021 pada 09.38
+-- Generation Time: 23 Jun 2021 pada 12.43
 -- Versi Server: 5.6.16
 -- PHP Version: 5.5.11
 
@@ -75,8 +75,9 @@ CREATE TABLE IF NOT EXISTS `anggota` (
 --
 
 INSERT INTO `anggota` (`nrp`, `nama_lengkap`, `tmpt_lahir`, `t_lahir`, `jk`, `agama`, `alamat`, `pendidikan`, `pangkat`, `jabatan`, `bagian`, `golongan`, `masa_kerja`, `gaji_pokok`, `status`) VALUES
-('32150108079', 'andri', 'karawang', '1996-07-08', 'Laki-laki', 'Islam', 'karawang', 's1', 'AIPTU', '0', '0', '', '', '', ''),
-('tes2', 'tes3', 'bandung', '2021-06-16', 'Laki-laki', 'Islam', 'qq', 'q', 'PENATA TK I', '0', '0', '', '', '', '');
+('11111', 'andri11', 'bandung', '2021-06-24', 'Laki-laki', 'Islam', '', '1', 'PENGATUR TK I', '0', '0', 'Ia/10', '10 TAHUN', 'RP1.860.800', 'aktif'),
+('ra', 'wa', 'bandung', '2021-07-09', 'Laki-laki', 'Islam', 'aa', '1', 'BRIPKA', '0', '0', '', '', '', 'meninggal'),
+('tes2', 'tes2', 'bandung', '2021-06-24', 'Laki-laki', 'Islam', 'aa', '1', 'PENGATUR TK I', '0', '0', '', '', '', 'meninggal');
 
 -- --------------------------------------------------------
 
@@ -160,7 +161,7 @@ CREATE TABLE IF NOT EXISTS `gaji_pokok` (
   `g_pangkat` varchar(20) NOT NULL,
   `pangkat` varchar(30) NOT NULL,
   PRIMARY KEY (`id_gaji`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=83 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=61 ;
 
 --
 -- Dumping data untuk tabel `gaji_pokok`
@@ -226,29 +227,7 @@ INSERT INTO `gaji_pokok` (`id_gaji`, `kode_gapok`, `gaji`, `masa_kerja`, `golong
 (57, 'Id/22', 'Rp2.536.300', '22 Tahun', 'I.d', 'TAMTAMA', 'AJUN BRIGADIR POLISI DUA'),
 (58, 'Id/24', 'Rp2.616.300', '24 Tahun', 'I.d', 'TAMTAMA', 'AJUN BRIGADIR POLISI DUA'),
 (59, 'Id/26', 'Rp2.698.800', '26 Tahun', 'I.d', 'TAMTAMA', 'AJUN BRIGADIR POLISI DUA'),
-(60, 'Id/28', 'Rp2.783.900', '28 Tahun', 'I.d', 'TAMTAMA', 'AJUN BRIGADIR POLISI DUA'),
-(61, '', '', '', '', '', ''),
-(62, '', '', '', '', '', ''),
-(63, '', '', '', '', '', ''),
-(64, '', '', '', '', '', ''),
-(65, '', '', '', '', '', ''),
-(66, '', '', '', '', '', ''),
-(67, '', '', '', '', '', ''),
-(68, '', '', '', '', '', ''),
-(69, '', '', '', '', '', ''),
-(70, '', '', '', '', '', ''),
-(71, '', '', '', '', '', ''),
-(72, '', '', '', '', '', ''),
-(73, '', '', '', '', '', ''),
-(74, '', '', '', '', '', ''),
-(75, '', '', '', '', '', ''),
-(76, '', '', '', '', '', ''),
-(77, '', '', '', '', '', ''),
-(78, '', '', '', '', '', ''),
-(79, '', '', '', '', '', ''),
-(80, '', '', '', '', '', ''),
-(81, '', '', '', '', '', ''),
-(82, '', '', '', '', '', '');
+(60, 'Id/28', 'Rp2.783.900', '28 Tahun', 'I.d', 'TAMTAMA', 'AJUN BRIGADIR POLISI DUA');
 
 -- --------------------------------------------------------
 
@@ -318,20 +297,21 @@ CREATE TABLE IF NOT EXISTS `history_kbg` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `nrp` varchar(20) NOT NULL,
   `nama` varchar(100) NOT NULL,
-  `periode` varchar(10) NOT NULL,
+  `periode_thn` varchar(10) NOT NULL,
+  `periode_bln` varchar(11) NOT NULL,
   `gaji` varchar(20) NOT NULL,
   `tmt` date NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=8 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=40 ;
 
 --
 -- Dumping data untuk tabel `history_kbg`
 --
 
-INSERT INTO `history_kbg` (`id`, `nrp`, `nama`, `periode`, `gaji`, `tmt`) VALUES
-(2, 'tes2', 'tes3', '1', '111111', '2021-06-22'),
-(3, '3215010807960007', 'andri', '1', '1', '2021-06-25'),
-(7, '3215010807960007', 'andri', '1q', '1', '2021-06-25');
+INSERT INTO `history_kbg` (`id`, `nrp`, `nama`, `periode_thn`, `periode_bln`, `gaji`, `tmt`) VALUES
+(37, '11111', 'andri11', '26TH', '11BL', '1', '0000-00-00'),
+(38, '11111', 'andri11', '20TH', '11BL', '1', '0000-00-00'),
+(39, 'tes2', 'tes2', '20TH', '12BL', '11', '0000-00-00');
 
 -- --------------------------------------------------------
 
@@ -1074,21 +1054,23 @@ CREATE TABLE IF NOT EXISTS `t_kgb` (
   `nama` varchar(100) NOT NULL,
   `gpl` decimal(50,0) NOT NULL,
   `gpb` decimal(50,0) NOT NULL,
-  `mkgg` varchar(50) NOT NULL,
+  `mkgg1` varchar(50) NOT NULL,
+  `mkgg2` varchar(11) NOT NULL,
   `tmtl` date NOT NULL,
   `tmtb` date NOT NULL,
   `nosk` varchar(150) NOT NULL,
   `kgbb` varchar(20) NOT NULL,
   PRIMARY KEY (`id_kgb`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=6 ;
 
 --
 -- Dumping data untuk tabel `t_kgb`
 --
 
-INSERT INTO `t_kgb` (`id_kgb`, `nrp`, `nama`, `gpl`, `gpb`, `mkgg`, `tmtl`, `tmtb`, `nosk`, `kgbb`) VALUES
-(1, '3215010807960007', 'andri', '11111', '1', '1q', '2021-06-21', '2021-06-25', '1', '1'),
-(2, 'tes2', 'tes3', '11111', '111111', '1', '2021-06-21', '2021-06-22', '1', '1');
+INSERT INTO `t_kgb` (`id_kgb`, `nrp`, `nama`, `gpl`, `gpb`, `mkgg1`, `mkgg2`, `tmtl`, `tmtb`, `nosk`, `kgbb`) VALUES
+(3, '11111', 'andri11', '1', '1', '20', '11', '0000-00-00', '0000-00-00', '1', '1'),
+(4, 'tes2', 'tes2', '11111', '11', '20', '12', '0000-00-00', '0000-00-00', '', ''),
+(5, 'ra', 'wa', '0', '0', '', '', '0000-00-00', '0000-00-00', '', '');
 
 -- --------------------------------------------------------
 
@@ -1106,16 +1088,17 @@ CREATE TABLE IF NOT EXISTS `user` (
   `status` int(11) NOT NULL,
   `date_created` varchar(11) NOT NULL,
   PRIMARY KEY (`user_id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=1303 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=1307 ;
 
 --
 -- Dumping data untuk tabel `user`
 --
 
 INSERT INTO `user` (`user_id`, `nama_lengkap`, `nrp`, `password`, `role_id`, `image`, `status`, `date_created`) VALUES
+(1304, 'andri11', '11111', 'ee11cbb19052e40b07aac0ca060c23ee', 2, 0, 1, '2021-06-22 '),
 (1222, 'Admin', 'admin', '21232f297a57a5a743894a0e4a801fc3', 1, 0, 1, '2021-06-05'),
-(1301, 'andri', '3215010807960007', 'ee11cbb19052e40b07aac0ca060c23ee', 2, 0, 1, '2021-06-21 '),
-(1302, 'tes3', 'tes2', 'ee11cbb19052e40b07aac0ca060c23ee', 2, 0, 1, '2021-06-21 ');
+(1305, 'tes2', 'tes2', 'ee11cbb19052e40b07aac0ca060c23ee', 2, 0, 1, '2021-06-22 '),
+(1306, 'wa', 'ra', 'ee11cbb19052e40b07aac0ca060c23ee', 2, 0, 1, '2021-06-22 ');
 
 -- --------------------------------------------------------
 

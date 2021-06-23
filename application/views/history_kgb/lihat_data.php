@@ -7,7 +7,7 @@
 
                 <!--<?php echo anchor('anggota/post','Tambah Data',array('class'=>'btn btn-danger btn-sm')) ?>-->
             
-                 <table class="table datatables" id="dataTable-1">
+                 <table class="table table-striped table-bordered table-hover datatables" id="dataTable-1">
                     <div class="alert alert-dismissible fade show">
                     <strong>
                         <?php echo $this->session->flashdata('msg')?>
@@ -16,8 +16,8 @@
                         <span aria-hodden="true">&times;</span>
                     </button>
                 </div>
-                        <thead>
-                            <tr>
+                        <thead style="border: 2px; solid black; border-collapse: collapse;">
+                            <tr style="background-color: #0275d8;">
                                 <th>No.</th> 
                                 <th>Nrp</th>
                                 <th>Nama</th>
@@ -33,7 +33,7 @@
                                 <td><?php echo $no ?></td>
                                 <td><?php echo $r->nrp ?></td>
                                  <td><?php echo $r->nama ?></td>
-                                <td><?php echo $r->periode ?></td>
+                                <td><?php echo $r->periode_thn ?> - <?php echo $r->periode_bln ?></td>
                                 <td><?php echo $r->gaji ?></td>
                                 <td><?php echo $r->tmt ?></td>
                                 <td><button class="btn btn-sm dropdown-toggle more-horizontal" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -42,7 +42,7 @@
                                   <div class="dropdown-menu dropdown-menu-right">
                                     <a href=" <?php echo base_url('history/edit/'.$r->id) ?>" class="btn btn-primary btn-small" style='margin-left: 5px;'><i class="fe fe-edit"></i> Edit</a>
                                     <a href="<?php echo base_url('history/delete/'.$r->id)?>" class="btn btn-danger btn-small" id="" ><i class="fe fe-trash"></i> Hapus</a>
-                                    <a href="<?php echo base_url('history/cetak/'.$r->id)?>" class="btn btn-info btn-small" id="" ><i class="fe fe-printer"></i> Cetak KGB</a>
+                                    <a href="<?php echo base_url('history/pdf/'.$r->id)?>" class="btn btn-info btn-small" id="" ><i class="fe fe-printer"></i> Cetak KGB</a>
                                   </div>
                                 </td>
                                 

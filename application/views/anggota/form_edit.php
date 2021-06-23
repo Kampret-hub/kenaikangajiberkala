@@ -95,36 +95,19 @@
                                 </select>
                         </div>
                         <div class="form-group mb-3">
-                             <label for="" class="control-label">Golongan</label>
-                                <select  type="option" class="form-control"  name="golongan">
-                                    <option type="option" class="form-control"  name="golongan" value="<?php echo $record['golongan']; ?>"><?php echo $record['golongan'];?></option>
-                                        <!-- Ambil data di DB-->
-                                       <?php foreach ($golongan as $a ) {
-                                            echo "<option value='$a->nama_golongan $a->pangkat'>$a->nama_golongan $a->pangkat</option>"; 
-                                        }?>
-                                </select>
+                             <label for="" class="control-label">Golongan</label> 
+                                <input  type="option" class="form-control"  id="title"  name="golongan" value="<?php echo $record['golongan']; ?>"></input>
+                                    
                         </div>
                         <div class="form-group mb-3">
                             <div class="form-group mb-3">
                              <label for="" class="control-label">Masa kerja</label>
-                                <select  type="option" class="form-control"  name="masa_kerja">
-                                    <option type="option" class="form-control"  name="masa_kerja" value="<?php echo $record['masa_kerja']; ?>"><?php echo $record['masa_kerja'];?></option>
-                                        <!-- Ambil data di DB-->
-                                       <?php foreach ($gaji_pokok as $c) {
-                                            echo "<option value='$c->masa_kerja'>$c->masa_kerja</option>"; 
-                                        }?>
-                                </select>
+                                <input type="text" readonly="" class="form-control" id="masa_kerja" name="masa_kerja" value="<?php echo $record['masa_kerja']; ?>">
                             </div>
                         </div>
                         <div class="form-group mb-3">
                              <label for="" class="control-label">Gaji pokok</label>
-                                <select  type="option" class="form-control"  name="gaji_pokok">
-                                    <option type="option" class="form-control"  name="gaji_pokok" value="<?php echo $record['gaji_pokok']; ?>"><?php echo $record['gaji_pokok'];?></option>
-                                        <!-- Ambil data di DB-->
-                                       <?php foreach ($gaji_pokok as $c) {
-                                            echo "<option value='$c->gaji'>$c->gaji</option>"; 
-                                        }?>
-                                </select>
+                                <input type="text" readonly="" class="form-control" id="gaji_pokok" name="gaji_pokok" value="<?php echo $record['gaji_pokok']; ?>">
                         </div>
                         <div class="form-group mb-3">
                             <label for="" class="control-label">Status</label>
@@ -144,7 +127,23 @@
                     </div><!-- /. PANEL  -->
                 </div><!-- /. ROW  -->
 
-                <!--<script type="text/javascript">
+
+<script>
+  $(document).ready(function()
+  {
+    $("#title").autocomplete({
+      source : "<?php echo site_url('anggota/get_autocomplete') ?>",
+
+      select: function(event, ui){
+        $('[name="title"]').val(ui.item.label);
+        $('[name="masa_kerja"]').val(ui.item.masa_kerja);
+        $('[name="gaji_pokok"]').val(ui.item.gaji_pokok);
+      }
+    });
+});
+</script>
+
+<!--<script type="text/javascript">
 $(document).ready(function(){
   $('#EditAnggota').on('submit',function(e) {  
   $.ajax({

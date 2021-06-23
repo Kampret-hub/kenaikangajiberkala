@@ -3,16 +3,14 @@
     <div class="col-md-12">
         <div class="card shadow">
             <div class="card-body">
-              <h2 class="mb-2 page-title">Data Golongan</h2>
+              <h2 class="mb-2 page-title">Data Bagian</h2>
                 <!--<?php echo anchor('anggota/post','Tambah Data',array('class'=>'btn btn-danger btn-sm')) ?>-->
 
                  <table class="table table-striped table-bordered table-hover datatables" id="dataTable-1">
                         <thead style="border: 2px; solid black; border-collapse: collapse;">
                             <tr style="background-color: #0275d8;">
                                 <th>No.</th> 
-                                <th>Golongan</th>
-                                <th>Jabatan</th>
-                                <th>Golongan Pangkat</th>
+                                <th>Nama Bagian</th>
                                 <!--<th>Aksi</th>-->
                             </tr>
                         </thead>
@@ -20,9 +18,7 @@
                             <?php $no=1; foreach ($record->result() as $r) { ?>
                             <tr class="">
                                 <td><?php echo $no ?></td>
-                                <td><?php echo $r->golongan ?></td>
-                                <td><?php echo $r->g_pangkat ?></td>
-                                <td><?php echo $r->pangkat ?></td>
+                                <td><?php echo $r->nama_bagian ?></td>
                                 <!--<td><button class="btn btn-sm dropdown-toggle more-horizontal" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     <span class="text-muted sr-only">Action</span>
                                   </button>

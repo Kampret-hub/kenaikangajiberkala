@@ -6,9 +6,9 @@
               <h2 class="mb-2 page-title">Data Golongan</h2>
                 <!--<?php echo anchor('anggota/post','Tambah Data',array('class'=>'btn btn-danger btn-sm')) ?>-->
 
-                 <table class="table datatables" id="dataTable-1">
-                        <thead>
-                            <tr>
+                 <table class="table table-striped table-bordered table-hover datatables" id="dataTable-1">
+                        <thead style="border: 2px; solid black; border-collapse: collapse;">
+                            <tr style="background-color: #0275d8;">
                                 <th>No.</th> 
                                 <th>Kode GAPOK</th>
                                 <th>Gaji Pokok</th>

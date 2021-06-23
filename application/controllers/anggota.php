@@ -174,7 +174,7 @@ class anggota extends ci_controller{
             $data['pangkat']=  $this->model_kgb->get_data('pangkat')->result();
             $data['jabatan']=  $this->model_kgb->get_data('jabatan')->result();
             $data['bagian']=  $this->model_kgb->get_data('bagian')->result();
-            $data['golongan']=  $this->model_kgb->get_data('golongan')->result();
+            //$data['golongan']=  $this->model_kgb->get_data('golongan')->result();
             $data['gaji_pokok']=  $this->model_kgb->get_data('gaji_pokok')->result();
 
             
@@ -199,8 +199,24 @@ class anggota extends ci_controller{
     }
 
      public function cari(){
-         $username=$_GET['username'];
+         $username=$_GET['kode_gapok'];
          $cari =$this->model_kgb->cari($username)->result();
          echo json_encode($cari);
      } 
+
+     function get_autocomplete()
+  {
+    if (isset($_GET['term'])) {
+      $result = $this->model_kgb->get_prov($_GET['term']);
+      if (count($result) > 0) {
+        foreach ($result as $row)
+        $result_array[] = array(
+            'label'=>$row->kode_gapok,
+            'masa_kerja'=>strtoupper($row->masa_kerja),
+            'gaji_pokok'=>strtoupper($row->gaji)
+          );
+        echo json_encode($result_array);
+      }
+    }
+  }
 }

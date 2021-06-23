@@ -29,7 +29,8 @@ class kgb extends ci_controller{
             $nama          =  $this->input->post('nama',true);
             $gpl           =  $this->input->post('gpl',true);
             $gpb           =  $this->input->post('gpb',true);
-            $mkgg          =  $this->input->post('mkgg',true); 
+            $mkgg1          =  $this->input->post('mkgg1',true); 
+            $mkgg2          =  $this->input->post('mkgg2',true); 
             $tmtl          =  $this->input->post('tmtl',true);
             $tmtb          =  $this->input->post('tmtb',true);
             $nosk          =  $this->input->post('nosk',true);
@@ -43,7 +44,8 @@ class kgb extends ci_controller{
                 'nama'      => $nama,
                 'gpl'       => $gpl,
                 'gpb'       => $gpb,
-                'mkgg'      => $mkgg,
+                'mkgg1'      => $mkgg1,
+                'mkgg2'      => $mkgg2,
                 'tmtl'      => $tmtl,
                 'tmtb'      => $tmtb,
                 'nosk'      => $nosk,
@@ -53,12 +55,13 @@ class kgb extends ci_controller{
             $insert_history =  array(   
                 'nrp'     => $nrp,
                 'nama'    => $nama,
-                'periode' => $mkgg, 
+                'periode_thn' => $mkgg1,
+                'periode_bln' => $mkgg2, 
                 'gaji'    => $gpb,
                 'tmt'     => $tmtb 
             );
 
-             // proses kategori
+             // proses insert
             $where = array ('id_kgb' => $id_kgb);
             $this->model_kgb->update_data('t_kgb', $edit_kgb, $where);
              $this->model_kgb->insert_data($insert_history, 'history_kbg');

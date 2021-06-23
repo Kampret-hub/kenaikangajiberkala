@@ -10,8 +10,11 @@
   cursor: pointer;
   padding: 10px;
   border-radius: 4px;
+  scroll-behavior: smooth;
 }
 
 #myBtn:hover {
   background-color: #555;
+  scroll-behavior: smooth;
+
 }
