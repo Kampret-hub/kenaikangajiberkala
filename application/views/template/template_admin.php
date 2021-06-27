@@ -128,7 +128,7 @@
                 <span class="ml-3 item-text">Report</span>
               </a>
               <ul class="collapse list-unstyled pl-4 w-100" id="report">
-                <a class="nav-link pl-3" href="<?php echo base_url().'historycetak'?>"><span class="ml-1">Cetak Surat KGB</span></a>
+                <a class="nav-link pl-3" href="<?php echo base_url().'report'?>"><span class="ml-1">Cetak Surat KGB</span></a>
                 <a class="nav-link pl-3" href=""><span class="ml-1">Report Excel Anggota</span></a> 
               </ul>
             </li>
