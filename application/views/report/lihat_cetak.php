@@ -40,7 +40,7 @@
                         </tr>
                         <tr> 
                             <td>7. kesatuan </td>
-                            <td><strong><?php echo $record['kesatuan']; ?>/strong></td>
+                            <td><strong><?php echo $record['kesatuan']; ?></strong></td>
                         </tr>
                         <tr>
                             <td>8. gaji pokok lama </td>

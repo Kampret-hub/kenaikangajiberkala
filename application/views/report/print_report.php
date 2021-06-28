@@ -4,16 +4,20 @@
 	<title></title>
 </head>
 <body>
-    <table>
+    <table width="100%">
+       
         <tr>
             <td align="center">
                 <span style="font-size: 12px; font-weight: bold; line-height: 1.5;">KEPOLISIAN NEGARA REPUBLIK INDONESIA
                     <br>DAERAH JAWA BARAT
-                    <br><u>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;RESOR KARAWANG&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</u>
+                   <!--  <br><u>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;RESOR KARAWANG&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</u> -->
+                   <br>
+                   <u>RESOR KARAWANG</u>
                     
                 </span>
             </td>
         </tr>
+        
     </table>
     <table style="width: 100%;">
         <tr>
@@ -48,7 +52,7 @@
     </table>
     <table>
         <tr>
-            <td>
+            <td style="margin-left: 10px">
                 <span style="font-size: 12px; font-weight:; line-height: 1.5;">
                     1. nama <span style="margin-left: 140px;">:</span> <?php echo $record['nama_lengkap']; ?>
                     <br>2. tanggal Lahir <span style="margin-left: 101px;">:</span> <?php echo $record['tmpt_lahir']; ?>, <?php echo $record['t_lahir']; ?>
