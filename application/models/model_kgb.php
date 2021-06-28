@@ -49,15 +49,18 @@ class model_kgb extends CI_Model{
       return $this->db->get('gaji_pokok')->result();
     }
 
-
-    // cetak PDF berdasarkan ID
-    function laporan_default()
-    {   
-        $id=  $this->uri->segment(3); 
-
-        $query=$this->db->get_where('history_kbg',array('id'=>$id));
-        //return $this->db->get_where('suratjalan');
-        return $query;
+    public function get_member_by_id($id){
+        return $this->db->get_where('anggota', array('nrp' => $id))->row();
     }
 
+    public function get_history_by_id($id){
+        return $this->db->get_where('history_kbg', array('nrp' => $id))->row();
+    }
+
+    public function history($id)
+    {
+        $this->db->select("*");
+        $this->db->where("nrp", $id);
+        return $this->db->get('history_kbg')->row();
+    }
 }

@@ -116,13 +116,219 @@
               </div>
                <!-- end section -->
                     
-               <!--<div class="col-md-12 mb-4">
+               <div class="col-md-12 mb-4">
                   <div class="card shadow">
                     <div class="card-header">
-                      <strong class="card-title mb-0">Bar Chart</strong>
+                      <strong class="card-title mb-0"><i class="fe fe-bar-chart"></i>Chart Pangkat</strong>
                     </div>
                     <div class="card-body">
-                      <canvas id="barChartjs" width="400" height="300"></canvas>
+                      <canvas id="chartPangkat"  height="100"></canvas>
                     </div>
                   </div>
-                </div> -->
+                </div>
+
+                <script  src='<?php echo base_url(); ?>assets/js/custom.js'></script>
+                 <script type="text/javascript">
+                  var ctx = document.getElementById("chartPangkat").getContext('2d');
+                  var chartPangkat = new Chart(ctx,{
+                    type: 'bar',
+                    data: {
+                      labels: ["BHARADA", "BHARATU", "BHARAKA", "ABRIPDA", "ABRIPTU", "ABRIPKA", "BRIPDA", "BRIPTU", "BRIGADIR", "BRIPKA", "AIPDA", "AIPTU", "IPDA", "IPTU", "AKP", "KOMPOL", "KBP", "AKBP", "BRIGJEN", "IRJEN", "KOMJEN", "JENDRAL"],
+                      datasets:[{
+                        label: '',
+                        data: [
+                              <?php $this->db->select('*');
+                              $this->db->from('anggota');
+                              $this->db->like('pangkat', 'BHARADA');
+                              $this->db->like('status', 'aktif');
+                              echo $this->db->count_all_results();?>,
+
+                              <?php $this->db->select('*');
+                              $this->db->from('anggota');
+                              $this->db->like('pangkat', 'BHARATU');
+                              $this->db->like('status', 'aktif');
+                              echo $this->db->count_all_results();?>,
+
+                              <?php $this->db->select('*');
+                              $this->db->from('anggota');
+                               $this->db->like('status', 'aktif');
+                              $this->db->like('pangkat', 'BHARAKA');
+                              echo $this->db->count_all_results();?>,
+
+                              <?php $this->db->select('*');
+                              $this->db->from('anggota');
+                              $this->db->like('status', 'aktif');
+                              $this->db->like('pangkat', 'ABRIPDA');
+                              echo $this->db->count_all_results();?>,
+
+                              <?php $this->db->select('*');
+                              $this->db->from('anggota');
+                              $this->db->like('status', 'aktif');
+                              $this->db->like('pangkat', 'ABRIPTU');
+                              echo $this->db->count_all_results();?>,
+
+                              <?php $this->db->select('*');
+                              $this->db->from('anggota');
+                              $this->db->like('status', 'aktif');
+                              $this->db->like('pangkat', 'ABRIPKA');
+                              echo $this->db->count_all_results();?>,
+
+                              <?php $this->db->select('*');
+                              $this->db->from('anggota');
+                              $this->db->like('status', 'aktif');
+                              $this->db->like('pangkat', 'BRIPDA');
+                              echo $this->db->count_all_results();?>,
+
+                              <?php $this->db->select('*');
+                              $this->db->from('anggota');
+                              $this->db->like('status', 'aktif');
+                              $this->db->like('pangkat', 'BRIPTU');
+                              echo $this->db->count_all_results();?>,
+
+                              <?php $this->db->select('*');
+                              $this->db->from('anggota');
+                              $this->db->like('status', 'aktif');
+                              $this->db->like('pangkat', 'BRIGADIR');
+                              echo $this->db->count_all_results();?>,
+
+                              <?php $this->db->select('*');
+                              $this->db->from('anggota');
+                              $this->db->like('status', 'aktif');
+                              $this->db->like('pangkat', 'BRIPKA');
+                              echo $this->db->count_all_results();?>,
+
+                              <?php $this->db->select('*');
+                              $this->db->from('anggota');
+                              $this->db->like('status', 'aktif');
+                              $this->db->like('pangkat', 'AIPDA');
+                              echo $this->db->count_all_results();?>,
+
+                              <?php $this->db->select('*');
+                              $this->db->from('anggota');
+                              $this->db->like('status', 'aktif');
+                              $this->db->like('pangkat', 'AIPTU');
+                              echo $this->db->count_all_results();?>,
+                            
+                              <?php $this->db->select('*');
+                              $this->db->from('anggota');
+                              $this->db->like('status', 'aktif');
+                              $this->db->like('pangkat', 'IPDA');
+                              echo $this->db->count_all_results();?>,
+
+                              <?php $this->db->select('*');
+                              $this->db->from('anggota');
+                              $this->db->like('status', 'aktif');
+                              $this->db->like('pangkat', 'IPTU');
+                              echo $this->db->count_all_results();?>,
+
+                              <?php $this->db->select('*');
+                              $this->db->from('anggota');
+                              $this->db->like('status', 'aktif');
+                              $this->db->like('pangkat', 'AKP');
+                              echo $this->db->count_all_results();?>,
+
+                              <?php $this->db->select('*');
+                              $this->db->from('anggota');
+                              $this->db->like('status', 'aktif');
+                              $this->db->like('pangkat', 'KOMPOL');
+                              echo $this->db->count_all_results();?>,
+
+                              <?php $this->db->select('*');
+                              $this->db->from('anggota');
+                              $this->db->like('status', 'aktif');
+                              $this->db->like('pangkat', 'KBP');
+                              echo $this->db->count_all_results();?>,
+
+                              <?php $this->db->select('*');
+                              $this->db->from('anggota');
+                              $this->db->like('status', 'aktif');
+                              $this->db->like('pangkat', 'AKBP');
+                              echo $this->db->count_all_results();?>,
+
+                              <?php $this->db->select('*');
+                              $this->db->from('anggota');
+                              $this->db->like('status', 'aktif');
+                              $this->db->like('pangkat', 'BRIGJEN');
+                              echo $this->db->count_all_results();?>,
+
+                              <?php $this->db->select('*');
+                              $this->db->from('anggota');
+                              $this->db->like('status', 'aktif');
+                              $this->db->like('pangkat', 'IRJEN');
+                              echo $this->db->count_all_results();?>,
+
+                              <?php $this->db->select('*');
+                              $this->db->from('anggota');
+                              $this->db->like('status', 'aktif');
+                              $this->db->like('pangkat', 'KOMJEN');
+                              echo $this->db->count_all_results();?>,
+
+                              <?php $this->db->select('*');
+                              $this->db->from('anggota');
+                              $this->db->like('status', 'aktif');
+                              $this->db->like('pangkat', 'JENDRAL');
+                              echo $this->db->count_all_results();?>
+                        ],
+                        backgroundColor: [
+                          'rgba(255, 99, 132 , 0.2)',
+                          'rgba(54, 162, 235 , 0.2)',
+                          'rgba(255, 206, 86 , 0.2)',
+                          'rgba(75, 192, 192 , 0.2)',
+                          'rgba(80, 99, 132 , 0.2)',
+                          'rgba(54, 162, 235 , 0.2)',
+                          'rgba(255, 206, 86 , 0.2)',
+                          'rgba(75, 192, 192 , 0.2)',
+                          'rgba(255, 99, 132 , 0.2)',
+                          'rgba(54, 162, 235 , 0.2)',
+                          'rgba(255, 206, 86 , 0.2)',
+                          'rgba(75, 192, 192 , 0.2)',
+                          'rgba(255, 99, 132 , 0.2)',
+                          'rgba(54, 162, 235 , 0.2)',
+                          'rgba(255, 206, 86 , 0.2)',
+                          'rgba(75, 192, 192 , 0.2)',
+                          'rgba(255, 99, 132 , 0.2)',
+                          'rgba(54, 162, 235 , 0.2)',
+                          'rgba(255, 206, 86 , 0.2)',
+                          'rgba(255, 99, 132 , 0.2)',
+                          'rgba(54, 162, 235 , 0.2)',
+                          'rgba(255, 99, 132 , 0.2)'
+                        ],
+                        borderColor: [
+                          'rgba(255, 99, 132 , 1)',
+                          'rgba(54, 162, 235 , 1)',
+                          'rgba(255, 206, 86 , 1)',
+                          'rgba(75, 192, 192 , 1)',
+                          'rgba(80, 99, 132 , 1)',
+                          'rgba(54, 162, 235 , 1)',
+                          'rgba(255, 206, 86 , 1)',
+                          'rgba(75, 192, 192 , 1)',
+                          'rgba(255, 99, 132 , 1)',
+                          'rgba(54, 162, 235 , 1)',
+                          'rgba(255, 206, 86 , 1)',
+                          'rgba(75, 192, 192 , 1)',
+                          'rgba(255, 99, 132 , 1)',
+                          'rgba(54, 162, 235 , 1)',
+                          'rgba(255, 206, 86 , 1)',
+                          'rgba(75, 192, 192 , 1)',
+                          'rgba(255, 99, 132 , 1)',
+                          'rgba(54, 162, 235 , 1)',
+                          'rgba(255, 206, 86 , 1)',
+                          'rgba(255, 99, 132 , 1)',
+                          'rgba(54, 162, 235 , 1)',
+                          'rgba(255, 206, 86 , 1)'
+                        ],
+                        borderWidth: 1
+                      }]
+                    },
+                    options:{
+                      scales:{
+                        yAxes: [{
+                          ticks: {
+                            beginAtZero:true
+                          }
+                        }]
+                      }
+                    }
+                  });                  
+                </script>
+

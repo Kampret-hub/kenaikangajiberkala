@@ -5,29 +5,37 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
-    <link rel="icon" href="<?php echo base_url() ?>favicon.ico">
-    <title>E-KGB</title> 
+    <link rel="shortcut icon" href="<?= base_url() ?>assets/img/fav.png" src="">
+    <title>SIMPEG POLRES KARAWANG</title>
     <!-- Simple bar CSS -->
     <link rel="stylesheet" href="<?php echo base_url() ?>assets/css/simplebar.css">
     <!-- Fonts CSS -->
-    <link href="<?php echo base_url() ?>https://fonts.googleapis.com/css2?family=Overpass:ital,wght@0,100;0,200;0,300;0,400;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Overpass:ital,wght@0,100;0,200;0,300;0,400;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
     <!-- Icons CSS -->
-    <link rel="stylesheet" href="<?php echo base_url() ?>assets/css/feather.css">
+    <link rel="stylesheet" href="<?php echo base_url() ?>assets/css/feather.css"> 
     <link rel="stylesheet" href="<?php echo base_url() ?>assets/css/select2.css">
-    <link rel="stylesheet" href="<?php echo base_url() ?>assets/css/dropzone.css"> 
+    <link rel="stylesheet" href="<?php echo base_url() ?>assets/css/dropzone.css">
     <link rel="stylesheet" href="<?php echo base_url() ?>assets/css/uppy.min.css">
     <link rel="stylesheet" href="<?php echo base_url() ?>assets/css/jquery.steps.css">
     <link rel="stylesheet" href="<?php echo base_url() ?>assets/css/jquery.timepicker.css">
     <link rel="stylesheet" href="<?php echo base_url() ?>assets/css/quill.snow.css">
     <!-- Date Range Picker CSS -->
     <link rel="stylesheet" href="<?php echo base_url() ?>assets/css/daterangepicker.css">
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
     <!-- App CSS -->
     <link rel="stylesheet" href="<?php echo base_url() ?>assets/css/app-light.css" id="lightTheme" disabled>
     <link rel="stylesheet" href="<?php echo base_url() ?>assets/css/app-dark.css" id="darkTheme">
+    <link rel="stylesheet" href="<?php echo base_url() ?>assets/css/custom.css">
+    <!-- Sweat Alert 2-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://lipis.github.io/bootstrap-sweetalert/dist/sweetalert.js"></script>
+    <link rel="stylesheet" href="https://lipis.github.io/bootstrap-sweetalert/dist/sweetalert.css" />
   </head>
 <?php if($this->session->userdata('role_id')=== '2'):?>
-  <body class="vertical  dark  ">
+ <body class="vertical  dark  ">
     <div class="wrapper">
+      <button onclick="topFunction()" id="myBtn" title="Go to top" class="btn btn-primary fe fe-arrow-up"></button>
+      <!-- Header -->
       <nav class="topnav navbar navbar-light">
         <button type="button" class="navbar-toggler text-muted mt-2 p-0 mr-3 collapseSidebar">
           <i class="fe fe-menu navbar-toggler-icon"></i>
@@ -41,49 +49,37 @@
               <i class="fe fe-sun fe-16"></i>
             </a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link text-muted my-2" href="./#" data-toggle="modal" data-target=".modal-shortcut">
-              <span class="fe fe-grid fe-16"></span>
-            </a>
-          </li>
-          <li class="nav-item nav-notif">
+          <!--<li class="nav-item nav-notif">
             <a class="nav-link text-muted my-2" href="./#" data-toggle="modal" data-target=".modal-notif">
               <span class="fe fe-bell fe-16"></span>
               <span class="dot dot-md bg-success"></span>
             </a>
-          </li>
+          </li>-->
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle text-muted pr-0" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               <span class="avatar avatar-sm mt-2">
-
                 <img  src="<?php echo base_url(); ?>./assets/avatars/face.png" alt="..." class="avatar-img rounded-circle">
               </span>
             </a>
             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
               <a class="dropdown-item" href="#"><?= $user['nama_lengkap']; ?></a>
               <a class="dropdown-item" href="#">Profile</a>
-              <a class="dropdown-item" href="#">Settings</a>
-              <a class="dropdown-item" href="#">Activities</a>
+              <a class="dropdown-item" href="#">Ganti Password</a>
               <a class="dropdown-item" href="<?php echo base_url().'auth/logout'?>">Logout</a>
             </div>
           </li>
         </ul>
-      </nav>
+      </nav><!-- End Header -->
+      
       <aside class="sidebar-left border-right bg-white shadow" id="leftSidebar" data-simplebar>
         <a href="#" class="btn collapseSidebar toggle-btn d-lg-none text-muted ml-2 mt-3" data-toggle="toggle">
           <i class="fe fe-x"><span class="sr-only"></span></i>
         </a>
         <nav class="vertnav navbar navbar-light">
-          <!-- nav bar -->
           <div class="w-100 mb-4 d-flex">
-            <a class="navbar-brand mx-auto mt-2 flex-fill text-center" href="./pembeli">
-              <svg version="1.1" id="logo" class="navbar-brand-img brand-sm" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 120 120" xml:space="preserve">
-                <g>
-                  <polygon class="st0" points="78,105 15,105 24,87 87,87  " />
-                  <polygon class="st0" points="96,69 33,69 42,51 105,51   " />
-                  <polygon class="st0" points="78,33 15,33 24,15 87,15  " />
-                </g>
-              </svg>
+            <a class="navbar-brand mx-auto mt-2 flex-fill text-center" href="">
+             <img src="<?= base_url() ?>assets/img/logo2.png" alt="" title="" /><p>
+              <p class="flex-fill text-center small text-muted nav-heading mb-1">SISTEM INFORMASI PEGAWAI</p>
             </a>
           </div>
          
@@ -97,9 +93,9 @@
           </ul>
           <ul class="navbar-nav flex-fill w-100 mb-2">
             <li class="nav-item w-100">
-              <a class="nav-link" href="">
+              <a class="nav-link" href="<?php echo base_url().'member/profile' ?>">
                 <i class="fe fe-user fe-16"></i>
-                <span class="ml-3 item-text">Profil</span>
+                <span class="ml-3 item-text">Profil Saya</span>
               </a>
             </li>          
           </ul>
@@ -111,61 +107,32 @@
         </nav>
       </aside>
 
-       <!-- Content-->
+        <!-- Content-->
         <main role="main" class="main-content">
         <div class="container-fluid">
           <div class="row justify-content-center">
             <div class="col-12">
-            <div class="row align-items-center my-4">
-                <div class="col">
-                  <h2 class="h3 mb-0 page-title">Contacts</h2>
-                </div>
-                <div class="col-auto">
-                  <button type="button" class="btn btn-secondary"><span class="fe fe-trash fe-12 mr-2"></span>Delete</button>
-                  <button type="button" class="btn btn-primary"><span class="fe fe-filter fe-12 mr-2"></span>Create</button>
-                </div>
-              </div>
-              <div class="row">
-                <div class="col-md-3">
-                  <div class="card shadow mb-4">
-                    <div class="card-body text-center">
-                      <div class="avatar avatar-lg mt-4">
-                        <a href="<?php echo base_url() ?>">
-                          <img src="./assets/avatars/face-4.jpg" alt="..." class="avatar-img rounded-circle">
-                        </a>
-                      </div>
-                      <div class="card-text my-2">
-                        <strong class="card-title my-0">Bass Wendy </strong>
-                        <p class="small text-muted mb-0">Accumsan Consulting</p>
-                        <p class="small"><span class="badge badge-light text-muted">New York, USA</span></p>
-                      </div>
-                    </div> <!-- ./card-text -->
-                    <div class="card-footer">
-                      <div class="row align-items-center justify-content-between">
-                        <div class="col-auto">
-                          <small>
-                            <span class="dot dot-lg bg-success mr-1"></span> Online </small>
-                        </div>
-                        <div class="col-auto">
-                          <div class="file-action">
-                            <button type="button" class="btn btn-link dropdown-toggle more-vertical p-0 text-muted mx-auto" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                              <span class="text-muted sr-only">Action</span>
-                            </button>
-                            <div class="dropdown-menu m-2">
-                              <a class="dropdown-item" href="<?php echo base_url() ?>#"><i class="fe fe-meh fe-12 mr-4"></i>Profile</a>
-                              <a class="dropdown-item" href="<?php echo base_url() ?>#"><i class="fe fe-message-circle fe-12 mr-4"></i>Chat</a>
-                              <a class="dropdown-item" href="<?php echo base_url() ?>#"><i class="fe fe-mail fe-12 mr-4"></i>Contact</a>
-                              <a class="dropdown-item" href="<?php echo base_url() ?>#"><i class="fe fe-delete fe-12 mr-4"></i>Delete</a>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div> <!-- /.card-footer -->
-                  </div>
-                </div> <!-- .col -->
-               
-         
+                <table class="table table-borderless table-striped dataTables">
+                    <div id="page-wrapper"   >
+                     <div id="page-inner">
+                         <?php echo $contents; ?>
+                       </div>
+                    </div>
+                  </table>
+               </div> 
+            </div>
+          </div>
+        </main>
       <!-- End Content-->
+
+      <!-- Footer -->      
+            <div class="d-flex flex-column min-vh-100">
+              <main class="flex-fill"></main>
+              <footer>
+                <div class="card shadow footer-copyright text-center py-3">© 2021 Copyright SIMPEG POLRES KARWANG
+                </div>
+              </footer>
+            </div><!-- End Footer -->
 
                     <!-- ShortCut end -->      
                     <div class="modal fade modal-shortcut modal-slide" tabindex="-1" role="dialog" aria-labelledby="defaultModalLabel" aria-hidden="true">
@@ -297,7 +264,7 @@
               </div><!-- Notify End -->
               <?php endif?>
 
-    <!--Datatable-->
+     <!--Datatable-->
     <script src="<?php echo base_url() ?>assets/js/jquery.min.js"></script>
     <script src="<?php echo base_url() ?>assets/js/popper.min.js"></script>
     <script src="<?php echo base_url() ?>assets/js/moment.min.js"></script>

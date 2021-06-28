@@ -11,8 +11,7 @@
                             <tr style="background-color: #0275d8;">
                                 <th>No.</th> 
                                 <th>Golongan</th>
-                                <th>Jabatan</th>
-                                <th>Golongan Pangkat</th>
+                                <th>Pangkat</th>
                                 <!--<th>Aksi</th>-->
                             </tr>
                         </thead>
@@ -20,8 +19,7 @@
                             <?php $no=1; foreach ($record->result() as $r) { ?>
                             <tr class="">
                                 <td><?php echo $no ?></td>
-                                <td><?php echo $r->golongan ?></td>
-                                <td><?php echo $r->g_pangkat ?></td>
+                                <td><?php echo $r->nama_golongan ?></td>
                                 <td><?php echo $r->pangkat ?></td>
                                 <!--<td><button class="btn btn-sm dropdown-toggle more-horizontal" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     <span class="text-muted sr-only">Action</span>

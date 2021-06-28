@@ -10,6 +10,7 @@
                         <thead style="border: 2px; solid black; border-collapse: collapse;">
                             <tr style="background-color: #0275d8;">
                                 <th>No.</th> 
+                                <th>Taraf</th>
                                 <th>Nama Pangkat</th>
                                 <!--<th>Aksi</th>-->
                             </tr>
@@ -18,6 +19,7 @@
                             <?php $no=1; foreach ($record->result() as $r) { ?>
                             <tr class="">
                                 <td><?php echo $no ?></td>
+                                <td><?php echo $r->taraf ?></td>
                                 <td><?php echo $r->nama_pangkat ?></td>
                                 <!--<td><button class="btn btn-sm dropdown-toggle more-horizontal" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     <span class="text-muted sr-only">Action</span>

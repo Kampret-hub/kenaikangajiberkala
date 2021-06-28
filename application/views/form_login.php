@@ -39,18 +39,37 @@
                           <br>
                         <h1 class="h4 text-gray-900 mb-4">Login Page !</h1>
                       </div>
-                        <form class="user" method="post" action="<?= base_url ('auth'); ?>">    
-                          <div class="form-group">
-                              <span><label>Username</label></span>
-                              <span><input class="form-control form-control-user" type="text" name="nrp" class="" id="active" placeholder="Username"></span>
-                              <!--<?= form_error ('email', '<small class="text-danger pl-3">','</small>')?>-->
-                          </div>  
-                          <div class="form-group">
-                               <span><label>Password</label></span>
-                              <input class="form-control form-control-user" type="password" name="password" class="" placeholder="Password">
+                      <br>
+                        <form class="user" method="post" action="<?= base_url ('auth'); ?>">
+                        <div class="col-12">  
+                          <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                               <span class="input-group-text" id="basic-addon1"><i class="fe fe-user"></i></span>
+                             </div>  
+                              <input class="input form-control" type="text" name="nrp" id="nrp" required="true" aria-label="password" aria-describedby="basic-addon1" placeholder="NRP / NIP Username">
                           </div>
-                          <div class="form-group">
+                        </div>
+                        <br>
+                        <div class="col-12">  
+                          <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                               <span class="input-group-text" id="basic-addon1"><i class="fe fe-lock"></i></span>
+                             </div>  
+                              <input class="input form-control" type="password" name="password" id="password" required="true" aria-label="password" aria-describedby="basic-addon1" placeholder="Password">
+                              <div class="input-group-append">
+                                <span class="input-group-text" onclick="password_show_hide();">
+                                  <i class="fe fe-eye" id="show_eye"></i>
+                                  <i class="fe fe-eye-off d-none" id="hide_eye"></i>
+                                </span>
+                             </div>
+                          </div>
+                        </div>
+                        <br>
+                          <div class="col-12">  
+                            <div class="input-group mb-3">
                              <input class="btn btn-primary btn-lg btn-block" type="submit" name="submit" onclick="myFunction()" value="LOGIN" >
+                           </div>
+                         </div>
                              <p class="mt-5 mb-3 text-muted text-center">SIMPEG POLRES KARAWANG © 2021</p>
                           </div>
                         </form>
@@ -65,6 +84,24 @@
       </div>
     </div>
     </div>
+    <script type="text/javascript">
+      function password_show_hide(){
+        var x = document.getElementById("password");
+        var show_eye = document.getElementById("show_eye");
+        var hide_eye = document.getElementById("hide_eye");
+        hide_eye.classList.remove("d-none");
+          if (x.type === "password") {
+            x.type = "text";
+            show_eye.style.display = "none";
+            hide_eye.style.display = "block";
+          }else{
+            x.type = "password";
+            show_eye.style.display = "block";
+            hide_eye.style.display = "none";
+          }
+      }
+
+    </script>
     <script src="<?php echo base_url() ?>js/jquery.min.js"></script>
     <script src="<?php echo base_url() ?>js/popper.min.js"></script>
     <script src="<?php echo base_url() ?>js/moment.min.js"></script>

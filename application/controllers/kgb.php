@@ -25,38 +25,50 @@ class kgb extends ci_controller{
         
         if(isset($_POST['submit'])){
             $id_kgb        =  $this->input->post('id_kgb',true);
+            $ket          =  $this->input->post('ket',true);
+            $nomor_kgb          =  $this->input->post('nomor_kgb',true);
             $nrp           =  $this->input->post('nrp',true);
             $nama          =  $this->input->post('nama',true);
+            $kesatuan          =  $this->input->post('kesatuan',true);
             $gpl           =  $this->input->post('gpl',true);
             $gpb           =  $this->input->post('gpb',true);
             $mkgg1          =  $this->input->post('mkgg1',true); 
             $mkgg2          =  $this->input->post('mkgg2',true); 
+            $mkg1          =  $this->input->post('mkg1',true); 
+            $mkg2          =  $this->input->post('mkg2',true);
             $tmtl          =  $this->input->post('tmtl',true);
             $tmtb          =  $this->input->post('tmtb',true);
-            $nosk          =  $this->input->post('nosk',true);
             $kgbb          =  $this->input->post('kgbb',true);
+            $kgbb_thn          =  $this->input->post('kgbb_thn',true);
+            $kgbb_bln          =  $this->input->post('kgbb_bln',true);
           
-          
-
 
             $edit_kgb = array(
+                'ket'      => $ket,
+                'nomor_kgb'      => $nomor_kgb,
                 'nrp'       => $nrp,
                 'nama'      => $nama,
+                'kesatuan'      => $kesatuan,
                 'gpl'       => $gpl,
                 'gpb'       => $gpb,
                 'mkgg1'      => $mkgg1,
                 'mkgg2'      => $mkgg2,
+                'mkg1'      => $mkg1,
+                'mkg2'      => $mkg2,
                 'tmtl'      => $tmtl,
                 'tmtb'      => $tmtb,
-                'nosk'      => $nosk,
-                'kgbb'      => $kgbb
+                'kgbb'      => $kgbb,
+                'kgbb_thn'      => $kgbb_thn,
+                'kgbb_bln'      => $kgbb_bln
             );
 
             $insert_history =  array(   
                 'nrp'     => $nrp,
                 'nama'    => $nama,
-                'periode_thn' => $mkgg1,
-                'periode_bln' => $mkgg2, 
+                'mkgg1'      => $mkgg1,
+                'mkgg2'      => $mkgg2,
+                'mkg1'      => $mkg1,
+                'mkg2'      => $mkg2,
                 'gaji'    => $gpb,
                 'tmt'     => $tmtb 
             );
@@ -77,5 +89,20 @@ class kgb extends ci_controller{
             $this->template->load('template/template_admin','kgb/form_edit',$data);
         }
     }
+
+    function get_autocomplete()
+  {
+    if (isset($_GET['term'])) {
+      $result = $this->model_kgb->get_prov($_GET['term']);
+      if (count($result) > 0) {
+        foreach ($result as $row)
+        $result_array[] = array(
+            'label'=>$row->kode_gapok,
+            'gaji_pokok'=>strtoupper($row->gaji)
+          );
+        echo json_encode($result_array);
+      }
+    }
+  }
 
 }

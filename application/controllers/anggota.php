@@ -192,7 +192,9 @@ class anggota extends ci_controller{
 
         $this->model_kgb->delete_data($where, 'anggota');
         $this->model_kgb->delete_data($where, 't_kgb');
+        $this->model_kgb->delete_data($where, 'history_kbg');
         $this->model_kgb->delete_data($where, 'user');
+
       
         echo $this->session->set_flashdata('msg','<div class="alert alert-danger text-center" role="alert">Data Berhasil Di Hapus</div>');
         redirect('anggota/index/'.$stat);
@@ -212,6 +214,7 @@ class anggota extends ci_controller{
         foreach ($result as $row)
         $result_array[] = array(
             'label'=>$row->kode_gapok,
+            'golongan'=>strtoupper($row->golongan),
             'masa_kerja'=>strtoupper($row->masa_kerja),
             'gaji_pokok'=>strtoupper($row->gaji)
           );

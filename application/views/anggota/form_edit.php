@@ -95,9 +95,12 @@
                                 </select>
                         </div>
                         <div class="form-group mb-3">
+                             <label for="" class="control-label">Kode Golongan</label> 
+                                <input  type="option" class="form-control"  id="title"  name="" ></input>                                    
+                        </div>
+                        <div class="form-group mb-3">
                              <label for="" class="control-label">Golongan</label> 
-                                <input  type="option" class="form-control"  id="title"  name="golongan" value="<?php echo $record['golongan']; ?>"></input>
-                                    
+                                <input  type="option" class="form-control"  id="golongan"  name="golongan" value="<?php echo $record['golongan']; ?>"></input>
                         </div>
                         <div class="form-group mb-3">
                             <div class="form-group mb-3">
@@ -136,6 +139,7 @@
 
       select: function(event, ui){
         $('[name="title"]').val(ui.item.label);
+        $('[name="golongan"]').val(ui.item.golongan);
         $('[name="masa_kerja"]').val(ui.item.masa_kerja);
         $('[name="gaji_pokok"]').val(ui.item.gaji_pokok);
       }
