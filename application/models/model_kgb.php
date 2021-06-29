@@ -49,14 +49,8 @@ class model_kgb extends CI_Model{
       return $this->db->get('gaji_pokok')->result();
     }
 
-    public function get_member_by_id($id){
-        return $this->db->get_where('anggota', array('nrp' => $id))->row();
-    }
-
-    public function get_history_by_id($id){
-        return $this->db->get_where('history_kbg', array('nrp' => $id))->row();
-    }
-
+   
+   // ini buat apa kalo gak di pake hapus aja
     public function history($id)
     {
         $this->db->select("*");

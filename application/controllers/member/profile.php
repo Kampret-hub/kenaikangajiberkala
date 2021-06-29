@@ -12,13 +12,10 @@ class profile extends ci_controller{
     function index()
     {
         $data['user'] = $this->db->get_where('user', ['nama_lengkap' => $this->session->userdata('nama_lengkap')])->row_array();
-        $data['member'] = $this->model_kgb->get_member_by_id($this->session->userdata('username'));
-        $data['history'] = $this->model_kgb->get_history_by_id($this->session->userdata('username'));
-        
-        
-        //$data['history']= $this->model_kgb->get_data('history_kbg', array('nrp'))->result();
+        $where = array ('nrp' => $this->session->userdata('username'));
+        $data['member']= $this->model_kgb->find_data($where, 'anggota')->row_array();
+        $data['history']= $this->model_kgb->find_data($where, 'history_kbg')->result();
 
-        //$this->load->view('user/lihat_data',$data);
         $this->template->load('template/template_member','member/profile',$data);
     }
     

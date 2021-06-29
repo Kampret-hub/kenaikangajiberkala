@@ -37,8 +37,8 @@
                         <p class="small">Umur</p>
                       </div>
                       <div class="col-4">
-                        <p class="small">: <?php echo $member->jk ?></p>
-                        <p class="small">: <?php echo $member->tmpt_lahir ?> <?php echo $member->t_lahir ?> </p>
+                        <p class="small">: <?php echo $member['jk'] ?></p>
+                        <p class="small">: <?php echo $member['tmpt_lahir'] ?> <?php echo $member['t_lahir'] ?> </p>
                         <p class="small">: </p>
                       </div>
                       <div class="col-2">
@@ -47,9 +47,9 @@
                         <p class="small">Bagian</p>
                       </div>
                        <div class="col-4">
-                        <p class="small">: <?php echo $member->agama ?></p>
-                        <p class="small">: <?php echo $member->pangkat ?></p>
-                        <p class="small">: <?php echo $member->bagian ?></p>
+                        <p class="small">: <?php echo $member['agama'] ?></p>
+                        <p class="small">: <?php echo $member['pangkat'] ?></p>
+                        <p class="small">: <?php echo $member['bagian'] ?></p>
                       </div>
                     </div>
                   </div>
@@ -57,8 +57,10 @@
               </div>
             </div>
             <br>
+
             
             <div class="row my-4">
+
                    <table class="table table-striped table-bordered table-hover datatables" id="dataTable-1">
                      <div class="alert alert-dismissible fade show">
                        <thead style="border: 2px; solid black; border-collapse: collapse;">
@@ -69,14 +71,16 @@
                               <th>Gaji Baru</th>
                             </tr>
                           </thead>
-                         
+                          <?php $no=1; foreach ($history as $r) { ?>
                           <tr>
-                          <td><?php echo $no=1; ?></td>
-                          <td><?php echo $history->mkgg1 ?> <?php echo $history->mkgg2 ?></td>
-                          <td><?php echo $history->tmtb ?></td>
-                          <td><?php echo $history->gpb ?></td>
+                            <td><?php echo $no; ?></td>
+                            <td><?php echo $r->mkgg1 ?> <?php echo $r->mkgg2 ?></td>
+                            <td><?php echo $r->tmtb ?></td>
+                            <td><?php echo $r->gpb ?></td>
                           </tr>
+                           <?php $no++; } ?>
                         </div>
                         
                    </table>
                 </div>
+
