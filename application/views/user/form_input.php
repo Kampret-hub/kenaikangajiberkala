@@ -25,7 +25,7 @@
                                     <select type="option" class="form-control"  name="bagian">
                                         <option >-- Bagian --</option>
                                         <option value="1">Admin</option>
-                                        <option value="3">User</option>
+                                        <option value="2">User</option>
                                     </select>
                                 </div>
                                 <div class="form-group">

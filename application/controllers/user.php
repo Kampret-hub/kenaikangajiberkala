@@ -25,16 +25,17 @@ class user extends ci_controller{
         if(isset($_POST['submit'])){
             // proses data
             $nama       =  $this->input->post('nama',true);
-            $username   =  $this->input->post('username',true);
+            $nrp   =  $this->input->post('nrp',true);
             $bagian   =  $this->input->post('bagian',true); 
             $password   =  $this->input->post('password',true);
             $date   =  $this->input->post('date',true);
             $data       =  array(   'nama_lengkap'=>$nama,
-                                    'username'=>$username,
+                                    'nrp'=>$nrp,
                                     'role_id'=>$bagian,
                                     'password'=>md5($password),
-                                    'date_created'=>$date);
+                                    'date_created'=>$date); 
             $this->db->insert('user',$data);
+            echo $this->session->set_flashdata('msg','<div class="alert alert-success text-center" role="alert">Data Berhasil Di Simpan</div>');
             redirect('user', $data);
         }
         else{
@@ -51,20 +52,25 @@ class user extends ci_controller{
             // proses kategori
             $id         =  $this->input->post('id',true);
             $nama       =  $this->input->post('nama',true);
-            $username   =  $this->input->post('username',true);
+            $nrp   =  $this->input->post('nrp',true);
             $password   =  $this->input->post('password',true);
+            $role_id = $this->input->post('role_id',true);
             if(empty($password)){
                  $data  =  array(   'nama_lengkap'=>$nama,
-                                    'username'=>$username);
+                                    'nrp'=>$nrp,
+                                    'role_id'=>$role_id);
             }
 
             else{
                   $data =  array(   'nama_lengkap'=>$nama,
-                                    'username'=>$username,
+                                    'nrp'=>$nrp,
+                                    'role_id'=>$role_id,
                                     'password'=>md5($password));
+                                    
             }
              $this->db->where('user_id',$id);
              $this->db->update('user',$data);
+             echo $this->session->set_flashdata('msg','<div class="alert alert-success text-center" role="alert">Data Berhasil Di Ubah</div>');
              redirect('user');
         }
         else{
@@ -90,7 +96,7 @@ class user extends ci_controller{
         $this->model_kgb->delete_data($where, 'anggota');
         $this->model_kgb->delete_data($where, 't_kgb');
         $this->model_kgb->delete_data($where, 'user');
-        // update table user tidak berhasil di karenakan tidak ada filed bernama username
+        // update table user tidak berhasil di karenakan tidak ada filed bernama nrp
         // $this->model_kgb->delete_data($where, 'user');
 
 

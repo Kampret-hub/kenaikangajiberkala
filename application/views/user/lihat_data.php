@@ -9,6 +9,14 @@
                 <?php echo anchor('user/post','Tambah Data',array('class'=>'btn btn-danger btn-sm')) ?>
             </div>
             </div>
+            <div class="alert alert-dismissible fade show">
+                    <strong>
+                        <?php echo $this->session->flashdata('msg')?>
+                    </strong>
+                    <button type="button" class="close" data-dismiss="alert" arial-label="Close">
+                        <span aria-hodden="true">&times;</span>
+                    </button>
+                </div>
                          <table class="table table-striped table-bordered table-hover datatables" id="dataTable-1">
                                 <thead style="border: 2px; solid black; border-collapse: collapse;">
                                     <tr style="background-color: #0275d8;">
@@ -30,7 +38,7 @@
                                     <?php if($r->role_id == 1 ){ 
                                          echo '<div class="">Admin</div>';
                                             }elseif ($r->role_id == 2 ){ 
-                                                echo '<div class="">User</div>';}?>
+                                                echo '<div class="">Member</div>';}?>
                                         <td><?php echo $r->date_created ?></td>                
                                         <!--<td><?php echo $r->last_login ?></td>-->
                                         <td class="center">

@@ -34,7 +34,15 @@
                     <label for="" class="control-label">Tanggal Lahir</label>
                     <input type="date" name="t_lahir" id="t_lahir" class="form-control"  placeholder="Input Tamggal Lahir">
                   </div>
-          
+                  <div class="form-group mb-3">
+                      <label>Jenis Kelamin</label>
+                      <select type="option" class="form-control"  name="jk">
+                         <!-- Ambil data di DB-->
+                         <?php foreach ($jk as $a) {
+                          echo "<option value='$a->nama_jk'>$a->nama_jk</option>"; 
+                        }?>
+                      </select>
+                  </div>
                   <div class="form-group mb-3">
                       <label for="" class="control-label">Agama</label>
                       <select type="option" class="form-control"  name="agama">
@@ -44,16 +52,11 @@
                         }?>
                       </select>
                   </div>
-          </div> <!-- /.col -->
-          <div class="col-md-6">
+                  </div> <!-- /.col -->
+              <div class="col-md-6">
                   <div class="form-group mb-3">
-                      <label>Jenis Kelamin</label>
-                      <select type="option" class="form-control"  name="jk">
-                         <!-- Ambil data di DB-->
-                         <?php foreach ($jk as $a) {
-                          echo "<option value='$a->nama_jk'>$a->nama_jk</option>"; 
-                        }?>
-                      </select>
+                      <label for="" class="control-label">No Telepon</label>
+                      <input type="text" name="no_telp" id="no_telp" class="form-control"   placeholder="Input No Telepon"></input>
                   </div>
                   <div class="form-group mb-3">
                       <label for="" class="control-label">Alamat</label>

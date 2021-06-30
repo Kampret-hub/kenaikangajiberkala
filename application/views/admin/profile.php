@@ -9,15 +9,15 @@
            
             <div class="card shadow">
             <div class="card-body">
-              <div class="row mt-5 align-items-center">
+              <div class="row mt-3 align-items-center">
                 <div class="col-md-3 text-center mb-5">
                   <div class="avatar avatar-xl">
                     <img src="<?php echo base_url(); ?>./assets/avatars/face.png" alt="..." class="avatar-img rounded-circle">
                   </div>
                   <br>
-                  <span class="btn btn-danger"> <?php echo $user['nrp']; ?></span>
+                  <a href=" <?php echo base_url('') ?>" class="btn btn-primary btn-small" style='margin-left: 5px;'><i class="fe fe-edit"></i>Edit Profile</a>
                 </div>
-                <div class="col" style="margin-bottom: 40px;">
+                <div class="col">
                   <div class="row align-items-center">
                     <div class="col-md-6">
                       <h3 class="mb-1"><?php echo $user['nama_lengkap']; ?></h3>
@@ -81,9 +81,9 @@
                      <div class="alert alert-dismissible fade show">
                        <thead style="border: 2px; solid black; border-collapse: collapse;">
                             <tr style="background-color: #0275d8;">
-                              <th>Periode</th> 
-                              <th>Masa Kerja</th>
-                              <th>Tanggal Kenaikan gaji</th>
+                              <th style="width: 100px;">Periode</th> 
+                              <th style="width: 200px;">Masa Kerja</th>
+                              <th style="width: 400px;">Tanggal Kenaikan gaji</th>
                               <th>Gaji Baru</th>
                             </tr>
                           </thead>

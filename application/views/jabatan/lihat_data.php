@@ -6,7 +6,7 @@
               <h2 class="mb-2 page-title">Data Jabatan</h2>
                 <!--<?php echo anchor('anggota/post','Tambah Data',array('class'=>'btn btn-danger btn-sm')) ?>-->
 
-                 <table class="table table-striped table-bordered table-hover datatables" id="dataTable-1">
+                 <table class="table table-striped table-bordered table-hover datatables col-md-6" id="dataTable-1" >
                         <thead style="border: 2px; solid black; border-collapse: collapse;">
                             <tr style="background-color: #0275d8;">
                                 <th>No.</th> 
@@ -17,7 +17,7 @@
                         <tbody>
                             <?php $no=1; foreach ($record->result() as $r) { ?>
                             <tr class="">
-                                <td><?php echo $no ?></td>
+                                <td class="col-sm-1"><?php echo $no ?></td>
                                 <td><?php echo $r->nama_jabatan ?></td>
                                 <!--<td><button class="btn btn-sm dropdown-toggle more-horizontal" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     <span class="text-muted sr-only">Action</span>

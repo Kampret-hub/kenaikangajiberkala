@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: 28 Jun 2021 pada 15.00
+-- Generation Time: 30 Jun 2021 pada 19.45
 -- Versi Server: 5.6.16
 -- PHP Version: 5.5.11
 
@@ -57,6 +57,7 @@ CREATE TABLE IF NOT EXISTS `anggota` (
   `t_lahir` date NOT NULL,
   `jk` varchar(10) NOT NULL,
   `agama` varchar(10) NOT NULL,
+  `no_telp` varchar(15) NOT NULL,
   `alamat` varchar(100) NOT NULL,
   `pendidikan` varchar(50) NOT NULL,
   `pangkat` varchar(20) NOT NULL,
@@ -76,9 +77,9 @@ CREATE TABLE IF NOT EXISTS `anggota` (
 -- Dumping data untuk tabel `anggota`
 --
 
-INSERT INTO `anggota` (`nrp`, `nama_lengkap`, `tmpt_lahir`, `t_lahir`, `jk`, `agama`, `alamat`, `pendidikan`, `pangkat`, `jabatan`, `bagian`, `golongan`, `masa_kerja`, `gaji_pokok`, `status`, `user_id`) VALUES
-('08071996', 'andri juliyanto', 'karawang', '1996-07-09', 'Laki-laki', 'Islam', 'anjun', 's1', 'AIPTU', '0', '0', 'I.A', '10 TAHUN', 'RP1.860.800', 'aktif', 1310),
-('123456', 'andri', 'bandung', '2021-06-26', 'Laki-laki', 'Islam', 'a', 'tes3', 'AKBP', '0', '0', '', '', '', 'aktif', 1311);
+INSERT INTO `anggota` (`nrp`, `nama_lengkap`, `tmpt_lahir`, `t_lahir`, `jk`, `agama`, `no_telp`, `alamat`, `pendidikan`, `pangkat`, `jabatan`, `bagian`, `golongan`, `masa_kerja`, `gaji_pokok`, `status`, `user_id`) VALUES
+('08071996', 'andri juliyanto', 'karawang', '1996-07-09', 'Laki-laki', 'Islam', '083815404175', 'anjun', 's1', 'AIPTU', 'ANALIS KEBIJAKAN PERTAMA BIDANG OPS', 'BAGSUMDA', 'I.A', '10 TAHUN', 'RP1.860.800', 'aktif', 1310),
+('123456', 'andri', 'bandung', '2021-06-26', 'Laki-laki', 'Islam', '', 'a', 'tes3', 'KBP', '0', '0', '', '', '', 'aktif', 1311);
 
 -- --------------------------------------------------------
 
@@ -159,7 +160,7 @@ CREATE TABLE IF NOT EXISTS `gaji_pokok` (
   `gaji` varchar(50) NOT NULL,
   `masa_kerja` varchar(20) NOT NULL,
   `golongan` varchar(20) NOT NULL,
-  `g_pangkat` varchar(20) NOT NULL,
+  `taraf` varchar(20) NOT NULL,
   `pangkat` varchar(30) NOT NULL,
   PRIMARY KEY (`id_gaji`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=61 ;
@@ -168,7 +169,7 @@ CREATE TABLE IF NOT EXISTS `gaji_pokok` (
 -- Dumping data untuk tabel `gaji_pokok`
 --
 
-INSERT INTO `gaji_pokok` (`id_gaji`, `kode_gapok`, `gaji`, `masa_kerja`, `golongan`, `g_pangkat`, `pangkat`) VALUES
+INSERT INTO `gaji_pokok` (`id_gaji`, `kode_gapok`, `gaji`, `masa_kerja`, `golongan`, `taraf`, `pangkat`) VALUES
 (1, 'Ia/0', 'Rp1.643.500', '0 Tahun', 'I.a', 'TAMTAMA', 'BHAYANGKARA DUA'),
 (2, 'Ia/2', 'Rp1.695.300', '2 Tahun', 'I.a', 'TAMTAMA', 'BHAYANGKARA DUA'),
 (3, 'Ia/4', 'Rp1.748.700', '4 Tahun', 'I.a', 'TAMTAMA', 'BHAYANGKARA DUA'),
@@ -999,14 +1000,14 @@ INSERT INTO `pangkat` (`id_pangkat`, `taraf`, `nama_pangkat`) VALUES
 (8, 'BINTARA', 'BRIPTU'),
 (9, 'BINTARA', 'BRIGADIR'),
 (10, 'BINTARA', 'BRIPKA'),
-(11, 'BINTARA', 'AIPDA'),
-(12, 'BINTARA', 'AIPTU'),
+(11, 'BINTARA', 'AIPDA '),
+(12, 'BINTARA', 'AIPTU '),
 (13, 'PERWIRA PERTAMA', 'IPDA'),
 (14, 'PERWIRA PERTAMA', 'IPTU'),
 (15, 'PERWIRA PERTAMA', 'AKP'),
 (16, 'PERWIRA MENENGAH', 'KOMPOL'),
 (17, 'PERWIRA MENENGAH', 'KBP'),
-(18, 'PERWIRA MENENGAH', 'AKBP'),
+(18, 'PERWIRA MENENGAH', ' AKBP'),
 (19, 'PERWIRA TINGGI', 'BRIGJEN'),
 (20, 'PERWIRA TINGGI', 'IRJEN'),
 (21, 'PERWIRA TINGGI', 'KOMJEN'),
@@ -1081,7 +1082,7 @@ CREATE TABLE IF NOT EXISTS `user` (
 INSERT INTO `user` (`user_id`, `nama_lengkap`, `nrp`, `password`, `role_id`, `image`, `status`, `date_created`) VALUES
 (1222, 'Admin', 'admin', '21232f297a57a5a743894a0e4a801fc3', 1, 0, 1, '2021-06-05'),
 (1311, 'andri', '123456', 'ee11cbb19052e40b07aac0ca060c23ee', 2, 0, 1, '2021-06-26 '),
-(1310, 'andri juliyanto', '08071996', 'ee11cbb19052e40b07aac0ca060c23ee', 2, 0, 1, '2021-06-26 ');
+(1310, 'andri juliyanto', '08071996', '21232f297a57a5a743894a0e4a801fc3', 1, 0, 1, '2021-06-26 ');
 
 -- --------------------------------------------------------
 

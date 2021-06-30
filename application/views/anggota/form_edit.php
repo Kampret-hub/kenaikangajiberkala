@@ -55,6 +55,10 @@
                                 </select>
                         </div>
                         <div class="form-group mb-3">
+                          <label for="" class="control-label">No Telepon</label>
+                          <input type="text" name="no_telp" id="no_telp" class="form-control"   placeholder="Input No Telepon" value="<?php echo $record['no_telp']?>">
+                        </div>
+                        <div class="form-group mb-3">
                             <label for="" class="control-label">Alamat</label>
                             <input type="text" class="form-control" name="alamat" value="<?php echo $record['alamat']?>">
                         </div>

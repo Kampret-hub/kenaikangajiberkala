@@ -52,6 +52,7 @@ class anggota extends ci_controller{
             $t_lahir        =  $this->input->post('t_lahir');
             $jk             =  $this->input->post('jk');
             $agama          =  $this->input->post('agama');
+            $no_telp          =  $this->input->post('no_telp');
             $alamat         =  $this->input->post('alamat');
             $pendidikan     =  $this->input->post('pendidikan');
             $pangkat        =  $this->input->post('pangkat');
@@ -66,6 +67,7 @@ class anggota extends ci_controller{
                 't_lahir'       =>$t_lahir,
                 'jk'            =>$jk,
                 'agama'         =>$agama,
+                'no_telp'         =>$no_telp,
                 'alamat'        =>$alamat,
                 'pendidikan'    =>$pendidikan,
                 'pangkat'       =>$pangkat,

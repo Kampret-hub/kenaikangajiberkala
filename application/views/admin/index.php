@@ -200,13 +200,13 @@
                               <?php $this->db->select('*');
                               $this->db->from('anggota');
                               $this->db->like('status', 'aktif');
-                              $this->db->like('pangkat', 'AIPDA');
+                              $this->db->like('pangkat', 'AIPDA ');
                               echo $this->db->count_all_results();?>,
 
                               <?php $this->db->select('*');
                               $this->db->from('anggota');
                               $this->db->like('status', 'aktif');
-                              $this->db->like('pangkat', 'AIPTU');
+                              $this->db->like('pangkat', 'AIPTU ');
                               echo $this->db->count_all_results();?>,
                             
                               <?php $this->db->select('*');
@@ -242,7 +242,7 @@
                               <?php $this->db->select('*');
                               $this->db->from('anggota');
                               $this->db->like('status', 'aktif');
-                              $this->db->like('pangkat', 'AKBP');
+                              $this->db->like('pangkat', ' AKBP');
                               echo $this->db->count_all_results();?>,
 
                               <?php $this->db->select('*');

@@ -64,8 +64,8 @@
             </a>
             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
               <a class="dropdown-item" href="#"><?= $user['nama_lengkap']; ?></a>
-              <a class="dropdown-item" href="#">Profile</a>
-              <a class="dropdown-item" href="#">Ganti Password</a>
+              <a class="dropdown-item" href="<?php echo base_url().'admin/profile' ?>">Profile</a>
+              <a class="dropdown-item" href="<?php echo base_url().'auth/ganti_password'?>">Ganti Password</a>
               <a class="dropdown-item" href="<?php echo base_url().'auth/logout'?>">Logout</a>
             </div>
           </li>
@@ -182,7 +182,7 @@
             <div class="d-flex flex-column min-vh-100">
               <main class="flex-fill"></main>
               <footer>
-                <div class="card shadow footer-copyright text-center py-3">© 2021 Copyright SIMPEG POLRES KARWANG
+                <div class="card shadow footer-copyright text-center py-3" >© 2021 Copyright SIMPEG POLRES KARWANG
                 </div>
               </footer>
             </div><!-- End Footer -->
