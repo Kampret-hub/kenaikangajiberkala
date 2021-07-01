@@ -45,7 +45,7 @@ class auth extends CI_Controller{
         }elseif($role_id === '2'){
              redirect('member/c_member');
         // access login for author
-        }
+        } 
     }else{
 
       // jika data user data tidak ada di database maka tampilkan ulang form login
@@ -57,6 +57,7 @@ class auth extends CI_Controller{
   public function ganti_password()
     {
 
+        $this->load->model('model_user');
         
         $username = $this->session->userdata['username'];
         $data['user'] = $this->db->get_where('user', ['password' => $this->session->userdata('password')])->row_array();

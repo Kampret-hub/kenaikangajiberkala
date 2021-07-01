@@ -19,9 +19,9 @@
                             <tr style="background-color: #0275d8;">
                                 <th>No.</th> 
                                 <th>Kode GAPOK</th>
-                                <th>Gaji Pokok</th>
-                                <th>Masa Kerja</th>
                                 <th>Golongan</th>
+                                <th>Masa Kerja</th>
+                                <th>Gaji Pokok</th>
                                 <th>Taraf</th>
                                 <th>Pangkat</th>
                                 <th>Aksi</th>
@@ -34,9 +34,9 @@
                             <tr class="">
                                 <td><?php echo $no ?></td>
                                 <td><?php echo $r->kode_gapok ?></td>
-                                <td><?php echo $r->gaji ?></td>
-                                <td><?php echo $r->masa_kerja ?></td>
                                 <td><?php echo $r->golongan ?></td>
+                                <td><?php echo $r->masa_kerja ?></td>
+                                <td><?php echo $r->gaji ?></td>
                                 <td><?php echo $r->taraf ?></td>
                                 <td><?php echo $r->pangkat ?></td>
                                 <td><button class="btn btn-sm dropdown-toggle more-horizontal" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

@@ -15,7 +15,6 @@
                     <div class="col-md-12">
                         <div class="panel panel-default">
                             <div class="panel-body">    
-                                <form class="" method="post">
                                 <?php echo form_open('gaji_pokok/post'); ?>
                                 <div class="form-group <?= form_error('kode_gapok') ? 'has-error' : null?> ">
                                     <label>Kode Gapok</label>

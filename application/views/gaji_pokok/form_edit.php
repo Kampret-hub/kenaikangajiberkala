@@ -19,7 +19,7 @@
                                 <input type="hidden" value="<?php echo $record['id_gaji']?>" name="id_gaji">
                                 <div class="form-group">
                                     <label>Kode Gaji</label>
-                                    <input type="text" class="form-control" name="kode_gapok" readonly="" value="<?php echo $record['kode_gapok']?>">
+                                    <input type="text" class="form-control" name="kode_gapok"  value="<?php echo $record['kode_gapok']?>">
                                 </div>
                                 <div class="form-group">
                                     <label>Username</label>
@@ -27,19 +27,19 @@
                                 </div>
                                 <div class="form-group">
                                     <label>Masa Kerja</label>
-                                    <input type="text" class="form-control" name="masa_kerja" readonly="" value="<?php echo $record['masa_kerja']?>">
+                                    <input type="text" class="form-control" name="masa_kerja"  value="<?php echo $record['masa_kerja']?>">
                                 </div>
                                 <div class="form-group">
                                     <label>Golongan</label>
-                                    <input type="text" class="form-control" name="golongan" readonly="" value="<?php echo $record['golongan']?>">
+                                    <input type="text" class="form-control" name="golongan"  value="<?php echo $record['golongan']?>">
                                 </div>
                                 <div class="form-group">
                                     <label>Taraf</label>
-                                    <input type="text" class="form-control" name="taraf" readonly="" value="<?php echo $record['taraf']?>">
+                                    <input type="text" class="form-control" name="taraf"  value="<?php echo $record['taraf']?>">
                                 </div>
                                 <div class="form-group">
                                     <label>Pangkat</label>
-                                    <input type="text" class="form-control" name="pangkat" readonly="" value="<?php echo $record['pangkat']?>">
+                                    <input type="text" class="form-control" name="pangkat"  value="<?php echo $record['pangkat']?>">
                                 </div>
                                 <button type="submit" name="submit" class="btn btn-primary btn-sm">Edit</button>
                                 <?php echo anchor('gaji_pokok','Kembali',array('class'=>'btn btn-danger btn-sm'))?>

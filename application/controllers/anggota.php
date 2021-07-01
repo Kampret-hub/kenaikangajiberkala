@@ -117,36 +117,32 @@ class anggota extends ci_controller{
         if(isset($_POST['submit'])){
             // proses kategori
             $nama_lengkap   =  $this->input->post('nama_lengkap');
-            $nrp            =  $this->input->post('nrp');
+            $nrp              =  $this->input->post('nrp');
             $tmpt_lahir     =  $this->input->post('tmpt_lahir');
             $t_lahir        =  $this->input->post('t_lahir');
             $jk             =  $this->input->post('jk');
             $agama          =  $this->input->post('agama');
+            $no_telp          =  $this->input->post('no_telp');
             $alamat         =  $this->input->post('alamat');
             $pendidikan     =  $this->input->post('pendidikan');
             $pangkat        =  $this->input->post('pangkat');
             $jabatan        =  $this->input->post('jabatan');
             $bagian         =  $this->input->post('bagian');
-            $golongan       =  $this->input->post('golongan');
-            $masa_kerja     =  $this->input->post('masa_kerja');
-            $gaji_pokok     =  $this->input->post('gaji_pokok');
             $status         =  $this->input->post('status');
-
-             $edit_anggota =  array(   
+            
+            $edit_anggota =  array(   
                 'nama_lengkap'  =>$nama_lengkap,
-                'nrp'           =>$nrp,
+                'nrp'           =>$nrp, 
                 'tmpt_lahir'    =>$tmpt_lahir, 
                 't_lahir'       =>$t_lahir,
                 'jk'            =>$jk,
                 'agama'         =>$agama,
+                'no_telp'         =>$no_telp,
                 'alamat'        =>$alamat,
                 'pendidikan'    =>$pendidikan,
                 'pangkat'       =>$pangkat,
                 'jabatan'       =>$jabatan, 
                 'bagian'        =>$bagian,
-                'golongan'      =>$golongan,
-                'masa_kerja'    =>$masa_kerja,
-                'gaji_pokok'    =>$gaji_pokok, 
                 'status'        =>$status
             );
              $edit_kgb = array(

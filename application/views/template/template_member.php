@@ -83,19 +83,20 @@
             </a>
           </div>
          
-         <ul class="navbar-nav flex-fill w-100 mb-2">
-            <li class="nav-item w-100">
-              <a class="nav-link" href="">
-                <i class="fe fe-home fe-16"></i>
-                <span class="ml-3 item-text">Home</span>
-              </a>
-            </li>          
-          </ul>
           <ul class="navbar-nav flex-fill w-100 mb-2">
             <li class="nav-item w-100">
               <a class="nav-link" href="<?php echo base_url().'member/profile' ?>">
                 <i class="fe fe-user fe-16"></i>
                 <span class="ml-3 item-text">Profil Saya</span>
+                <span class="badge badge-pill badge-primary  " style="margin-top: 2px ; padding-top: 5px;">Home</span>
+              </a>
+            </li>          
+          </ul>
+         <ul class="navbar-nav flex-fill w-100 mb-2">
+            <li class="nav-item w-100">
+              <a class="nav-link" href="<?php echo base_url().'kontak' ?>">
+                <i class="fe fe-phone fe-16"></i>
+                <span class="ml-3 item-text">Kontak</span>
               </a>
             </li>          
           </ul>

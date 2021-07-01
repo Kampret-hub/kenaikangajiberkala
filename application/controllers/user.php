@@ -49,7 +49,7 @@ class user extends ci_controller{
         $data['user'] = $this->db->get_where('user', ['nama_lengkap' => $this->session->userdata('nama_lengkap')])->row_array(); 
         
         if(isset($_POST['submit'])){
-            // proses kategori
+            
             $id         =  $this->input->post('id',true);
             $nama       =  $this->input->post('nama',true);
             $nrp   =  $this->input->post('nrp',true);

@@ -6,7 +6,14 @@
                 </div>
               </div>
               <p>
-           
+                <div class="alert alert-dismissible fade show">
+                    <strong>
+                        <?php echo $this->session->flashdata('msg')?>
+                    </strong>
+                    <button type="button" class="close" data-dismiss="alert" arial-label="Close">
+                        <span aria-hodden="true">&times;</span>
+                    </button>
+                </div>
             <div class="card shadow">
             <div class="card-body">
               <div class="row mt-3 align-items-center">
@@ -15,7 +22,7 @@
                     <img src="<?php echo base_url(); ?>./assets/avatars/face.png" alt="..." class="avatar-img rounded-circle">
                   </div>
                   <br>
-                  <a href=" <?php echo base_url('') ?>" class="btn btn-primary btn-small" style='margin-left: 5px;'><i class="fe fe-edit"></i>Edit Profile</a>
+                  <a href=" <?php echo base_url('admin/profile/edit') ?>" class="btn btn-primary btn-small" style='margin-left: 5px;'><i class="fe fe-edit"></i>Edit Profile</a>
                 </div>
                 <div class="col">
                   <div class="row align-items-center">

@@ -104,7 +104,7 @@
                         </div>
                         <div class="form-group mb-3">
                              <label for="" class="control-label">Golongan</label> 
-                                <input  type="option" class="form-control"  id="golongan"  name="golongan" value="<?php echo $record['golongan']; ?>"></input>
+                                <input  type="text" readonly="" class="form-control"  id="golongan"  name="golongan" value="<?php echo $record['golongan']; ?>"></input>
                         </div>
                         <div class="form-group mb-3">
                             <div class="form-group mb-3">

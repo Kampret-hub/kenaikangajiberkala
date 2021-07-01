@@ -16,17 +16,18 @@
                         <span aria-hodden="true">&times;</span>
                     </button>
                 </div>
-                        <thead style="border: 2px; solid black; border-collapse: collapse;">
+                       <thead style="border: 2px; solid black; border-collapse: collapse;">
                             <tr style="background-color: #0275d8;">
                                 <th>No.</th> 
                                  <th>NRP / NIP </th>
                                 <th>Nama Lengkap</th>
-                                <th>Tempat Lahir</th>
-                                <th>Tanggal Lahir</th>
+                                <th>TTL</th>
                                 <th>Agama </th>
                                 <th>Alamat</th>
-                                <th>Pendidikan</th>
                                 <th>Pangkat</th>
+                                <th>Jabatan</th>
+                                <th>Bagian</th>
+                                <th>No Telepon</th>
                                 <th>Aksi</th>
                             </tr>
                         </thead>
@@ -36,12 +37,13 @@
                                 <td><?php echo $no ?></td>
                                 <td><?php echo $r->nrp ?></td>
                                 <td><?php echo $r->nama_lengkap ?></td>
-                                <td><?php echo $r->tmpt_lahir ?></td>
-                                <td><?php echo $r->t_lahir ?></td>
+                                <td><?php echo $r->tmpt_lahir ?>, <?php echo $r->t_lahir ?></td>
                                 <td><?php echo $r->agama ?></td>
                                 <td><?php echo $r->alamat ?></td>
-                                <td><?php echo $r->pendidikan ?></td>
                                 <td><?php echo $r->pangkat ?></td>
+                                <td><?php echo $r->jabatan ?></td>
+                                <td><?php echo $r->bagian ?></td>
+                                <td><?php echo $r->no_telp ?></td>
                                 <td><button class="btn btn-sm dropdown-toggle more-horizontal" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     <span class="text-muted sr-only">Action</span>
                                   </button>
