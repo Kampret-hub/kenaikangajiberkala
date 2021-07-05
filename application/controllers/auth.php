@@ -34,6 +34,7 @@ class auth extends CI_Controller{
             'role_id'     => $role_id,
             'logged_in' => TRUE
         );
+        
 
         // mengindentifikasi halaman sesuai role uder
         $this->session->set_userdata($sesdata);

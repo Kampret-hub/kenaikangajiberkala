@@ -18,6 +18,7 @@ class gaji_pokok extends ci_controller{
          $this->template->load('template/template_admin','gaji_pokok/lihat_data',$data);
     }
 
+
     function post()
     {
         $data['user'] = $this->db->get_where('user', ['nama_lengkap' => $this->session->userdata('nama_lengkap')])->row_array(); 

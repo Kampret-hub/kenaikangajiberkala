@@ -61,10 +61,11 @@
                 <img  src="<?php echo base_url(); ?>./assets/avatars/face.png" alt="..." class="avatar-img rounded-circle">
               </span>
             </a>
+           
             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
               <a class="dropdown-item" href="#"><?= $user['nama_lengkap']; ?></a>
               <a class="dropdown-item" href="#">Profile</a>
-              <a class="dropdown-item" href="#">Ganti Password</a>
+              <a class="dropdown-item" href="<?php echo base_url().'member/profile/ganti_password/'?>">Ganti Password</a>
               <a class="dropdown-item" href="<?php echo base_url().'auth/logout'?>">Logout</a>
             </div>
           </li>

@@ -101,7 +101,7 @@
                         </div>
                     </div>
                                 <span  style="margin-left: 15px;"><button type="submit" name="submit" value="Submit" id="submit" class="btn btn-primary btn-sm">Edit</button></span>   
-                                <span style="margin-left: 5px;" ><?php echo anchor('admin/profile','Kembali',array('class'=>'btn btn-danger btn-sm' ))?></span>
+                                <span style="margin-left: 5px;" ><?php echo anchor('member/profile','Kembali',array('class'=>'btn btn-danger btn-sm' ))?></span>
                             </form>
                         </div>
                     </div><!-- /. PANEL  -->

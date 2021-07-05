@@ -18,23 +18,25 @@
       <div class="row">
           <div class="col-md-6">
               <?php echo form_open('anggota/insert'); ?>
-                  <div class="form-group mb-3">
+                  <div class="form-group mb-3 <?= form_error('nrp') ? 'has-error' : null?>">
                     <label for="" class="control-label">NRP / NIP Username</label>
                     <input type="text" name="nrp" id="nrp"  class="form-control" list="" placeholder="Input NRP / NIP">
+                    <span class="help-block alert-danger alert-danger"><?= form_error('nrp')?></span>
                   </div>  
-                  <div class="form-group mb-3">
+                  <div class="form-group mb-3 <?= form_error('nama_lengkap') ? 'has-error' : null?>">
                     <label for="" class="control-label">Nama Lengkap</label>
                     <input type="text" class="form-control" name="nama_lengkap" id="nama_lengkap"  placeholder="Input Nama lengkap">
+                     <span class="help-block alert-danger alert-danger"><?= form_error('nama_lengkap')?></span>
                   </div>
-                  <div class="form-group mb-3">
+                  <div class="form-group mb-3 ">
                     <label for="" class="control-label">Tempat Lahir</label>
                     <input type="text" name="tmpt_lahir" id="tmpt_lahir" class="form-control"  placeholder="Input Tempat Lahir">
                   </div>
-                  <div class="form-group mb-3">
+                  <div class="form-group mb-3 ">
                     <label for="" class="control-label">Tanggal Lahir</label>
                     <input type="date" name="t_lahir" id="t_lahir" class="form-control"  placeholder="Input Tamggal Lahir">
                   </div>
-                  <div class="form-group mb-3">
+                  <div class="form-group mb-3 ">
                       <label>Jenis Kelamin</label>
                       <select type="option" class="form-control"  name="jk">
                          <!-- Ambil data di DB-->

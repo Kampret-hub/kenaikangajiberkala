@@ -44,7 +44,17 @@ class anggota extends ci_controller{
 
         $data['anggota'] = $this->db->get_where('anggota', ['nama_lengkap' => $this->session->userdata('nama_lengkap')])->row_array(); 
         
-        if(isset($_POST['submit'])){
+        $this->_rules();
+
+        if($this->form_validation->run() == FALSE) {
+             $data['jk']=  $this->model_kgb->get_data('jk')->result();
+             $data['agama']=  $this->model_kgb->get_data('agama')->result();
+             $data['pangkat']=  $this->model_kgb->get_data('pangkat')->result();
+
+
+            //$this->load->view('user/form_input');
+            $this->template->load('template/template_admin','anggota/form_input', $data);
+        } else {
             // proses data
             $nama_lengkap   =  $this->input->post('nama_lengkap');
             $nrp              =  $this->input->post('nrp');
@@ -52,7 +62,7 @@ class anggota extends ci_controller{
             $t_lahir        =  $this->input->post('t_lahir');
             $jk             =  $this->input->post('jk');
             $agama          =  $this->input->post('agama');
-            $no_telp          =  $this->input->post('no_telp');
+            $no_telp        =  $this->input->post('no_telp');
             $alamat         =  $this->input->post('alamat');
             $pendidikan     =  $this->input->post('pendidikan');
             $pangkat        =  $this->input->post('pangkat');
@@ -95,15 +105,31 @@ class anggota extends ci_controller{
             echo $this->session->set_flashdata('msg','<div class="alert alert-success text-center" role="alert">Data Berhasil Di Simpan</div>');
             redirect('anggota/index/'.$status, $data);
         }
-        else{
-             $data['jk']=  $this->model_kgb->get_data('jk')->result();
-             $data['agama']=  $this->model_kgb->get_data('agama')->result();
-             $data['pangkat']=  $this->model_kgb->get_data('pangkat')->result();
+        
+    }
+
+    public function _rules()
+    {
+        $this->form_validation->set_rules('nama_lengkap', 'Nama lengkap', 'required');
+        $this->form_validation->set_rules('nrp', 'Nrp', 'required');
+        
+        // BELUM KEPAKE
+        // $this->form_validation->set_rules('tmpt_lahir', 'tmpt_lahir', 'required');
+        // $this->form_validation->set_rules('t_lahir', 't_lahir', 'required');
+        // $this->form_validation->set_rules('jk', 'jk', 'required');
+        // $this->form_validation->set_rules('agama', 'agama', 'required');
+        // $this->form_validation->set_rules('no_telp', 'no_telp', 'required');
+        // $this->form_validation->set_rules('alamat', 'alamat', 'required');
+        // $this->form_validation->set_rules('pendidikan', 'pendidikan', 'required');
+        // $this->form_validation->set_rules('pangkat', 'pangkat', 'required');
+        // $this->form_validation->set_rules('jabatan', 'jabatan', 'required');
+        // $this->form_validation->set_rules('status', 'status', 'required');
 
 
-            //$this->load->view('user/form_input');
-            $this->template->load('template/template_admin','anggota/form_input', $data);
-        }
+        $this->form_validation->set_message('required', '%s Harus Di isi', 'silahkan isi terlebi dahulu');
+        $this->form_validation->set_message('min_length', '%s minimal 5 karakter');
+
+        $this->form_validation->set_error_delimiters('<span class="help-block"></span>');
     }
     
      

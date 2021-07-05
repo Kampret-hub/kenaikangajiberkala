@@ -90,6 +90,43 @@ class profile extends ci_controller{
             $this->template->load('template/template_member','member/form_edit_profile',$data);
         }
     }
+
+    function ganti_password()
+    {
+        $this->load->model('model_kgb');
+        // $data['record']=  $this->model_kgb->get_data('user');
+       
+         $data['user'] = $this->db->get_where('user', ['nama_lengkap' => $this->session->userdata('nama_lengkap')])->row_array(); 
+         
+        $this->form_validation->set_rules('password','password baru','required');
+        $this->form_validation->set_rules('password2','password kedua','required|matches[password]');
+
+        $this->form_validation->set_message('required','%s wajib diisi');
+
+        $this->form_validation->set_error_delimiters('<p class="alert">','</p>');
+
+        if( $this->form_validation->run() == FALSE ){
+            $where = array ('nrp' => $this->session->userdata('username')); 
+            $data['password']= $this->model_kgb->find_data($where, 'user')->row_array();
+            $this->template->load('template/template_member','member/form_edit_password',$data);
+
+        } else {
+            
+            $nrp =  $this->input->post('nrp');
+            $password =  $this->input->post('password');
+            
+            $data = array(
+                'password' => md5($password)
+            );
+
+            $where = array ('nrp' => $nrp);
+            $this->model_kgb->update_data('user', $data, $where);
+            echo $this->session->set_flashdata('msg','<div class="alert alert-success text-center" role="alert">Password Berhasil Di Ubah</div>');
+            redirect('member/profile');
+
+        }
+    }
+
     
     
     
