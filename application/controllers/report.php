@@ -13,9 +13,9 @@ class Report extends ci_controller{
     {
         $data['user'] = $this->db->get_where('user', ['nama_lengkap' => $this->session->userdata('nama_lengkap')])->row_array(); 
         
-        $data['title'] = 'History KGB';
+        $data['title'] = 'Report KGB';
 
-        $data['record']= $this->model_kgb->get_data('history_kbg')->result();
+        $data['record']= $this->model_kgb->get_data('t_kgb')->result();
         //$data['record']= $this->model_kgb->get_data('t_kgb')->result(); 
         $this->template->load('template/template_admin','report/lihat_data',$data);
     }

@@ -10,7 +10,11 @@
         </div>
 
                 <!-- /. ROW  -->
-
+<div class="card shadow mb-4">
+    <div class="card-header">
+        <strong class="card-title">Form Input</strong>
+    </div>
+    <div class="card-body">
                 <div class="row">
                     <div class="col-md-12">
                         <div class="panel panel-default">
@@ -55,3 +59,5 @@
                     </div>
                 </div>
                 <!-- /. ROW  -->
+            </div>
+        </div>

@@ -56,4 +56,4 @@
                 </table>
             </td>
         </tr>
-            <?php echo anchor('kgb',' Kembali',array('class'=>'btn btn-danger btn-sm fe fe-arrow-left'))?>
+            <?php echo anchor('kgb',' Kembali',array('class'=>'btn btn-danger btn-sm'))?>

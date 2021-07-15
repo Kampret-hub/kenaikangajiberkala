@@ -6,7 +6,7 @@
               <h2 class="mb-2 page-title"><?php echo $title ?></h2>
           </div>
       </div>
-  </div>
+  </div> 
                <!--<?php echo anchor('kgb/post','Tambah Data',array('class'=>'btn btn-danger btn-sm')) ?>-->
                  <table class="table table-striped table-bordered table-hover datatables" id="dataTable-1">
                     <div class="alert alert-dismissible fade show">

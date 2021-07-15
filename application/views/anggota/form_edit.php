@@ -37,7 +37,7 @@
                         <div class="form-group mb-3">
                             <label for="" class="control-label">Jenis Kelamin</label>
                                 <select type="option" class="form-control"  name="jk">
-                                    <option type="option" class="form-control"  name="agama" value="<?php echo $record['jk']; ?>"><?php echo $record['jk'];?></option>
+                                    <option type="option" class="form-control"  name="jk" value="<?php echo $record['jk']; ?>"><?php echo $record['jk'];?></option>
                                          <!-- Ambil data di DB-->
                                         <?php foreach ($jk as $a) {
                                             echo "<option value='$a->nama_jk'>$a->nama_jk</option>"; 
@@ -64,7 +64,20 @@
                         </div>
                         <div class="form-group mb-3">
                             <label for="" class="control-label">Pendidikan</label>
-                            <input type="text" class="form-control" name="pendidikan" value="<?php echo $record['pendidikan']?>">
+                            <select type="option" class="form-control"  name="pendidikan">
+                                    <option type="option" class="form-control"  name="pendidikan" value="<?php echo $record['pendidikan']; ?>"><?php echo $record['pendidikan'];?></option>
+                                          <option value=""></option>
+                                         <option value="SD">SD</option>
+                                         <option value="SMP">SMP</option>
+                                         <option value="SMA">SMA</option>
+                                         <option value="SMK">SMK</option>
+                                         <option value="D1">D1</option>
+                                         <option value="D2">D2</option>
+                                         <option value="D3">D3</option>
+                                         <option value="S1">S1</option>
+                                         <option value="S2">S2</option>
+                                         <option value="S3">S3</option>
+                                </select>
                         </div>
             </div>
             <div class="col-md-6">
@@ -79,22 +92,22 @@
                                 </select>
                         </div>
                         <div class="form-group mb-3">
-                             <label for="" class="control-label">Jabatan</label>
-                                <select  type="option" class="form-control"  name="jabatan">
-                                    <option type="option" class="form-control"  name="jabatan" value="<?php echo $record['jabatan']; ?>"><?php echo $record['jabatan'];?></option>
-                                        <!-- Ambil data di DB-->
-                                       <?php foreach ($jabatan as $c) {
-                                            echo "<option value='$c->nama_jabatan'>$c->nama_jabatan</option>"; 
-                                        }?>
-                                </select>
-                        </div>
-                        <div class="form-group mb-3">
                              <label for="" class="control-label">Bagian</label>
                                 <select  type="option" class="form-control"  name="bagian">
                                     <option type="option" class="form-control"  name="bagian" value="<?php echo $record['bagian']; ?>"><?php echo $record['bagian'];?></option>
                                         <!-- Ambil data di DB-->
                                        <?php foreach ($bagian as $c) {
                                             echo "<option value='$c->nama_bagian'>$c->nama_bagian</option>"; 
+                                        }?>
+                                </select>
+                        </div>
+                        <div class="form-group mb-3">
+                             <label for="" class="control-label">Jabatan</label>
+                                <select  type="option" class="form-control"  name="jabatan">
+                                    <option type="option" class="form-control"  name="jabatan" value="<?php echo $record['jabatan']; ?>"><?php echo $record['jabatan'];?></option>
+                                        <!-- Ambil data di DB-->
+                                       <?php foreach ($jabatan as $c) {
+                                            echo "<option value='$c->nama_jabatan'>$c->nama_jabatan</option>"; 
                                         }?>
                                 </select>
                         </div>
@@ -115,6 +128,14 @@
                         <div class="form-group mb-3">
                              <label for="" class="control-label">Gaji pokok</label>
                                 <input type="text" readonly="" class="form-control" id="gaji_pokok" name="gaji_pokok" value="<?php echo $record['gaji_pokok']; ?>">
+                        </div>
+                        <div class="form-group mb-3">
+                            <label for="" class="control-label">Status</label>
+                                <select type="option" class="form-control"  name="keterangan">
+                                        <option value="<?php echo $record['keterangan'];?>"><?php echo $record['keterangan'];?></option>
+                                        <option value="POLRI">POLRI</option>
+                                        <option value="ASN">ASN</option>
+                                </select>
                         </div>
                         <div class="form-group mb-3">
                             <label for="" class="control-label">Status</label>

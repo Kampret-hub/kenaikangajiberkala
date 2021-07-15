@@ -3,15 +3,18 @@
     <div class="col-md-12">
         <div class="card shadow">
             <div class="card-body">
-              <h2 class="mb-2 page-title"><?php echo $title ?></h2>
-                <?php echo anchor('report/print_data/'.$record['NRP'],' Print',array('class'=>'btn btn-info btn-sm fe fe-printer')) ?>
-                <?php echo anchor('report/export_pdf/'.$record['NRP'],' Export Pdf',array('class'=>'btn btn-danger btn-sm fe fe-clipboard')) ?>
-                <?php echo form_open('report/lihat_data'); ?>
+              <h2 class="page-title my-2"><?php echo $title ?></h2>
+                <?php echo form_open('admin/profile/lihat_data_kgb'); ?>
           </div>
       </div>
   </div>
-                <div class="col-md-8">
-                    <table class="table">
+        <div class="card-body">
+            <div class="card shadow mb-4">
+                 <div class="card-header">
+                    <strong class="card-title">Data KGB</strong>
+                </div>
+                <div class="row">
+                 <table class="table" style="margin-top: -100px;">
                         <tr>
                             <td>1. Keterangan SK KGB </td>
                             <td><strong><?php echo $record['ket']; ?></strong></td>
@@ -22,18 +25,15 @@
                         </tr>
                         <tr>
                             <td>3. Nama </td>
-                            <td><strong><?php echo $record['nama_lengkap']; ?></strong></td>
+                            <td><strong><?php echo $record['nama']; ?></strong></td>
                         </tr>
                          <tr>
                             <td>4. Tanggal Lahir </td>
-                            <td><strong><?php echo $record['tmpt_lahir']; ?>, <?php $sampeledate = ($record['t_lahir']); 
-                                $converdate = date("d-m-Y", strtotime($sampeledate));
-                                echo $converdate;
-                                ?>  </strong></td>
+                            <td><strong><?php echo $record['tmpt_lahir']; ?>, <?php echo $record['t_lahir']; ?></strong></td>
                         </tr>
                         <tr>
                             <td>5. NIP </td>
-                            <td><strong><?php echo $record['NRP']; ?></strong></td>
+                            <td><strong><?php echo $record['nrp']; ?></strong></td>
                         </tr>
                         <tr>
                             <td>6. pangkar/ golongan ruang </td>
@@ -61,10 +61,7 @@
                         </tr>
                         <tr>
                             <td>12. TMT </td>
-                            <td><strong><?php $sampeledate = ($record['tmtb']); 
-                                $converdate = date("d-m-Y", strtotime($sampeledate));
-                                echo $converdate;
-                                ?>  </strong></td>
+                            <td><strong><?php echo $record['tmtb']; ?></strong></td>
                         </tr>
                         <tr>
                             <td>13. Kep pangkat / Spemb oleh </td>
@@ -76,10 +73,7 @@
                         </tr>
                         <tr>
                             <td>&#160;&#160;&#160;&#160;&#160;&#160;b. TMT </td>
-                            <td><strong><?php $sampeledate = ($record['tmtl']); 
-                                $converdate = date("d-m-Y", strtotime($sampeledate));
-                                echo $converdate;
-                                ?>  </strong></td>
+                            <td><strong><?php echo $record['tmtl']; ?></strong></td>
                         </tr>
                         <tr>
                             <td>&#160;&#160;&#160;&#160;&#160;&#160;c. masa kerja golongan </td>
@@ -87,10 +81,7 @@
                         </tr>
                         <tr>
                             <td>14. KGB berikutnya </td>
-                            <td><strong><?php $sampeledate = ($record['kgbb']); 
-                                $converdate = date("d-m-Y", strtotime($sampeledate));
-                                echo $converdate;
-                                ?>   / <?php echo $record['kgbb_thn']; ?>  <?php echo $record['kgbb_bln']; ?></strong></td>
+                            <td><strong><?php echo $record['kgbb']; ?> / <?php echo $record['kgbb_thn']; ?>  <?php echo $record['kgbb_bln']; ?></strong></td>
                         </tr>
                         <br>
                         <br>
@@ -100,22 +91,16 @@
                         </tr>
                         <tr>
                             <td>Pada Tanggal : </td>
-                            <td><strong>
-                                <?php $sampeledate = ($record['padatanggal']); 
-                                $converdate = date("d F Y", strtotime($sampeledate));
-                                echo $converdate;
-                                ?>    
-                        </strong></td>
+                            <td><strong><?php echo $record['padatanggal']; ?></strong></td>
                         </tr>
                         <tr>
                             <td>Di setujui oleh : </td>
                             <td><strong><?php echo $record['d_oleh']; ?>&#160;|&#160;Sebagai : <?php echo $record['sebagai']; ?>&#160;|&#160;NRP : <?php echo $record['nrp_p']; ?></strong></td>
                         </tr>
                     </table>
+                   <?php echo anchor('admin/profile',' Kembali',array('class'=>'btn btn-danger btn-sm fe fe-arrow-left'))?>
                 </div>
             </div>
       </div>
+  </div>
       <!-- <?php var_dump($record['NRP']); ?> -->
-    </td>
-</tr>
- <?php echo anchor('report',' Kembali',array('class'=>'btn btn-danger btn-sm fe fe-arrow-left'))?>

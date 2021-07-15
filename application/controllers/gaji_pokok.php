@@ -18,13 +18,12 @@ class gaji_pokok extends ci_controller{
          $this->template->load('template/template_admin','gaji_pokok/lihat_data',$data);
     }
 
-
     function post()
     {
         $data['user'] = $this->db->get_where('user', ['nama_lengkap' => $this->session->userdata('nama_lengkap')])->row_array(); 
 
-        $this->form_validation->set_rules('kode_gapok', 'Kode Gapok', 'required|min_length[5]');
-        $this->form_validation->set_rules('gaji', 'Gaji', 'required');
+        $this->form_validation->set_rules('kode_gapok', 'Kode Gapok', 'required');
+        $this->form_validation->set_rules('gaji', 'Gaji', 'required|min_length[5]');
         $this->form_validation->set_rules('masa_kerja', 'Masa Kerja', 'required');
         $this->form_validation->set_rules('golongan', 'golongan', 'required');
         $this->form_validation->set_rules('taraf', 'Taraf', 'required|min_length[5]');

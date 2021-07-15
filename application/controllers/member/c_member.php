@@ -14,13 +14,18 @@ public function index() {
 		  $data['contents']=  $this->model_kgb->get_data('anggota')->num_rows();
 
 		   $data['title'] = 'Page anggota';
-           $data['user'] = $this->db->get_where('user', ['nama_lengkap' => $this->session->userdata('nama_lengkap')])->row_array(); 
+           $data['user'] = $this->db->get_where('user', ['nama_lengkap' => $this->session->userdata('nama_lengkap')])->row_array();
+
+           $where = array ('nrp' => $this->session->userdata('username'));
+        	$data['member']= $this->model_kgb->find_data($where, 'anggota')->row_array();
+        	$data['history']= $this->model_kgb->find_data($where, 'history_kgb')->result(); 
            //$data['anggota'] = $this->db->get_where('anggota', ['alamat' => $this->session->userdata('alamat')])->row_array();
 		   $data['username'] = $this->session->userdata('username');
- 		  $this->template->load('template/template_member','member/index',$data);
+ 		  $this->template->load('template/template_member','member/profile',$data);
 
 }
 }
 ?>
 
 
+ 

@@ -1,4 +1,4 @@
-<?php
+<?php 
 class anggota extends ci_controller{
     
    function __construct() {
@@ -38,98 +38,84 @@ class anggota extends ci_controller{
         }
 
     }
-    
+ 
     function insert()
     {
+        $data['user'] = $this->db->get_where('user', ['nama_lengkap' => $this->session->userdata('nama_lengkap')])->row_array(); 
 
-        $data['anggota'] = $this->db->get_where('anggota', ['nama_lengkap' => $this->session->userdata('nama_lengkap')])->row_array(); 
-        
-        $this->_rules();
+        $this->form_validation->set_rules('nrp', 'NRP / NIP Username', 'required|min_length[5]');
+        $this->form_validation->set_rules('nama_lengkap', 'Nama Lengkap', 'required|min_length[5]');
+        $this->form_validation->set_rules('tmpt_lahir', 'Tempat Lahir', 'required');
+        $this->form_validation->set_rules('t_lahir', 'Tanggal Lahir', 'required');
+        $this->form_validation->set_rules('jk', 'Jenis Kelamin', 'required');
+        $this->form_validation->set_rules('agama', 'Agama', 'required|min_length[5]');
+        $this->form_validation->set_rules('no_telp', 'No Telepon', 'required|min_length[5]');
+        $this->form_validation->set_rules('alamat', 'Alamat', 'required|min_length[5]');
+        $this->form_validation->set_rules('pendidikan', 'Pendidikan', 'required');
+        $this->form_validation->set_rules('pangkat', 'Pangkat', 'required|min_length[5]');
+        $this->form_validation->set_rules('jabatan', 'Jabatan', 'required');
+        $this->form_validation->set_rules('bagian', 'Bagian', 'required');
+         $this->form_validation->set_rules('keterangan', 'Keterangan', 'required');
+        $this->form_validation->set_rules('status', 'Status', 'required');      
 
-        if($this->form_validation->run() == FALSE) {
+        $this->form_validation->set_message('required', '%s masih kosong', 'silahkan isi terlebi dahulu');
+        $this->form_validation->set_message('min_length', '%s minimal 5 karakter');
+
+        $this->form_validation->set_error_delimiters('<span class="help-block"></span>');
+
+        if($this->form_validation->run() == FALSE)
+        {
              $data['jk']=  $this->model_kgb->get_data('jk')->result();
              $data['agama']=  $this->model_kgb->get_data('agama')->result();
              $data['pangkat']=  $this->model_kgb->get_data('pangkat')->result();
+             $data['jabatan']=  $this->model_kgb->get_data('jabatan')->result();
+             $data['bagian']=  $this->model_kgb->get_data('bagian')->result();
 
 
             //$this->load->view('user/form_input');
             $this->template->load('template/template_admin','anggota/form_input', $data);
-        } else {
-            // proses data
-            $nama_lengkap   =  $this->input->post('nama_lengkap');
-            $nrp              =  $this->input->post('nrp');
-            $tmpt_lahir     =  $this->input->post('tmpt_lahir');
-            $t_lahir        =  $this->input->post('t_lahir');
-            $jk             =  $this->input->post('jk');
-            $agama          =  $this->input->post('agama');
-            $no_telp        =  $this->input->post('no_telp');
-            $alamat         =  $this->input->post('alamat');
-            $pendidikan     =  $this->input->post('pendidikan');
-            $pangkat        =  $this->input->post('pangkat');
-            $jabatan        =  $this->input->post('jabatan');
-            $bagian         =  $this->input->post('bagian');
+
+        }
+        else
+        {   
             $status         =  $this->input->post('status');
-            
-            $input_anggota =  array(   
-                'nama_lengkap'  =>$nama_lengkap,
-                'nrp'           =>$nrp, 
-                'tmpt_lahir'    =>$tmpt_lahir, 
-                't_lahir'       =>$t_lahir,
-                'jk'            =>$jk,
-                'agama'         =>$agama,
-                'no_telp'         =>$no_telp,
-                'alamat'        =>$alamat,
-                'pendidikan'    =>$pendidikan,
-                'pangkat'       =>$pangkat,
-                'jabatan'       =>$jabatan, 
-                'bagian'        =>$bagian,
-                'status'        =>$status
+            $input_anggota = array (   
+               'nrp'          => $this->input->post('nrp'),
+               'nama_lengkap' => $this->input->post('nama_lengkap'),
+               'tmpt_lahir'   => $this->input->post('tmpt_lahir'),
+               't_lahir'      => $this->input->post('t_lahir'),
+               'jk'           => $this->input->post('jk'),
+               'agama'        => $this->input->post('agama'),
+               'no_telp'      => $this->input->post('no_telp'),
+               'alamat'       => $this->input->post('alamat'),
+               'pendidikan'   => $this->input->post('pendidikan'),
+               'pangkat'      => $this->input->post('pangkat'),
+               'jabatan'      => $this->input->post('jabatan'),
+               'bagian'       => $this->input->post('bagian'),
+               'keterangan'          => $this->input->post('keterangan'),
+               'status'       => $this->input->post('status')
             );
-            $input_kgb = array(
-                'nrp'           =>$nrp,
-                'nama'          =>$nama_lengkap
-                
+
+            $input_kgb = array (
+               'nrp'          => $this->input->post('nrp'),
+               'nama'         => $this->input->post('nama_lengkap')
             ); 
+
             $input_user = array (
-                'nama_lengkap'  =>$nama_lengkap,
-                'nrp'           =>$nrp,
-                'password'      => 'ee11cbb19052e40b07aac0ca060c23ee',
-                'role_id'       => '2',
-                'status'        => '1',
-                'date_created'  =>  date('Y-m-d H:i:s')
+               'nrp'           => $this->input->post('nrp'),
+               'nama_lengkap' => $this->input->post('nama_lengkap'),
+               'password'     => 'ee11cbb19052e40b07aac0ca060c23ee',
+               'role_id'      => '2',
+               'status'       => '1',
+               'date_created' => date('Y-m-d H:i:s')
             );
-                                    
+
             $this->model_kgb->insert_data($input_anggota, 'anggota');
             $this->model_kgb->insert_data($input_kgb, 't_kgb');
             $this->model_kgb->insert_data($input_user, 'user');
             echo $this->session->set_flashdata('msg','<div class="alert alert-success text-center" role="alert">Data Berhasil Di Simpan</div>');
             redirect('anggota/index/'.$status, $data);
         }
-        
-    }
-
-    public function _rules()
-    {
-        $this->form_validation->set_rules('nama_lengkap', 'Nama lengkap', 'required');
-        $this->form_validation->set_rules('nrp', 'Nrp', 'required');
-        
-        // BELUM KEPAKE
-        // $this->form_validation->set_rules('tmpt_lahir', 'tmpt_lahir', 'required');
-        // $this->form_validation->set_rules('t_lahir', 't_lahir', 'required');
-        // $this->form_validation->set_rules('jk', 'jk', 'required');
-        // $this->form_validation->set_rules('agama', 'agama', 'required');
-        // $this->form_validation->set_rules('no_telp', 'no_telp', 'required');
-        // $this->form_validation->set_rules('alamat', 'alamat', 'required');
-        // $this->form_validation->set_rules('pendidikan', 'pendidikan', 'required');
-        // $this->form_validation->set_rules('pangkat', 'pangkat', 'required');
-        // $this->form_validation->set_rules('jabatan', 'jabatan', 'required');
-        // $this->form_validation->set_rules('status', 'status', 'required');
-
-
-        $this->form_validation->set_message('required', '%s Harus Di isi', 'silahkan isi terlebi dahulu');
-        $this->form_validation->set_message('min_length', '%s minimal 5 karakter');
-
-        $this->form_validation->set_error_delimiters('<span class="help-block"></span>');
     }
     
      
@@ -143,17 +129,21 @@ class anggota extends ci_controller{
         if(isset($_POST['submit'])){
             // proses kategori
             $nama_lengkap   =  $this->input->post('nama_lengkap');
-            $nrp              =  $this->input->post('nrp');
+            $nrp            =  $this->input->post('nrp');
             $tmpt_lahir     =  $this->input->post('tmpt_lahir');
             $t_lahir        =  $this->input->post('t_lahir');
             $jk             =  $this->input->post('jk');
             $agama          =  $this->input->post('agama');
-            $no_telp          =  $this->input->post('no_telp');
+            $no_telp        =  $this->input->post('no_telp');
             $alamat         =  $this->input->post('alamat');
             $pendidikan     =  $this->input->post('pendidikan');
             $pangkat        =  $this->input->post('pangkat');
             $jabatan        =  $this->input->post('jabatan');
             $bagian         =  $this->input->post('bagian');
+            $golongan       =  $this->input->post('golongan');
+            $masa_kerja     =  $this->input->post('masa_kerja');
+            $gaji_pokok     =  $this->input->post('gaji_pokok');
+            $keterangan            =  $this->input->post('keterangan');
             $status         =  $this->input->post('status');
             
             $edit_anggota =  array(   
@@ -163,12 +153,17 @@ class anggota extends ci_controller{
                 't_lahir'       =>$t_lahir,
                 'jk'            =>$jk,
                 'agama'         =>$agama,
-                'no_telp'         =>$no_telp,
+                'no_telp'       =>$no_telp,
                 'alamat'        =>$alamat,
                 'pendidikan'    =>$pendidikan,
                 'pangkat'       =>$pangkat,
                 'jabatan'       =>$jabatan, 
                 'bagian'        =>$bagian,
+                'bagian'        =>$bagian,
+                'golongan'      =>$golongan,
+                'masa_kerja'    =>$masa_kerja,
+                'gaji_pokok'    =>$gaji_pokok,
+                'keterangan'           =>$keterangan,
                 'status'        =>$status
             );
              $edit_kgb = array(

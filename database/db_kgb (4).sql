@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: 01 Jul 2021 pada 07.40
+-- Generation Time: 03 Jul 2021 pada 13.54
 -- Versi Server: 5.6.16
 -- PHP Version: 5.5.11
 
@@ -71,15 +71,15 @@ CREATE TABLE IF NOT EXISTS `anggota` (
   PRIMARY KEY (`nrp`),
   UNIQUE KEY `nrp` (`nama_lengkap`),
   UNIQUE KEY `user_id` (`user_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=1312 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=1322 ;
 
 --
 -- Dumping data untuk tabel `anggota`
 --
 
 INSERT INTO `anggota` (`nrp`, `nama_lengkap`, `tmpt_lahir`, `t_lahir`, `jk`, `agama`, `no_telp`, `alamat`, `pendidikan`, `pangkat`, `jabatan`, `bagian`, `golongan`, `masa_kerja`, `gaji_pokok`, `status`, `user_id`) VALUES
-('08071996', 'andri juliyanto', 'karawang', '1996-07-08', 'Laki-laki', 'Islam', '083815404175', 'anjun', 's1', 'BHARADA', 'ANALIS KEBIJAKAN PERTAMA BIDANG OPS', 'BAGSUMDA', 'I.A', '10 TAHUN', 'RP1.860.800', 'aktif', 1310),
-('123456', 'andri', 'bandung', '2021-06-26', 'Laki-laki', 'Islam', '12345', '2222a', 'tes3', 'KBP', 'BHABINKAMTIBMAS DS. AMANSARI POLSEK RENGASDENGKLOK', 'SITIPOL', '', '', '', 'aktif', 1311);
+('08071996', 'andri juliyanto', 'karawang', '1996-07-08', 'Laki-laki', 'Islam', '083815404175', 'anjun', 'S1', 'BHARADA', 'ANALIS KEBIJAKAN PERTAMA BIDANG OPS', 'BAGSUMDA', 'I.A', '10 TAHUN', 'RP1.860.800', 'aktif', 1310),
+('123456', 'andri', 'bandung', '2021-06-26', 'Laki-laki', 'Islam', '12345', '2222a', 'tes3', 'BHARAKA', 'BHABINKAMTIBMAS DS. AMANSARI POLSEK RENGASDENGKLOK', 'SITIPOL', '', '', '', 'aktif', 1311);
 
 -- --------------------------------------------------------
 
@@ -163,7 +163,7 @@ CREATE TABLE IF NOT EXISTS `gaji_pokok` (
   `taraf` varchar(20) NOT NULL,
   `pangkat` varchar(30) NOT NULL,
   PRIMARY KEY (`id_gaji`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=62 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=61 ;
 
 --
 -- Dumping data untuk tabel `gaji_pokok`
@@ -276,38 +276,44 @@ INSERT INTO `golongan` (`id_golongan`, `nama_golongan`, `pangkat`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `history_kbg`
+-- Struktur dari tabel `history_kgb`
 --
 
-CREATE TABLE IF NOT EXISTS `history_kbg` (
+CREATE TABLE IF NOT EXISTS `history_kgb` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
+  `ket` varchar(30) NOT NULL,
+  `nomor_kgb` varchar(30) NOT NULL,
   `nrp` varchar(20) NOT NULL,
   `nama` varchar(100) NOT NULL,
+  `kesatuan` varchar(30) NOT NULL,
+  `gpl` varchar(30) NOT NULL,
+  `gpb` varchar(20) NOT NULL,
   `mkgg1` varchar(10) NOT NULL,
   `mkgg2` varchar(11) NOT NULL,
   `mkg1` varchar(30) NOT NULL,
   `mkg2` varchar(30) NOT NULL,
-  `gpb` varchar(20) NOT NULL,
+  `tmtl` varchar(30) NOT NULL,
   `tmtb` date NOT NULL,
+  `kep_pangkat` varchar(30) NOT NULL,
+  `no_tgl` varchar(30) NOT NULL,
+  `kgbb` varchar(30) NOT NULL,
+  `kgbb_thn` varchar(30) NOT NULL,
+  `kgbb_bln` varchar(30) NOT NULL,
+  `diterapkan` varchar(30) NOT NULL,
+  `padatanggal` varchar(30) NOT NULL,
+  `d_oleh` varchar(30) NOT NULL,
+  `sebagai` varchar(30) NOT NULL,
+  `nrp_p` varchar(30) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=65 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
 
 --
--- Dumping data untuk tabel `history_kbg`
+-- Dumping data untuk tabel `history_kgb`
 --
 
-INSERT INTO `history_kbg` (`id`, `nrp`, `nama`, `mkgg1`, `mkgg2`, `mkg1`, `mkg2`, `gpb`, `tmtb`) VALUES
-(40, '08071996', 'andri juliyanto', '0TH', '9BL', '', '', '111', '2021-06-27'),
-(41, '08071996', 'andri juliyanto', '5TH', '0BL', '', '', '111111', '2021-07-11'),
-(42, '123456', 'andri', '', '', '', '', '111111', '0000-00-00'),
-(43, '08071996', 'andri juliyanto', '5TH', '0BL', '', '', '111111', '2021-07-11'),
-(44, '08071996', 'andri juliyanto', '5TH', '0BL', '', '', '111111', '2021-07-11'),
-(45, '08071996', 'andri juliyanto', '3TH', '0BL', '', '', '111111', '2021-07-11'),
-(60, '08071996', 'andri juliyanto', '2TH', '0BL', '4TH', '0BL', 'RP1.748.700', '2021-07-11'),
-(61, '08071996', 'andri juliyanto', '4TH', '0BL', '4TH', '0BL', 'RP1.748.700', '2021-07-11'),
-(62, '08071996', 'andri juliyanto', '2TH', '0BL', '4TH', '0BL', 'RP1.748.700', '2021-07-11'),
-(63, '08071996', 'andri juliyanto', '2TH', '0BL', '4TH', '0BL', 'RP1.748.700', '2021-07-11'),
-(64, '08071996', 'andri juliyanto', '4TH', '0BL', '2TH', '0BL', 'RP1.748.700', '2021-07-11');
+INSERT INTO `history_kgb` (`id`, `ket`, `nomor_kgb`, `nrp`, `nama`, `kesatuan`, `gpl`, `gpb`, `mkgg1`, `mkgg2`, `mkg1`, `mkg2`, `tmtl`, `tmtb`, `kep_pangkat`, `no_tgl`, `kgbb`, `kgbb_thn`, `kgbb_bln`, `diterapkan`, `padatanggal`, `d_oleh`, `sebagai`, `nrp_p`) VALUES
+(1, 'SURAT PEMBERITAHUAN', '1', '08071996', 'andri juliyanto', 'KAPOLRES KARAWANG', 'RP1.919.400', 'RP1.980.000', '12TH', ' ', '14TH', ' ', '2019-01-01', '2021-01-01', 'KEP KAPOLRI', 'KEP/382/III/2021 / 01/03/2021', '2021-01-01', '16TH', ' ', 'Karawang', '2019-01-01', 'Adi Fauzi', '', '21232123'),
+(2, 'SURAT PEMBERITAHUAN', '1', '08071996', 'andri juliyanto', 'KAPOLRES KARAWANG', 'RP1.980.000', 'RP2.042.400', '12TH', ' ', '14TH', ' ', '2019-01-01', '2021-01-01', 'KEP KAPOLRI', 'KEP/382/III/2021 / 01/03/2021', '2021-01-01', '16TH', ' ', 'Karawang', '2019-01-01', 'Adi Fauzi', 'KOMISARIS POLISI', '21232123');
 
 -- --------------------------------------------------------
 
@@ -1036,7 +1042,7 @@ CREATE TABLE IF NOT EXISTS `t_kgb` (
   `tmtb` date NOT NULL,
   `kep_pangkat` varchar(30) NOT NULL,
   `no_tgl` varchar(30) NOT NULL,
-  `kgbb` date NOT NULL,
+  `kgbb` varchar(30) NOT NULL,
   `kgbb_thn` varchar(30) NOT NULL,
   `kgbb_bln` varchar(30) NOT NULL,
   `diterapkan` varchar(30) NOT NULL,
@@ -1045,15 +1051,14 @@ CREATE TABLE IF NOT EXISTS `t_kgb` (
   `sebagai` varchar(30) NOT NULL,
   `nrp_p` varchar(30) NOT NULL,
   PRIMARY KEY (`id_kgb`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=11 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
 
 --
 -- Dumping data untuk tabel `t_kgb`
 --
 
 INSERT INTO `t_kgb` (`id_kgb`, `ket`, `nomor_kgb`, `nrp`, `nama`, `kesatuan`, `gpl`, `gpb`, `mkgg1`, `mkgg2`, `mkg1`, `mkg2`, `tmtl`, `tmtb`, `kep_pangkat`, `no_tgl`, `kgbb`, `kgbb_thn`, `kgbb_bln`, `diterapkan`, `padatanggal`, `d_oleh`, `sebagai`, `nrp_p`) VALUES
-(9, 'SURAT PEMBERITAHUAN', 'Spemb/3/V/2021', '08071996', 'andri juliyanto', 'KAPOLRES KARAWANG', 'RP1.695.300', 'RP1.748.700', '4TH', '0BL', '2TH', '0BL', '2020-06-27', '2021-07-11', 'KEP KAPOLRI', 'KEP/382/III/2021 / 01/03/2021', '2021-06-23', '6TH', '0BL', 'Karawang', '23 Mei 2021', 'Adi Fauzi', 'KOMISARIS POLISI', '21232123'),
-(10, '', '', '123456', 'andri', '', '0', '111111', '', '', '', '', '0000-00-00', '0000-00-00', '', '', '0000-00-00', '', '', '', '', '', '', '');
+(1, 'SURAT PEMBERITAHUAN', '1', '08071996', 'andri juliyanto', 'KAPOLRES KARAWANG', 'RP1.980.000', 'RP2.042.400', '12TH', ' ', '14TH', ' ', '2019-01-01', '2021-01-01', 'KEP KAPOLRI', 'KEP/382/III/2021 / 01/03/2021', '2021-01-01', '16TH', ' ', 'Karawang', '2019-01-01', 'Adi Fauzi', 'KOMISARIS POLISI', '21232123');
 
 -- --------------------------------------------------------
 
@@ -1073,7 +1078,7 @@ CREATE TABLE IF NOT EXISTS `user` (
   PRIMARY KEY (`user_id`),
   UNIQUE KEY `nrp` (`nrp`),
   UNIQUE KEY `nrp_2` (`nrp`)
-) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=1313 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=1322 ;
 
 --
 -- Dumping data untuk tabel `user`

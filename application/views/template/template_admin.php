@@ -9,6 +9,7 @@
     <title>SIMPEG POLRES KARAWANG</title>
     <!-- Simple bar CSS -->
     <link rel="stylesheet" href="<?php echo base_url() ?>assets/css/simplebar.css">
+     <link rel="stylesheet" href="<?php echo base_url() ?>assets/css/custom.css">
     <!-- Fonts CSS -->
     <link href="https://fonts.googleapis.com/css2?family=Overpass:ital,wght@0,100;0,200;0,300;0,400;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
     <!-- Icons CSS -->
@@ -25,7 +26,6 @@
     <!-- App CSS -->
     <link rel="stylesheet" href="<?php echo base_url() ?>assets/css/app-light.css" id="lightTheme" disabled>
     <link rel="stylesheet" href="<?php echo base_url() ?>assets/css/app-dark.css" id="darkTheme">
-    <link rel="stylesheet" href="<?php echo base_url() ?>assets/css/custom.css">
     <!-- Sweat Alert 2-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://lipis.github.io/bootstrap-sweetalert/dist/sweetalert.js"></script>
@@ -35,27 +35,21 @@
 <?php if($this->session->userdata('role_id')=== '1'):?>
   <body class="vertical  dark  ">
     <div class="wrapper">
-      <button onclick="topFunction()" id="myBtn" title="Go to top" class="btn btn-primary fe fe-arrow-up"></button>
+      <a href="#" id="scroll" style="display: none;"><span></span></a>
       <!-- Header -->
       <nav class="topnav navbar navbar-light">
         <button type="button" class="navbar-toggler text-muted mt-2 p-0 mr-3 collapseSidebar">
           <i class="fe fe-menu navbar-toggler-icon"></i>
         </button>
-        <form class="form-inline mr-auto searchform text-muted">
+        <!--<form class="form-inline mr-auto searchform text-muted">
           <input class="form-control mr-sm-2 bg-transparent border-0 pl-4 text-muted" type="search" placeholder="Type something..." aria-label="Search">
-        </form>
+        </form>-->
         <ul class="nav">
           <li class="nav-item">
             <a class="nav-link text-muted my-2" href="#" id="modeSwitcher" data-mode="dark">
               <i class="fe fe-sun fe-16"></i>
             </a>
           </li>
-          <!--<li class="nav-item nav-notif">
-            <a class="nav-link text-muted my-2" href="./#" data-toggle="modal" data-target=".modal-notif">
-              <span class="fe fe-bell fe-16"></span>
-              <span class="dot dot-md bg-success"></span>
-            </a>
-          </li>-->
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle text-muted pr-0" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               <span class="avatar avatar-sm mt-2">
@@ -65,7 +59,7 @@
             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
               <a class="dropdown-item" href="#"><?= $user['nama_lengkap']; ?></a>
               <a class="dropdown-item" href="<?php echo base_url().'admin/profile' ?>">Profile</a>
-              <a class="dropdown-item" href="<?php echo base_url().'auth/ganti_password'?>">Ganti Password</a>
+              <a class="dropdown-item" href="<?php echo base_url().'admin/profile/ganti_password'?>">Ganti Password</a>
               <a class="dropdown-item" href="<?php echo base_url().'auth/logout'?>">Logout</a>
             </div>
           </li>
@@ -109,12 +103,12 @@
                 <a class="nav-link pl-3" href="<?php echo base_url().'anggota/index/'?>meninggal"><span class="ml-1">Anggota Meninggal</span></a>
               </ul>
             </li>
-            <li class="nav-item w-100">
+            <!--<li class="nav-item w-100">
               <a class="nav-link" href="">
                 <i class="fe fe-calendar fe-16"></i>
                 <span class="ml-3 item-text">Mutasi</span>
               </a>
-            </li>
+            </li>-->
             <li class="nav-item w-100">
               <a class="nav-link" href="<?php echo base_url().'kgb'?>">
                 <i class="fe fe-mail fe-16"></i>
@@ -128,7 +122,7 @@
               </a>
               <ul class="collapse list-unstyled pl-4 w-100" id="report">
                 <a class="nav-link pl-3" href="<?php echo base_url().'report'?>"><span class="ml-1">Cetak Surat KGB</span></a>
-                <a class="nav-link pl-3" href=""><span class="ml-1">Report Excel Anggota</span></a> 
+               <!-- <a class="nav-link pl-3" href=""><span class="ml-1">Report Excel Anggota</span></a>-->
               </ul>
             </li>
             <li class="nav-item w-100">
@@ -149,6 +143,12 @@
                 <a class="nav-link pl-3" href="<?php echo base_url().'golongan'?>"><span class="ml-1">Golongan</span></a>
                 <a class="nav-link pl-3" href="<?php echo base_url().'gaji_pokok'?>"><span class="ml-1">Gaji Pokok</span></a>
               </ul>
+            </li>
+            <li class="nav-item w-100">
+              <a class="nav-link" href="<?php echo base_url().'kontak'?>">
+                <i class="fe fe-settings fe-16"></i>
+                <span class="ml-3 item-text">Kontak BAGSUMDA</span>
+              </a>
             </li>
           </ul>
           <div class="btn-box w-100 mt-4 mb-1">
@@ -182,84 +182,10 @@
             <div class="d-flex flex-column min-vh-100">
               <main class="flex-fill"></main>
               <footer>
-                <div class="card shadow footer-copyright text-center py-3" >© 2021 Copyright SIMPEG POLRES KARWANG
+                <div class="card shadow footer-copyright text-center py-3" >© 2021 Copyright SIMPEG POLRES KARAWANG
                 </div>
               </footer>
             </div><!-- End Footer -->
-          
-            
-            
-               
-                <!-- Notify -->
-                <div class="modal fade modal-notif modal-slide" tabindex="-1" role="dialog" aria-labelledby="defaultModalLabel" aria-hidden="true">
-                <div class="modal-dialog modal-sm" role="document">
-                  <div class="modal-content">
-                    <div class="modal-header">
-                      <h5 class="modal-title" id="defaultModalLabel">Notifications</h5>
-                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                      </button>
-                    </div>
-                    <div class="modal-body">
-                      <div class="list-group list-group-flush my-n3">
-                        <div class="list-group-item bg-transparent">
-                          <div class="row align-items-center">
-                            <div class="col-auto">
-                              <span class="fe fe-box fe-24"></span>
-                            </div>
-                            <div class="col">
-                              <small><strong>Package has uploaded successfull</strong></small>
-                              <div class="my-0 text-muted small">Package is zipped and uploaded</div>
-                              <small class="badge badge-pill badge-light text-muted">1m ago</small>
-                            </div>
-                          </div>
-                        </div>
-                        <div class="list-group-item bg-transparent">
-                          <div class="row align-items-center">
-                            <div class="col-auto">
-                              <span class="fe fe-download fe-24"></span>
-                            </div>
-                            <div class="col">
-                              <small><strong>Widgets are updated successfull</strong></small>
-                              <div class="my-0 text-muted small">Just create new layout Index, form, table</div>
-                              <small class="badge badge-pill badge-light text-muted">2m ago</small>
-                            </div>
-                          </div>
-                        </div>
-                        <div class="list-group-item bg-transparent">
-                          <div class="row align-items-center">
-                            <div class="col-auto">
-                              <span class="fe fe-inbox fe-24"></span>
-                            </div>
-                            <div class="col">
-                              <small><strong>Notifications have been sent</strong></small>
-                              <div class="my-0 text-muted small">Fusce dapibus, tellus ac cursus commodo</div>
-                              <small class="badge badge-pill badge-light text-muted">30m ago</small>
-                            </div>
-                          </div> <!-- / .row -->
-                        </div>
-                        <div class="list-group-item bg-transparent">
-                          <div class="row align-items-center">
-                            <div class="col-auto">
-                              <span class="fe fe-link fe-24"></span>
-                            </div>
-                            <div class="col">
-                              <small><strong>Link was attached to menu</strong></small>
-                              <div class="my-0 text-muted small">New layout has been attached to the menu</div>
-                              <small class="badge badge-pill badge-light text-muted">1h ago</small>
-                            </div>
-                          </div>
-                        </div> <!-- / .row -->
-                      </div> <!-- / .list-group -->
-                    </div>
-                    <div class="modal-footer">
-                      <button type="button" class="btn btn-secondary btn-block" data-dismiss="modal">Clear All</button>
-                    </div>
-                  </div>
-                </div>
-              </div><!-- Notify End -->
-              <!-- ShortCut end -->
-
             <?php endif?>
 
     <!--Datatable-->
@@ -310,25 +236,19 @@
     <script  src='<?php echo base_url(); ?>assets/js/quill.min.js'></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <script>
-        //Get the button
-        var mybutton = document.getElementById("myBtn");
-
-        // When the user scrolls down 20px from the top of the document, show the button
-        window.onscroll = function() {scrollFunction()};
-
-        function scrollFunction() {
-          if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-            mybutton.style.display = "block";
-          } else {
-            mybutton.style.display = "none";
-          }
-        }
-
-        // When the user clicks on the button, scroll to the top of the document
-        function topFunction() {
-          document.body.scrollTop = 0;
-          document.documentElement.scrollTop = 0;
-        }
+        $(document).ready(function(){ 
+        $(window).scroll(function(){ 
+            if ($(this).scrollTop() > 350) { 
+                $('#scroll').fadeIn(); 
+            } else { 
+                $('#scroll').fadeOut(); 
+            } 
+        }); 
+        $('#scroll').click(function(){ 
+            $("html, body").animate({ scrollTop: 0 }, 600); 
+            return false; 
+            }); 
+        });
   </script>
     <script  src="<?php echo base_url(); ?>assets/js/apps.js"></script>
     <!-- Global site tag (gtag.js) - Google Analytics -->

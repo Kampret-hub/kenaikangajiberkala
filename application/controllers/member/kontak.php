@@ -1,5 +1,5 @@
 <?php
-class historycetak extends ci_controller{
+class kontak extends ci_controller{
     
    function __construct() {
         parent::__construct();
@@ -13,12 +13,10 @@ class historycetak extends ci_controller{
     {
         $data['user'] = $this->db->get_where('user', ['nama_lengkap' => $this->session->userdata('nama_lengkap')])->row_array(); 
         
-        $data['title'] = 'History KGB';
-
-        
-        $data['record']= $this->model_kgb->get_data('history_kbg')->result();
-        // $data['record1']= $this->db->query('select distinct nrp, nama from history_kbg where nrp = '.$id);
+        $where = array ('id_kontak'=> '1');
+        $data['record']= $this->model_kgb->find_data($where, 'kontak')->row_array();
         //$this->load->view('user/lihat_data',$data);
-        $this->template->load('template/template_admin','history_kgb/lihat_data',$data);
+        $this->template->load('template/template_member','kontak/lihat_data',$data);
     }
+
 }

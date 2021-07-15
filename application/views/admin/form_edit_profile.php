@@ -24,7 +24,7 @@
                         </div>
                         <div class="form-group mb-3">
                             <label for="" class="control-label">Nama Lengkap</label>
-                            <input type="text" class="form-control" readonly="" name="nama_lengkap" value="<?php echo $member['nama_lengkap']?>">
+                            <input type="text" class="form-control"  name="nama_lengkap" value="<?php echo $member['nama_lengkap']?>">
                         </div>
                         <div class="form-group mb-3">
                             <label for="" class="control-label">Tempat Lahir</label>
@@ -44,6 +44,8 @@
                                         }?>
                                 </select>
                         </div>
+                    </div>
+                    <div class="col-md-6">
                         <div class="form-group mb-3">
                             <label for="" class="control-label">Agama</label>
                                 <select  type="option" class="form-control"  name="agama">
@@ -54,9 +56,6 @@
                                         }?>
                                 </select>
                         </div>
-
-                    </div>
-                    <div class="col-md-6">
                         <div class="form-group mb-3">
                           <label for="" class="control-label">No Telepon</label>
                           <input type="text" name="no_telp" id="no_telp" class="form-control"   placeholder="Input No Telepon" value="<?php echo $member['no_telp']?>">
@@ -67,36 +66,18 @@
                         </div>
                         <div class="form-group mb-3">
                             <label for="" class="control-label">Pendidikan</label>
-                            <input type="text" class="form-control" name="pendidikan" value="<?php echo $member['pendidikan']?>">
-                        </div>
-                        <div class="form-group mb-3">
-                             <label for="" class="control-label">Pangkat</label>
-                                <select  type="option" class="form-control"  name="pangkat">
-                                    <option type="option" class="form-control"  name="pangkat" value="<?php echo $member['pangkat']; ?>"><?php echo $member['pangkat'];?></option>
-                                        <!-- Ambil data di DB-->
-                                       <?php foreach ($pangkat as $c) {
-                                            echo "<option value='$c->nama_pangkat'>$c->nama_pangkat</option>"; 
-                                        }?>
-                                </select>
-                        </div>
-                        <div class="form-group mb-3">
-                             <label for="" class="control-label">Jabatan</label>
-                                <select  type="option" class="form-control"  name="jabatan">
-                                    <option type="option" class="form-control"  name="jabatan" value="<?php echo $member['jabatan']; ?>"><?php echo $member['jabatan'];?></option>
-                                        <!-- Ambil data di DB-->
-                                       <?php foreach ($jabatan as $c) {
-                                            echo "<option value='$c->nama_jabatan'>$c->nama_jabatan</option>"; 
-                                        }?>
-                                </select>
-                        </div>
-                        <div class="form-group mb-3">
-                             <label for="" class="control-label">Bagian</label>
-                                <select  type="option" class="form-control"  name="bagian">
-                                    <option type="option" class="form-control"  name="bagian" value="<?php echo $member['bagian']; ?>"><?php echo $member['bagian'];?></option>
-                                        <!-- Ambil data di DB-->
-                                       <?php foreach ($bagian as $c) {
-                                            echo "<option value='$c->nama_bagian'>$c->nama_bagian</option>"; 
-                                        }?>
+                                <select type="option" class="form-control"  name="pendidikan">
+                                    <option type="option" class="form-control"  name="pendidikan" value="<?php echo $member['pendidikan']; ?>"><?php echo $member['pendidikan'];?></option>
+                                         <option value="SD">SD</option>
+                                         <option value="SMP">SMP</option>
+                                         <option value="SMA">SMA</option>
+                                         <option value="SMK">SMK</option>
+                                         <option value="D1">D1</option>
+                                         <option value="D2">D2</option>
+                                         <option value="D3">D3</option>
+                                         <option value="S1">S1</option>
+                                         <option value="S2">S2</option>
+                                         <option value="S3">S3</option>
                                 </select>
                         </div>
                     </div>

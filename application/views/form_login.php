@@ -8,16 +8,16 @@
     <link rel="icon" href="<?php echo base_url() ?>favicon.ico">
     <title>SIMPEG POLRES KARAWANG</title>
     <!-- Simple bar CSS -->
-    <link rel="stylesheet" href="<?php echo base_url() ?>css/simplebar.css">
+    <link rel="stylesheet" href="<?php echo base_url() ?>assets/css/simplebar.css">
     <!-- Fonts CSS -->
     <link href="<?php echo base_url() ?>https://fonts.googleapis.com/css2?family=Overpass:ital,wght@0,100;0,200;0,300;0,400;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
     <!-- Icons CSS -->
-    <link rel="stylesheet" href="<?php echo base_url() ?>css/feather.css">
+    <link rel="stylesheet" href="<?php echo base_url() ?>assets/css/feather.css">
     <!-- Date Range Picker CSS -->
-    <link rel="stylesheet" href="<?php echo base_url() ?>css/daterangepicker.css">
+    <link rel="stylesheet" href="<?php echo base_url() ?>assets/css/daterangepicker.css">
     <!-- App CSS -->
-    <link rel="stylesheet" href="<?php echo base_url() ?>css/app-light.css" id="lightTheme" disabled>
-    <link rel="stylesheet" href="<?php echo base_url() ?>css/app-dark.css" id="darkTheme">
+    <link rel="stylesheet" href="<?php echo base_url() ?>assets/css/app-light.css" id="lightTheme" disabled>
+    <link rel="stylesheet" href="<?php echo base_url() ?>assets/css/app-dark.css" id="darkTheme">
   </head>
   <body class="bg-gradient-primary" >
       <div class="container">
@@ -102,16 +102,16 @@
       }
 
     </script>
-    <script src="<?php echo base_url() ?>js/jquery.min.js"></script>
-    <script src="<?php echo base_url() ?>js/popper.min.js"></script>
-    <script src="<?php echo base_url() ?>js/moment.min.js"></script>
-    <script src="<?php echo base_url() ?>js/bootstrap.min.js"></script>
-    <script src="<?php echo base_url() ?>js/simplebar.min.js"></script>
-    <script src='<?php echo base_url() ?>js/daterangepicker.js'></script>
-    <script src='<?php echo base_url() ?>js/jquery.stickOnScroll.js'></script>
-    <script src="<?php echo base_url() ?>js/tinycolor-min.js"></script>
-    <script src="<?php echo base_url() ?>js/config.js"></script>
-    <script src="<?php echo base_url() ?>js/apps.js"></script>
+    <script src="<?php echo base_url() ?>assets/js/jquery.min.js"></script>
+    <script src="<?php echo base_url() ?>assets/js/popper.min.js"></script>
+    <script src="<?php echo base_url() ?>assets/js/moment.min.js"></script>
+    <script src="<?php echo base_url() ?>assets/js/bootstrap.min.js"></script>
+    <script src="<?php echo base_url() ?>assets/js/simplebar.min.js"></script>
+    <script src='<?php echo base_url() ?>assets/js/daterangepicker.js'></script>
+    <script src='<?php echo base_url() ?>assets/js/jquery.stickOnScroll.js'></script>
+    <script src="<?php echo base_url() ?>assets/js/tinycolor-min.js"></script>
+    <script src="<?php echo base_url() ?>assets/js/config.js"></script>
+    <script src="<?php echo base_url() ?>assets/js/apps.js"></script>
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="<?php echo base_url() ?>https://www.googletagmanager.com/gtag/js?id=UA-56159088-1"></script>
     <script>

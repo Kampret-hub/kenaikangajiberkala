@@ -20,7 +20,7 @@ class model_kgb extends CI_Model{
         return $this->db->get($table);
     }
 
-    public function insert_data($data, $table)
+    public function insert_data($data, $table, $id)
     {
         $this->db->insert($table, $data);
     }
@@ -49,12 +49,11 @@ class model_kgb extends CI_Model{
       return $this->db->get('gaji_pokok')->result();
     }
 
-   
-   // ini buat apa kalo gak di pake hapus aja
-    public function history($id)
+    public function get_nama($title)
     {
-        $this->db->select("*");
-        $this->db->where("nrp", $id);
-        return $this->db->get('history_kbg')->row();
+      $this->db->like('nama_lengkap', $title, 'BOTH');
+      $this->db->order_by('nama_lengkap', 'asc');
+      $this->db->limit(10);
+      return $this->db->get('anggota')->result();
     }
-}
+} 

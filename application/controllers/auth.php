@@ -34,7 +34,6 @@ class auth extends CI_Controller{
             'role_id'     => $role_id,
             'logged_in' => TRUE
         );
-        
 
         // mengindentifikasi halaman sesuai role uder
         $this->session->set_userdata($sesdata);
@@ -54,36 +53,6 @@ class auth extends CI_Controller{
         redirect('auth');
     }
   }
-
-  public function ganti_password()
-    {
-
-        $this->load->model('model_user');
-        
-        $username = $this->session->userdata['username'];
-        $data['user'] = $this->db->get_where('user', ['password' => $this->session->userdata('password')])->row_array();
-
-
-        $this->form_validation->set_rules('pw_baru','password baru','required');
-        $this->form_validation->set_rules('cpw_baru','password kedua','required|matches[pw_baru]');
-
-        $this->form_validation->set_message('required','%s wajib diisi');
-
-        $this->form_validation->set_error_delimiters('<p class="alert">','</p>');
-
-        if( $this->form_validation->run() == FALSE ){
-            $this->template->load('template/template_admin','form_gpassword', $data);
-        } else {
-            $post = $this->input->post();
-            
-            $data = array(
-                'password' => md5($post['pw_baru']),
-            );
-
-            $this->Post_model->update($username, $data['password'], 'tbuser');
-
-        }
-    }
 
     function logout()
     {   

@@ -118,11 +118,11 @@
                     
                <div class="col-md-12 mb-4">
                   <div class="card shadow">
-                    <div class="card-header">
+                    <div class="card-header" style="background-color: #0275d8;">
                       <strong class="card-title mb-0"><i class="fe fe-bar-chart"></i>Chart Pangkat</strong>
                     </div>
                     <div class="card-body">
-                      <canvas id="chartPangkat"  height="100"></canvas>
+                      <canvas id="chartPangkat"  height="150"></canvas>
                     </div>
                   </div>
                 </div>
@@ -133,10 +133,52 @@
                   var chartPangkat = new Chart(ctx,{
                     type: 'bar',
                     data: {
-                      labels: ["BHARADA", "BHARATU", "BHARAKA", "ABRIPDA", "ABRIPTU", "ABRIPKA", "BRIPDA", "BRIPTU", "BRIGADIR", "BRIPKA", "AIPDA", "AIPTU", "IPDA", "IPTU", "AKP", "KOMPOL", "KBP", "AKBP", "BRIGJEN", "IRJEN", "KOMJEN", "JENDRAL"],
+                      labels: ["JURU TK 1", "JURU MUDA TK 1", "PENGATUR TK 1", "PENGDA TK 1", "PENDA TK 1", "PENATA","PENATA TK I", "BHARADA", "BHARATU", "BHARAKA", "ABRIPDA", "ABRIPTU", "BRIPDA", "BRIPTU", "BRIGADIR", "BRIPKA", "AIPDA", "AIPTU", "IPDA", "IPTU", "AKP", "KOMPOL", "KBP", "AKBP", "BRIGJEN", "IRJEN", "KOMJEN", "JENDRAL"],
                       datasets:[{
                         label: '',
                         data: [
+                              <?php $this->db->select('*');
+                              $this->db->from('anggota');
+                              $this->db->like('pangkat', 'JURU TK I');
+                              $this->db->like('status', 'aktif');
+                              echo $this->db->count_all_results();?>,
+
+                              <?php $this->db->select('*');
+                              $this->db->from('anggota');
+                              $this->db->like('pangkat', 'JURU MUDA TK I');
+                              $this->db->like('status', 'aktif');
+                              echo $this->db->count_all_results();?>,
+
+                              <?php $this->db->select('*');
+                              $this->db->from('anggota');
+                              $this->db->like('pangkat', 'PENGATUR TK I');
+                              $this->db->like('status', 'aktif');
+                              echo $this->db->count_all_results();?>,
+
+                              <?php $this->db->select('*');
+                              $this->db->from('anggota');
+                              $this->db->like('pangkat', 'PENGDA TK I');
+                              $this->db->like('status', 'aktif');
+                              echo $this->db->count_all_results();?>,
+
+                              <?php $this->db->select('*');
+                              $this->db->from('anggota');
+                              $this->db->like('pangkat', 'PENDA TK I');
+                              $this->db->like('status', 'aktif');
+                              echo $this->db->count_all_results();?>,
+
+                              <?php $this->db->select('*');
+                              $this->db->from('anggota');
+                              $this->db->like('pangkat', 'PENATA');
+                              $this->db->like('status', 'aktif');
+                              echo $this->db->count_all_results();?>,
+
+                              <?php $this->db->select('*');
+                              $this->db->from('anggota');
+                              $this->db->like('pangkat', 'PENATA TK I');
+                              $this->db->like('status', 'aktif');
+                              echo $this->db->count_all_results();?>,
+
                               <?php $this->db->select('*');
                               $this->db->from('anggota');
                               $this->db->like('pangkat', 'BHARADA');
@@ -170,12 +212,6 @@
                               <?php $this->db->select('*');
                               $this->db->from('anggota');
                               $this->db->like('status', 'aktif');
-                              $this->db->like('pangkat', 'ABRIPKA');
-                              echo $this->db->count_all_results();?>,
-
-                              <?php $this->db->select('*');
-                              $this->db->from('anggota');
-                              $this->db->like('status', 'aktif');
                               $this->db->like('pangkat', 'BRIPDA');
                               echo $this->db->count_all_results();?>,
 
@@ -200,13 +236,13 @@
                               <?php $this->db->select('*');
                               $this->db->from('anggota');
                               $this->db->like('status', 'aktif');
-                              $this->db->like('pangkat', 'AIPDA ');
+                              $this->db->like('pangkat', 'AIPDA');
                               echo $this->db->count_all_results();?>,
 
                               <?php $this->db->select('*');
                               $this->db->from('anggota');
                               $this->db->like('status', 'aktif');
-                              $this->db->like('pangkat', 'AIPTU ');
+                              $this->db->like('pangkat', 'AIPTU');
                               echo $this->db->count_all_results();?>,
                             
                               <?php $this->db->select('*');
@@ -242,7 +278,7 @@
                               <?php $this->db->select('*');
                               $this->db->from('anggota');
                               $this->db->like('status', 'aktif');
-                              $this->db->like('pangkat', ' AKBP');
+                              $this->db->like('pangkat', 'AKBP');
                               echo $this->db->count_all_results();?>,
 
                               <?php $this->db->select('*');
@@ -270,19 +306,26 @@
                               echo $this->db->count_all_results();?>
                         ],
                         backgroundColor: [
-                          'rgba(255, 99, 132 , 0.2)',
-                          'rgba(54, 162, 235 , 0.2)',
+                          'rgba(220, 20, 60 , 0.2)',
+                          'rgba(139, 0, 0 , 0.2)',
+                          'rgba(165, 42, 42, 0.2)',
+                          'rgba(178, 34, 34, 0.2)',
+                          'rgba(100, 149, 237, 0.2)',
+                          'rgba(0, 255, 235 , 0.2)',
+                          'rgba(0, 139, 139, 0.2)',
+                          'rgba(0, 0, 139, 0.2)',
+                          'rgba(0, 100, 0, 0.2)',
                           'rgba(255, 206, 86 , 0.2)',
                           'rgba(75, 192, 192 , 0.2)',
                           'rgba(80, 99, 132 , 0.2)',
                           'rgba(54, 162, 235 , 0.2)',
-                          'rgba(255, 206, 86 , 0.2)',
-                          'rgba(75, 192, 192 , 0.2)',
-                          'rgba(255, 99, 132 , 0.2)',
+                          'rgba(255, 215, 0, 0.2)',
+                          'rgba(72, 209, 204, 0.2)',
+                          'rgba(165, 42, 42, 0.2)',
                           'rgba(54, 162, 235 , 0.2)',
                           'rgba(255, 206, 86 , 0.2)',
                           'rgba(75, 192, 192 , 0.2)',
-                          'rgba(255, 99, 132 , 0.2)',
+                          'rgba(255, 20, 147, 0.2)',
                           'rgba(54, 162, 235 , 0.2)',
                           'rgba(255, 206, 86 , 0.2)',
                           'rgba(75, 192, 192 , 0.2)',
@@ -294,19 +337,26 @@
                           'rgba(255, 99, 132 , 0.2)'
                         ],
                         borderColor: [
-                          'rgba(255, 99, 132 , 1)',
-                          'rgba(54, 162, 235 , 1)',
+                          'rgba(220, 20, 60 , 1)',
+                          'rgba(139, 0, 0 , 1)',
+                          'rgba(165, 42, 42, 1)',
+                          'rgba(178, 34, 34, 1)',
+                          'rgba(100, 149, 237, 1)',
+                          'rgba(0, 255, 235 , 1)',
+                          'rgba(0, 139, 139, 1)',
+                          'rgba(0, 0, 139, 1)',
+                          'rgba(0, 100, 0, 1)',
                           'rgba(255, 206, 86 , 1)',
                           'rgba(75, 192, 192 , 1)',
                           'rgba(80, 99, 132 , 1)',
                           'rgba(54, 162, 235 , 1)',
                           'rgba(255, 206, 86 , 1)',
-                          'rgba(75, 192, 192 , 1)',
+                          'rgba(72, 209, 204, 1)',
                           'rgba(255, 99, 132 , 1)',
                           'rgba(54, 162, 235 , 1)',
-                          'rgba(255, 206, 86 , 1)',
+                          'rgba(255, 215, 0, 1)',
                           'rgba(75, 192, 192 , 1)',
-                          'rgba(255, 99, 132 , 1)',
+                          'rgba(255, 20, 147, 1)',
                           'rgba(54, 162, 235 , 1)',
                           'rgba(255, 206, 86 , 1)',
                           'rgba(75, 192, 192 , 1)',

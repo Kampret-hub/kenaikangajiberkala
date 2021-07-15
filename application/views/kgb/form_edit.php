@@ -49,8 +49,11 @@
                                          <div class="col-md-3 mb-3">
                                             <input  type="option" class="form-control"  id="title"  name="" placeholder="Input Kode Gaji" >
                                         </div>
-                                        <div class="col-md-9 mb-3">
-                                            <input type="text" class="form-control"  id="gpl" name="gpl" value="<?php echo $record['gpl']; ?>" >
+                                        <div class="col-md-3 mb-3">
+                                            <input type="text" class="form-control"  id="pangkat" name="pangkat" placeholder="Pangkat" readonly="">
+                                        </div>
+                                        <div class="col-md-6 mb-3">
+                                            <input type="text" class="form-control"  id="gpl" name="gpl" value="<?php echo $record['gpl']; ?>" readonly="">
                                         </div>
                                      </div>
                                      <label class="control-label">Gaji Pokok Baru</label>
@@ -58,8 +61,11 @@
                                         <div class="col-md-3 mb-3">
                                             <input  type="option" class="form-control"  id="title2"  name="" placeholder="Input Kode Gaji" >
                                         </div>
-                                        <div class="col-md-9 mb-3">
-                                            <input type="text" class="form-control"  id="gpb" name="gpb" value="<?php echo $record['gpb']; ?>">
+                                        <div class="col-md-3 mb-3">
+                                            <input  type="option" class="form-control"  id="pangkat2"  name="pangkat2" placeholder="Pangkat" readonly="" >
+                                        </div>
+                                        <div class="col-md-6 mb-3">
+                                            <input type="text" class="form-control"  id="gpb" name="gpb" value="<?php echo $record['gpb']; ?>" readonly="">
                                         </div>
                                     </div>
                                 </div>
@@ -208,11 +214,11 @@
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label>Kep. Pangkat / Spemb oleh</label>
-                                    <input type="text" class="form-control" name="kep.pangkat" value="">
+                                    <input type="text" class="form-control" name="kep.pangkat" value="<?php echo $record['kep_pangkat']?>">
                                 </div>
                                 <div class="form-group">
                                     <label>Nomor / Tanggal</label>
-                                    <input type="text" class="form-control" name="no_tgl" value="">
+                                    <input type="text" class="form-control" name="no_tgl" value="<?php echo $record['no_tgl']?>">
                                 </div>
                                 <div class="form-group">
                                     <label>KGB Berikutnya</label>
@@ -283,31 +289,31 @@
                                          <label class="control-label" style="margin-top: 5px;">Diterapkan Di :</label>
                                          <div class="form-row">
                                             <div class="col-md-12 mb-3">
-                                                <input type="text" class="form-control" name="diterapkan" value="" >
+                                                <input type="text" class="form-control" name="diterapkan" value="<?php echo $record['diterapkan']?>" >
                                             </div>
                                          </div>
                                          <label class="control-label">Pada Tanggal :</label>
                                          <div class="form-row" >
                                             <div class="col-md-12 mb-3">
-                                                <input type="date" class="form-control" name="padatanggal" value="">
+                                                <input type="date" class="form-control" name="padatanggal" value="<?php echo $record['padatanggal']?>">
                                             </div>
                                         </div>
                                         <label class="control-label">Di setujui oleh : </label>
                                          <div class="form-row" >
                                             <div class="col-md-12 mb-3">
-                                                <input type="text" class="form-control" name="d_oleh" value="">
+                                                <input type="text" class="form-control" id="title3" name="d_oleh" value="<?php echo $record['d_oleh']?>">
                                             </div>
                                         </div>
                                         <label class="control-label">Sebagai :</label>
                                          <div class="form-row" >
                                             <div class="col-md-12 mb-3">
-                                                <input type="text" class="form-control" name="sebagai" value="">
+                                                <input type="text" class="form-control" id="sebagai" name="sebagai" readonly="" value="<?php echo $record['sebagai']?>">
                                             </div>
                                         </div>
                                         <label class="control-label">NRP Persetujuan :</label>
                                          <div class="form-row" >
                                             <div class="col-md-12 mb-3">
-                                                <input type="text" class="form-control" name="nrp_p" value="">
+                                                <input type="text" class="form-control" id="nrp_p" name="nrp_p" readonly="" value="<?php echo $record['nrp_p']?>">
                                             </div>
                                         </div>
                                     </div>
@@ -333,6 +339,7 @@
       select: function(event, ui){
         $('[name="title"]').val(ui.item.label);
         $('[name="gpl"]').val(ui.item.gaji_pokok);
+        $('[name="pangkat"]').val(ui.item.pangkat);
       }
     });
 });
@@ -347,6 +354,22 @@
       select: function(event, ui){
         $('[name="title2"]').val(ui.item.label);
         $('[name="gpb"]').val(ui.item.gaji_pokok);
+        $('[name="pangkat2"]').val(ui.item.pangkat);
+      }
+    });
+});
+</script>
+
+<script>
+  $(document).ready(function()
+  {
+    $("#title3").autocomplete({
+      source : "<?php echo site_url('kgb/get_autonama') ?>",
+
+      select: function(event, ui){
+        $('[name="title2"]').val(ui.item.label);
+        $('[name="nrp_p"]').val(ui.item.nrp);
+        $('[name="sebagai"]').val(ui.item.pangkat);
       }
     });
 });
