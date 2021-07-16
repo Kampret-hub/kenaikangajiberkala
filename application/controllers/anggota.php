@@ -12,7 +12,9 @@ class anggota extends ci_controller{
     
     function index($id)
     {
-         $data['user'] = $this->db->get_where('user', ['nama_lengkap' => $this->session->userdata('nama_lengkap')])->row_array();  
+        $data['user'] = $this->db->get_where('user', ['nama_lengkap' => $this->session->userdata('nama_lengkap')])->row_array(); 
+        $where = array ('nrp' => $this->session->userdata('username'));
+        $data['akun']= $this->model_kgb->find_data($where, 'user')->row_array(); 
         
         // $data['record']=  $this->model_kgb->get_data('anggota');
         // //$this->load->view('user/lihat_data',$data);
@@ -42,6 +44,8 @@ class anggota extends ci_controller{
     function insert()
     {
         $data['user'] = $this->db->get_where('user', ['nama_lengkap' => $this->session->userdata('nama_lengkap')])->row_array(); 
+        $where = array ('nrp' => $this->session->userdata('username'));
+        $data['akun']= $this->model_kgb->find_data($where, 'user')->row_array(); 
 
         $this->form_validation->set_rules('nrp', 'NRP / NIP Username', 'required|min_length[5]');
         $this->form_validation->set_rules('nama_lengkap', 'Nama Lengkap', 'required|min_length[5]');
@@ -124,7 +128,9 @@ class anggota extends ci_controller{
         $this->load->model('model_kgb');
          $data['record']=  $this->model_kgb->get_data('anggota');
 
-         $data['user'] = $this->db->get_where('user', ['nama_lengkap' => $this->session->userdata('nama_lengkap')])->row_array(); 
+        $data['user'] = $this->db->get_where('user', ['nama_lengkap' => $this->session->userdata('nama_lengkap')])->row_array(); 
+        $where = array ('nrp' => $this->session->userdata('username'));
+        $data['akun']= $this->model_kgb->find_data($where, 'user')->row_array(); 
          
         if(isset($_POST['submit'])){
             // proses kategori
@@ -167,18 +173,21 @@ class anggota extends ci_controller{
                 'status'        =>$status
             );
              $edit_kgb = array(
-                'nama'          =>$nama_lengkap
-
-                
+                'nama'          =>$nama_lengkap   
             );
+
+            $edit_history_kgb = array(
+                'nama'          =>$nama_lengkap  
+            );
+
             $edit_user = array (
                 'nama_lengkap'  =>$nama_lengkap
-               
             );
 
             $where = array ('nrp' => $nrp);
             $this->model_kgb->update_data('anggota', $edit_anggota, $where);
             $this->model_kgb->update_data('t_kgb', $edit_kgb, $where);
+            $this->model_kgb->update_data('history_kbg', $edit_history_kgb, $where);
             $this->model_kgb->update_data('user', $edit_user, $where);
             echo $this->session->set_flashdata('msg','<div class="alert alert-success text-center" role="alert">Data Berhasil Di Ubah</div>');
             redirect('anggota/index/'.$status);

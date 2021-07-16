@@ -15,6 +15,9 @@ public function index() {
 			
 		   $data['title'] = 'Page Admin';
            $data['user'] = $this->db->get_where('user', ['nama_lengkap' => $this->session->userdata('nama_lengkap')])->row_array(); 
+	       $where = array ('nrp' => $this->session->userdata('username'));
+	       $data['akun']= $this->model_kgb->find_data($where, 'user')->row_array(); 
+	       
 		   $data['username'] = $this->session->userdata('username');
  		  $this->template->load('template/template_admin','admin/index',$data);
            

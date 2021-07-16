@@ -19,7 +19,7 @@
               <div class="row mt-3 align-items-center">
                 <div class="col-md-3 text-center mb-5">
                   <div class="avatar avatar-xl">
-                    <h3 class="mb-1"><?php echo $member['nama_lengkap']; ?></h3>
+                    <h3 class="mb-1" style="text-transform: uppercase;"><?php echo $member['nama_lengkap']; ?></h3>
                       <h4 class="mb-1">Admin</h4>
                     <img src="<?php echo base_url(); ?>./assets/avatars/face.png" alt="..." class="avatar-img rounded-circle">
                   </div>
@@ -83,6 +83,7 @@
                               <th style="width: 20px;">Periode</th> 
                               <th style="width: 300px;">Masa Kerja</th>
                               <th style="width: 300px;">Tanggal Kenaikan gaji</th>
+                              <th style="width: 300px;">Gaji Lama</th>
                               <th style="width: 300px;">Gaji Baru</th>
                             </tr>
                           </thead>
@@ -91,6 +92,7 @@
                             <td><?php echo $no; ?></td>
                             <td><?php echo $r->mkgg1 ?> <?php echo $r->mkgg2 ?></td>
                             <td><?php echo $r->tmtb ?></td>
+                            <td><?php echo $r->gpl ?></td>
                             <td><?php echo $r->gpb ?></td>
                           </tr>
                            <?php $no++; } ?>

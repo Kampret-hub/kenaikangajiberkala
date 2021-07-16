@@ -3,7 +3,7 @@
     <div class="col-md-12">
         <div class="card shadow">
             <div class="card-body">
-              <h2 class="mb-2 page-title">Edit Data KGB</h2>
+              <h2 class="mb-2 page-title">Edit Data History KGB</h2>
             </div>
          </div> 
      </div>
@@ -216,7 +216,7 @@
                                 </div>
                                 <div class="form-group">
                                     <label>KGB Berikutnya</label>
-                                    <input type="date" class="form-control" name="kgbb" value="<?php echo $record['kgbb']?>"><br>
+                                    <input type="text" class="form-control" name="kgbb" value="<?php echo $record['kgbb']?>"><br>
                                     <div class="form-row">
                                     <label style="margin-top : 5px; margin-left: 5px;"> Tahun :</label>
                                     <div class="col-md-3 mb-3">
@@ -295,19 +295,19 @@
                                         <label class="control-label">Di setujui oleh : </label>
                                          <div class="form-row" >
                                             <div class="col-md-12 mb-3">
-                                                <input type="text" class="form-control" name="d_oleh" value="<?php echo $record['d_oleh']?>">
+                                                <input type="text" class="form-control" id="title3" name="d_oleh" value="<?php echo $record['d_oleh']?>">
                                             </div>
                                         </div>
                                         <label class="control-label">Sebagai :</label>
                                          <div class="form-row" >
                                             <div class="col-md-12 mb-3">
-                                                <input type="text" class="form-control" name="sebagai" value="<?php echo $record['sebagai']?>">
+                                                <input type="text" class="form-control" id="sebagai" name="sebagai" readonly="" value="<?php echo $record['sebagai']?>">
                                             </div>
                                         </div>
                                         <label class="control-label">NRP Persetujuan :</label>
                                          <div class="form-row" >
                                             <div class="col-md-12 mb-3">
-                                                <input type="text" class="form-control" name="nrp_p" value="<?php echo $record['nrp_p']?>">
+                                                <input type="text" class="form-control" id="nrp_p" name="nrp_p" readonly="" value="<?php echo $record['nrp_p']?>">
                                             </div>
                                         </div>
                                     </div>
@@ -315,13 +315,13 @@
                                 </div>
                                </div>
                                <span  style="margin: 15px;"><button type="submit" name="submit" class="btn btn-primary btn-sm">Edit</button></span> 
-                                <span style="margin-top: 15px;"><?php echo anchor('kgb','Kembali',array('class'=>'btn btn-danger btn-sm'))?></span>
+                                <span style="margin-top: 15px;"><?php echo anchor('history/index/'.$record['nrp'],'Kembali',array('class'=>'btn btn-danger btn-sm'))?></span>
                                 </form>
                             </div>
                         </div>
                         <!-- /. PANEL  -->
                     </div>
-                </div>
+                </div> 
                 <!-- /. ROW  -->
 
 <script>
@@ -347,6 +347,21 @@
       select: function(event, ui){
         $('[name="title2"]').val(ui.item.label);
         $('[name="gpb"]').val(ui.item.gaji_pokok);
+      }
+    });
+});
+</script>
+
+<script>
+  $(document).ready(function()
+  {
+    $("#title3").autocomplete({
+      source : "<?php echo site_url('kgb/get_autonama') ?>",
+
+      select: function(event, ui){
+        $('[name="title3"]').val(ui.item.label);
+        $('[name="nrp_p"]').val(ui.item.nrp);
+        $('[name="sebagai"]').val(ui.item.pangkat);
       }
     });
 });

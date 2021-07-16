@@ -3,13 +3,26 @@
     <div class="col-md-12">
         <div class="card shadow">
             <div class="card-body">
-              <h2 class="mb-2 page-title"><?php echo $title ?></h2>
-                <?php echo anchor('report/print_data/'.$record['NRP'],' Print',array('class'=>'btn btn-info btn-sm fe fe-printer')) ?>
-                <?php echo anchor('report/export_pdf/'.$record['NRP'],' Export Pdf',array('class'=>'btn btn-danger btn-sm fe fe-clipboard')) ?>
-                <?php echo form_open('report/lihat_data'); ?>
-          </div>
-      </div>
-  </div>
+              <h2 class="my-2 page-title"><?php echo $title ?></h2>
+                <div class="col">
+                    <div class="row">
+                        <div class="col-md-4 my-2">
+                            <h6>POLRI</h6>
+                            <?php echo anchor('report/print_data/'.$record['NRP'],' Print',array('class'=>'btn btn-info btn-sm fe fe-printer')) ?>
+                            <?php echo anchor('report/export_pdf/'.$record['NRP'],' Export Pdf',array('class'=>'btn btn-danger btn-sm fe fe-clipboard')) ?>
+                        </div>
+                        <div class="col-md-4 my-2">
+                            <h6>ASN</h6>
+                            <?php echo anchor('report/print_data2/'.$record['NRP'],' Print',array('class'=>'btn btn-info btn-sm fe fe-printer')) ?>
+                            <?php echo anchor('report/export_pdf2/'.$record['NRP'],' Export Pdf',array('class'=>'btn btn-danger btn-sm fe fe-clipboard')) ?>
+                            <?php echo form_open('report/lihat_data'); ?>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+        
                 <div class="col-md-8">
                     <table class="table">
                         <tr>
@@ -87,10 +100,7 @@
                         </tr>
                         <tr>
                             <td>14. KGB berikutnya </td>
-                            <td><strong><?php $sampeledate = ($record['kgbb']); 
-                                $converdate = date("d-m-Y", strtotime($sampeledate));
-                                echo $converdate;
-                                ?>   / <?php echo $record['kgbb_thn']; ?>  <?php echo $record['kgbb_bln']; ?></strong></td>
+                            <td><strong><?php echo $record['kgbb']; ?> <?php echo $record['kgbb_thn']; ?>  <?php echo $record['kgbb_bln']; ?></strong></td>
                         </tr>
                         <br>
                         <br>
@@ -118,4 +128,4 @@
       <!-- <?php var_dump($record['NRP']); ?> -->
     </td>
 </tr>
- <?php echo anchor('report',' Kembali',array('class'=>'btn btn-danger btn-sm fe fe-arrow-left'))?>
+ <?php echo anchor('report',' Kembali',array('class'=>'btn btn-danger btn-sm '))?>

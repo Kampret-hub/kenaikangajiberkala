@@ -36,7 +36,13 @@
                                 <td><?php echo $no ?></td>
                                 <td><?php echo $r->nrp ?></td>
                                 <td><?php echo $r->nama_lengkap ?></td>
-                                <td><?php echo $r->tmpt_lahir ?>, <?php echo $r->t_lahir ?></td>
+                                <td><?php echo $r->tmpt_lahir ?>, 
+                                <td><?php echo $r->tmpt_lahir ?>, 
+                                    <?php $sampeledate = ($r->t_lahir); 
+                                        $converdate = date("d-m-Y", strtotime($sampeledate));
+                                        echo $converdate;
+                                    ?>
+                                </td>
                                 <td><?php echo $r->agama ?></td>
                                 <td><?php echo $r->alamat ?></td>
                                 <td><?php echo $r->pangkat ?></td>

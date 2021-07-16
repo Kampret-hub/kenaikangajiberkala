@@ -12,6 +12,8 @@ class History extends ci_controller{
     function index($id)
     {
         $data['user'] = $this->db->get_where('user', ['nama_lengkap' => $this->session->userdata('nama_lengkap')])->row_array(); 
+        $where = array ('nrp' => $this->session->userdata('username'));
+        $data['akun']= $this->model_kgb->find_data($where, 'user')->row_array(); 
         
         $data['title'] = 'History KGB';
 
@@ -25,6 +27,8 @@ class History extends ci_controller{
     function edit()
     {
         $data['user'] = $this->db->get_where('user', ['nama_lengkap' => $this->session->userdata('nama_lengkap')])->row_array(); 
+        $where = array ('nrp' => $this->session->userdata('username'));
+        $data['akun']= $this->model_kgb->find_data($where, 'user')->row_array(); 
         
         $data['title'] = 'Edit History KGB';
         if(isset($_POST['submit'])){
@@ -97,12 +101,29 @@ class History extends ci_controller{
 
     function delete($id)
     {   
+        $stat = $this->uri->segment(4);
         $where = array ('id' => $id);
         $this->model_kgb->delete_data($where, 'history_kgb'); 
         //$id=  $this->uri->segment(3);
         //$this->db->where('id',$id);
         //$this->db->delete('history_kgb');
         echo $this->session->set_flashdata('msg','<div class="alert alert-danger text-center" role="alert">Data Berhasil Di Hapus</div>');
-        redirect('history');
+        redirect('history/index/'.$stat);
     }
+
+    function get_autonama()
+  {
+    if (isset($_GET['term'])) {
+      $result = $this->model_kgb->get_nama($_GET['term']);
+      if (count($result) > 0) {
+        foreach ($result as $row)
+        $result_array[] = array(
+            'label'=>$row->nama_lengkap,
+            'nrp'=>strtoupper($row->nrp),
+            'pangkat'=>strtoupper($row->pangkat)
+          );
+        echo json_encode($result_array);
+      }
+    }
+  }
 }

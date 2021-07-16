@@ -4,6 +4,7 @@ class bagian extends ci_controller{
    function __construct() {
         parent::__construct();
         $this->load->model('model_bagian');
+        $this->load->model('model_kgb');
         if ($this->session->userdata('username')=="") {
       redirect('auth');
         }
@@ -12,6 +13,8 @@ class bagian extends ci_controller{
     function index()
     {
         $data['user'] = $this->db->get_where('user', ['nama_lengkap' => $this->session->userdata('nama_lengkap')])->row_array(); 
+        $where = array ('nrp' => $this->session->userdata('username'));
+        $data['akun']= $this->model_kgb->find_data($where, 'user')->row_array(); 
         
         $data['record']=  $this->model_bagian->tampildata();
         //$this->load->view('user/lihat_data',$data);
@@ -22,6 +25,8 @@ class bagian extends ci_controller{
     function post()
     {
         $data['user'] = $this->db->get_where('user', ['nama_lengkap' => $this->session->userdata('nama_lengkap')])->row_array(); 
+        $where = array ('nrp' => $this->session->userdata('username'));
+        $data['akun']= $this->model_kgb->find_data($where, 'user')->row_array(); 
 
         $this->form_validation->set_rules('bagian', 'Bagian', 'required|min_length[5]');
 
@@ -49,9 +54,11 @@ class bagian extends ci_controller{
  function edit() 
     {
         $this->load->model('model_kgb');
-         $data['record']=  $this->model_kgb->get_data("bagian");
+        $data['record']=  $this->model_kgb->get_data("bagian");
 
-         $data['user'] = $this->db->get_where('user', ['nama_lengkap' => $this->session->userdata('nama_lengkap')])->row_array(); 
+        $data['user'] = $this->db->get_where('user', ['nama_lengkap' => $this->session->userdata('nama_lengkap')])->row_array(); 
+        $where = array ('nrp' => $this->session->userdata('username'));
+        $data['akun']= $this->model_kgb->find_data($where, 'user')->row_array(); 
          
         if(isset($_POST['submit'])){
             $id_bagian       =  $this->input->post('id_bagian',true);

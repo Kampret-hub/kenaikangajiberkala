@@ -222,7 +222,7 @@
                                 </div>
                                 <div class="form-group">
                                     <label>KGB Berikutnya</label>
-                                    <input type="date" class="form-control" name="kgbb" value="<?php echo $record['kgbb']?>"><br>
+                                    <input type="text" class="form-control" name="kgbb" value="<?php echo $record['kgbb']?>"><br>
                                     <div class="form-row">
                                     <label style="margin-top : 5px; margin-left: 5px;"> Tahun :</label>
                                     <div class="col-md-3 mb-3">
@@ -367,7 +367,7 @@
       source : "<?php echo site_url('kgb/get_autonama') ?>",
 
       select: function(event, ui){
-        $('[name="title2"]').val(ui.item.label);
+        $('[name="title3"]').val(ui.item.label);
         $('[name="nrp_p"]').val(ui.item.nrp);
         $('[name="sebagai"]').val(ui.item.pangkat);
       }

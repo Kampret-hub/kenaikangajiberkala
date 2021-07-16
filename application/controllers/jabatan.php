@@ -4,6 +4,7 @@ class jabatan extends ci_controller{
    function __construct() {
         parent::__construct();
         $this->load->model('model_jabatan');
+        $this->load->model('model_kgb');
         if ($this->session->userdata('username')=="") {
       redirect('auth');
         }
@@ -11,7 +12,11 @@ class jabatan extends ci_controller{
     
     function index()
     {
-        $data['user'] = $this->db->get_where('user', ['nama_lengkap' => $this->session->userdata('nama_lengkap')])->row_array(); 
+       $data['user'] = $this->db->get_where('user', ['nama_lengkap' => $this->session->userdata('nama_lengkap')])->row_array(); 
+        $where = array ('nrp' => $this->session->userdata('username'));
+        $data['akun']= $this->model_kgb->find_data($where, 'user')->row_array(); 
+        $where = array ('nrp' => $this->session->userdata('username'));
+        $data['akun']= $this->model_kgb->find_data($where, 'user')->row_array(); 
         
         $data['record']=  $this->model_jabatan->tampildata();
         //$this->load->view('user/lihat_data',$data);
@@ -20,7 +25,9 @@ class jabatan extends ci_controller{
     
     function post()
     {
-        $data['user'] = $this->db->get_where('user', ['nama_lengkap' => $this->session->userdata('nama_lengkap')])->row_array(); 
+       $data['user'] = $this->db->get_where('user', ['nama_lengkap' => $this->session->userdata('nama_lengkap')])->row_array(); 
+        $where = array ('nrp' => $this->session->userdata('username'));
+        $data['akun']= $this->model_kgb->find_data($where, 'user')->row_array(); 
 
         $this->form_validation->set_rules('jabatan', 'jabatan', 'required|min_length[5]');
 
@@ -50,7 +57,9 @@ class jabatan extends ci_controller{
         $this->load->model('model_kgb');
          $data['record']=  $this->model_kgb->get_data("jabatan");
 
-         $data['user'] = $this->db->get_where('user', ['nama_lengkap' => $this->session->userdata('nama_lengkap')])->row_array(); 
+        $data['user'] = $this->db->get_where('user', ['nama_lengkap' => $this->session->userdata('nama_lengkap')])->row_array(); 
+        $where = array ('nrp' => $this->session->userdata('username'));
+        $data['akun']= $this->model_kgb->find_data($where, 'user')->row_array(); 
          
         if(isset($_POST['submit'])){
             $id_jabatan       =  $this->input->post('id_jabatan',true);
