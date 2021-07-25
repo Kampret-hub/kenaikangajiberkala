@@ -17,7 +17,7 @@ class profile extends ci_controller{
         $data['akun']= $this->model_kgb->find_data($where, 'user')->row_array();
         $data['history']= $this->model_kgb->find_data($where, 'history_kgb')->result();
 
-        $this->template->load('template/template_member','member/profile',$data);
+        $this->template->load('template','member/profile',$data);
     }
 
      function edit()
@@ -90,7 +90,7 @@ class profile extends ci_controller{
 
             
             $data['record']= $this->model_kgb->find_data($param, 'anggota')->row_array();
-            $this->template->load('template/template_member','member/form_edit_profile',$data);
+            $this->template->load('template','member/form_edit_profile',$data);
         }
     }
     
@@ -115,7 +115,7 @@ class profile extends ci_controller{
         if( $this->form_validation->run() == FALSE ){
             $where = array ('nrp' => $this->session->userdata('username')); 
             $data['password']= $this->model_kgb->find_data($where, 'user')->row_array();
-            $this->template->load('template/template_member','member/form_gpassword',$data);
+            $this->template->load('template','member/form_gpassword',$data);
 
         } else {
             
@@ -133,13 +133,27 @@ class profile extends ci_controller{
 
         }
     }
-    
-    
+
     function delete()
     {
         $id=  $this->uri->segment(3);
         $this->db->where('id_profile',$id);
         $this->db->delete('profile');
         redirect('profile');
+    }
+
+     function lihat_cetak($id)
+    {
+       $data['user'] = $this->db->get_where('user', ['nama_lengkap' => $this->session->userdata('nama_lengkap')])->row_array(); 
+        $where = array ('nrp' => $this->session->userdata('username'));
+        $data['akun']= $this->model_kgb->find_data($where, 'user')->row_array(); 
+        $data['member']= $this->model_kgb->find_data($where, 'anggota')->row_array();
+
+        $data['title'] = 'Lihat Data';
+
+        $id=  $this->uri->segment(4);
+        $where = array ('id'=> $id);
+        $data['record']= $this->model_kgb->find_data($where, 'history_kgb')->row_array();
+        $this->template->load('template','member/lihat_cetak',$data);
     }
 }

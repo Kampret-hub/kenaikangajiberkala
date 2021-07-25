@@ -3,21 +3,24 @@
     <div class="col-md-12">
         <div class="card shadow">
             <div class="card-body">
-              <h2 class="mb-2 page-title"><?php echo $title ?></h2>
+              <h2 class="page-title my-2"><?php echo $title ?></h2>
           </div>
       </div>
   </div>
-               <!--<?php echo anchor('kgb/post','Tambah Data',array('class'=>'btn btn-danger btn-sm')) ?>-->
+</div>
+<!--<?php echo anchor('kgb/post','Tambah Data',array('class'=>'btn btn-danger btn-sm')) ?>-->
+        <div class="alert alert-dismissible fade show">
+            <strong>
+                <?php echo $this->session->flashdata('msg')?>
+            </strong>
+            <button type="button" class="close" data-dismiss="alert" arial-label="Close">
+                <span aria-hodden="true">&times;</span>
+            </button>
+        </div>
 
-                 <table class="table table-striped table-bordered table-hover datatables" id="dataTable-1">
-                    <div class="alert alert-dismissible fade show">
-                        <strong>
-                            <?php echo $this->session->flashdata('msg')?>
-                        </strong>
-                        <button type="button" class="close" data-dismiss="alert" arial-label="Close">
-                            <span aria-hodden="true">&times;</span>
-                        </button>
-                    </div>
+        <div class="card shadow">
+            <div class="card-body">
+            <table class="table table-striped table-bordered table-hover datatables" id="dataTable-1">
                         <thead style="border: 2px; solid black; border-collapse: collapse;">
                             <tr style="background-color: #0275d8;">
                                 <th>No.</th> 

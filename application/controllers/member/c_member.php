@@ -22,7 +22,7 @@ public function index() {
         	$data['history']= $this->model_kgb->find_data($where, 'history_kgb')->result(); 
            //$data['anggota'] = $this->db->get_where('anggota', ['alamat' => $this->session->userdata('alamat')])->row_array();
 		   $data['username'] = $this->session->userdata('username');
- 		  $this->template->load('template/template_member','member/profile',$data);
+ 		  $this->template->load('template','member/profile',$data);
 
 }
 }

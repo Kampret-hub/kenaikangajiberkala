@@ -21,7 +21,7 @@ class History extends ci_controller{
         $data['record']= $this->model_kgb->find_data($param, 'history_kgb')->result();
         // $data['record1']= $this->db->query('select distinct nrp, nama from history_kgb where nrp = '.$id);
         //$this->load->view('user/lihat_data',$data);
-        $this->template->load('template/template_admin','history_kgb/lihat_data',$data);
+        $this->template->load('template','history_kgb/lihat_data',$data);
     }
     
     function edit()
@@ -95,7 +95,7 @@ class History extends ci_controller{
             $param  =   array('id'=>$id);
             $data['record']= $this->model_kgb->find_data($param, 'history_kgb')->row_array();
             //$this->load->view('user/form_edit',$data);
-            $this->template->load('template/template_admin','history_kgb/form_edit',$data);
+            $this->template->load('template','history_kgb/form_edit',$data);
         }
     }
 
@@ -104,11 +104,23 @@ class History extends ci_controller{
         $stat = $this->uri->segment(4);
         $where = array ('id' => $id);
         $this->model_kgb->delete_data($where, 'history_kgb'); 
-        //$id=  $this->uri->segment(3);
-        //$this->db->where('id',$id);
-        //$this->db->delete('history_kgb');
         echo $this->session->set_flashdata('msg','<div class="alert alert-danger text-center" role="alert">Data Berhasil Di Hapus</div>');
         redirect('history/index/'.$stat);
+    }
+
+      function lihat_cetak($id)
+    {
+       $data['user'] = $this->db->get_where('user', ['nama_lengkap' => $this->session->userdata('nama_lengkap')])->row_array(); 
+        $where = array ('nrp' => $this->session->userdata('username'));
+        $data['akun']= $this->model_kgb->find_data($where, 'user')->row_array(); 
+        $data['member']= $this->model_kgb->find_data($where, 'anggota')->row_array();
+
+        $data['title'] = 'Lihat Data';
+
+        $id=  $this->uri->segment(3);
+        $param = array ('id'=> $id);
+        $data['record']= $this->model_kgb->find_data($param, 'history_kgb')->row_array();
+        $this->template->load('template','history_kgb/lihat_cetak',$data);
     }
 
     function get_autonama()

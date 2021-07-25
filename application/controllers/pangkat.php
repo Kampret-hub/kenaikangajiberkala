@@ -18,7 +18,7 @@ class pangkat extends ci_controller{
         
         $data['record']=  $this->model_pangkat->tampildata();
         //$this->load->view('user/lihat_data',$data);
-        $this->template->load('template/template_admin','pangkat/lihat_data',$data);
+        $this->template->load('template','pangkat/lihat_data',$data);
     }
     
    function post()
@@ -37,7 +37,7 @@ class pangkat extends ci_controller{
 
         if($this->form_validation->run() == FALSE)
         {
-             $this->template->load('template/template_admin','pangkat/form_input', $data);
+             $this->template->load('template','pangkat/form_input', $data);
         }
         else
         {
@@ -52,7 +52,7 @@ class pangkat extends ci_controller{
         }
     }
     
-    function edit() 
+    function edit()  
     {
         $this->load->model('model_kgb');
          $data['record']=  $this->model_kgb->get_data("pangkat");
@@ -80,7 +80,7 @@ class pangkat extends ci_controller{
             $id=  $this->uri->segment(3);
             $param  =   array('id_pangkat'=>$id);            
             $data['record']= $this->model_kgb->find_data($param, "pangkat")->row_array();
-            $this->template->load('template/template_admin','pangkat/form_edit',$data);
+            $this->template->load('template','pangkat/form_edit',$data);
         }
     }
     
@@ -90,6 +90,8 @@ class pangkat extends ci_controller{
         $id=  $this->uri->segment(3);
         $this->db->where('id_pangkat',$id);
         $this->db->delete('pangkat');
+
+        echo $this->session->set_flashdata('msg','<div class="alert alert-danger text-center" role="alert">Data Berhasil Di Hapus</div>');
         redirect('pangkat');
     }
 }

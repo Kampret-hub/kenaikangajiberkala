@@ -19,7 +19,7 @@ public function index() {
 	       $data['akun']= $this->model_kgb->find_data($where, 'user')->row_array(); 
 	       
 		   $data['username'] = $this->session->userdata('username');
- 		  $this->template->load('template/template_admin','admin/index',$data);
+ 		  $this->template->load('template','admin/index',$data);
            
 }
 }

@@ -18,7 +18,7 @@ class kgb extends ci_controller{
 		$data['title'] = 'Data KGB';
         $data['record']=  $this->model_kgb->get_data('t_kgb');
         //$this->load->view('user/lihat_data',$data);
-        $this->template->load('template/template_admin','kgb/lihat_data',$data);
+        $this->template->load('template','kgb/lihat_data',$data);
     }
         
     function edit()
@@ -119,7 +119,7 @@ class kgb extends ci_controller{
             $param  =   array('id_kgb'=>$id);
             // $data['record']=  $this->model_kgb->get_one($id)->row_array();
             $data['record']= $this->model_kgb->find_data($param, 't_kgb')->row_array();
-            $this->template->load('template/template_admin','kgb/form_edit',$data);
+            $this->template->load('template','kgb/form_edit',$data);
         }
     }
 

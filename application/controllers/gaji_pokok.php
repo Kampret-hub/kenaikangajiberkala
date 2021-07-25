@@ -18,7 +18,7 @@ class gaji_pokok extends ci_controller{
         
         $data['record']=  $this->model_kgb->get_data('gaji_pokok');
         //$this->load->view('user/lihat_data',$data);
-         $this->template->load('template/template_admin','gaji_pokok/lihat_data',$data);
+         $this->template->load('template','gaji_pokok/lihat_data',$data);
     }
 
     function post()
@@ -41,7 +41,7 @@ class gaji_pokok extends ci_controller{
 
         if($this->form_validation->run() == FALSE)
         {
-             $this->template->load('template/template_admin','gaji_pokok/form_input', $data);
+             $this->template->load('template','gaji_pokok/form_input', $data);
         }
         else
         {
@@ -97,7 +97,7 @@ class gaji_pokok extends ci_controller{
             $id=  $this->uri->segment(3);
             $param  =   array('id_gaji'=>$id);            
             $data['record']= $this->model_kgb->find_data($param, "gaji_pokok")->row_array();
-            $this->template->load('template/template_admin','gaji_pokok/form_edit',$data);
+            $this->template->load('template','gaji_pokok/form_edit',$data);
         }
     }
     

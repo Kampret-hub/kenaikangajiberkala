@@ -5,26 +5,13 @@
             <div class="card-body">
               <h2 class="my-2 page-title"><?php echo $title ?></h2>
                 <div class="col">
-                    <div class="row">
-                        <div class="col-md-4 my-2">
-                            <h6>POLRI</h6>
-                            <?php echo anchor('report/print_data/'.$record['nrp'],' Print',array('class'=>'btn btn-info btn-sm fe fe-printer')) ?>
-                            <?php echo anchor('report/export_pdf/'.$record['nrp'],' Export Pdf',array('class'=>'btn btn-danger btn-sm fe fe-clipboard')) ?>
-                        </div>
-                        <div class="col-md-4 my-2">
-                            <h6>ASN</h6>
-                            <?php echo anchor('report/print_data2/'.$record['nrp'],' Print',array('class'=>'btn btn-info btn-sm fe fe-printer')) ?>
-                            <?php echo anchor('report/export_pdf2/'.$record['nrp'],' Export Pdf',array('class'=>'btn btn-danger btn-sm fe fe-clipboard')) ?>
-                            <?php echo form_open('report/lihat_data'); ?>
-                        </div>
-                    </div>
 
             <table class="table table-striped table-bordered table-hover datatables" id="dataTable-1">
                 <div class="col-md-8">
                     <table class="table">
                         <tr>
                             <td>1. Keterangan SK KGB </td>
-                            <td><strong><?php echo $record['ket']; ?></strong></td>
+                            <td><strong><?php echo $record['ket']?></strong></td>
                         </tr>
                         <tr>
                             <td>2. Nomor KGB </td>
@@ -32,11 +19,11 @@
                         </tr>
                         <tr>
                             <td>3. Nama </td>
-                            <td><strong><?php echo $record['nama_lengkap']; ?></strong></td>
+                            <td><strong><?php echo $record['nama']; ?></strong></td>
                         </tr>
                          <tr>
                             <td>4. Tanggal Lahir </td>
-                            <td><strong><?php echo $record['tmpt_lahir']; ?>, <?php $sampeledate = ($record['t_lahir']); 
+                            <td><strong><?php echo $member['tmpt_lahir']; ?>, <?php $sampeledate = ($member['t_lahir']); 
                                 $converdate = date("d-m-Y", strtotime($sampeledate));
                                 echo $converdate;
                                 ?>  </strong></td>
@@ -46,8 +33,8 @@
                             <td><strong><?php echo $record['nrp']; ?></strong></td>
                         </tr>
                         <tr>
-                            <td>6. pangkar/ golongan ruang </td>
-                            <td><strong><?php echo $record['pangkat']; ?> / <?php echo $record['golongan']; ?></strong></td>
+                            <td>6. pangkat / golongan ruang </td>
+                            <td><strong><?php echo $member['pangkat']; ?> / <?php echo $member['golongan']; ?></strong></td>
                         </tr>
                         <tr> 
                             <td>7. kesatuan </td>
@@ -67,7 +54,7 @@
                         </tr>
                         <tr>
                             <td>1. pangkar / golongan ruang </td>
-                            <td><strong><?php echo $record['pangkat']; ?> / <?php echo $record['golongan']; ?></strong></td>
+                            <td><strong><?php echo $member['pangkat']; ?> / <?php echo $member['golongan']; ?></strong></td>
                         </tr>
                         <tr>
                             <td>12. TMT </td>
@@ -116,11 +103,12 @@
                         </tr>
                         <tr>
                             <td>Di setujui oleh : </td>
-                            <td><strong><?php echo $record['d_oleh']; ?>&#160;|&#160;Sebagai : <?php echo $record['sebagai']; ?>&#160;|&#160;nrp : <?php echo $record['nrp_p']; ?></strong></td>
+                            <td><strong><?php echo $record['d_oleh']; ?>&#160;|&#160;Sebagai : <?php echo $record['sebagai']; ?>&#160;|&#160;NRP : <?php echo $record['nrp_p']; ?></strong></td>
                         </tr>
                     </table>
-                    <?php echo anchor('report',' Kembali',array('class'=>'btn btn-danger btn-sm '))?>
+                    <!--<?php echo anchor('history/index/'.$record['nrp'],' Kembali',array('class'=>'btn btn-danger btn-sm '))?>-->
                 </div>
             </div>
-      </div>
+      </div><br>
+       <span style="margin-top: 15px;"><?php echo anchor('admin/profile','Kembali',array('class'=>'btn btn-danger btn-sm'))?></span>
  

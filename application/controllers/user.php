@@ -4,6 +4,7 @@ class user extends ci_controller{
    function __construct() {
         parent::__construct();
         $this->load->model('model_user');
+         $this->load->model('model_kgb');
         if ($this->session->userdata('username')=="") {
       redirect('auth');
         }
@@ -17,7 +18,7 @@ class user extends ci_controller{
         
         $data['record']=  $this->model_user->tampildata();
         //$this->load->view('user/lihat_data',$data);
-        $this->template->load('template/template_admin','user/lihat_data',$data);
+        $this->template->load('template','user/lihat_data',$data);
     }
     
     function post()
@@ -44,7 +45,7 @@ class user extends ci_controller{
         }
         else{
             //$this->load->view('user/form_input');
-             $this->template->load('template/template_admin','user/form_input', $data);
+             $this->template->load('template','user/form_input', $data);
         }
     }
     
@@ -83,7 +84,7 @@ class user extends ci_controller{
             $id=  $this->uri->segment(3);
             $data['record']=  $this->model_user->get_one($id)->row_array();
             //$this->load->view('user/form_edit',$data);
-            $this->template->load('template/template_admin','user/form_edit',$data);
+            $this->template->load('template','user/form_edit',$data);
         }
     }
     

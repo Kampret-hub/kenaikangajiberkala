@@ -18,25 +18,25 @@ class anggota extends ci_controller{
         
         // $data['record']=  $this->model_kgb->get_data('anggota');
         // //$this->load->view('user/lihat_data',$data);
-        // $this->template->load('template/template_admin','anggota/lihat_data',$data);
+        // $this->template->load('template','anggota/lihat_data',$data);
         $param = array ('status' => $id);
         
         if( $id == 'aktif')
         {
              $data['record1']= $this->model_kgb->find_data($param, 'anggota')->result();
-            $this->template->load('template/template_admin','anggota/anggota_aktif',$data);
+            $this->template->load('template','anggota/anggota_aktif',$data);
         } else if ($id == 'keluar')
         {
             $data['record1']= $this->model_kgb->find_data($param, 'anggota')->result();
-             $this->template->load('template/template_admin','anggota/anggota_keluar',$data);
+             $this->template->load('template','anggota/anggota_keluar',$data);
         } else if ($id == 'meninggal')
         {
             $data['record1']= $this->model_kgb->find_data($param, 'anggota')->result();
-             $this->template->load('template/template_admin','anggota/anggota_meninggal',$data);
+             $this->template->load('template','anggota/anggota_meninggal',$data);
         } else
         {
             $data['record1']= $this->model_kgb->find_data($param, 'anggota')->result();
-             $this->template->load('template/template_admin','anggota/anggota_pensiun',$data);
+             $this->template->load('template','anggota/anggota_pensiun',$data);
         }
 
     }
@@ -56,7 +56,7 @@ class anggota extends ci_controller{
         $this->form_validation->set_rules('no_telp', 'No Telepon', 'required|min_length[5]');
         $this->form_validation->set_rules('alamat', 'Alamat', 'required|min_length[5]');
         $this->form_validation->set_rules('pendidikan', 'Pendidikan', 'required');
-        $this->form_validation->set_rules('pangkat', 'Pangkat', 'required|min_length[5]');
+        $this->form_validation->set_rules('pangkat', 'Pangkat', 'required');
         $this->form_validation->set_rules('jabatan', 'Jabatan', 'required');
         $this->form_validation->set_rules('bagian', 'Bagian', 'required');
          $this->form_validation->set_rules('keterangan', 'Keterangan', 'required');
@@ -77,7 +77,7 @@ class anggota extends ci_controller{
 
 
             //$this->load->view('user/form_input');
-            $this->template->load('template/template_admin','anggota/form_input', $data);
+            $this->template->load('template','anggota/form_input', $data);
 
         }
         else
@@ -169,7 +169,7 @@ class anggota extends ci_controller{
                 'golongan'      =>$golongan,
                 'masa_kerja'    =>$masa_kerja,
                 'gaji_pokok'    =>$gaji_pokok,
-                'keterangan'           =>$keterangan,
+                'keterangan'    =>$keterangan,
                 'status'        =>$status
             );
              $edit_kgb = array(
@@ -187,7 +187,7 @@ class anggota extends ci_controller{
             $where = array ('nrp' => $nrp);
             $this->model_kgb->update_data('anggota', $edit_anggota, $where);
             $this->model_kgb->update_data('t_kgb', $edit_kgb, $where);
-            $this->model_kgb->update_data('history_kbg', $edit_history_kgb, $where);
+            $this->model_kgb->update_data('history_kgb', $edit_history_kgb, $where);
             $this->model_kgb->update_data('user', $edit_user, $where);
             echo $this->session->set_flashdata('msg','<div class="alert alert-success text-center" role="alert">Data Berhasil Di Ubah</div>');
             redirect('anggota/index/'.$status);
@@ -207,7 +207,7 @@ class anggota extends ci_controller{
 
             
             $data['record']= $this->model_kgb->find_data($param, 'anggota')->row_array();
-            $this->template->load('template/template_admin','anggota/form_edit',$data);
+            $this->template->load('template','anggota/form_edit',$data);
         }
     }
     
@@ -220,7 +220,7 @@ class anggota extends ci_controller{
 
         $this->model_kgb->delete_data($where, 'anggota');
         $this->model_kgb->delete_data($where, 't_kgb');
-        $this->model_kgb->delete_data($where, 'history_kbg');
+        $this->model_kgb->delete_data($where, 'history_kgb');
         $this->model_kgb->delete_data($where, 'user');
 
       

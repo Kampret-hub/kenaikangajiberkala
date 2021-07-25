@@ -41,6 +41,28 @@ class model_kgb extends CI_Model{
         $this->db->delete($table, $where);
     }
 
+    public function kontak()
+    {
+        $this->db->select('bagian');
+        $this->db->from('anggota');
+        $this->db->like("bagian","BAGSUMDA");
+        return $this->db->get()->result_array();
+    }
+
+    public function report($nrp){
+       $query = $this->db->query('select a.nrp , ket, nomor_kgb, nama_lengkap, kesatuan, tmpt_lahir ,t_lahir, pangkat, golongan, gpl, gpb, mkgg1, mkgg2, mkg1, mkg2, tmtl, tmtb,  kep_pangkat, no_tgl, kgbb, kgbb_thn, kgbb_bln, diterapkan, padatanggal, d_oleh, sebagai, nrp_p from anggota a join t_kgb b ON a.nrp = b.nrp WHERE a.nrp ='.$nrp)->row_array();
+        return $query;
+    }
+
+     public function report_history($id){
+        $this->db->select('*');
+        $this->db->from('history_kgb');
+        $this->db->join('anggota', 'anggota.nrp = history_kgb.id', 'left');
+        
+        $query = $this->db->get();
+        return $query->row_array();
+    }
+
      public function get_prov($title)
     {
       $this->db->like('kode_gapok', $title, 'BOTH');

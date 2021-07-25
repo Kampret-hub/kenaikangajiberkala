@@ -43,7 +43,7 @@
                                         <!--<td><?php echo $r->last_login ?></td>-->
                                         <td class="center">
                                             <a href=" <?php echo base_url('user/edit/'.$r->user_id) ?>" class="btn btn-primary btn-small" ><i class="fe fe-edit"></i>Edit</a>
-                                            <!--<a href="<?php echo base_url('user/delete/'.$r->user_id)?>" class="btn btn-danger btn-small remove" ><i class="fe fe-trash"></i>Hapus</a>-->
+                                            <!--<a href="<?php echo base_url('user/delete/'.$r->user_id)?>" class="btn btn-danger btn-small hapus" ><i class="fe fe-trash"></i>Hapus</a>-->
                                         </td>
                                     </tr>
                                 <?php $no++; } ?>
@@ -53,60 +53,33 @@
                 </tr>
                 
  <!--<script type="text/javascript">
-    $(".remove").click(function(e){
-        e.preventDefault();
-        const id = $(this).parents("tr").attr("id");
-    
-       swal({
-        title: "Are you sure?",
-        text: "You will not be able to recover this imaginary file!",
-        type: "warning",
-        showCancelButton: true,
-        confirmButtonClass: "btn-danger",
-        confirmButtonText: "Yes, delete it!",
-        cancelButtonText: "No, cancel plx!",
-        closeOnConfirm: false,
-        closeOnCancel: false
-      },
-      function(isConfirm) {
-        if (isConfirm) {
-          $.ajax({
-             url: 'user/delete/'+id,
-             type: 'DELETE',
-             error: function() {
-                alert('Something is wrong');
-             },
-             success: function(data) {
-                  $("#"+id).remove();
-                  swal("Deleted!", "Your imaginary file has been deleted.", "success");
-             }
-          });
-        } else {
-          swal("Cancelled", "Your imaginary file is safe :)", "error");
-        }
-      });
-     
-    });
-    
-</script>-->
-       <!--<script type="text/javascript">
+        jQuery(document).ready(function($){
+            $('.hapus').on('click',function(e){
+                e.preventDefault();
+                var getLink = $(this).attr('href');
+                swal({
+                        title: "Anda Yakin ?",
+                        text: "Data Yang Sudah Dihapus Tidak Bisa Dikembalikan Lagi!",
+                        type:  "warning",
+                        html: true,
+                        showCancelButton: true,
 
-         $(".remove").click(function(e){
-            e.preventDefault();
-        const id = $(this).parents("tr").attr("id");
-
+                        confirmButtonColor: "#DD6B55",
+                        confirmButtonText: "Ya, Hapus !",
+                        showCancelButton: "Janagan Hapus!",
+                        closeOnConfirm:    false,
+                        closeOnCancel: false,
+                        },function(isConfirm){
+                            if (isConfirm) {
+                                swal("Terhapus!", "Data berhasil dihapus." , "success");
+                                window.location.href = getLink
+                            }else{
+                            {
+                                swal("Cancelled","Data Tidak Jadi Dihapus :)", "error");
+                            }
+                        }
+                    });
+                return false;
+            });
         });
-           Swal({
-              title: 'Apakah Anda Yakin?',
-              text: "Data Anggota akan dihapus!",
-              icon: 'warning',
-              showCancelButton: true,
-              confirmButtonColor: '#3085d6',
-              cancelButtonColor: '#d33',
-              confirmButtonText: 'Hapus Data!'
-            }).then((result) => {
-              if (result.isConfirmed) {
-                document.location.href = href;
-              }
-            })
-       </script>-->
+    </script>-->

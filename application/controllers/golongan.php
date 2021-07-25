@@ -18,7 +18,7 @@ class golongan extends ci_controller{
         
         $data['record']=  $this->model_golongan->tampildata();
         //$this->load->view('user/lihat_data',$data);
-        $this->template->load('template/template_admin','golongan/lihat_data',$data);
+        $this->template->load('template','golongan/lihat_data',$data);
     }
     
     function post()
@@ -37,12 +37,13 @@ class golongan extends ci_controller{
 
         if($this->form_validation->run() == FALSE)
         {
-             $this->template->load('template/template_admin','golongan/form_input', $data);
+             $this->template->load('template','golongan/form_input', $data);
         }
         else
         {
             $insert_golongan = array (
-                'nama_golongan' => $this->input->post('golongan')
+                'kode_golongan' => $this->input->post('golongan'),
+                'pangkat' => $this->input->post('pangkat')
             );
 
             $this->model_kgb->insert_data($insert_golongan, 'golongan');
@@ -79,7 +80,7 @@ class golongan extends ci_controller{
             $id     =  $this->uri->segment(3);
             $param  =   array('id_golongan'=>$id);            
             $data['record']= $this->model_kgb->find_data($param, "golongan")->row_array();
-            $this->template->load('template/template_admin','golongan/form_edit',$data);
+            $this->template->load('template','golongan/form_edit',$data);
         }
     }
     
@@ -89,6 +90,8 @@ class golongan extends ci_controller{
         $id=  $this->uri->segment(3);
         $this->db->where('id_golongan',$id);
         $this->db->delete('golongan');
+
+        echo $this->session->set_flashdata('msg','<div class="alert alert-danger text-center" role="alert">Data Berhasil Di Hapus</div>'); 
         redirect('golongan');
     }
 }

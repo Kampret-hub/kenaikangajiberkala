@@ -3,19 +3,26 @@
     <div class="col-md-12">
         <div class="card shadow">
             <div class="card-body">
-              <h2 class="mb-2 page-title"><?php echo $title ?></h2>
+              <h2 class="page-title my-2"><?php echo $title ?></h2>
+          </div>
+      </div>
+  </div>
+</div>
 
                 <!--<?php echo anchor('anggota/post','Tambah Data',array('class'=>'btn btn-danger btn-sm')) ?>-->
             
-                 <table class="table table-striped table-bordered table-hover datatables" id="dataTable-1">
-                    <div class="alert alert-dismissible fade show">
-                        <strong>
-                            <?php echo $this->session->flashdata('msg')?>
-                        </strong>
-                        <button type="button" class="close" data-dismiss="alert" arial-label="Close">
-                            <span aria-hodden="true">&times;</span>
-                        </button>
-                    </div>
+        <div class="alert alert-dismissible fade show">
+            <strong>
+                <?php echo $this->session->flashdata('msg')?>
+            </strong>
+            <button type="button" class="close" data-dismiss="alert" arial-label="Close">
+                <span aria-hodden="true">&times;</span>
+            </button>
+        </div>
+        
+        <div class="card shadow">
+            <div class="card-body">
+            <table class="table table-striped table-bordered table-hover datatables" id="dataTable-1">
                        <thead style="border: 2px; solid black; border-collapse: collapse;">
                             <tr style="background-color: #0275d8;">
                                 <th>No.</th> 
@@ -59,8 +66,8 @@
                                   </button>
                                   <div class="dropdown-menu dropdown-menu-right">
                                     <a href=" <?php echo base_url('history/edit/'.$r->id) ?>" class="btn btn-primary btn-small" style='margin-left: 5px;'><i class="fe fe-edit"></i> Edit</a>
+                                    <a href="<?php echo base_url('history/lihat_cetak/'.$r->id)?>" class="btn btn-info btn-small" id="" ><i class="fe fe-eye"></i> Lihat</a>
                                      <a href="<?php echo base_url('history/delete/'.$r->id.'/'.$r->nrp)?>" class="btn btn-danger btn-small hapus" id="" ><i class="fe fe-trash"></i>Hapus</a>
-                                    <!--<a href="<?php echo base_url('history/pdf/'.$r->id)?>" class="btn btn-info btn-small" id="" ><i class="fe fe-printer"></i> Cetak KGB</a>-->
                                     <!--<a href="<?php echo anchor('history/pdf/'.$record['NRP'],'Export Pdf',array('class'=>'btn btn-danger btn-sm')) ?>" ></a>-->
                                     
                                   </div>

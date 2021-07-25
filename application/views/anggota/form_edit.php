@@ -144,7 +144,7 @@
                                         <option value="aktif">Aktif</option>
                                         <option value="keluar">keluar</option>
                                         <option value="meninggal">meninggal</option>
-                                        <option value="meninggal">pensiun</option>
+                                        <option value="pensiun">pensiun</option>
                                 </select>
                         </div>
             </div>

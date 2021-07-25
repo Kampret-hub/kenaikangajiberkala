@@ -15,12 +15,10 @@ class jabatan extends ci_controller{
        $data['user'] = $this->db->get_where('user', ['nama_lengkap' => $this->session->userdata('nama_lengkap')])->row_array(); 
         $where = array ('nrp' => $this->session->userdata('username'));
         $data['akun']= $this->model_kgb->find_data($where, 'user')->row_array(); 
-        $where = array ('nrp' => $this->session->userdata('username'));
-        $data['akun']= $this->model_kgb->find_data($where, 'user')->row_array(); 
         
         $data['record']=  $this->model_jabatan->tampildata();
         //$this->load->view('user/lihat_data',$data);
-        $this->template->load('template/template_admin','jabatan/lihat_data',$data);
+        $this->template->load('template','jabatan/lihat_data',$data);
     }
     
     function post()
@@ -38,7 +36,7 @@ class jabatan extends ci_controller{
 
         if($this->form_validation->run() == FALSE)
         {
-             $this->template->load('template/template_admin','jabatan/form_input', $data);
+             $this->template->load('template','jabatan/form_input', $data);
         }
         else
         {
@@ -78,7 +76,7 @@ class jabatan extends ci_controller{
             $id=  $this->uri->segment(3);
             $param  =   array('id_jabatan'=>$id);            
             $data['record']= $this->model_kgb->find_data($param, "jabatan")->row_array();
-            $this->template->load('template/template_admin','jabatan/form_edit',$data);
+            $this->template->load('template','jabatan/form_edit',$data);
         }
     }
     
@@ -88,6 +86,8 @@ class jabatan extends ci_controller{
         $id=  $this->uri->segment(3);
         $this->db->where('id_jabatan',$id);
         $this->db->delete('jabatan');
-        redirect('jabatan');
+        
+        echo $this->session->set_flashdata('msg','<div class="alert alert-danger text-center" role="alert">Data Berhasil Di Hapus</div>');
+        redirect('jabatan/index');
     }
 }

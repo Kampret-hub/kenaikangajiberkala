@@ -3,22 +3,29 @@
     <div class="col-md-12">
         <div class="card shadow">
             <div class="card-body">
-              <h2 class="mb-2 page-title">Data Anggota Keluar</h2>
-               
+              <h2 class="page-title my-2">Data Anggota Keluar</h2>
+              </div>
+            </div>
+          </div>
+        </div>
+     </div>
 
+        <div class="alert alert-dismissible fade show">
+            <strong>
+                <?php echo $this->session->flashdata('msg')?>
+            </strong>
+            <button type="button" class="close" data-dismiss="alert" arial-label="Close">
+                <span aria-hodden="true">&times;</span>
+            </button>
+        </div>
+
+        <div class="card shadow">
+            <div class="card-body">
             <table class="table table-striped table-bordered table-hover datatables" id="dataTable-1">
-                <div class="alert alert-dismissible fade show">
-                    <strong>
-                        <?php echo $this->session->flashdata('msg')?>
-                    </strong>
-                    <button type="button" class="close" data-dismiss="alert" arial-label="Close">
-                        <span aria-hodden="true">&times;</span>
-                    </button>
-                </div>
                         <thead style="border: 2px; solid black; border-collapse: collapse;">
                             <tr style="background-color: #0275d8;">
                                 <th>No.</th> 
-                                 <th>NRP / NIP </th>
+                                <th>NRP / NIP </th>
                                 <th>Nama Lengkap</th>
                                 <th>TTL</th>
                                 <th>Agama </th>
@@ -26,6 +33,7 @@
                                 <th>Pangkat</th>
                                 <th>Jabatan</th>
                                 <th>Bagian</th>
+                                <th>Ket</th>
                                 <th>No Telepon</th>
                                 <th>Aksi</th>
                             </tr>
@@ -37,7 +45,6 @@
                                 <td><?php echo $r->nrp ?></td>
                                 <td><?php echo $r->nama_lengkap ?></td>
                                 <td><?php echo $r->tmpt_lahir ?>, 
-                                <td><?php echo $r->tmpt_lahir ?>, 
                                     <?php $sampeledate = ($r->t_lahir); 
                                         $converdate = date("d-m-Y", strtotime($sampeledate));
                                         echo $converdate;
@@ -48,6 +55,7 @@
                                 <td><?php echo $r->pangkat ?></td>
                                 <td><?php echo $r->jabatan ?></td>
                                 <td><?php echo $r->bagian ?></td>
+                                <td><?php echo $r->keterangan ?></td>
                                 <td><?php echo $r->no_telp ?></td>
                                 <td><button class="btn btn-sm dropdown-toggle more-horizontal" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     <span class="text-muted sr-only">Action</span>

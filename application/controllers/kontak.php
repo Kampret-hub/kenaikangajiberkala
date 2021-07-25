@@ -14,11 +14,14 @@ class kontak extends ci_controller{
        $data['user'] = $this->db->get_where('user', ['nama_lengkap' => $this->session->userdata('nama_lengkap')])->row_array(); 
         $where = array ('nrp' => $this->session->userdata('username'));
         $data['akun']= $this->model_kgb->find_data($where, 'user')->row_array(); 
+
+        $where = array ('bagian'=> 'BAGSUMDA');
+        $data['record1']= $this->model_kgb->find_data($where, 'anggota')->result_array();
         
         $where = array ('id_kontak'=> '1');
         $data['record']= $this->model_kgb->find_data($where, 'kontak')->row_array();
         //$this->load->view('user/lihat_data',$data);
-        $this->template->load('template/template_admin','kontak/lihat_data',$data);
+        $this->template->load('template','kontak/lihat_data',$data);
     }
 
      function setup() 
@@ -53,7 +56,7 @@ class kontak extends ci_controller{
             $id=  $this->uri->segment(3);
             $param  =   array('id_kontak'=>$id);            
             $data['record']= $this->model_kgb->find_data($param, "kontak")->row_array();
-            $this->template->load('template/template_admin','kontak/form_setup',$data);
+            $this->template->load('template','kontak/form_setup',$data);
         }
     }
     

@@ -1,11 +1,3 @@
-
-              <div class="card shadow">
-                <div class="card-body">
-                   <h2 class="mb-4 page-title my">Profile</h2>
-                   <b> Saya > NRP / NIP :</b><i> <?php echo $member['nrp']; ?></i>
-                </div>
-              </div>
-              <p>
                 <div class="alert alert-dismissible fade show">
                     <strong>
                         <?php echo $this->session->flashdata('msg')?>
@@ -14,13 +6,22 @@
                         <span aria-hodden="true">&times;</span>
                     </button>
                 </div>
+
+              <div class="card shadow" style="background-color: #0275d8;">
+                <div class="card-body">
+                   <h3 class="mb-2 page-title my">Profile</h3>
+                   <strong> Saya > NRP / NIP :<i> <?php echo $member['nrp']; ?></i></strong>
+                </div>
+              </div>
+                
+
             <div class="card shadow">
             <div class="card-body">
               <div class="row mt-3 align-items-center">
                 <div class="col-md-3 text-center mb-5">
                   <div class="avatar avatar-xl">
                     <h3 class="mb-1" style="text-transform: uppercase;"><?php echo $member['nama_lengkap']; ?></h3>
-                      <h4 class="mb-1">Admin</h4>
+                      <h4 class="mb-1">Anggota</h4><br>
                     <img src="<?php echo base_url(); ?>./assets/avatars/face.png" alt="..." class="avatar-img rounded-circle">
                   </div>
                   <br>
@@ -73,18 +74,24 @@
             </div>
             <br>
 
-            <div class="row my-4">
-            <!-- Small table -->
-            <div class="col-md-12">
-                               <table class="table table-striped table-bordered table-hover datatables" id="dataTable-1">
+            
+            <div class="card shadow" style="background-color: #0275d8;">
+                <div class="card-body">
+                   <h3 class="page-title my-2">Kenaikan Gaji Berkala</h3>
+                </div>
+              </div>
+                  <div class="card shadow">
+                    <div class="card-body">
+                     <table class="table table-striped table-bordered table-hover datatables" id="dataTable-1">
                      <div class="alert alert-dismissible fade show">
                        <thead style="border: 2px; solid black; border-collapse: collapse;">
                             <tr style="background-color: #0275d8; ">
                               <th style="width: 20px;">Periode</th> 
-                              <th style="width: 300px;">Masa Kerja</th>
-                              <th style="width: 300px;">Tanggal Kenaikan gaji</th>
-                              <th style="width: 300px;">Gaji Lama</th>
-                              <th style="width: 300px;">Gaji Baru</th>
+                              <th style="width: 150px;">Masa Kerja</th>
+                              <th style="width: 200px;">Tanggal Kenaikan gaji</th>
+                              <th style="width: 200px;">Gaji Lama</th>
+                              <th style="width: 200px;">Gaji Baru</th>
+                              <th style="width: 20px;">Aksi</th>
                             </tr>
                           </thead>
                           <?php $no=1; foreach ($history as $r) { ?>
@@ -94,9 +101,15 @@
                             <td><?php echo $r->tmtb ?></td>
                             <td><?php echo $r->gpl ?></td>
                             <td><?php echo $r->gpb ?></td>
+                            <td>
+                              <a href="<?php echo base_url('admin/profile/lihat_cetak/'.$r->id)?>" class="btn btn-info btn-small" id="" ><i class="fe fe-eye"></i> Lihat</a>
+                            </td>
                           </tr>
                            <?php $no++; } ?>
                         </div>
                    </table>
                 </div>
+              </div>
+            </div>
+          </div>
 

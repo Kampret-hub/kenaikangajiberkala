@@ -56,7 +56,7 @@
                                 $converdate = date("d-m-Y", strtotime($sampeledate));
                                 echo $converdate;
                                 ?>  
-                    <br>3. NRP <span style="margin-left: 146px;">:</span> <?php echo $record['NRP']; ?>
+                    <br>3. nrp <span style="margin-left: 149px;">:</span> <?php echo $record['nrp']; ?>
                     <br>4. pangkat <span style="margin-left: 127px;">:</span> <?php echo $record['pangkat']; ?> / <?php echo $record['golongan']; ?>
                     <br>5. kesatuan <span style="margin-left: 123px;">:</span> <?php echo $record['kesatuan']; ?>
                     <br>6. gaji pokok lama <span style="margin-left: 87px;">:</span> <?php echo $record['gpl']; ?>
@@ -102,7 +102,7 @@
                     <br><span style="margin-left: 32%;">KABAGSUMDA</span>
                     <p><br></p>
                         <u><span style="font-size: 12px; margin-left: 28%;" class="text-center"><?php echo $record['d_oleh']; ?></span></u>
-                        <br><span style="font-size: 12px; margin-left: 26%;" class="text-center"><?php echo $record['sebagai']; ?> NRP <?php echo $record['nrp_p']; ?></span>
+                        <br><span style="font-size: 12px; margin-left: 26%;" class="text-center"><?php echo $record['sebagai']; ?> nrp <?php echo $record['nrp_p']; ?></span>
                 </span>
             </td>
         </tr>

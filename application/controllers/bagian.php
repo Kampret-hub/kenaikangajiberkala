@@ -18,7 +18,7 @@ class bagian extends ci_controller{
         
         $data['record']=  $this->model_bagian->tampildata();
         //$this->load->view('user/lihat_data',$data);
-        $this->template->load('template/template_admin','bagian/lihat_data',$data);
+        $this->template->load('template','bagian/lihat_data',$data);
     }
     
     
@@ -37,7 +37,7 @@ class bagian extends ci_controller{
 
         if($this->form_validation->run() == FALSE)
         {
-             $this->template->load('template/template_admin','bagian/form_input', $data);
+             $this->template->load('template','bagian/form_input', $data);
         }
         else
         {
@@ -77,7 +77,7 @@ class bagian extends ci_controller{
             $id=  $this->uri->segment(3);
             $param  =   array('id_bagian'=>$id);            
             $data['record']= $this->model_kgb->find_data($param, "bagian")->row_array();
-            $this->template->load('template/template_admin','bagian/form_edit',$data);
+            $this->template->load('template','bagian/form_edit',$data);
         }
     }
     
@@ -87,6 +87,8 @@ class bagian extends ci_controller{
         $id=  $this->uri->segment(3);
         $this->db->where('id_bagian',$id);
         $this->db->delete('bagian');
+
+        echo $this->session->set_flashdata('msg','<div class="alert alert-danger text-center" role="alert">Data Berhasil Di Hapus</div>');
         redirect('bagian');
     }
-}
+} 
