@@ -123,6 +123,86 @@ class History extends ci_controller{
         $this->template->load('template','history_kgb/lihat_cetak',$data);
     }
 
+     function print_data($id)
+    {   
+       $data['user'] = $this->db->get_where('user', ['nama_lengkap' => $this->session->userdata('nama_lengkap')])->row_array(); 
+        $where = array ('nrp' => $this->session->userdata('username'));
+        $data['akun']= $this->model_kgb->find_data($where, 'user')->row_array(); 
+        $data['member']= $this->model_kgb->find_data($where, 'anggota')->row_array();
+
+        $id=  $this->uri->segment(3);
+        $param = array ('id'=> $id);
+        $data['record']= $this->model_kgb->find_data($param, 'history_kgb')->row_array();
+         //$data['record']=  $this->db->query('select a.nrp AS NRP, ket, nomor_kgb, nama_lengkap,kesatuan, tmpt_lahir ,t_lahir, pangkat, golongan, gpl, gpb, mkgg1, mkgg2, mkg1, mkg2, tmtl, tmtb,  kep_pangkat, no_tgl, kgbb, kgbb_thn, kgbb_bln, diterapkan, padatanggal, d_oleh, sebagai, nrp_p  from anggota a join t_kgb b ON a.nrp = b.nrp WHERE a.nrp ='.$NRP)->row_array();
+        $this->load->view('history_kgb/print_report', $data);
+    }
+
+     function print_data2($id)
+    {   
+        $data['user'] = $this->db->get_where('user', ['nama_lengkap' => $this->session->userdata('nama_lengkap')])->row_array(); 
+        $where = array ('nrp' => $this->session->userdata('username'));
+        $data['akun']= $this->model_kgb->find_data($where, 'user')->row_array(); 
+        $data['member']= $this->model_kgb->find_data($where, 'anggota')->row_array();
+
+        $id=  $this->uri->segment(3);
+        $param = array ('id'=> $id);
+        $data['record']= $this->model_kgb->find_data($param, 'history_kgb')->row_array();
+         //$data['record']=  $this->db->query('select a.nrp AS NRP, ket, nomor_kgb, nama_lengkap,kesatuan, tmpt_lahir ,t_lahir, pangkat, golongan, gpl, gpb, mkgg1, mkgg2, mkg1, mkg2, tmtl, tmtb,  kep_pangkat, no_tgl, kgbb, kgbb_thn, kgbb_bln, diterapkan, padatanggal, d_oleh, sebagai, nrp_p  from anggota a join t_kgb b ON a.nrp = b.nrp WHERE a.nrp ='.$NRP)->row_array();
+        $this->load->view('history_kgb/print_report2', $data);
+    }
+
+     public function export_pdf($id)
+    {
+        $this->load->library('dompdf_gen');
+        
+        $data['user'] = $this->db->get_where('user', ['nama_lengkap' => $this->session->userdata('nama_lengkap')])->row_array(); 
+        $where = array ('nrp' => $this->session->userdata('username'));
+        $data['akun']= $this->model_kgb->find_data($where, 'user')->row_array(); 
+        $data['member']= $this->model_kgb->find_data($where, 'anggota')->row_array();
+
+        $id=  $this->uri->segment(3);
+        $param = array ('id'=> $id);
+        $data['record']= $this->model_kgb->find_data($param, 'history_kgb')->row_array();
+
+       //$data['record']=  $this->db->query('select a.nrp AS NRP, ket, nomor_kgb, nama_lengkap,kesatuan, tmpt_lahir ,t_lahir, pangkat, golongan, gpl, gpb, mkgg1, mkgg2, mkg1, mkg2, tmtl, tmtb,  kep_pangkat, no_tgl, kgbb, kgbb_thn, kgbb_bln, diterapkan, padatanggal, d_oleh, sebagai, nrp_p from anggota a join t_kgb b ON a.nrp = b.nrp WHERE a.nrp ='.$NRP)->row_array();
+
+        $this->load->view('history_kgb/print_report', $data);
+        $paper_size = 'letter';
+        $orientation = 'portrait';
+        $html = $this->output->get_output();
+        $this->dompdf->set_paper($paper_size, $orientation);
+
+        $this->dompdf->load_html($html);
+        $this->dompdf->render();
+        $this->dompdf->stream("report-POLRI.pdf", array('Attachment' => 0));
+    }
+
+    public function export_pdf2($id)
+    {
+        $this->load->library('dompdf_gen');
+        
+        $data['user'] = $this->db->get_where('user', ['nama_lengkap' => $this->session->userdata('nama_lengkap')])->row_array(); 
+        $where = array ('nrp' => $this->session->userdata('username'));
+        $data['akun']= $this->model_kgb->find_data($where, 'user')->row_array(); 
+        $data['member']= $this->model_kgb->find_data($where, 'anggota')->row_array();
+
+        $id=  $this->uri->segment(3);
+        $param = array ('id'=> $id);
+        $data['record']= $this->model_kgb->find_data($param, 'history_kgb')->row_array();
+
+       //$data['record']=  $this->db->query('select a.nrp AS NRP, ket, nomor_kgb, nama_lengkap,kesatuan, tmpt_lahir ,t_lahir, pangkat, golongan, gpl, gpb, mkgg1, mkgg2, mkg1, mkg2, tmtl, tmtb,  kep_pangkat, no_tgl, kgbb, kgbb_thn, kgbb_bln, diterapkan, padatanggal, d_oleh, sebagai, nrp_p from anggota a join t_kgb b ON a.nrp = b.nrp WHERE a.nrp ='.$NRP)->row_array();
+
+        $this->load->view('history_kgb/print_report2', $data);
+        $paper_size = 'letter';
+        $orientation = 'portrait';
+        $html = $this->output->get_output();
+        $this->dompdf->set_paper($paper_size, $orientation);
+
+        $this->dompdf->load_html($html);
+        $this->dompdf->render();
+        $this->dompdf->stream("report-ASN.pdf", array('Attachment' => 0));
+    }
+
     function get_autonama()
   {
     if (isset($_GET['term'])) {

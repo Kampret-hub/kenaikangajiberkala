@@ -9,7 +9,7 @@
 
               <div class="card shadow" style="background-color: #0275d8;">
                 <div class="card-body">
-                   <h3 class="mb-2 page-title my">Profile</h3>
+                   <h3 class="mb-2 page-title my">Profile Anggota</h3>
                    <strong> Saya > NRP / NIP :<i> <?php echo $member['nrp']; ?></i></strong>
                 </div>
               </div>
@@ -21,7 +21,7 @@
                 <div class="col-md-3 text-center mb-5">
                   <div class="avatar avatar-xl">
                     <h3 class="mb-1" style="text-transform: uppercase;"><?php echo $member['nama_lengkap']; ?></h3>
-                      <h4 class="mb-1">Anggota</h4><br>
+                    <br>
                     <img src="<?php echo base_url(); ?>./assets/avatars/face.png" alt="..." class="avatar-img rounded-circle">
                   </div>
                   <br>

@@ -42,7 +42,7 @@
                             <tr class="">
                                 <td><?php echo $no ?></td>
                                 <td><?php echo $r->nrp ?></td>
-                                <td><?php echo $r->nama_lengkap ?></td>
+                                <td style="text-transform: uppercase;"><?php echo $r->nama_lengkap ?></td>
                                 <td><?php echo $r->tmpt_lahir ?>, 
                                     <?php $sampeledate = ($r->t_lahir); 
                                         $converdate = date("d-m-Y", strtotime($sampeledate));

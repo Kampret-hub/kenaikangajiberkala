@@ -24,11 +24,11 @@
                         </div>
                         <div class="form-group mb-3">
                             <label for="" class="control-label">Nama Lengkap</label>
-                            <input type="text" class="form-control"  name="nama_lengkap" value="<?php echo $member['nama_lengkap']?>">
+                            <input type="text" class="form-control" style="text-transform:uppercase" name="nama_lengkap" value="<?php echo $member['nama_lengkap']?>">
                         </div>
                         <div class="form-group mb-3">
                             <label for="" class="control-label">Tempat Lahir</label>
-                            <input type="text" class="form-control" name="tmpt_lahir" value="<?php echo $member['tmpt_lahir']?>">
+                            <input type="text" class="form-control" style="text-transform:uppercase" name="tmpt_lahir" value="<?php echo $member['tmpt_lahir']?>">
                         </div>
                         <div class="form-group mb-3">
                             <label for="" class="control-label">Tanggal Lahir</label>
@@ -58,7 +58,7 @@
                         </div>
                         <div class="form-group mb-3">
                           <label for="" class="control-label">No Telepon</label>
-                          <input type="text" name="no_telp" id="no_telp" class="form-control"   placeholder="Input No Telepon" value="<?php echo $member['no_telp']?>">
+                          <input type="text" name="no_telp" id="no_telp" class="form-control" onkeypress="return telp(event)" placeholder="Input No Telepon" value="<?php echo $member['no_telp']?>">
                         </div>
                         <div class="form-group mb-3">
                             <label for="" class="control-label">Alamat</label>
@@ -87,3 +87,12 @@
                         </div>
                     </div><!-- /. PANEL  -->
                 </div><!-- /. ROW  -->
+
+<script type="text/javascript">
+    function telp(event) {
+            var angka = (event.which) ? event.which : event.keyCode
+            if (angka != 46 && angka > 31 && (angka < 48 || angka > 57))
+                return false;
+            return true;
+        }
+</script>

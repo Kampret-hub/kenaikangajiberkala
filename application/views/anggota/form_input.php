@@ -25,12 +25,12 @@
                   </div>  
                  <div class="form-group mb-3 <?= form_error('nama_lengkap') ? 'has-error' : null?> ">
                     <label for="" class="control-label">Nama Lengkap</label>
-                    <input type="text" class="form-control" name="nama_lengkap" id="nama_lengkap"  placeholder="Input Nama lengkap" value="<?= set_value('nama_lengkap')?>" >
+                    <input type="text" class="form-control" style="text-transform:uppercase" name="nama_lengkap" id="nama_lengkap"  placeholder="Input Nama lengkap" value="<?= set_value('nama_lengkap')?>" >
                      <span class="help-block alert-danger"><?= form_error('nama_lengkap')?></span>
                   </div>
                  <div class="form-group mb-3 <?= form_error('tmpt_lahir') ? 'has-error' : null?> ">
                     <label for="" class="control-label">Tempat Lahir</label>
-                    <input type="text" name="tmpt_lahir" id="tmpt_lahir" class="form-control"  placeholder="Input Tempat Lahir" value="<?= set_value('tmpt_lahir')?>">
+                    <input type="text" class="form-control" style="text-transform:uppercase" name="tmpt_lahir" id="tmpt_lahir" placeholder="Input Tempat Lahir" value="<?= set_value('tmpt_lahir')?>">
                      <span class="help-block alert-danger"><?= form_error('tmpt_lahir')?></span>
                   </div>
                  <div class="form-group mb-3 <?= form_error('t_lahir') ? 'has-error' : null?> ">
@@ -62,7 +62,7 @@
                   </div>
                  <div class="form-group mb-3 <?= form_error('no_telp') ? 'has-error' : null?> ">
                       <label for="" class="control-label">No Telepon</label>
-                      <input type="text" name="no_telp" id="no_telp" class="form-control"   placeholder="Input No Telepon" value="<?= set_value('no_telp')?>"></input>
+                      <input type="text" pattern="[0-9]" name="no_telp" id="no_telp" class="form-control" onkeypress="return telp(event)" placeholder="Input No Telepon" value="<?= set_value('no_telp')?>"></input>
                        <span class="help-block alert-danger"><?= form_error('no_telp')?></span>
                   </div>
                   </div> <!-- /.col -->
@@ -143,3 +143,11 @@
           </form>
       </div><!-- /. PANEL  -->
 </div><!-- /. ROW  -->
+<script type="text/javascript">
+    function telp(event) {
+            var angka = (event.which) ? event.which : event.keyCode
+            if (angka != 46 && angka > 31 && (angka < 48 || angka > 57))
+                return false;
+            return true;
+        }
+</script>

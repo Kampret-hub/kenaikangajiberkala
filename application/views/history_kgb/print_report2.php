@@ -1,21 +1,18 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title></title>
+    <title></title>
 </head>
 <body>
     <table width="100%">
         <tr>
             <td align="margin-left">
                 <span style="font-size: 12px; font-weight: bold; line-height: 1.5;">KEPOLISIAN NEGARA REPUBLIK INDONESIA
-                    <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        DAERAH JAWA BARAT
-                   <br><u>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;RESOR KARAWANG&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                   </u><br>
+                    <br><u>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        DAERAH JAWA BARAT&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</u>
                 </span>
             </td>
         </tr>
-        
     </table>
     <table style="width: 100%;">
         <tr>
@@ -23,7 +20,7 @@
                 <p><br>
                     <img src="<?= base_url() ?>/assets/img/logo2.png"/></span><br>
                      <span style="font-size: 12px; font-weight: bold; line-height: 1.5; margin-left: 5px ;"> PETIKAN </span>
-                     <br><span style="font-size: 12px; font-weight: bold; line-height: 1; "><u style="">KEPUTUSAN</u>
+                     <br><span style="font-size: 12px; font-weight: bold; line-height: 1; "><u style="">SURAT PEMBERITAHUAN</u>
                     <br><b class="text-center">NOMOR : <?php echo $record['nomor_kgb']; ?>
                     <br>
                  </span>
@@ -42,7 +39,7 @@
     <table style="width: 100%;">
         <tr>
             <td align="justify">
-                <span style="font-size: 12px; font-weight:; line-height: 1.5;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Berdasarkan Peraturan Pemerintah Republik Indonesia Nomor 24 Tahun 2013 tentang perubahan Kesembilan atas Peraturan Pemerintahan Nomor 29 Tahun 2001 tentang Peraturan Gaji Pokok Anggota Kepolisian Negara Republik Indonesia dan dengan telah dipenuhinya masa kerja dan syarat-syarat lain, bersama ini diberitahukan kepada :  
+                <span style="font-size: 12px; font-weight:; line-height: 1.5;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Berdasarkan Peraturan Pemerintah Republik Indonesia Nomor 15 Tahun 2019 tentang perubahan Kesembilan atas Peraturan Pemerintahan Nomor 7 Tahun 1997 tentang Peraturan Gaji Pegawaia Negri Sipil Kepolisian Negara Republik Indonesia dan dengan telah dipenuhinya masa kerja dan syarat-syarat lain, bersama ini diberitahukan kepada :  
                 </span>
             </td>
         </tr>
@@ -51,19 +48,19 @@
         <tr> 
             <td style="margin-left: 10px">
                 <span style="font-size: 12px; font-weight:; line-height: 1.5;">
-                    1. nama <span style="margin-left: 140px;">:</span> <?php echo $record['nama_lengkap']; ?>
-                    <br>2. tanggal Lahir <span style="margin-left: 101px;">:</span> <?php echo $record['tmpt_lahir']; ?>, <?php $sampeledate = ($record['t_lahir']); 
+                    1. nama <span style="margin-left: 140px;">:</span> <?php echo $member['nama_lengkap']; ?>
+                    <br>2. tanggal Lahir <span style="margin-left: 101px;">:</span> <?php echo $member['tmpt_lahir']; ?>, <?php $sampeledate = ($member['t_lahir']); 
                                 $converdate = date("d-m-Y", strtotime($sampeledate));
                                 echo $converdate;
-                                ?>
-                    <br>3. NRP <span style="margin-left: 143px;">:</span> <?php echo $record['nrp']; ?>
-                    <br>4. pangkat <span style="margin-left: 127px;">:</span> <?php echo $record['pangkat']; ?> / <?php echo $record['golongan']; ?>
+                                ?>  
+                    <br>3. NIP <span style="margin-left: 147px;">:</span> <?php echo $record['nrp']; ?>
+                    <br>4. pangkat <span style="margin-left: 127px;">:</span> <?php echo $member['pangkat']; ?> / <?php echo $member['golongan']; ?>
                     <br>5. kesatuan <span style="margin-left: 123px;">:</span> <?php echo $record['kesatuan']; ?>
                     <br>6. gaji pokok lama <span style="margin-left: 87px;">:</span> <?php echo $record['gpl']; ?>
                     <br><p>Diberikan Kenaikan Gaji Berkala sehingga memperoleh :</p>
                         7. gaji pokok baru <span style="margin-left: 88px;">:</span> <?php echo $record['gpb']; ?>
                     <br>8. masa kerja golongan gaji <span style="margin-left: 43px;">:</span> <?php echo $record['mkgg1']; ?> <?php echo $record['mkgg2']; ?>
-                    <br>9. pangkat / golongan ruang <span style="margin-left: 41px;">:</span> <?php echo $record['pangkat']; ?> / <?php echo $record['golongan']; ?>
+                    <br>9. pangkat / golongan ruang <span style="margin-left: 41px;">:</span> <?php echo $member['pangkat']; ?> / <?php echo $member['golongan']; ?>
                     <br>10. TMT <span style="margin-left: 132px;">:</span> <?php $sampeledate = ($record['tmtb']); 
                                 $converdate = date("d-m-Y", strtotime($sampeledate));
                                 echo $converdate;
@@ -96,24 +93,22 @@
                                 $converdate = date("d F Y", strtotime($sampeledate));
                                 echo $converdate;
                                 ?>  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</u>
-                    <br>a.n KEPALA KEPOLISIAN RESOR KARAWANG
-                    <br><span style="margin-left: 40%;">WAKA</span>
-                    <br><span style="margin-left: 44%;">u.b</span>
-                    <br><span style="margin-left: 32%;">KABAGSUMDA</span>
+                    <br>a.n KEPALA KEPOLISIAN DAERAH JAWA BARAT
+                    <br><span style="margin-left: 40%;">KARO SDM</span>
                     <p><br></p>
                         <u><span style="font-size: 12px; margin-left: 28%;" class="text-center"><?php echo $record['d_oleh']; ?></span></u>
-                        <br><span style="font-size: 12px; margin-left: 26%;" class="text-center"><?php echo $record['sebagai']; ?> nrp <?php echo $record['nrp_p']; ?></span>
+                        <br><span style="font-size: 12px; margin-left: 26%;" class="text-center"><?php echo $record['sebagai']; ?> NRP <?php echo $record['nrp_p']; ?></span>
                 </span>
             </td>
         </tr>
     </table>
-	
+    
             </div>
        
       </div>
 
-	<script type="text/javascript">
-		window.print();
-	</script>
+    <script type="text/javascript">
+        window.print();
+    </script>
 </body>
 </html>

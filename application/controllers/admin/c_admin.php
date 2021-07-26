@@ -21,6 +21,6 @@ public function index() {
 		   $data['username'] = $this->session->userdata('username');
  		  $this->template->load('template','admin/index',$data);
            
-}
+	}
 }
 ?>

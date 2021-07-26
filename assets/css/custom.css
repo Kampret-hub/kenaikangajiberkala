@@ -1,5 +1,6 @@
 #scroll {
     position:fixed;
+    display: inline-block;
     right:50px;
     bottom:80px;
     cursor:pointer;

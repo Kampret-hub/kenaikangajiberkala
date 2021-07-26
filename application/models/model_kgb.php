@@ -54,15 +54,6 @@ class model_kgb extends CI_Model{
         return $query;
     }
 
-     public function report_history($id){
-        $this->db->select('*');
-        $this->db->from('history_kgb');
-        $this->db->join('anggota', 'anggota.nrp = history_kgb.id', 'left');
-        
-        $query = $this->db->get();
-        return $query->row_array();
-    }
-
      public function get_prov($title)
     {
       $this->db->like('kode_gapok', $title, 'BOTH');

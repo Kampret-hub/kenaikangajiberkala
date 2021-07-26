@@ -4,9 +4,12 @@
         <div class="card shadow">
             <div class="card-body">
               <h2 class="my-2 page-title"><?php echo $title ?></h2>
-                <div class="col">
-
-            <table class="table table-striped table-bordered table-hover datatables" id="dataTable-1">
+          </div>
+      </div>
+<p/>
+<div class="card shadow">
+    <div class="card-body">
+            <table class="table datatables" id="dataTable-1">
                 <div class="col-md-8">
                     <table class="table">
                         <tr>
@@ -106,8 +109,7 @@
                             <td><strong><?php echo $record['d_oleh']; ?>&#160;|&#160;Sebagai : <?php echo $record['sebagai']; ?>&#160;|&#160;NRP : <?php echo $record['nrp_p']; ?></strong></td>
                         </tr>
                     </table>
-                    <!--<?php echo anchor('history/index/'.$record['nrp'],' Kembali',array('class'=>'btn btn-danger btn-sm '))?>-->
+                    <?php echo anchor('member/profile','Kembali',array('class'=>'btn btn-danger btn-sm'))?>
                 </div>
             </div>
-      </div><br>
-       <span style="margin-top: 15px;"><?php echo anchor('member/profile','Kembali',array('class'=>'btn btn-danger btn-sm'))?></span>
+      </div>

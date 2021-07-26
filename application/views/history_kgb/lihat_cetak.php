@@ -9,14 +9,14 @@
                     <div class="row">
                         <div class="col-md-4 my-2">
                             <h6>POLRI</h6>
-                            <?php echo anchor('report/print_data/'.$record['id'],' Print',array('class'=>'btn btn-info btn-sm fe fe-printer')) ?>
-                            <?php echo anchor('report/export_pdf/'.$record['id'],' Export Pdf',array('class'=>'btn btn-danger btn-sm fe fe-clipboard')) ?>
+                            <?php echo anchor('history/print_data/'.$record['id'],' Print',array('class'=>'btn btn-info btn-sm fe fe-printer')) ?>
+                            <?php echo anchor('history/export_pdf/'.$record['id'],' Export Pdf',array('class'=>'btn btn-danger btn-sm fe fe-clipboard')) ?>
                         </div>
                         <div class="col-md-4 my-2">
                             <h6>ASN</h6>
-                            <?php echo anchor('report/print_data2/'.$record['id'],' Print',array('class'=>'btn btn-info btn-sm fe fe-printer')) ?>
-                            <?php echo anchor('report/export_pdf2/'.$record['id'],' Export Pdf',array('class'=>'btn btn-danger btn-sm fe fe-clipboard')) ?>
-                            <?php echo form_open('report/lihat_data'); ?>
+                            <?php echo anchor('history/print_data2/'.$record['id'],' Print',array('class'=>'btn btn-info btn-sm fe fe-printer')) ?>
+                            <?php echo anchor('history/export_pdf2/'.$record['id'],' Export Pdf',array('class'=>'btn btn-danger btn-sm fe fe-clipboard')) ?>
+                            <?php echo form_open('history/lihat_data'); ?>
                         </div>
                     </div>
                     <?php endif?>
@@ -121,7 +121,7 @@
                             <td><strong><?php echo $record['d_oleh']; ?>&#160;|&#160;Sebagai : <?php echo $record['sebagai']; ?>&#160;|&#160;NRP : <?php echo $record['nrp_p']; ?></strong></td>
                         </tr>
                     </table>
-                    <!--<?php echo anchor('history/index/'.$record['nrp'],' Kembali',array('class'=>'btn btn-danger btn-sm '))?>-->
+                    <?php echo anchor('history/index/'.$record['nrp'],' Kembali',array('class'=>'btn btn-danger btn-sm '))?>
                 </div>
             </div>
       </div>

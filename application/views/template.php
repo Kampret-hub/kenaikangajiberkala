@@ -15,12 +15,12 @@
     <link href="https://fonts.googleapis.com/css2?family=Overpass:ital,wght@0,100;0,200;0,300;0,400;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
 
     <!-- Icons CSS -->
-    <link rel="stylesheet" href="<?php echo base_url() ?>assets/css/feather.css"> 
-    <link rel="stylesheet" href="<?php echo base_url() ?>assets/css/select2.css">
+    <link rel="stylesheet" href="<?php echo base_url() ?>assets/css/feather.css">
     <link rel="stylesheet" href="<?php echo base_url() ?>assets/css/uppy.min.css">
-    <link rel="stylesheet" href="<?php echo base_url() ?>assets/css/jquery.steps.css">
     <link rel="stylesheet" href="<?php echo base_url() ?>assets/css/jquery.timepicker.css">
-    <link rel="stylesheet" href="<?php echo base_url() ?>assets/css/quill.snow.css">
+
+    <!-- Autocomplete -->
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 
     <!-- Date Range Picker CSS -->
     <link rel="stylesheet" href="<?php echo base_url() ?>assets/css/daterangepicker.css">
@@ -32,7 +32,7 @@
     <link rel="stylesheet" href="<?php echo base_url() ?>assets/css/app-light.css" id="lightTheme" disabled>
     <link rel="stylesheet" href="<?php echo base_url() ?>assets/css/app-dark.css" id="darkTheme">
 
-    <!-- Sweat Alert 2-->
+    <!-- Sweat AlertS-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://lipis.github.io/bootstrap-sweetalert/dist/sweetalert.js"></script>
     <link rel="stylesheet" href="https://lipis.github.io/bootstrap-sweetalert/dist/sweetalert.css" />
@@ -51,12 +51,12 @@
     </style>
   </head>
 
-  <div id="load">Loading...</div>
+  <div id="load"></div>
   <!--Admin page-->
   <?php if($this->session->userdata('role_id')=== '1'):?>
   <body class="vertical  dark  ">
     <div class="wrapper">
-      <a href="#" id="scroll" style="display: none;"><span></span></a>
+      <a href="#" id="scroll"><span></span></a>
       <!-- Header -->
       <nav class="topnav navbar navbar-light">
         <button type="button" class="navbar-toggler text-muted mt-2 p-0 mr-3 collapseSidebar">
@@ -89,15 +89,16 @@
     </div><!-- End Header -->
  
       <!-- nav bar -->
-      <aside class="sidebar-left border-right bg-white shadow" id="leftSidebar" data-simplebar>
-        <a href="#" class="btn collapseSidebar toggle-btn d-lg-none text-muted ml-2 mt-3" data-toggle="toggle">
-          <i class="fe fe-x"><span class="sr-only"></span></i>
-        </a>
+    <aside class="sidebar-left border-right bg-white shadow" id="leftSidebar" data-simplebar>
+      <a href="#" class="btn collapseSidebar toggle-btn d-lg-none text-muted ml-2 mt-3" data-toggle="toggle">
+        <i class="fe fe-x"><span class="sr-only"></span></i>
+      </a>
         <nav class="vertnav navbar navbar-light">
           <div class="w-100 mb-4 d-flex">
             <a class="navbar-brand mx-auto mt-2 flex-fill text-center" href="">
              <img src="<?= base_url() ?>assets/img/logo2.png" alt="" title="" /><p>
-              <p class="flex-fill text-center small text-muted nav-heading mb-1">SISTEM INFORMASI PEGAWAI</p>
+              <p class="flex-fill text-center small text-muted nav-heading mb-1">SISTEM INFORMASI PEGAWAI</p><br>
+              <p class="flex-fill text-center small text-muted nav-heading mb-1" style="font-size:12px">KENAIKAN GAJI BERKALA</p>
             </a>
           </div>
             <span class="text-muted nav-heading mb-1">Navigator</span>
@@ -125,12 +126,6 @@
                 <a class="nav-link pl-3" href="<?php echo base_url().'anggota/index/'?>meninggal"><span class="ml-1">Anggota Meninggal</span></a>
               </ul>
             </li>
-            <!--<li class="nav-item w-100">
-              <a class="nav-link" href="">
-                <i class="fe fe-calendar fe-16"></i>
-                <span class="ml-3 item-text">Mutasi</span>
-              </a>
-            </li>-->
             <li class="nav-item w-100">
               <a class="nav-link" href="<?php echo base_url().'kgb'?>">
                 <i class="fe fe-mail fe-16"></i>
@@ -187,7 +182,7 @@
         <div class="container-fluid">
           <div class="row justify-content-center">
             <div class="col-12">
-                    <div id="page-wrapper"   >
+                    <div id="page-wrapper">
                      <div id="page-inner">
                          <?php echo $contents; ?>
                        </div>
@@ -251,7 +246,8 @@
           <div class="w-100 mb-4 d-flex">
             <a class="navbar-brand mx-auto mt-2 flex-fill text-center" href="">
              <img src="<?= base_url() ?>assets/img/logo2.png" alt="" title="" /><p>
-              <p class="flex-fill text-center small text-muted nav-heading mb-1">SISTEM INFORMASI PEGAWAI</p>
+              <p class="flex-fill text-center small text-muted nav-heading mb-1">SISTEM INFORMASI PEGAWAI</p><br>
+              <p class="flex-fill text-center small text-muted nav-heading mb-1" style="font-size:12px">KENAIKAN GAJI BERKALA</p>
             </a>
           </div>
          
@@ -260,7 +256,7 @@
               <a class="nav-link" href="<?php echo base_url().'member/profile' ?>">
                 <i class="fe fe-user fe-16"></i>
                 <span class="ml-3 item-text">Profil Saya</span>
-                <span class="badge badge-pill badge-primary  " style="margin-top: 2px ; padding-top: 5px;">Home</span>
+                <span class="badge badge-pill badge-primary  " style="margin-top: 2px ; padding-top: 3px;">Home</span>
               </a>
             </li>          
           </ul>
@@ -319,9 +315,16 @@
     <script src="<?php echo base_url(); ?>/assets/js/config.js"></script>
     <script src='<?php echo base_url(); ?>/assets/js/jquery.dataTables.min.js'></script>
     <script src='<?php echo base_url(); ?>/assets/js/dataTables.bootstrap4.min.js'></script>
+    
+    <!-- Chart Js -->
     <script  src="<?php echo base_url(); ?>assets/js/Chart.min.js"></script>
     
+    <!-- Autocomplete -->
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+    <!-- App Dark Light -->
     <script  src="<?php echo base_url(); ?>assets/js/apps.js"></script>
+
     <script>
       /* defind global options */
       Chart.defaults.global.defaultFontFamily = base.defaultFontFamily;
@@ -339,9 +342,7 @@
         gtag('config', 'UA-56159088-1');
     </script>
     <script>
-    $(document).ready( function () {
-      $("#load").fadeOut(500);
-        $(window).scroll(function(){ 
+    $(window).scroll(function(){ 
             if ($(this).scrollTop() > 350) { 
                 $('#scroll').fadeIn(); 
             } else { 
@@ -352,7 +353,9 @@
             $("html, body").animate({ scrollTop: 0 }, 600); 
             return false; 
         }); 
-
+  
+    $(document).ready( function () {
+      $("#load").fadeOut(300);
       $('#dataTable-1').dataTable(
       {
         autoWidth: true,

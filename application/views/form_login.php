@@ -34,7 +34,8 @@
                       <?php echo $this->session->flashdata('msg')?>
                       <div class="text-center">
                         <div class=""><img src="<?= base_url() ?>assets/img/logo2.png" alt="" title="" /></div>
-                          <span style="font-size: 20px;">SIMPEG POLRI KARAWANG </span>
+                          <span style="font-size: 20px;">SIMPEG POLRI KARAWANG </span><br>
+                          <span style="font-size: 15px;">KENAIKAN GAJI BERKALA</span> 
                           <hr>
                           <br>
                         <h1 class="h4 text-gray-900 mb-4">Login Page !</h1>

@@ -8,14 +8,11 @@
         <tr>
             <td align="margin-left">
                 <span style="font-size: 12px; font-weight: bold; line-height: 1.5;">KEPOLISIAN NEGARA REPUBLIK INDONESIA
-                    <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        DAERAH JAWA BARAT
-                   <br><u>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;RESOR KARAWANG&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                   </u><br>
+                    <br><u>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        DAERAH JAWA BARAT&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</u>
                 </span>
             </td>
         </tr>
-        
     </table>
     <table style="width: 100%;">
         <tr>
@@ -56,7 +53,7 @@
                                 $converdate = date("d-m-Y", strtotime($sampeledate));
                                 echo $converdate;
                                 ?>  
-                    <br>3. NRP <span style="margin-left: 142px;">:</span> <?php echo $record['nrp']; ?>
+                    <br>3. NIP <span style="margin-left: 147px;">:</span> <?php echo $record['nrp']; ?>
                     <br>4. pangkat <span style="margin-left: 127px;">:</span> <?php echo $record['pangkat']; ?> / <?php echo $record['golongan']; ?>
                     <br>5. kesatuan <span style="margin-left: 123px;">:</span> <?php echo $record['kesatuan']; ?>
                     <br>6. gaji pokok lama <span style="margin-left: 87px;">:</span> <?php echo $record['gpl']; ?>
@@ -96,10 +93,8 @@
                                 $converdate = date("d F Y", strtotime($sampeledate));
                                 echo $converdate;
                                 ?>  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</u>
-                    <br>a.n KEPALA KEPOLISIAN RESOR KARAWANG
-                    <br><span style="margin-left: 40%;">WAKA</span>
-                    <br><span style="margin-left: 44%;">u.b</span>
-                    <br><span style="margin-left: 32%;">KABAGSUMDA</span>
+                    <br>a.n KEPALA KEPOLISIAN DAERAH JAWA BARAT
+                    <br><span style="margin-left: 40%;">KARO SDM</span>
                     <p><br></p>
                         <u><span style="font-size: 12px; margin-left: 28%;" class="text-center"><?php echo $record['d_oleh']; ?></span></u>
                         <br><span style="font-size: 12px; margin-left: 26%;" class="text-center"><?php echo $record['sebagai']; ?> NRP <?php echo $record['nrp_p']; ?></span>
@@ -107,11 +102,8 @@
             </td>
         </tr>
     </table>
-    
-            </div>
-       
-      </div>
-
+    </div>
+    </div>
     <script type="text/javascript">
         window.print();
     </script>
