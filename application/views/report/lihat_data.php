@@ -10,20 +10,23 @@
 </div>
 <!--<?php echo anchor('kgb/post','Tambah Data',array('class'=>'btn btn-danger btn-sm')) ?>-->
                   
-        <div class="alert alert-dismissible fade show">
-            <strong>
-                <?php echo $this->session->flashdata('msg')?>
-            </strong>
-            <button type="button" class="close" data-dismiss="alert" arial-label="Close">
-                <span aria-hodden="true">&times;</span>
-            </button>
-        </div>
+<div class="alert alert-dismissible fade show">
+    <strong>
+        <?php echo $this->session->flashdata('msg')?>
+    </strong>
+    <button type="button" class="close" data-dismiss="alert" arial-label="Close">
+        <span aria-hodden="true">&times;</span>
+    </button>
+</div>
         
+    <!-- Small table -->
+<div class="row my-4">     
+    <div class="col-md-12">
         <div class="card shadow">
-            <div class="card-body">
-            <table class="table table-striped table-bordered table-hover datatables" id="dataTable-1">
-                        <thead style="border: 2px; solid black; border-collapse: collapse;">
-                            <tr style="background-color: #0275d8;">
+            <div class="card-body">        
+                <table class="table-striped table-bordered table-hover nowrap" id="dataTable-1" style="width: 100%;">
+                        <thead>
+                            <tr>
                                 <th>No.</th> 
                                 <th>Nrp</th>
                                 <th>Nama</th>
@@ -39,7 +42,7 @@
                             <tr class="">
                                 <td><?php echo $no ?></td>
                                 <td><?php echo $r->nrp ?></td>
-                                 <td><?php echo $r->nama ?></td>
+                                <td><?php echo $r->nama ?></td>
                                 <td><?php echo $r->mkgg1  ?>  <?php echo $r->mkgg2  ?></td>
                                 <td><?php echo $r->mkg1  ?>  <?php echo $r->mkg2  ?></td>
                                 <td><?php echo $r->gpb ?></td>
@@ -62,6 +65,8 @@
                         <?php $no++; } ?>
                         </tbody> 
                 </table>
-            </td>
-        </tr>
+            </div>
+        </div>
+    </div>
+</div>
             

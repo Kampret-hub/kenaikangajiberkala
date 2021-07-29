@@ -96,8 +96,9 @@ class anggota extends ci_controller{
                'pangkat'      => $this->input->post('pangkat'),
                'jabatan'      => $this->input->post('jabatan'),
                'bagian'       => $this->input->post('bagian'),
-               'keterangan'          => $this->input->post('keterangan'),
-               'status'       => $this->input->post('status')
+               'keterangan'   => $this->input->post('keterangan'),
+               'status'       => $this->input->post('status'),
+              
             );
 
             $input_kgb = array (
@@ -149,7 +150,7 @@ class anggota extends ci_controller{
             $golongan       =  $this->input->post('golongan');
             $masa_kerja     =  $this->input->post('masa_kerja');
             $gaji_pokok     =  $this->input->post('gaji_pokok');
-            $keterangan            =  $this->input->post('keterangan');
+            $keterangan     =  $this->input->post('keterangan');
             $status         =  $this->input->post('status');
             
             $edit_anggota =  array(   

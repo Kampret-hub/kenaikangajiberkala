@@ -10,20 +10,23 @@
     </div>
 </div>
 
-        <div class="alert alert-dismissible fade show">
-            <strong>
-                <?php echo $this->session->flashdata('msg')?>
-            </strong>
-            <button type="button" class="close" data-dismiss="alert" arial-label="Close">
-                <span aria-hodden="true">&times;</span>
-            </button>
-        </div>
+<div class="alert alert-dismissible fade show">
+    <strong>
+        <?php echo $this->session->flashdata('msg')?>
+    </strong>
+    <button type="button" class="close" data-dismiss="alert" arial-label="Close">
+        <span aria-hodden="true">&times;</span>
+    </button>
+</div>
         
+    <!-- Small table -->
+<div class="row my-4">     
+    <div class="col-md-12">
         <div class="card shadow">
-            <div class="card-body">
-            <table class="table table-striped table-bordered table-hover datatables" id="dataTable-1">
-                        <thead style="border: 2px; solid black; border-collapse: collapse;">
-                            <tr style="background-color: #0275d8;">
+            <div class="card-body">        
+                <table class="table-striped table-bordered table-hover nowrap" id="dataTable-1" style="width: 100%;">
+                        <thead>
+                            <tr>
                                 <th>No.</th> 
                                 <th>Nama Bagian</th>
                                 <th>Aksi</th>
@@ -32,7 +35,7 @@
                         <tbody>
                             <?php $no=1; foreach ($record->result() as $r) { ?>
                             <tr class="">
-                                <td  class="col-sm-1"><?php echo $no ?></td>
+                                <td  class="col-sm-1" style="width:20px;"><?php echo $no ?></td>
                                 <td><?php echo $r->nama_bagian ?></td>
                                 <td><button class="btn btn-sm dropdown-toggle more-horizontal" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     <span class="text-muted sr-only">Action</span>
@@ -47,8 +50,11 @@
                         <?php $no++; } ?>
                         </tbody>
                 </table>
-            </td>
-        </tr>
+            </div>
+        </div>
+     </div>
+ </div>
+ 
 <script>
     $(".hapus").on("click", function(event){
         event.preventDefault();

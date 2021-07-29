@@ -40,7 +40,21 @@ class profile extends ci_controller{
             $no_telp        =  $this->input->post('no_telp');
             $alamat         =  $this->input->post('alamat');
             $pendidikan     =  $this->input->post('pendidikan');
+            $foto           =  $_FILES['foto']['name'];
            
+
+           if($foto) {
+                $config['upload_path'] = './assets/avatars/';
+                $config['allowed_types'] = 'jpg|jpeg|png|gif';
+
+                $this->load->library('upload', $config);
+                if(!$this->upload->do_upload('foto')){
+                    $foto=$this->upload->data('file_name');
+                    $this->db->set('foto', $foto);
+                } else {
+                    echo $this->upload->display_errors();
+                }
+            }
 
             $edit_anggota =  array(   
                 'nrp'           =>$nrp, 
@@ -51,7 +65,9 @@ class profile extends ci_controller{
                 'agama'         =>$agama,
                 'no_telp'       =>$no_telp,
                 'alamat'        =>$alamat,
-                'pendidikan'    =>$pendidikan
+                'pendidikan'    =>$pendidikan,
+                
+
             );
 
             $edit_kgb = array(
@@ -63,7 +79,8 @@ class profile extends ci_controller{
             );
 
             $edit_user = array(
-                'nama_lengkap'  =>$nama_lengkap
+                'nama_lengkap'  =>$nama_lengkap,
+                'foto'          =>$foto
                 
             );
 

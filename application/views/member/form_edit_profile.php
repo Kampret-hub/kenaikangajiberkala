@@ -17,7 +17,8 @@
         <div class="card-body">
             <div class="row">
                 <div class="col-md-6">
-                    <?php echo form_open('member/profile/edit'); ?>
+                 
+                    <form action="<?php echo base_url(). 'member/profile/edit'; ?>" method="post" enctype="multipart/form-data">
                          <div class="form-group mb-3">
                             <label for="" class="control-label">NRP / NIP</label>
                             <input type="text" class="form-control" readonly="" name="nrp" value="<?php echo $member['nrp']?>">
@@ -79,6 +80,11 @@
                                          <option value="S2">S2</option>
                                          <option value="S3">S3</option>
                                 </select>
+                        </div>
+                         <div class="form-group">
+                            <label>Ubah Foto</label>
+                            <br>
+                            <input type="file" name="foto" value="<?php echo $akun['foto'] ?>" class="form-control">
                         </div>
                     </div>
                                 <span  style="margin-left: 15px;"><button type="submit" name="submit" value="Submit" id="submit" class="btn btn-primary btn-sm">Edit</button></span>   

@@ -9,22 +9,25 @@
   </div>
 </div>
 
-                <!--<?php echo anchor('anggota/post','Tambah Data',array('class'=>'btn btn-danger btn-sm')) ?>-->
+<!--<?php echo anchor('anggota/post','Tambah Data',array('class'=>'btn btn-danger btn-sm')) ?>-->
             
-        <div class="alert alert-dismissible fade show">
-            <strong>
-                <?php echo $this->session->flashdata('msg')?>
-            </strong>
-            <button type="button" class="close" data-dismiss="alert" arial-label="Close">
-                <span aria-hodden="true">&times;</span>
-            </button>
-        </div>
+<div class="alert alert-dismissible fade show">
+    <strong>
+        <?php echo $this->session->flashdata('msg')?>
+    </strong>
+    <button type="button" class="close" data-dismiss="alert" arial-label="Close">
+        <span aria-hodden="true">&times;</span>
+    </button>
+</div>
         
+    <!-- Small table -->
+<div class="row my-4">     
+    <div class="col-md-12">
         <div class="card shadow">
-            <div class="card-body">
-            <table class="table table-striped table-bordered table-hover datatables" id="dataTable-1">
-                       <thead style="border: 2px; solid black; border-collapse: collapse;">
-                            <tr style="background-color: #0275d8;">
+            <div class="card-body">        
+                <table class="table-striped table-bordered table-hover nowrap" id="dataTable-1" style="width: 100%;">
+                        <thead>
+                            <tr>
                                 <th>No.</th> 
                                 <th>Nrp</th>
                                 <th>Nama</th>
@@ -64,22 +67,22 @@
                                 <td><button class="btn btn-sm dropdown-toggle more-horizontal" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     <span class="text-muted sr-only">Action</span>
                                   </button>
-                                  <div class="dropdown-menu dropdown-menu-right">
+                                  <div class="dropdown-menu dropdown-menu-center">
                                     <a href=" <?php echo base_url('history/edit/'.$r->id) ?>" class="btn btn-primary btn-small" style='margin-left: 5px;'><i class="fe fe-edit"></i> Edit</a>
                                     <a href="<?php echo base_url('history/lihat_cetak/'.$r->id)?>" class="btn btn-info btn-small" id="" ><i class="fe fe-eye"></i> Lihat</a>
                                      <a href="<?php echo base_url('history/delete/'.$r->id.'/'.$r->nrp)?>" class="btn btn-danger btn-small hapus" id="" ><i class="fe fe-trash"></i>Hapus</a>
                                     <!--<a href="<?php echo anchor('history/pdf/'.$record['NRP'],'Export Pdf',array('class'=>'btn btn-danger btn-sm')) ?>" ></a>-->
-                                    
                                   </div>
                                 </td>
-                                
                             </tr>
                         <?php $no++; } ?>
                         </tbody>
                 </table>
-            </td>
-        </tr>
-            <?php echo anchor('kgb',' Kembali',array('class'=>'btn btn-danger btn-sm'))?>
+            </div>
+        </div>
+    </div>
+</div>
+<?php echo anchor('kgb',' Kembali',array('class'=>'btn btn-danger btn-sm'))?>
 
 <script type="text/javascript">
         jQuery(document).ready(function($){

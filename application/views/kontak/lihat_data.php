@@ -7,7 +7,7 @@
             <div class="card-body">
               <h2 class="mb-2 page-title my-2">Kontak</h2>
               <?php if($this->session->userdata('role_id')=== '1'):?>
-                <?php echo anchor('kontak/setup/1',' Setup',array('class'=>'btn btn-primary btn-sm fa fa-settings')) ?>
+                <?php echo anchor('kontak/setup/1',' Setup',array('class'=>'btn btn-primary btn-sm fe fe-settings')) ?>
                 <?php endif?>
             </div>
         </div>
@@ -95,7 +95,11 @@
                             </tr>
                         <?php $no++; } ?>
                         </tbody>
-                    </table>
+                </table>
+            </div>
+        </div>
+     </div>
+ </div>
 <script type="text/javascript">
         jQuery(document).ready(function($){
             $('.hapus').on('click',function(e){

@@ -23,38 +23,51 @@
     <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 
     <!-- Date Range Picker CSS -->
-    <link rel="stylesheet" href="<?php echo base_url() ?>assets/css/daterangepicker.css">
-    <link rel="stylesheet" href="http://cdn.datatables.net/plug-ins/a5734b29083/integration/bootstrap/3/dataTables.bootstrap.css"/>
-    <link rel="stylesheet" href="http://cdn.datatables.net/responsive/1.0.2/css/dataTables.responsive.css"/>
-    <link rel="stylesheet" href="http://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"/>
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.25/css/jquery.dataTables.min.css"/>
+    <link rel="stylesheet" href="https://cdn.datatables.net/fixedheader/3.1.9/css/fixedHeader.dataTables.min.css"/>
+    <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.2.9/css/responsive.dataTables.min.css"/>
 
     <!-- App CSS -->
     <link rel="stylesheet" href="<?php echo base_url() ?>assets/css/app-light.css" id="lightTheme" disabled>
     <link rel="stylesheet" href="<?php echo base_url() ?>assets/css/app-dark.css" id="darkTheme">
 
-    <!-- Sweat AlertS-->
+    <!-- Sweat AlertS -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://lipis.github.io/bootstrap-sweetalert/dist/sweetalert.js"></script>
     <link rel="stylesheet" href="https://lipis.github.io/bootstrap-sweetalert/dist/sweetalert.css" />
 
     <style>
-      #load{
-        width: 100%;
-        height: 100%;
-        position: fixed;
-        text-indent: 100%;
-        background: #e0e0e0 url('./assets/img/loader.gif') no-repeat center;
-        z-index: 1;
-        opacity: 0.6;
-        background-size: 8%;
-      }
+      .preloader {
+          position: fixed;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          z-index: 9999;
+          background-color: #e0e0e0;
+        }
+        .preloader .loading {
+          position: absolute;
+          left: 50%;
+          top: 50%;
+          transform: translate(-50%,-50%);
+          font: 14px arial;
+        }
     </style>
   </head>
 
-  <div id="load"></div>
+  <!-- Loader -->
+  <div class="preloader" id="load">
+    <div class="loading">
+      <img src="<?php echo base_url() ?>assets/img/loader.gif" width="80">
+      <p>
+      <p style="color: black;">Harap Tunggu...</p>
+    </div>
+  </div> <!-- End Loader -->
+  
   <!--Admin page-->
   <?php if($this->session->userdata('role_id')=== '1'):?>
-  <body class="vertical  dark  ">
+  <body class="vertical  dark">
     <div class="wrapper">
       <a href="#" id="scroll"><span></span></a>
       <!-- Header -->
@@ -74,7 +87,11 @@
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle text-muted pr-0" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               <span class="avatar avatar-sm mt-2">
-                <img  src="<?php echo base_url(); ?>./assets/avatars/face.png" alt="..." class="avatar-img rounded-circle">
+                <?php if($akun['foto'] == ''){ ?>
+                    <img src="<?php echo base_url(); ?>./assets/avatars/face.png" class="avatar-img rounded-circle" style="height: 35px; width:35px;">
+                  <?php } else { ?>
+                  <img src="<?php echo base_url().'/assets/avatars/'.$akun['foto']  ?>" class="avatar-img rounded-circle" style="height: 35px; width:35px;">
+                <?php } ?>
               </span>
             </a>
             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
@@ -197,8 +214,7 @@
             <div class="d-flex flex-column min-vh-100">
               <main class="flex-fill"></main>
               <footer>
-                <div class="card shadow footer-copyright text-center py-3" >© 2021 Copyright SIMPEG POLRES KARAWANG
-                </div>
+                <div class="card shadow footer-copyright text-center py-3" >© 2021 Copyright SIMPEG POLRES KARAWANG<br>KENAIKAN GAJI BERKALA</div>
               </footer>
             </div><!-- End Footer -->
   <!--End Admin page-->
@@ -225,7 +241,11 @@
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle text-muted pr-0" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               <span class="avatar avatar-sm mt-2">
-                <img  src="<?php echo base_url(); ?>./assets/avatars/face.png" alt="..." class="avatar-img rounded-circle">
+                <?php if($akun['foto'] == ''){ ?>
+                    <img src="<?php echo base_url(); ?>./assets/avatars/face.png" class="avatar-img rounded-circle" style="height: 35px; width:35px;">
+                  <?php } else { ?>
+                  <img src="<?php echo base_url().'/assets/avatars/'.$akun['foto']  ?>" class="avatar-img rounded-circle" style="height: 35px; width:35px;">
+                <?php } ?>
               </span>
             </a>
             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
@@ -296,25 +316,21 @@
             <div class="d-flex flex-column min-vh-100">
               <main class="flex-fill"></main>
               <footer>
-                <div class="card shadow footer-copyright text-center py-3">© 2021 Copyright SIMPEG POLRES KARAWANG
-                </div>
+                <div class="card shadow footer-copyright text-center py-3" >© 2021 Copyright SIMPEG POLRES KARAWANG<br>KENAIKAN GAJI BERKALA</div>
               </footer>
             </div><!-- End Footer -->
             <?php endif?>
   <!--End member page-->
 
-    <!--Datatable-->
+    <!-- Datatable 
     <script src="<?php echo base_url(); ?>/assets/js/jquery.min.js"></script>
-    <script src="<?php echo base_url(); ?>/assets/js/popper.min.js"></script>
-    <script src="<?php echo base_url(); ?>/assets/js/moment.min.js"></script>
-    <script src="<?php echo base_url(); ?>/assets/js/bootstrap.min.js"></script>
-    <script src="<?php echo base_url(); ?>/assets/js/simplebar.min.js"></script>
     <script src='<?php echo base_url(); ?>/assets/js/daterangepicker.js'></script>
-    <script src='<?php echo base_url(); ?>/assets/js/jquery.stickOnScroll.js'></script>
-    <script src="<?php echo base_url(); ?>/assets/js/tinycolor-min.js"></script>
-    <script src="<?php echo base_url(); ?>/assets/js/config.js"></script>
     <script src='<?php echo base_url(); ?>/assets/js/jquery.dataTables.min.js'></script>
-    <script src='<?php echo base_url(); ?>/assets/js/dataTables.bootstrap4.min.js'></script>
+    <script src='<?php echo base_url(); ?>/assets/js/dataTables.bootstrap4.min.js'></script>-->
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/fixedheader/3.1.9/js/dataTables.fixedHeader.min.js"></script>
+    <script src="https://cdn.datatables.net/responsive/2.2.9/js/dataTables.responsive.min.js"></script>
     
     <!-- Chart Js -->
     <script  src="<?php echo base_url(); ?>assets/js/Chart.min.js"></script>
@@ -324,6 +340,13 @@
 
     <!-- App Dark Light -->
     <script  src="<?php echo base_url(); ?>assets/js/apps.js"></script>
+    <script src='<?php echo base_url(); ?>/assets/js/jquery.stickOnScroll.js'></script>
+    <script src="<?php echo base_url(); ?>/assets/js/tinycolor-min.js"></script>
+    <script src="<?php echo base_url(); ?>/assets/js/config.js"></script>
+    <script src="<?php echo base_url(); ?>/assets/js/popper.min.js"></script>
+    <script src="<?php echo base_url(); ?>/assets/js/moment.min.js"></script>
+    <script src="<?php echo base_url(); ?>/assets/js/bootstrap.min.js"></script>
+    <script src="<?php echo base_url(); ?>/assets/js/simplebar.min.js"></script>
 
     <script>
       /* defind global options */
@@ -355,16 +378,12 @@
         }); 
   
     $(document).ready( function () {
-      $("#load").fadeOut(300);
-      $('#dataTable-1').dataTable(
-      {
-        autoWidth: true,
-        "lengthMenu": [
-          [10, 20, 50, -1],
-          [10, 20, 50, "All"]
-        ]
+      $("#load").fadeOut();
+      var table = $('#dataTable-1').DataTable( {
+        responsive: true
       });
-    });
+      new $.fn.dataTable.FixedHeader( table );
+      });
     </script>
   </body>
 </html>
