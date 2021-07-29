@@ -84,7 +84,7 @@
                          <div class="form-group">
                             <label>Ubah Foto</label>
                             <br>
-                            <input type="file" name="foto" value="<?php echo $member['foto'] ?>" class="form-control">
+                            <input type="file" name="foto" value="<?php echo $akun['foto'] ?>" class="form-control">
                         </div>
                     </div>
                                 <span  style="margin-left: 15px;"><button type="submit" name="submit" value="Submit" id="submit" class="btn btn-primary btn-sm">Edit</button></span>   

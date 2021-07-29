@@ -23,10 +23,10 @@
                     <h3 class="mb-1" style="text-transform: uppercase;"><?php echo $member['nama_lengkap']; ?></h3>
                     <br>
                    
-                    <?php if($member['foto'] == ''){ ?>
+                    <?php if($akun['foto'] == ''){ ?>
                       <img src="<?php echo base_url(); ?>./assets/avatars/face.png" class="avatar-img rounded-circle">
                     <?php } else { ?>
-                    <img src="<?php echo base_url().'/assets/avatars/'.$member['foto']  ?>" class="avatar-img rounded-circle">
+                    <img src="<?php echo base_url().'/assets/avatars/'.$akun['foto']  ?>" class="avatar-img rounded-circle">
                   <?php } ?>
                   </div>
                   <br>

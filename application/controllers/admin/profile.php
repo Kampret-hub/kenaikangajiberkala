@@ -65,7 +65,7 @@ class profile extends ci_controller{
                 'no_telp'       =>$no_telp,
                 'alamat'        =>$alamat,
                 'pendidikan'    =>$pendidikan,
-                'foto'          =>$foto
+               
             );
 
             $edit_kgb = array(
@@ -77,7 +77,8 @@ class profile extends ci_controller{
             );
 
             $edit_user = array(
-                'nama_lengkap'  =>$nama_lengkap
+                'nama_lengkap'   =>$nama_lengkap,
+                 'foto'          =>$foto
                 
             );
 
