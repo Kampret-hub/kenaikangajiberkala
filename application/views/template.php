@@ -87,11 +87,21 @@
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle text-muted pr-0" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               <span class="avatar avatar-sm mt-2">
+<<<<<<< HEAD
                 <?php if($akun['foto'] == ''){ ?>
                     <img src="<?php echo base_url(); ?>./assets/avatars/face.png" class="avatar-img rounded-circle" style="height: 35px; width:35px;">
                   <?php } else { ?>
                   <img src="<?php echo base_url().'/assets/avatars/'.$akun['foto']  ?>" class="avatar-img rounded-circle" style="height: 35px; width:35px;">
                 <?php } ?>
+=======
+                
+                <?php if($akun['foto'] == ''){ ?>
+                    <img src="<?php echo base_url(); ?>./assets/avatars/face.png" class="avatar-img rounded-circle">
+                  <?php } else { ?>
+                  <img src="<?php echo base_url().'/assets/avatars/'.$akun['foto']  ?>" class="avatar-img rounded-circle">
+                <?php } ?>
+                
+>>>>>>> 1c01b978e3a8f87cf287e6f44a49344f5a0789f5
               </span>
             </a>
             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
@@ -242,9 +252,15 @@
             <a class="nav-link dropdown-toggle text-muted pr-0" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               <span class="avatar avatar-sm mt-2">
                 <?php if($akun['foto'] == ''){ ?>
+<<<<<<< HEAD
                     <img src="<?php echo base_url(); ?>./assets/avatars/face.png" class="avatar-img rounded-circle" style="height: 35px; width:35px;">
                   <?php } else { ?>
                   <img src="<?php echo base_url().'/assets/avatars/'.$akun['foto']  ?>" class="avatar-img rounded-circle" style="height: 35px; width:35px;">
+=======
+                    <img src="<?php echo base_url(); ?>./assets/avatars/face.png" class="avatar-img rounded-circle">
+                  <?php } else { ?>
+                  <img src="<?php echo base_url().'/assets/avatars/'.$akun['foto']  ?>" class="avatar-img rounded-circle">
+>>>>>>> 1c01b978e3a8f87cf287e6f44a49344f5a0789f5
                 <?php } ?>
               </span>
             </a>
