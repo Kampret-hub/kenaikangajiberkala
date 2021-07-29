@@ -15,6 +15,7 @@ public function index() {
 
 		   $data['title'] = 'Page Anggota';
            $data['user'] = $this->db->get_where('user', ['nama_lengkap' => $this->session->userdata('nama_lengkap')])->row_array(); 
+	       
 	       $where = array ('nrp' => $this->session->userdata('username'));
 	       $data['akun']= $this->model_kgb->find_data($where, 'user')->row_array(); 
 

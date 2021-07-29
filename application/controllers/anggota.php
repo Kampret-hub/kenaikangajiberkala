@@ -96,8 +96,9 @@ class anggota extends ci_controller{
                'pangkat'      => $this->input->post('pangkat'),
                'jabatan'      => $this->input->post('jabatan'),
                'bagian'       => $this->input->post('bagian'),
-               'keterangan'          => $this->input->post('keterangan'),
-               'status'       => $this->input->post('status')
+               'keterangan'   => $this->input->post('keterangan'),
+               'status'       => $this->input->post('status'),
+              
             );
 
             $input_kgb = array (

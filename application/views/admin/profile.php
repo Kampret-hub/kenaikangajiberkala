@@ -22,11 +22,16 @@
                   <div class="avatar avatar-xl">
                     <h3 class="mb-1" style="text-transform: uppercase;"><?php echo $member['nama_lengkap']; ?></h3>
                     <br>
-                    <img src="<?php echo base_url(); ?>./assets/avatars/face.png" alt="..." class="avatar-img rounded-circle">
+                   
+                    <?php if($member['foto'] == ''){ ?>
+                      <img src="<?php echo base_url(); ?>./assets/avatars/face.png" class="avatar-img rounded-circle">
+                    <?php } else { ?>
+                    <img src="<?php echo base_url().'/assets/avatars/'.$member['foto']  ?>" class="avatar-img rounded-circle">
+                  <?php } ?>
                   </div>
                   <br>
                   <a href=" <?php echo base_url('admin/profile/edit') ?>" class="btn btn-primary btn-small mb-2" style='margin-left: 5px;'><i class="fe fe-edit"></i> Edit Profile</a><br>
-                   <a href=" <?php echo base_url('admin/profile/ganti_password') ?>" class="btn btn-info btn-small" style='margin-left: 5px;'><i class="fe fe-edit"></i> Ganti Password</a>
+                   <!-- <a href=" <?php echo base_url('admin/profile/ganti_password') ?>" class="btn btn-info btn-small" style='margin-left: 5px;'><i class="fe fe-edit"></i> Ganti Password</a> -->
                 </div>
                 <div class="col">
                   <div class="row">
