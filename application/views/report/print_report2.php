@@ -67,11 +67,11 @@
                                 ?>  
                     <br>11. Kep. pangkat / Spemb oleh <span style="margin-left: 27px;">:</span> <?php echo $record['kep_pangkat']; ?>
                     <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;a. nomor / tanggal <span style="margin-left: 70px;">:</span> <?php $sampeledate = ($record['tmtl']); 
-                                $converdate = date("d-m-Y", strtotime($sampeledate));
+                                $converdate = date("d/m/Y", strtotime($sampeledate));
                                 echo $converdate;
                                 ?>  
                     <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;b. TMT <span style="margin-left: 120px;">:</span> <?php $sampeledate = ($record['tmtb']); 
-                                $converdate = date("d-m-Y", strtotime($sampeledate));
+                                $converdate = date("d/m/Y", strtotime($sampeledate));
                                 echo $converdate;
                                 ?>  
                     <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;c. masa kerja golongan <span style="margin-left: 47px;">:</span> <?php echo $record['mkg1']; ?> <?php echo $record['mkg2']; ?>

@@ -103,6 +103,7 @@
                                             <option value="29TH">29 TH</option>
                                             <option value="30TH">30 TH</option>
                                             <option value="31TH">31 TH</option>
+                                            <option value="32TH">32 TH</option>
                                             <option value="GAJI TERTINGGI">GAJI TERTINGGI</option>
                                         </select>
                                     </div>
@@ -167,6 +168,7 @@
                                             <option value="29TH">29 TH</option>
                                             <option value="30TH">30 TH</option>
                                             <option value="31TH">31 TH</option>
+                                            <option value="32TH">32 TH</option>
                                             <option value="GAJI TERTINGGI">GAJI TERTINGGI</option>
                                         </select>
                                     </div>
@@ -193,15 +195,25 @@
                                     </div>
                                 </div>
                             </div>
-                            <br>
+                            <br> 
                             <div class="card col-md-12">
                                 <div class="form-group">
-                                    <label class="control-label" style="margin-top: 5px;">TMT Lama</label>
-                                    <input type="date" class="form-control" name="tmtl" value="<?php echo $record['tmtl']?>">
+                                    <label for="date-input1" class="control-label" style="margin-top: 5px;">TMT Lama</label>
+                                    <div class="input-group">
+                                        <input type="text" class="form-control drgpicker" name="tmtl" value="<?php echo $record['tmtl']?>">
+                                        <div class="input-group-append">
+                                          <div class="input-group-text" id="button-addon-date"><span class="fe fe-calendar fe-16"></span></div>
+                                        </div>
+                                    </div>
                                 </div>
                                 <div class="form-group">
-                                    <label>TMT baru</label>
-                                    <input type="date" class="form-control" name="tmtb" value="<?php echo $record['tmtb']?>">
+                                    <label for="date-input1" class="control-label" style="margin-top: 5px;">TMT Baru</label>
+                                    <div class="input-group">
+                                        <input type="text" class="form-control drgpicker" name="tmtb" value="<?php echo $record['tmtb']?>">
+                                        <div class="input-group-append">
+                                          <div class="input-group-text" id="button-addon-date"><span class="fe fe-calendar fe-16"></span></div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                 </div>
@@ -223,6 +235,7 @@
                                         <select type="option" class="form-control"  name="kgbb_thn">
                                             <option type="option" class="form-control"  name="kgbb_thn" value="<?php echo $record['kgbb_thn']?>"><?php echo $record['kgbb_thn']?></option>
                                             <hr>
+                                            <option value=""></option>
                                             <option value="0TH">0 TH</option>
                                             <option value="1TH">1 TH</option>
                                             <option value="2TH">2 TH</option>
@@ -255,6 +268,7 @@
                                             <option value="29TH">29 TH</option>
                                             <option value="30TH">30 TH</option>
                                             <option value="31TH">31 TH</option>
+                                            <option value="32TH">32 TH</option>
                                             <option value="GAJI TERTINGGI">GAJI TERTINGGI</option>
                                         </select>
                                     </div>
@@ -264,6 +278,7 @@
                                             <option type="option" class="form-control"  name="kgbb_bln" value="<?php echo $record['kgbb_bln']?>"><?php echo $record['kgbb_bln']?></option>
                                             <hr>
                                             <option value=" "></option>
+                                            <option value=""></option>
                                             <option value="0BL">0 BL</option>
                                             <option value="1BL">1 BL</option>
                                             <option value="2BL">2 BL</option>
@@ -286,10 +301,13 @@
                                                 <input type="text" class="form-control" name="diterapkan" value="<?php echo $record['diterapkan']?>" >
                                             </div>
                                          </div>
-                                         <label class="control-label">Pada Tanggal :</label>
-                                         <div class="form-row" >
-                                            <div class="col-md-12 mb-3">
-                                                <input type="date" class="form-control" name="padatanggal" value="<?php echo $record['padatanggal']?>">
+                                         <div class="form-group">
+                                            <label for="date-input1" class="control-label" style="margin-top: 5px;">Pada Tanggal :</label>
+                                            <div class="input-group">
+                                                <input type="text" class="form-control drgpicker" name="padatanggal" value="<?php echo $record['padatanggal']?>">
+                                                <div class="input-group-append">
+                                                  <div class="input-group-text" id="button-addon-date"><span class="fe fe-calendar fe-16"></span></div>
+                                                </div>
                                             </div>
                                         </div>
                                         <label class="control-label">Di setujui oleh : </label>

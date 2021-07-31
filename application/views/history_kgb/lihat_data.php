@@ -31,7 +31,7 @@
                                 <th>No.</th> 
                                 <th>Nrp</th>
                                 <th>Nama</th>
-                                 <th>Masa Kerja gol.Gaji</th>
+                                <th>Masa Kerja gol.Gaji</th>
                                 <th>Masa Kerja gol</th>
                                 <th>Gaji Pokok Lama</th>
                                 <th>Gaji Pokok Baru</th>
@@ -51,19 +51,9 @@
                                 <td><?php echo $r->mkg1  ?>  <?php echo $r->mkg2  ?></td>
                                 <td><?php echo $r->gpl ?></td>
                                 <td><?php echo $r->gpb ?></td>
-                                <td>
-                                    <?php $sampeledate = ($r->tmtl); 
-                                        $converdate = date("d-m-Y", strtotime($sampeledate));
-                                        echo $converdate;
-                                    ?>
-                                </td>  
-                                <td>
-                                    <?php $sampeledate = ($r->tmtb); 
-                                        $converdate = date("d-m-Y", strtotime($sampeledate));
-                                        echo $converdate;
-                                    ?>
-                                </td>  
-                                <td><?php echo $r->kgbb ?></td>  
+                                <td><?php echo $r->tmtl ?></td>  
+                                <td><?php echo $r->tmtb ?></td> 
+                                <td><?php echo $r->kgbb ?> <?php echo $r->kgbb_thn?> <?php echo $r->kgbb_bln?></td>  
                                 <td><button class="btn btn-sm dropdown-toggle more-horizontal" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     <span class="text-muted sr-only">Action</span>
                                   </button>

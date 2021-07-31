@@ -73,10 +73,7 @@
                         </tr>-->
                         <tr>
                             <td>12. TMT </td>
-                            <td><strong><?php $sampeledate = ($record['tmtb']); 
-                                $converdate = date("d-m-Y", strtotime($sampeledate));
-                                echo $converdate;
-                                ?>  </strong></td>
+                            <td><strong><?php echo $record['tmtb'];?></strong></td>
                         </tr>
                         <tr>
                             <td>13. Kep pangkat / Spemb oleh </td>

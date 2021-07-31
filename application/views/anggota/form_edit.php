@@ -30,10 +30,16 @@
                             <label for="" class="control-label">Tempat Lahir</label>
                             <input type="text" class="form-control" style="text-transform:uppercase" name="tmpt_lahir" value="<?php echo $record['tmpt_lahir']?>">
                         </div>
-                        <div class="form-group mb-3">
-                            <label for="" class="control-label">Tanggal Lahir</label>
-                            <input type="date" class="form-control" name="t_lahir" value="<?php echo $record['t_lahir']?>">
+                        <div class="form-group mb-3 <?= form_error('t_lahir') ? 'has-error' : null?> ">
+                        <label for="date-input1" class="control-label">Tanggal Lahir</label>
+                        <div class="input-group">
+                            <input type="text" class="form-control drgpicker" name="t_lahir" id="date-input1" placeholder="Input Tanggal Lahir" value="<?php echo $record['t_lahir']?>" aria-describedby="button-addon2">
+                            <span class="help-block alert-danger"><?= form_error('t_lahir')?></span>
+                          <div class="input-group-append">
+                              <div class="input-group-text" id="button-addon-date"><span class="fe fe-calendar fe-16"></span></div>
+                          </div>
                         </div>
+                  </div>
                         <div class="form-group mb-3">
                             <label for="" class="control-label">Jenis Kelamin</label>
                                 <select type="option" class="form-control"  name="jk">

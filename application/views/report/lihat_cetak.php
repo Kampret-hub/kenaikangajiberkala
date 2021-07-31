@@ -36,10 +36,7 @@
                         </tr>
                          <tr>
                             <td>4. Tanggal Lahir </td>
-                            <td><strong><?php echo $record['tmpt_lahir']; ?>, <?php $sampeledate = ($record['t_lahir']); 
-                                $converdate = date("d-m-Y", strtotime($sampeledate));
-                                echo $converdate;
-                                ?>  </strong></td>
+                            <td><strong><?php echo $record['tmpt_lahir']; ?>, <?php echo $record['t_lahir'];?> </strong></td>
                         </tr>
                         <tr>
                             <td>5. NRP / NIP </td>
@@ -71,10 +68,7 @@
                         </tr>
                         <tr>
                             <td>12. TMT </td>
-                            <td><strong><?php $sampeledate = ($record['tmtb']); 
-                                $converdate = date("d-m-Y", strtotime($sampeledate));
-                                echo $converdate;
-                                ?>  </strong></td>
+                            <td><strong><?php echo $record['tmtb'];?></strong></td>
                         </tr>
                         <tr>
                             <td>13. Kep pangkat / Spemb oleh </td>
@@ -86,10 +80,7 @@
                         </tr>
                         <tr>
                             <td>&#160;&#160;&#160;&#160;&#160;&#160;b. TMT </td>
-                            <td><strong><?php $sampeledate = ($record['tmtl']); 
-                                $converdate = date("d-m-Y", strtotime($sampeledate));
-                                echo $converdate;
-                                ?>  </strong></td>
+                            <td><strong><?php echo $record['tmtl'];?> </strong></td>
                         </tr>
                         <tr>
                             <td>&#160;&#160;&#160;&#160;&#160;&#160;c. masa kerja golongan </td>
