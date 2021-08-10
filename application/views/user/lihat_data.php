@@ -32,6 +32,7 @@
                                 <th>Nama Lengkap</th>
                                 <th>NRP / NIP Username</th>
                                 <th>User Sistem</th>
+                                <th>Status</th>
                                 <th>Date Created</th>
                                 <th>Aksi</th>
                             </tr>
@@ -48,8 +49,13 @@
                                             }elseif ($r->role_id == 2 ){ 
                                                 echo '<div class="">Member</div>';}?>
                                 </td>
-                                <td><?php echo $r->date_created ?></td>                
-                                <!--<td><?php echo $r->last_login ?></td>-->
+                                <td>
+                                    <?php if($r->status == 0 ){ 
+                                         echo '<div class="">Tidak Aktif</div>';
+                                            }elseif ($r->status == 1 ){ 
+                                                echo '<div class="">Aktif</div>';}?>
+                                </td>
+                                <td><?php echo $r->date_created ?></td>
                                 <td class="center">
                                     <a href=" <?php echo base_url('user/edit/'.$r->user_id) ?>" class="btn btn-primary btn-small" ><i class="fe fe-edit"></i>Edit</a>
                                 </td>

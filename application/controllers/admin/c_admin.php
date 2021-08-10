@@ -4,6 +4,7 @@ class C_admin extends CI_Controller {
 
 public function __construct() {
 parent::__construct();
+$this->load->model('model_kgb');
 if ($this->session->userdata('username')=="") {
 redirect('auth');
 }
@@ -18,9 +19,12 @@ public function index() {
 	       $where = array ('nrp' => $this->session->userdata('username'));
 	       $data['akun']= $this->model_kgb->find_data($where, 'user')->row_array(); 
 	       
+	       $where = array ('kgbb'=> '09/08/2021');
+           $data['record']= $this->model_kgb->find_data($where, 't_kgb')->result();
+
 		   $data['username'] = $this->session->userdata('username');
  		  $this->template->load('template','admin/index',$data);
            
 	}
 }
-?>
+?> 

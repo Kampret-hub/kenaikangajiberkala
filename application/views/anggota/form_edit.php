@@ -136,12 +136,16 @@
                                 <input type="text" readonly="" class="form-control" id="gaji_pokok" name="gaji_pokok" value="<?php echo $record['gaji_pokok']; ?>">
                         </div>
                         <div class="form-group mb-3">
-                            <label for="" class="control-label">Status</label>
-                                <select type="option" class="form-control"  name="keterangan">
-                                        <option value="<?php echo $record['keterangan'];?>"><?php echo $record['keterangan'];?></option>
+                            <label for="" class="control-label">Status Pegawai</label>
+                                <select type="option" class="form-control"  name="stat_pegawai">
+                                        <option value="<?php echo $record['stat_pegawai'];?>"><?php echo $record['stat_pegawai'];?></option>
                                         <option value="POLRI">POLRI</option>
                                         <option value="ASN">ASN</option>
                                 </select>
+                        </div>
+                        <div class="form-group mb-3">
+                            <label for="" class="control-label">Keterangan</label>
+                            <input type="text" class="form-control" name="keterangan" value="<?php echo $record['keterangan']?>">
                         </div>
                         <div class="form-group mb-3">
                             <label for="" class="control-label">Status</label>

@@ -49,8 +49,11 @@
                                          <div class="col-md-3 mb-3">
                                             <input  type="option" class="form-control"  id="title"  name="" placeholder="Input Kode Gaji" >
                                         </div>
-                                        <div class="col-md-9 mb-3">
-                                            <input type="text" class="form-control"  id="gpl" name="gpl" value="<?php echo $record['gpl']; ?>" >
+                                        <div class="col-md-3 mb-3">
+                                            <input type="text" class="form-control"  id="pangkat" name="pangkat" placeholder="Pangkat" readonly="">
+                                        </div>
+                                        <div class="col-md-6 mb-3">
+                                            <input type="text" class="form-control"  id="gpl" name="gpl" value="<?php echo $record['gpl']; ?>" readonly="">
                                         </div>
                                      </div>
                                      <label class="control-label">Gaji Pokok Baru</label>
@@ -58,8 +61,11 @@
                                         <div class="col-md-3 mb-3">
                                             <input  type="option" class="form-control"  id="title2"  name="" placeholder="Input Kode Gaji" >
                                         </div>
-                                        <div class="col-md-9 mb-3">
-                                            <input type="text" class="form-control"  id="gpb" name="gpb" value="<?php echo $record['gpb']; ?>">
+                                        <div class="col-md-3 mb-3">
+                                            <input  type="option" class="form-control"  id="pangkat2"  name="pangkat2" placeholder="Pangkat" readonly="" >
+                                        </div>
+                                        <div class="col-md-6 mb-3">
+                                            <input type="text" class="form-control"  id="gpb" name="gpb" value="<?php echo $record['gpb']; ?>" readonly="">
                                         </div>
                                     </div>
                                 </div>
@@ -195,7 +201,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <br> 
+                            <br>
                             <div class="card col-md-12">
                                 <div class="form-group">
                                     <label for="date-input1" class="control-label" style="margin-top: 5px;">TMT Lama</label>
@@ -224,10 +230,12 @@
                                 </div>
                                 <div class="form-group">
                                     <label>Nomor / Tanggal</label>
+                                    <span class="small text-muted"> (contoh input : KEP/1486/XII/2019, 13 DESEMBER 2021)</span>
                                     <input type="text" class="form-control" name="no_tgl" value="<?php echo $record['no_tgl']?>">
                                 </div>
                                 <div class="form-group">
                                     <label>KGB Berikutnya</label>
+                                    <span class="small text-muted"> (Disi dengan tanggal KGB berikutnya dan Masa Kerja berikutnya)</span>
                                     <input type="text" class="form-control" name="kgbb" value="<?php echo $record['kgbb']?>"><br>
                                     <div class="form-row">
                                     <label style="margin-top : 5px; margin-left: 5px;"> Tahun :</label>
@@ -296,13 +304,15 @@
                                     </div>
                                      <div class="card col-md-12" style="margin-top: 20px;">
                                          <label class="control-label" style="margin-top: 5px;">Diterapkan Di :</label>
+                                         <span class="small text-muted"> (Disi dengan KAB persetujuan KGB)</span>
                                          <div class="form-row">
                                             <div class="col-md-12 mb-3">
                                                 <input type="text" class="form-control" name="diterapkan" value="<?php echo $record['diterapkan']?>" >
                                             </div>
                                          </div>
-                                         <div class="form-group">
+                                        <div class="form-group">
                                             <label for="date-input1" class="control-label" style="margin-top: 5px;">Pada Tanggal :</label>
+                                            <span class="small text-muted"> (Tanggal keluar persetujuan KGB)</span>
                                             <div class="input-group">
                                                 <input type="text" class="form-control drgpicker" name="padatanggal" value="<?php echo $record['padatanggal']?>">
                                                 <div class="input-group-append">

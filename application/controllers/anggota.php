@@ -59,7 +59,8 @@ class anggota extends ci_controller{
         $this->form_validation->set_rules('pangkat', 'Pangkat', 'required');
         $this->form_validation->set_rules('jabatan', 'Jabatan', 'required');
         $this->form_validation->set_rules('bagian', 'Bagian', 'required');
-         $this->form_validation->set_rules('keterangan', 'Keterangan', 'required');
+        $this->form_validation->set_rules('stat_pegawai', 'Status Pegawai', 'required');
+        $this->form_validation->set_rules('keterangan', 'Keterangan', 'required');      
         $this->form_validation->set_rules('status', 'Status', 'required');      
 
         $this->form_validation->set_message('required', '%s masih kosong', 'silahkan isi terlebi dahulu');
@@ -96,8 +97,9 @@ class anggota extends ci_controller{
                'pangkat'      => $this->input->post('pangkat'),
                'jabatan'      => $this->input->post('jabatan'),
                'bagian'       => $this->input->post('bagian'),
+               'stat_pegawai' => $this->input->post('stat_pegawai'),
                'keterangan'   => $this->input->post('keterangan'),
-               'status'       => $this->input->post('status'),
+               'status'       => $this->input->post('status')
               
             );
 
@@ -150,7 +152,7 @@ class anggota extends ci_controller{
             $golongan       =  $this->input->post('golongan');
             $masa_kerja     =  $this->input->post('masa_kerja');
             $gaji_pokok     =  $this->input->post('gaji_pokok');
-            $keterangan     =  $this->input->post('keterangan');
+            $stat_pegawai     =  $this->input->post('stat_pegawai');
             $status         =  $this->input->post('status');
             
             $edit_anggota =  array(   
@@ -170,7 +172,7 @@ class anggota extends ci_controller{
                 'golongan'      =>$golongan,
                 'masa_kerja'    =>$masa_kerja,
                 'gaji_pokok'    =>$gaji_pokok,
-                'keterangan'    =>$keterangan,
+                'stat_pegawai'    =>$stat_pegawai,
                 'status'        =>$status
             );
              $edit_kgb = array(

@@ -127,15 +127,20 @@
                                 </select> 
                                  <span class="help-block alert-danger"><?= form_error('jabatan')?></span>         
                   </div>
-                  <div class="form-group mb-3 <?= form_error('keterangan') ? 'has-error' : null?> ">
-                            <label for="" class="control-label">Keterangan</label>
-                                <select type="option" class="form-control"  name="keterangan">
-                                        <option type="option" class="form-control"  name="keterangan" value="<?= set_value('keterangan')?>"><?= set_value('keterangan')?></option>
+                  <div class="form-group mb-3 <?= form_error('stat_pegawai') ? 'has-error' : null?> ">
+                            <label for="" class="control-label">Status Pegawai</label>
+                                <select type="option" class="form-control"  name="stat_pegawai">
+                                        <option type="option" class="form-control"  name="stat_pegawai" value="<?= set_value('stat_pegawai')?>"><?= set_value('stat_pegawai')?></option>
                                         <option value="POLRI">POLRI</option>
                                         <option value="ASN">ASN</option>
                                 </select>
-                                <span class="help-block alert-danger"><?= form_error('keterangan')?></span>
+                                <span class="help-block alert-danger"><?= form_error('stat_pegawai')?></span>
                         </div>
+                  <div class="form-group mb-3 <?= form_error('keterangan') ? 'has-error' : null?> ">
+                        <label for="" class="control-label">Keterangan</label>
+                        <input type="text" name="keterangan" id="keterangan"  class="form-control"  placeholder="Input NRP / NIP" value="<?= set_value('keterangan')?>">
+                         <span class="help-block alert-danger"><?= form_error('keterangan')?></span>
+                  </div>  
                  <div class="form-group mb-3> ">
                             <label for="" class="control-label">Status</label>
                                 <select type="option" class="form-control"  name="status">

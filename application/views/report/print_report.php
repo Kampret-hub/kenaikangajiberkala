@@ -102,7 +102,7 @@
                     <br><span style="margin-left: 32%;">KABAGSUMDA</span>
                     <p><br></p>
                         <u><span style="font-size: 12px; margin-left: 28%;" class="text-center"><?php echo $record['d_oleh']; ?></span></u>
-                        <br><span style="font-size: 12px; margin-left: 26%;" class="text-center"><?php echo $record['sebagai']; ?> nrp <?php echo $record['nrp_p']; ?></span>
+                        <br><span style="font-size: 12px; margin-left: 26%;" class="text-center"><?php echo $record['sebagai']; ?> NRP <?php echo $record['nrp_p']; ?></span>
                 </span>
             </td>
         </tr>

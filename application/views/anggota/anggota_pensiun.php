@@ -39,12 +39,13 @@
                                 <th>Pangkat</th>
                                 <th>Jabatan</th>
                                 <th>Bagian</th>
-                                <th>Ket</th>
+                                <th>SPegawai</th>
                                 <th>Golongan</th>
                                 <th>Masa Kerja</th>
                                 <th>Gaji</th>
                                 <th>Agama </th>
                                 <th>No Telepon</th>
+                                <th>Keterangan</th>
                                 <th>Aksi</th>
                             </tr>
                         </thead>
@@ -59,12 +60,13 @@
                                 <td><?php echo $r->pangkat ?></td>
                                 <td><?php echo $r->jabatan ?></td>
                                 <td><?php echo $r->bagian ?></td>
-                                <td><?php echo $r->keterangan ?></td>
+                                <td><?php echo $r->stat_pegawai ?></td>
                                 <td><?php echo $r->golongan ?></td>
                                 <td><?php echo $r->masa_kerja ?></td>
                                 <td><?php echo $r->gaji_pokok ?></td>
                                 <td><?php echo $r->agama ?></td>
                                 <td><?php echo $r->no_telp ?></td>
+                                <td><?php echo $r->keterangan ?></td>
                                 <td><button class="btn btn-sm dropdown-toggle more-horizontal" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     <span class="text-muted sr-only">Action</span>
                                   </button>

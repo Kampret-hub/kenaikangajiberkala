@@ -6,7 +6,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <link rel="shortcut icon" href="<?= base_url() ?>assets/img/fav.png" src="">
-    <title>SIMPEG POLRES KARAWANG</title>
+    <title>SI GABER POLRES KARAWANG</title>
     <!-- Simple bar CSS -->
     <link rel="stylesheet" href="<?php echo base_url() ?>assets/css/simplebar.css">
     <link rel="stylesheet" href="<?php echo base_url() ?>assets/css/custom.css">
@@ -121,7 +121,7 @@
         <nav class="vertnav navbar navbar-light">
           <div class="w-100 mb-4 d-flex">
             <a class="navbar-brand mx-auto mt-2 flex-fill text-center" href="">
-             <img src="<?= base_url() ?>assets/img/logo2.png" alt="" title="" /><p>
+             <img src="<?= base_url() ?>assets/img/logo.png" alt="" title="" /><p>
               <p class="flex-fill text-center small text-muted nav-heading mb-1">SISTEM INFORMASI PEGAWAI</p><br>
               <p class="flex-fill text-center small text-muted nav-heading mb-1" style="font-size:12px">KENAIKAN GAJI BERKALA</p>
             </a>
@@ -189,7 +189,7 @@
             <li class="nav-item w-100">
               <a class="nav-link" href="<?php echo base_url().'kontak'?>">
                 <i class="fe fe-settings fe-16"></i>
-                <span class="ml-3 item-text">Kontak BAGSUMDA</span>
+                <span class="ml-3 item-text">Kontak BAG SDM</span>
               </a>
             </li>
           </ul>
@@ -273,7 +273,7 @@
         <nav class="vertnav navbar navbar-light">
           <div class="w-100 mb-4 d-flex">
             <a class="navbar-brand mx-auto mt-2 flex-fill text-center" href="">
-             <img src="<?= base_url() ?>assets/img/logo2.png" alt="" title="" /><p>
+             <img src="<?= base_url() ?>assets/img/logo.png" alt="" title="" /><p>
               <p class="flex-fill text-center small text-muted nav-heading mb-1">SISTEM INFORMASI PEGAWAI</p><br>
               <p class="flex-fill text-center small text-muted nav-heading mb-1" style="font-size:12px">KENAIKAN GAJI BERKALA</p>
             </a>
