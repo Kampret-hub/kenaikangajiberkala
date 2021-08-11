@@ -138,10 +138,6 @@
             <div class="row">
               <div class="col-sm-6">
                 <h6 class="mb-0">Pangkat</h6>
-<<<<<<< HEAD
-
-=======
->>>>>>> c8c41777ef0dd3aba87d201e6070bf6b1a37f1d7
               </div>
               <div class="col-sm-6 text-secondary"  style="text-transform: uppercase;">
                  <?php echo $member['pangkat']; ?>

@@ -250,17 +250,12 @@
             <a class="nav-link dropdown-toggle text-muted pr-0" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               <span class="avatar avatar-sm mt-2">
                 <?php if($akun['foto'] == ''){ ?>
-<<<<<<< HEAD
+
 
                     <img src="<?php echo base_url(); ?>./assets/avatars/face.png" class="avatar-img rounded-circle" style="height: 35px; width:35px;">
                   <?php } else { ?>
                   <img src="<?php echo base_url().'/assets/avatars/'.$akun['foto']  ?>" class="avatar-img rounded-circle" style="height: 35px; width:35px;">
 
-=======
-                    <img src="<?php echo base_url(); ?>./assets/avatars/face.png" class="avatar-img rounded-circle" style="height: 35px; width:35px;">
-                  <?php } else { ?>
-                  <img src="<?php echo base_url().'/assets/avatars/'.$akun['foto']  ?>" class="avatar-img rounded-circle" style="height: 35px; width:35px;">
->>>>>>> c8c41777ef0dd3aba87d201e6070bf6b1a37f1d7
                 <?php } ?>
               </span>
             </a>

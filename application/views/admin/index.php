@@ -181,7 +181,7 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <?php $no=1; foreach ($record as $r) { ?>
+                            <?php $no=1; foreach ($recordBulan as $r) { ?>
                             <tr class="">
                                 <td><?php echo $no ?></td>
                                 <td><?php echo $r->nrp ?></td>

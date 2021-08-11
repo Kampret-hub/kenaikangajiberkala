@@ -19,12 +19,18 @@ public function index() {
 	       $where = array ('nrp' => $this->session->userdata('username'));
 	       $data['akun']= $this->model_kgb->find_data($where, 'user')->row_array(); 
 	       
-	       $where = array ('kgbb'=> '09/08/2021');
-           $data['record']= $this->model_kgb->find_data($where, 't_kgb')->result();
+	       // $where = array ('kgbb'=> '11/08/2021');
+           //$data['record']= $this->model_kgb->find_data($where, 't_kgb')->result();
+
+           $data['recordBulan']= $this->db->query('SELECT * FROM t_kgb WHERE YEAR(kgbb) = YEAR(NOW()) AND MONTH(kgbb)=MONTH(NOW())')->result();
+           $data['recordTahun']= $this->db->query('SELECT * FROM t_kgb WHERE YEAR(kgbb) = YEAR(NOW())')->result();
+
+
 
 		   $data['username'] = $this->session->userdata('username');
  		  $this->template->load('template','admin/index',$data);
            
+
 	}
 }
 ?> 
