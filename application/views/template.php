@@ -6,7 +6,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <link rel="shortcut icon" href="<?= base_url() ?>assets/img/fav.png" src="">
-    <title>SIMPEG POLRES KARAWANG</title>
+    <title>SI GABER POLRES KARAWANG</title>
     <!-- Simple bar CSS -->
     <link rel="stylesheet" href="<?php echo base_url() ?>assets/css/simplebar.css">
     <link rel="stylesheet" href="<?php echo base_url() ?>assets/css/custom.css">
@@ -16,11 +16,18 @@
 
     <!-- Icons CSS -->
     <link rel="stylesheet" href="<?php echo base_url() ?>assets/css/feather.css">
+    <link rel="stylesheet" href="<?php echo base_url() ?>assets/css/select2.css">
+    <link rel="stylesheet" href="<?php echo base_url() ?>assets/css/dropzone.css">
     <link rel="stylesheet" href="<?php echo base_url() ?>assets/css/uppy.min.css">
+    <link rel="stylesheet" href="<?php echo base_url() ?>assets/css/jquery.steps.css">
     <link rel="stylesheet" href="<?php echo base_url() ?>assets/css/jquery.timepicker.css">
+    <link rel="stylesheet" href="<?php echo base_url() ?>assets/css/quill.snow.css">
 
     <!-- Autocomplete -->
     <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+
+    <!-- Date Range Picker CSS -->
+    <link rel="stylesheet" href="<?php echo base_url() ?>assets/css/daterangepicker.css">
 
     <!-- Date Range Picker CSS -->
     <link rel="stylesheet" href="https://cdn.datatables.net/1.10.25/css/jquery.dataTables.min.css"/>
@@ -31,10 +38,11 @@
     <link rel="stylesheet" href="<?php echo base_url() ?>assets/css/app-light.css" id="lightTheme" disabled>
     <link rel="stylesheet" href="<?php echo base_url() ?>assets/css/app-dark.css" id="darkTheme">
 
-    <!-- Sweat AlertS -->
+    <!-- Sweat Alert -->
+    <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" /> -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://lipis.github.io/bootstrap-sweetalert/dist/sweetalert.js"></script>
-    <link rel="stylesheet" href="https://lipis.github.io/bootstrap-sweetalert/dist/sweetalert.css" />
+    <link rel="stylesheet" href="https://lipis.github.io/bootstrap-sweetalert/dist/sweetalert.css"/>
 
     <style>
       .preloader {
@@ -113,7 +121,7 @@
         <nav class="vertnav navbar navbar-light">
           <div class="w-100 mb-4 d-flex">
             <a class="navbar-brand mx-auto mt-2 flex-fill text-center" href="">
-             <img src="<?= base_url() ?>assets/img/logo2.png" alt="" title="" /><p>
+             <img src="<?= base_url() ?>assets/img/logo.png" alt="" title="" /><p>
               <p class="flex-fill text-center small text-muted nav-heading mb-1">SISTEM INFORMASI PEGAWAI</p><br>
               <p class="flex-fill text-center small text-muted nav-heading mb-1" style="font-size:12px">KENAIKAN GAJI BERKALA</p>
             </a>
@@ -181,7 +189,7 @@
             <li class="nav-item w-100">
               <a class="nav-link" href="<?php echo base_url().'kontak'?>">
                 <i class="fe fe-settings fe-16"></i>
-                <span class="ml-3 item-text">Kontak BAGSUMDA</span>
+                <span class="ml-3 item-text">Kontak BAG SDM</span>
               </a>
             </li>
           </ul>
@@ -242,11 +250,17 @@
             <a class="nav-link dropdown-toggle text-muted pr-0" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               <span class="avatar avatar-sm mt-2">
                 <?php if($akun['foto'] == ''){ ?>
+<<<<<<< HEAD
 
                     <img src="<?php echo base_url(); ?>./assets/avatars/face.png" class="avatar-img rounded-circle" style="height: 35px; width:35px;">
                   <?php } else { ?>
                   <img src="<?php echo base_url().'/assets/avatars/'.$akun['foto']  ?>" class="avatar-img rounded-circle" style="height: 35px; width:35px;">
 
+=======
+                    <img src="<?php echo base_url(); ?>./assets/avatars/face.png" class="avatar-img rounded-circle" style="height: 35px; width:35px;">
+                  <?php } else { ?>
+                  <img src="<?php echo base_url().'/assets/avatars/'.$akun['foto']  ?>" class="avatar-img rounded-circle" style="height: 35px; width:35px;">
+>>>>>>> c8c41777ef0dd3aba87d201e6070bf6b1a37f1d7
                 <?php } ?>
               </span>
             </a>
@@ -267,7 +281,7 @@
         <nav class="vertnav navbar navbar-light">
           <div class="w-100 mb-4 d-flex">
             <a class="navbar-brand mx-auto mt-2 flex-fill text-center" href="">
-             <img src="<?= base_url() ?>assets/img/logo2.png" alt="" title="" /><p>
+             <img src="<?= base_url() ?>assets/img/logo.png" alt="" title="" /><p>
               <p class="flex-fill text-center small text-muted nav-heading mb-1">SISTEM INFORMASI PEGAWAI</p><br>
               <p class="flex-fill text-center small text-muted nav-heading mb-1" style="font-size:12px">KENAIKAN GAJI BERKALA</p>
             </a>
@@ -341,14 +355,226 @@
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 
     <!-- App Dark Light -->
-    <script  src="<?php echo base_url(); ?>assets/js/apps.js"></script>
-    <script src='<?php echo base_url(); ?>/assets/js/jquery.stickOnScroll.js'></script>
-    <script src="<?php echo base_url(); ?>/assets/js/tinycolor-min.js"></script>
-    <script src="<?php echo base_url(); ?>/assets/js/config.js"></script>
+    <script src="<?php echo base_url(); ?>assets/js/apps.js"></script>
     <script src="<?php echo base_url(); ?>/assets/js/popper.min.js"></script>
     <script src="<?php echo base_url(); ?>/assets/js/moment.min.js"></script>
     <script src="<?php echo base_url(); ?>/assets/js/bootstrap.min.js"></script>
     <script src="<?php echo base_url(); ?>/assets/js/simplebar.min.js"></script>
+    <script src='<?php echo base_url(); ?>/assets/js/daterangepicker.js'></script>
+    <script src="<?php echo base_url(); ?>/assets/js/tinycolor-min.js"></script>
+    <script src="<?php echo base_url(); ?>/assets/js/config.js"></script>
+    <script src='<?php echo base_url(); ?>/assets/js/jquery.mask.min.js'></script>
+    <script src='<?php echo base_url(); ?>/assets/js/dropzone.min.js'></script>
+    <script src='<?php echo base_url(); ?>/assets/js/uppy.min.js'></script>
+    <script src='<?php echo base_url(); ?>/assets/js/quill.min.js'></script>
+    <script src='<?php echo base_url(); ?>/assets/js/select2.min.js'></script>
+    <script src='<?php echo base_url(); ?>/assets/js/jquery.stickOnScroll.js'></script>
+    <script src='<?php echo base_url(); ?>/assets/js/jquery.steps.min.js'></script>
+    <script src='<?php echo base_url(); ?>/assets/js/jquery.validate.min.js'></script>
+    <script src='<?php echo base_url(); ?>/assets/js/jquery.timepicker.js'></script>
+    <script>
+      $('.select2').select2(
+      {
+        theme: 'bootstrap4',
+      });
+      $('.select2-multi').select2(
+      {
+        multiple: true,
+        theme: 'bootstrap4',
+      });
+      $('.drgpicker').daterangepicker(
+      {
+        singleDatePicker: true,
+        timePicker: false,
+        showDropdowns: true,
+        locale:
+        {
+          format: 'DD/MM/YYYY'
+        }
+      });
+      $('.time-input').timepicker(
+      {
+        'scrollDefault': 'now',
+        'zindex': '9999' /* fix modal open */
+      });
+      /** date range picker */
+      if ($('.datetimes').length)
+      {
+        $('.datetimes').daterangepicker(
+        {
+          timePicker: true,
+          startDate: moment().startOf('hour'),
+          endDate: moment().startOf('hour').add(32, 'hour'),
+          locale:
+          {
+            format: 'M/DD hh:mm A'
+          }
+        });
+      }
+      var start = moment().subtract(29, 'days');
+      var end = moment();
+
+      function cb(start, end)
+      {
+        $('#reportrange span').html(start.format('MMMM D, YYYY') + ' - ' + end.format('MMMM D, YYYY'));
+      }
+      $('#reportrange').daterangepicker(
+      {
+        startDate: start,
+        endDate: end,
+        ranges:
+        {
+          'Today': [moment(), moment()],
+          'Yesterday': [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
+          'Last 7 Days': [moment().subtract(6, 'days'), moment()],
+          'Last 30 Days': [moment().subtract(29, 'days'), moment()],
+          'This Month': [moment().startOf('month'), moment().endOf('month')],
+          'Last Month': [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf('month')]
+        }
+      }, cb);
+      cb(start, end);
+      $('.input-placeholder').mask("00/00/0000",
+      {
+        placeholder: "__/__/____"
+      });
+      $('.input-zip').mask('00000-000',
+      {
+        placeholder: "____-___"
+      });
+      $('.input-money').mask("#.##0,00",
+      {
+        reverse: true
+      });
+      $('.input-phoneus').mask('(000) 000-0000');
+      $('.input-mixed').mask('AAA 000-S0S');
+      $('.input-ip').mask('0ZZ.0ZZ.0ZZ.0ZZ',
+      {
+        translation:
+        {
+          'Z':
+          {
+            pattern: /[0-9]/,
+            optional: true
+          }
+        },
+        placeholder: "___.___.___.___"
+      });
+      // editor
+      var editor = document.getElementById('editor');
+      if (editor)
+      {
+        var toolbarOptions = [
+          [
+          {
+            'font': []
+          }],
+          [
+          {
+            'header': [1, 2, 3, 4, 5, 6, false]
+          }],
+          ['bold', 'italic', 'underline', 'strike'],
+          ['blockquote', 'code-block'],
+          [
+          {
+            'header': 1
+          },
+          {
+            'header': 2
+          }],
+          [
+          {
+            'list': 'ordered'
+          },
+          {
+            'list': 'bullet'
+          }],
+          [
+          {
+            'script': 'sub'
+          },
+          {
+            'script': 'super'
+          }],
+          [
+          {
+            'indent': '-1'
+          },
+          {
+            'indent': '+1'
+          }], // outdent/indent
+          [
+          {
+            'direction': 'rtl'
+          }], // text direction
+          [
+          {
+            'color': []
+          },
+          {
+            'background': []
+          }], // dropdown with defaults from theme
+          [
+          {
+            'align': []
+          }],
+          ['clean'] // remove formatting button
+        ];
+        var quill = new Quill(editor,
+        {
+          modules:
+          {
+            toolbar: toolbarOptions
+          },
+          theme: 'snow'
+        });
+      }
+      // Example starter JavaScript for disabling form submissions if there are invalid fields
+      (function()
+      {
+        'use strict';
+        window.addEventListener('load', function()
+        {
+          // Fetch all the forms we want to apply custom Bootstrap validation styles to
+          var forms = document.getElementsByClassName('needs-validation');
+          // Loop over them and prevent submission
+          var validation = Array.prototype.filter.call(forms, function(form)
+          {
+            form.addEventListener('submit', function(event)
+            {
+              if (form.checkValidity() === false)
+              {
+                event.preventDefault();
+                event.stopPropagation();
+              }
+              form.classList.add('was-validated');
+            }, false);
+          });
+        }, false);
+      })();
+    </script>
+    <script>
+      var uptarg = document.getElementById('drag-drop-area');
+      if (uptarg)
+      {
+        var uppy = Uppy.Core().use(Uppy.Dashboard,
+        {
+          inline: true,
+          target: uptarg,
+          proudlyDisplayPoweredByUppy: false,
+          theme: 'dark',
+          width: 770,
+          height: 210,
+          plugins: ['Webcam']
+        }).use(Uppy.Tus,
+        {
+          endpoint: 'https://master.tus.io/files/'
+        });
+        uppy.on('complete', (result) =>
+        {
+          console.log('Upload complete! We’ve uploaded these files:', result.successful)
+        });
+      }
+    </script>
 
     <script>
       /* defind global options */

@@ -65,12 +65,12 @@
                     <br>8. masa kerja golongan gaji <span style="margin-left: 43px;">:</span> <?php echo $record['mkgg1']; ?> <?php echo $record['mkgg2']; ?>
                     <br>9. pangkat / golongan ruang <span style="margin-left: 41px;">:</span> <?php echo $record['pangkat']; ?> / <?php echo $record['golongan']; ?>
                     <br>10. TMT <span style="margin-left: 132px;">:</span> <?php $sampeledate = ($record['tmtb']); 
-                                $converdate = date("d-m-Y", strtotime($sampeledate));
+                                $converdate = date("d/m/Y", strtotime($sampeledate));
                                 echo $converdate;
                                 ?>  
                     <br>11. Kep. pangkat / Spemb oleh <span style="margin-left: 27px;">:</span> <?php echo $record['kep_pangkat']; ?>
                     <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;a. nomor / tanggal <span style="margin-left: 70px;">:</span> <?php $sampeledate = ($record['tmtl']); 
-                                $converdate = date("d-m-Y", strtotime($sampeledate));
+                                $converdate = date("d/m/Y", strtotime($sampeledate));
                                 echo $converdate;
                                 ?>  
                     <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;b. TMT <span style="margin-left: 120px;">:</span> <?php $sampeledate = ($record['tmtb']); 
@@ -102,7 +102,7 @@
                     <br><span style="margin-left: 32%;">KABAGSUMDA</span>
                     <p><br></p>
                         <u><span style="font-size: 12px; margin-left: 28%;" class="text-center"><?php echo $record['d_oleh']; ?></span></u>
-                        <br><span style="font-size: 12px; margin-left: 26%;" class="text-center"><?php echo $record['sebagai']; ?> nrp <?php echo $record['nrp_p']; ?></span>
+                        <br><span style="font-size: 12px; margin-left: 26%;" class="text-center"><?php echo $record['sebagai']; ?> NRP <?php echo $record['nrp_p']; ?></span>
                 </span>
             </td>
         </tr>

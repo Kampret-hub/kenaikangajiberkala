@@ -33,10 +33,15 @@
                     <input type="text" class="form-control" style="text-transform:uppercase" name="tmpt_lahir" id="tmpt_lahir" placeholder="Input Tempat Lahir" value="<?= set_value('tmpt_lahir')?>">
                      <span class="help-block alert-danger"><?= form_error('tmpt_lahir')?></span>
                   </div>
-                 <div class="form-group mb-3 <?= form_error('t_lahir') ? 'has-error' : null?> ">
-                    <label for="" class="control-label">Tanggal Lahir</label>
-                    <input type="date" name="t_lahir" id="t_lahir" class="form-control"  placeholder="Input Tamggal Lahir" value="<?= set_value('t_lahir')?>">
-                     <span class="help-block alert-danger"><?= form_error('t_lahir')?></span>
+                  <div class="form-group mb-3 <?= form_error('t_lahir') ? 'has-error' : null?> ">
+                        <label for="date-input1" class="control-label">Tanggal Lahir</label>
+                        <div class="input-group">
+                            <input type="text" class="form-control drgpicker" name="t_lahir" id="date-input1" placeholder="Input Tanggal Lahir" value="<?= set_value('t_lahir')?>" aria-describedby="button-addon2">
+                            <span class="help-block alert-danger"><?= form_error('t_lahir')?></span>
+                          <div class="input-group-append">
+                              <div class="input-group-text" id="button-addon-date"><span class="fe fe-calendar fe-16"></span></div>
+                          </div>
+                        </div>
                   </div>
                   <div class="form-group mb-3 <?= form_error('jk') ? 'has-error' : null?> ">
                        <label for="" class="control-label">Jenis Kelamin</label>
@@ -62,7 +67,7 @@
                   </div>
                  <div class="form-group mb-3 <?= form_error('no_telp') ? 'has-error' : null?> ">
                       <label for="" class="control-label">No Telepon</label>
-                      <input type="text" pattern="[0-9]" name="no_telp" id="no_telp" class="form-control" onkeypress="return telp(event)" placeholder="Input No Telepon" value="<?= set_value('no_telp')?>"></input>
+                      <input type="text" name="no_telp" id="no_telp" class="form-control" onkeypress="return telp(event)" placeholder="Input No Telepon" value="<?= set_value('no_telp')?>"></input>
                        <span class="help-block alert-danger"><?= form_error('no_telp')?></span>
                   </div>
                   </div> <!-- /.col -->
@@ -122,15 +127,20 @@
                                 </select> 
                                  <span class="help-block alert-danger"><?= form_error('jabatan')?></span>         
                   </div>
-                  <div class="form-group mb-3 <?= form_error('keterangan') ? 'has-error' : null?> ">
-                            <label for="" class="control-label">Keterangan</label>
-                                <select type="option" class="form-control"  name="keterangan">
-                                        <option type="option" class="form-control"  name="keterangan" value="<?= set_value('keterangan')?>"><?= set_value('keterangan')?></option>
+                  <div class="form-group mb-3 <?= form_error('stat_pegawai') ? 'has-error' : null?> ">
+                            <label for="" class="control-label">Status Pegawai</label>
+                                <select type="option" class="form-control"  name="stat_pegawai">
+                                        <option type="option" class="form-control"  name="stat_pegawai" value="<?= set_value('stat_pegawai')?>"><?= set_value('stat_pegawai')?></option>
                                         <option value="POLRI">POLRI</option>
                                         <option value="ASN">ASN</option>
                                 </select>
-                                <span class="help-block alert-danger"><?= form_error('keterangan')?></span>
+                                <span class="help-block alert-danger"><?= form_error('stat_pegawai')?></span>
                         </div>
+                  <div class="form-group mb-3 <?= form_error('keterangan') ? 'has-error' : null?> ">
+                        <label for="" class="control-label">Keterangan</label>
+                        <input type="text" name="keterangan" id="keterangan"  class="form-control"  placeholder="Input NRP / NIP" value="<?= set_value('keterangan')?>">
+                         <span class="help-block alert-danger"><?= form_error('keterangan')?></span>
+                  </div>  
                  <div class="form-group mb-3> ">
                             <label for="" class="control-label">Status</label>
                                 <select type="option" class="form-control"  name="status">

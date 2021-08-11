@@ -18,24 +18,37 @@
     <!-- App CSS -->
     <link rel="stylesheet" href="<?php echo base_url() ?>assets/css/app-light.css" id="lightTheme" disabled>
     <link rel="stylesheet" href="<?php echo base_url() ?>assets/css/app-dark.css" id="darkTheme">
+
+    <style type="text/css">
+      .special-card{
+        opacity: 0.9;
+      }
+
+      .bg-login{
+         background-image: url('./assets/img/bg.jpg'); 
+         background-repeat: no-repeat;
+         background-size: 100%;
+      }
+    </style>
   </head>
-  <body class="bg-gradient-primary" >
+  <body class="bg-login">
       <div class="container">
         <?php echo form_open('auth/login'); ?>
         <!-- Outer Row -->
         <div class="row justify-content-center">
-          <div class="col-xl-5 col-lg-12 col-md-9">
-            <div class="card o-hidden border-0 shadow-lg my-5">
+          <div class="col-xl-5 col-lg-12 col-md-9 special-card">
+            <div class="card o-hidden shadow-lg my-5">
               <div class="card-body p-0">
                 <!-- Nested Row within Card Body -->
-                <div class="row">
+                <div class="row" >
                   <div class="col-lg-12">
-                    <div class="p-5">
+                    <div class="p-4">
                       <?php echo $this->session->flashdata('msg')?>
                       <div class="text-center">
-                        <div class=""><img src="<?= base_url() ?>assets/img/logo2.png" alt="" title="" /></div>
-                          <span style="font-size: 20px;">SIMPEG POLRI KARAWANG </span><br>
-                          <span style="font-size: 15px;">KENAIKAN GAJI BERKALA</span> 
+                        <div class=""><img src="<?= base_url() ?>assets/img/logo.png" alt="" title="" /></div>
+                          <h2>SI GABER </h2>
+                          <span style="font-size: 12px;">SISTEM GAJI BERKALA</span><br/><br/>
+                          <h5 class="">POLRES KARAWANG</h5> 
                           <hr>
                           <br>
                         <h1 class="h4 text-gray-900 mb-4">Login Page !</h1>

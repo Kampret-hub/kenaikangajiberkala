@@ -15,7 +15,7 @@ class kontak extends ci_controller{
         $where = array ('nrp' => $this->session->userdata('username'));
         $data['akun']= $this->model_kgb->find_data($where, 'user')->row_array(); 
 
-        $where = array ('bagian'=> 'BAGSUMDA');
+        $where = array ('bagian'=> 'BAG SDM');
         $data['record1']= $this->model_kgb->find_data($where, 'anggota')->result_array();
         
         $where = array ('id_kontak'=> '1');

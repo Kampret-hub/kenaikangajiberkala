@@ -23,7 +23,7 @@
              <div class="card-body">         
                 <div class="col-md-12">
                   <div class="row align-items-center">
-                      <h4 class="my-1 page-title">BAGSUMDA POLRES KARAWANG</h4>
+                      <h4 class="my-1 page-title">BAG SDM POLRES KARAWANG</h4>
                   </div>
               </div>
              </div>
@@ -54,7 +54,7 @@
              <div class="card-body">         
                 <div class="col-md-12">
                   <div class="row align-items-center">
-                      <h4 class="my-1 page-title">Kontak Anggota BAGSUMDA</h4>
+                      <h4 class="my-1 page-title">Kontak Anggota BAG SDM</h4>
                   </div>
               </div>
              </div>

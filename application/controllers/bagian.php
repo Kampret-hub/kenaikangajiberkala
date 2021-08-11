@@ -28,10 +28,10 @@ class bagian extends ci_controller{
         $where = array ('nrp' => $this->session->userdata('username'));
         $data['akun']= $this->model_kgb->find_data($where, 'user')->row_array(); 
 
-        $this->form_validation->set_rules('bagian', 'Bagian', 'required|min_length[5]');
+        $this->form_validation->set_rules('bagian', 'Bagian', 'required|min_length[3]');
 
         $this->form_validation->set_message('required', '%s masih kosong', 'silahkan isi terlebi dahulu');
-        $this->form_validation->set_message('min_length', '%s minimal 5 karakter');
+        $this->form_validation->set_message('min_length', '%s minimal 3 karakter');
 
         $this->form_validation->set_error_delimiters('<span class="help-block"></span>');
 

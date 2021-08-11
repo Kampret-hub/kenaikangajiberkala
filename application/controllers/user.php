@@ -62,16 +62,20 @@ class user extends ci_controller{
             $nrp   =  $this->input->post('nrp',true);
             $password   =  $this->input->post('password',true);
             $role_id = $this->input->post('role_id',true);
+            $status = $this->input->post('status',true);
             if(empty($password)){
                  $data  =  array(   'nama_lengkap'=>$nama,
                                     'nrp'=>$nrp,
-                                    'role_id'=>$role_id);
+                                    'role_id'=>$role_id,
+                                    'status'=>$status,
+                                    'password'     => 'ee11cbb19052e40b07aac0ca060c23ee');
             }
 
             else{
                   $data =  array(   'nama_lengkap'=>$nama,
                                     'nrp'=>$nrp,
                                     'role_id'=>$role_id,
+                                    'status'=>$status,
                                     'password'=>md5($password));
                                     
             }
