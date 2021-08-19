@@ -24,7 +24,7 @@
     <div class="col-md-12">
         <div class="card shadow">
             <div class="card-body">        
-                <table class="table-striped table-bordered table-hover nowrap" id="dataTable-1" style="width: 100%;">
+                <table id="example1" class="table table-bordered table-hover" style="width: 100%;">
                         <thead>
                             <tr>
                                 <th>No.</th> 
@@ -51,8 +51,8 @@
                                     <span class="text-muted sr-only">Action</span>
                                   </button>
                                   <div class="dropdown-menu dropdown-menu-right">
-                                    <a href=" <?php echo base_url('gaji_pokok/edit/'.$r->id_gaji) ?>" class="btn btn-primary btn-small" style='margin-left: 5px;'><i class="fe fe-edit"></i>Edit</a>
-                                    <a href="<?php echo base_url('gaji_pokok/delete/'.$r->id_gaji)?>" class="btn btn-danger btn-small hapus" id="hapus" ><i class="fe fe-trash"></i>Hapus</a>
+                                    <a href=" <?php echo base_url('gaji_pokok/edit/'.$r->id_gaji) ?>" class="btn btn-primary btn-small" style='margin-left: 5px;'><i class="fas fa-edit"></i>Edit</a>
+                                    <a href="<?php echo base_url('gaji_pokok/delete/'.$r->id_gaji)?>" class="btn btn-danger btn-small hapus" id="hapus" ><i class="fas fa-trash"></i>Hapus</a>
                                   </div>
                                 </td>
                                 

@@ -184,7 +184,7 @@
   <div class="col-md-12">
     <div class="card shadow">
       <div class="card-body">        
-        <table class="table-striped table-bordered table-hover nowrap" id="dataTable-1" style="width: 100%;">
+        <table id="example1" class="table table-bordered table-hover" style="width: 100%;">
             <thead>
               <tr>
                 <th style="width: 20px;">Periode</th> 

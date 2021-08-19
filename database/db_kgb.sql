@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.5.1
+-- version 4.1.12
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 11, 2021 at 06:05 PM
--- Server version: 10.1.19-MariaDB
--- PHP Version: 5.6.28
+-- Generation Time: Aug 18, 2021 at 07:59 PM
+-- Server version: 5.6.16
+-- PHP Version: 5.5.11
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -14,7 +14,7 @@ SET time_zone = "+00:00";
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8mb4 */;
+/*!40101 SET NAMES utf8 */;
 
 --
 -- Database: `db_kgb`
@@ -26,10 +26,11 @@ SET time_zone = "+00:00";
 -- Table structure for table `agama`
 --
 
-CREATE TABLE `agama` (
-  `id_agama` int(11) NOT NULL,
-  `nama_agama` varchar(20) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+CREATE TABLE IF NOT EXISTS `agama` (
+  `id_agama` int(11) NOT NULL AUTO_INCREMENT,
+  `nama_agama` varchar(20) NOT NULL,
+  PRIMARY KEY (`id_agama`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=7 ;
 
 --
 -- Dumping data for table `agama`
@@ -49,7 +50,7 @@ INSERT INTO `agama` (`id_agama`, `nama_agama`) VALUES
 -- Table structure for table `anggota`
 --
 
-CREATE TABLE `anggota` (
+CREATE TABLE IF NOT EXISTS `anggota` (
   `nrp` varchar(30) NOT NULL,
   `nama_lengkap` varchar(255) NOT NULL,
   `tmpt_lahir` varchar(50) NOT NULL,
@@ -67,7 +68,8 @@ CREATE TABLE `anggota` (
   `gaji_pokok` varchar(20) NOT NULL,
   `stat_pegawai` varchar(30) NOT NULL,
   `keterangan` varchar(30) NOT NULL,
-  `status` varchar(10) NOT NULL
+  `status` varchar(10) NOT NULL,
+  PRIMARY KEY (`nrp`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -94,7 +96,7 @@ INSERT INTO `anggota` (`nrp`, `nama_lengkap`, `tmpt_lahir`, `t_lahir`, `jk`, `ag
 ('01110254', 'HISKIA PARGAULAN HUTAGALUNG', '', '', 'P', '', '', '', '', 'BRIPDA', 'BRIGADIR UNITDALMAS SATSAMAPTA', 'SATSAMAPTA', '', '', '', 'POLRI', '', 'aktif'),
 ('02040283', 'MUHAMMAD TANDIO PRAWIRA', '', '', 'P', '', '', '', '', 'BRIPDA', 'BRIGADIR UNITDALMAS SATSAMAPTA', 'SATSAMAPTA', '', '', '', 'POLRI', '', 'aktif'),
 ('02070032', 'HANDYKA GUNTUR AGNANDES', '', '', 'P', '', '', '', '', 'BRIPDA', 'BRIGADIR UNITDALMAS SATSAMAPTA', 'SATSAMAPTA', '', '', '', 'POLRI', '', 'aktif'),
-('08071996', 'ANDRI JULIYANTO', 'KARAWANG', '1996-08-07', 'P', 'Islam', '083815404175', 'ANJUN', 'S1', '', '', '', '', '', '', 'ASN', '', 'aktif'),
+('08071996', 'ANDRI JULIYANTO', 'KARAWANG', '1996-08-07', 'P', 'Islam', '083815404175', 'ANJUN1', 'S1', '', '', '', '', '', '', 'ASN', '', 'aktif'),
 ('195911081984022002', 'YANI HARYANI', '', '', 'W', '', '', '', '', 'PENDA TK I', 'STAF SIUM ( PRIMKOPPOL )', '', '', '', '', 'ASN', 'SIUM', 'pensiun'),
 ('196009141983032002', 'IIS SUMIATI', '', '', 'W', '', '', '', '', 'PENDA', 'BANUM SAT INTELKAM', '', '', '', '', 'ASN', '', 'pensiun'),
 ('196104031987032003', 'AI JUBAEDAH RUSLAN', '', '', 'W', '', '', '', '', 'PENDA TK I', 'BANUM SAT INTELKAM ', '', '', '', '', 'ASN', '', 'pensiun'),
@@ -1548,10 +1550,11 @@ INSERT INTO `anggota` (`nrp`, `nama_lengkap`, `tmpt_lahir`, `t_lahir`, `jk`, `ag
 -- Table structure for table `bagian`
 --
 
-CREATE TABLE `bagian` (
-  `id_bagian` int(11) NOT NULL,
-  `nama_bagian` varchar(30) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+CREATE TABLE IF NOT EXISTS `bagian` (
+  `id_bagian` int(11) NOT NULL AUTO_INCREMENT,
+  `nama_bagian` varchar(30) NOT NULL,
+  PRIMARY KEY (`id_bagian`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=52 ;
 
 --
 -- Dumping data for table `bagian`
@@ -1616,15 +1619,16 @@ INSERT INTO `bagian` (`id_bagian`, `nama_bagian`) VALUES
 -- Table structure for table `gaji_pokok`
 --
 
-CREATE TABLE `gaji_pokok` (
-  `id_gaji` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `gaji_pokok` (
+  `id_gaji` int(11) NOT NULL AUTO_INCREMENT,
   `kode_gapok` varchar(20) NOT NULL,
   `gaji` varchar(50) NOT NULL,
   `masa_kerja` varchar(20) NOT NULL,
   `golongan` varchar(20) NOT NULL,
   `taraf` varchar(30) NOT NULL,
-  `pangkat` varchar(30) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `pangkat` varchar(30) NOT NULL,
+  PRIMARY KEY (`id_gaji`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=477 ;
 
 --
 -- Dumping data for table `gaji_pokok`
@@ -2114,12 +2118,13 @@ INSERT INTO `gaji_pokok` (`id_gaji`, `kode_gapok`, `gaji`, `masa_kerja`, `golong
 -- Table structure for table `golongan`
 --
 
-CREATE TABLE `golongan` (
-  `id_golongan` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `golongan` (
+  `id_golongan` int(11) NOT NULL AUTO_INCREMENT,
   `kode_golongan` varchar(50) NOT NULL,
   `taraf` varchar(50) NOT NULL,
-  `pangkat` varchar(30) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `pangkat` varchar(30) NOT NULL,
+  PRIMARY KEY (`id_golongan`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=45 ;
 
 --
 -- Dumping data for table `golongan`
@@ -2177,8 +2182,8 @@ INSERT INTO `golongan` (`id_golongan`, `kode_golongan`, `taraf`, `pangkat`) VALU
 -- Table structure for table `history_kgb`
 --
 
-CREATE TABLE `history_kgb` (
-  `id` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `history_kgb` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `ket` varchar(30) NOT NULL,
   `nomor_kgb` varchar(30) NOT NULL,
   `nrp` varchar(30) NOT NULL,
@@ -2201,17 +2206,9 @@ CREATE TABLE `history_kgb` (
   `padatanggal` varchar(30) NOT NULL,
   `d_oleh` varchar(30) NOT NULL,
   `sebagai` varchar(30) NOT NULL,
-  `nrp_p` varchar(30) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `history_kgb`
---
-
-INSERT INTO `history_kgb` (`id`, `ket`, `nomor_kgb`, `nrp`, `nama`, `kesatuan`, `gpl`, `gpb`, `mkgg1`, `mkgg2`, `mkg1`, `mkg2`, `tmtl`, `tmtb`, `kep_pangkat`, `no_tgl`, `kgbb`, `kgbb_thn`, `kgbb_bln`, `diterapkan`, `padatanggal`, `d_oleh`, `sebagai`, `nrp_p`) VALUES
-(1, 'SURAT PEMBERITAHUAN', 'spemb', '08071996', 'ANDRI JULIYANTO', 'KEP KAPOLRES KARAWANG', 'RP2.022.200', 'RP2.054.100', '0TH', ' ', '1TH', ' ', '09/08/2021', '09/08/2022', 'KEP KAPOLRES KARAWANG', 'KEP/1486/XII/2019, 13 DESEMBER', '09/08/2023', '3TH', '', 'KARAWANG', '09/08/2021', 'ADI FAUZI, S.E., M.M.', 'KOMPOL', '71120474'),
-(2, 'SURAT PEMBERITAHUAN', '09098989', '79071513', 'RAMA SAMTAMA PUTRA, S.I.K., M.Si., M.H.', 'KEP KAPOLRES KARAWANG', '', '', '6TH', '2BL', '4TH', '2BL', '12/08/2019', '11/08/2021', 'KEP KAPOLRI', '78787', '22', '8TH', '2BL', 'iya', '11/08/2021', 'Adi Fauzi', 'KOMISARIS POLISI', '21232123'),
-(3, 'SURAT PEMBERITAHUAN', '09098989', '79071513', 'RAMA SAMTAMA PUTRA, S.I.K., M.Si., M.H.', 'KEP KAPOLRES KARAWANG', '', '', '6TH', '2BL', '4TH', '2BL', '12/08/2019', '11/08/2021', 'KEP KAPOLRI', '78787', '11/08/2021', '8TH', '2BL', 'iya', '11/08/2021', 'Adi Fauzi', 'KOMISARIS POLISI', '21232123');
+  `nrp_p` varchar(30) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -2219,10 +2216,11 @@ INSERT INTO `history_kgb` (`id`, `ket`, `nomor_kgb`, `nrp`, `nama`, `kesatuan`, 
 -- Table structure for table `jabatan`
 --
 
-CREATE TABLE `jabatan` (
-  `id_jabatan` int(11) NOT NULL,
-  `nama_jabatan` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+CREATE TABLE IF NOT EXISTS `jabatan` (
+  `id_jabatan` int(11) NOT NULL AUTO_INCREMENT,
+  `nama_jabatan` varchar(50) NOT NULL,
+  PRIMARY KEY (`id_jabatan`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=626 ;
 
 --
 -- Dumping data for table `jabatan`
@@ -2861,10 +2859,11 @@ INSERT INTO `jabatan` (`id_jabatan`, `nama_jabatan`) VALUES
 -- Table structure for table `jk`
 --
 
-CREATE TABLE `jk` (
-  `id_jk` int(11) NOT NULL,
-  `nama_jk` varchar(20) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+CREATE TABLE IF NOT EXISTS `jk` (
+  `id_jk` int(11) NOT NULL AUTO_INCREMENT,
+  `nama_jk` varchar(20) NOT NULL,
+  PRIMARY KEY (`id_jk`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
 
 --
 -- Dumping data for table `jk`
@@ -2880,12 +2879,13 @@ INSERT INTO `jk` (`id_jk`, `nama_jk`) VALUES
 -- Table structure for table `kontak`
 --
 
-CREATE TABLE `kontak` (
+CREATE TABLE IF NOT EXISTS `kontak` (
   `id_kontak` int(11) NOT NULL,
   `kab` varchar(30) NOT NULL,
   `alamat` varchar(30) NOT NULL,
   `no_telp` varchar(15) NOT NULL,
-  `email` varchar(50) NOT NULL
+  `email` varchar(50) NOT NULL,
+  PRIMARY KEY (`id_kontak`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -2901,11 +2901,12 @@ INSERT INTO `kontak` (`id_kontak`, `kab`, `alamat`, `no_telp`, `email`) VALUES
 -- Table structure for table `pangkat`
 --
 
-CREATE TABLE `pangkat` (
-  `id_pangkat` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `pangkat` (
+  `id_pangkat` int(11) NOT NULL AUTO_INCREMENT,
   `taraf` varchar(30) NOT NULL,
-  `nama_pangkat` varchar(30) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `nama_pangkat` varchar(30) NOT NULL,
+  PRIMARY KEY (`id_pangkat`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=46 ;
 
 --
 -- Dumping data for table `pangkat`
@@ -2963,8 +2964,8 @@ INSERT INTO `pangkat` (`id_pangkat`, `taraf`, `nama_pangkat`) VALUES
 -- Table structure for table `t_kgb`
 --
 
-CREATE TABLE `t_kgb` (
-  `id_kgb` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `t_kgb` (
+  `id_kgb` int(11) NOT NULL AUTO_INCREMENT,
   `ket` varchar(30) NOT NULL,
   `nomor_kgb` varchar(30) NOT NULL,
   `nrp` varchar(30) NOT NULL,
@@ -2980,22 +2981,23 @@ CREATE TABLE `t_kgb` (
   `tmtb` varchar(30) NOT NULL,
   `kep_pangkat` varchar(30) NOT NULL,
   `no_tgl` varchar(30) NOT NULL,
-  `kgbb` date NOT NULL,
+  `kgbb` varchar(30) NOT NULL DEFAULT '00/00/0000',
   `kgbb_thn` varchar(30) NOT NULL,
   `kgbb_bln` varchar(30) NOT NULL,
   `diterapkan` varchar(30) NOT NULL,
   `padatanggal` varchar(30) NOT NULL,
   `d_oleh` varchar(30) NOT NULL,
   `sebagai` varchar(30) NOT NULL,
-  `nrp_p` varchar(30) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `nrp_p` varchar(30) NOT NULL,
+  PRIMARY KEY (`id_kgb`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=1463 ;
 
 --
 -- Dumping data for table `t_kgb`
 --
 
 INSERT INTO `t_kgb` (`id_kgb`, `ket`, `nomor_kgb`, `nrp`, `nama`, `kesatuan`, `gpl`, `gpb`, `mkgg1`, `mkgg2`, `mkg1`, `mkg2`, `tmtl`, `tmtb`, `kep_pangkat`, `no_tgl`, `kgbb`, `kgbb_thn`, `kgbb_bln`, `diterapkan`, `padatanggal`, `d_oleh`, `sebagai`, `nrp_p`) VALUES
-(1, 'SURAT PEMBERITAHUAN', '09098989', '79071513', 'RAMA SAMTAMA PUTRA, S.I.K., M.Si., M.H.', 'KEP KAPOLRES KARAWANG', '', '', '6TH', '2BL', '4TH', '2BL', '12/08/2019', '11/08/2021', 'KEP KAPOLRI', '78787', '2021-08-11', '8TH', '2BL', 'iya', '11/08/2021', 'Adi Fauzi', 'KOMISARIS POLISI', '21232123'),
+(1, 'SURAT PEMBERITAHUAN', '09098989', '79071513', 'RAMA SAMTAMA PUTRA, S.I.K., M.Si., M.H.', 'KEP KAPOLRES KARAWANG', '', '', '6TH', '2BL', '4TH', '2BL', '12/08/2021', '11/08/2021', 'KEP KAPOLRI', '78787', '2022/09/01', '8TH', '2BL', 'iya', '11/08/2021', 'Adi Fauzi', 'KOMISARIS POLISI', '21232123'),
 (2, '', '', '81101203', 'AHMAD FAISAL PASARIBU, S.H., S.I.K., M.H.', 'KEP KAPOLRES KARAWANG', '', '', '', '', '', '', '', '', 'KEP KAPOLRI', '', '0000-00-00', '', '', '', '', 'Adi Fauzi', 'KOMISARIS POLISI', '21232123'),
 (3, '', '', '83061476', 'ENDAR SUPRIYATNA, S.Kom., S.I.K.', 'KEP KAPOLRES KARAWANG', '', '', '', '', '', '', '', '', 'KEP KAPOLRI', '', '0000-00-00', '', '', '', '', 'Adi Fauzi', 'KOMISARIS POLISI', '21232123'),
 (4, '', '', '64120245', 'NANA SUTISNA, S.H.', 'KEP KAPOLRES KARAWANG', '', '', '', '', '', '', '', '', 'KEP KAPOLRI', '', '0000-00-00', '', '', '', '', 'Adi Fauzi', 'KOMISARIS POLISI', '21232123'),
@@ -4470,16 +4472,19 @@ INSERT INTO `t_kgb` (`id_kgb`, `ket`, `nomor_kgb`, `nrp`, `nama`, `kesatuan`, `g
 -- Table structure for table `user`
 --
 
-CREATE TABLE `user` (
-  `user_id` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `user` (
+  `user_id` int(11) NOT NULL AUTO_INCREMENT,
   `nama_lengkap` varchar(50) NOT NULL,
   `nrp` varchar(30) NOT NULL,
   `password` varchar(32) NOT NULL,
   `role_id` int(11) NOT NULL,
   `status` int(11) NOT NULL,
   `date_created` varchar(11) NOT NULL,
-  `foto` varchar(255) NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+  `foto` varchar(255) NOT NULL,
+  PRIMARY KEY (`user_id`),
+  UNIQUE KEY `nrp` (`nrp`),
+  UNIQUE KEY `nrp_2` (`nrp`)
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=1463 ;
 
 --
 -- Dumping data for table `user`
@@ -5949,7 +5954,7 @@ INSERT INTO `user` (`user_id`, `nama_lengkap`, `nrp`, `password`, `role_id`, `st
 (1459, 'SUPANDI', '63070450', 'ee11cbb19052e40b07aac0ca060c23ee', 2, 0, '26/06/2021', 'face.png'),
 (1460, 'MOHAMAD SAFEI', '63070374', 'ee11cbb19052e40b07aac0ca060c23ee', 2, 0, '26/06/2021', 'face.png'),
 (1461, 'SUMANTA', '63070275', 'ee11cbb19052e40b07aac0ca060c23ee', 2, 0, '26/06/2021', 'face.png'),
-(1462, 'ANDRI JULIYANTO', '08071996', '21232f297a57a5a743894a0e4a801fc3', 1, 1, '26/06/2021', 'face.png');
+(1462, 'ANDRI JULIYANTO', '08071996', '21232f297a57a5a743894a0e4a801fc3', 1, 1, '26/06/2021', '');
 
 -- --------------------------------------------------------
 
@@ -5957,10 +5962,11 @@ INSERT INTO `user` (`user_id`, `nama_lengkap`, `nrp`, `password`, `role_id`, `st
 -- Table structure for table `user_role`
 --
 
-CREATE TABLE `user_role` (
-  `id` int(11) NOT NULL,
-  `role` varchar(20) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+CREATE TABLE IF NOT EXISTS `user_role` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `role` varchar(20) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
 
 --
 -- Dumping data for table `user_role`
@@ -5970,149 +5976,6 @@ INSERT INTO `user_role` (`id`, `role`) VALUES
 (1, 'Administrator'),
 (2, 'Pegawai');
 
---
--- Indexes for dumped tables
---
-
---
--- Indexes for table `agama`
---
-ALTER TABLE `agama`
-  ADD PRIMARY KEY (`id_agama`);
-
---
--- Indexes for table `anggota`
---
-ALTER TABLE `anggota`
-  ADD PRIMARY KEY (`nrp`);
-
---
--- Indexes for table `bagian`
---
-ALTER TABLE `bagian`
-  ADD PRIMARY KEY (`id_bagian`);
-
---
--- Indexes for table `gaji_pokok`
---
-ALTER TABLE `gaji_pokok`
-  ADD PRIMARY KEY (`id_gaji`);
-
---
--- Indexes for table `golongan`
---
-ALTER TABLE `golongan`
-  ADD PRIMARY KEY (`id_golongan`);
-
---
--- Indexes for table `history_kgb`
---
-ALTER TABLE `history_kgb`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `jabatan`
---
-ALTER TABLE `jabatan`
-  ADD PRIMARY KEY (`id_jabatan`);
-
---
--- Indexes for table `jk`
---
-ALTER TABLE `jk`
-  ADD PRIMARY KEY (`id_jk`);
-
---
--- Indexes for table `kontak`
---
-ALTER TABLE `kontak`
-  ADD PRIMARY KEY (`id_kontak`);
-
---
--- Indexes for table `pangkat`
---
-ALTER TABLE `pangkat`
-  ADD PRIMARY KEY (`id_pangkat`);
-
---
--- Indexes for table `t_kgb`
---
-ALTER TABLE `t_kgb`
-  ADD PRIMARY KEY (`id_kgb`);
-
---
--- Indexes for table `user`
---
-ALTER TABLE `user`
-  ADD PRIMARY KEY (`user_id`),
-  ADD UNIQUE KEY `nrp` (`nrp`),
-  ADD UNIQUE KEY `nrp_2` (`nrp`);
-
---
--- Indexes for table `user_role`
---
-ALTER TABLE `user_role`
-  ADD PRIMARY KEY (`id`);
-
---
--- AUTO_INCREMENT for dumped tables
---
-
---
--- AUTO_INCREMENT for table `agama`
---
-ALTER TABLE `agama`
-  MODIFY `id_agama` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
---
--- AUTO_INCREMENT for table `bagian`
---
-ALTER TABLE `bagian`
-  MODIFY `id_bagian` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=52;
---
--- AUTO_INCREMENT for table `gaji_pokok`
---
-ALTER TABLE `gaji_pokok`
-  MODIFY `id_gaji` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=477;
---
--- AUTO_INCREMENT for table `golongan`
---
-ALTER TABLE `golongan`
-  MODIFY `id_golongan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
---
--- AUTO_INCREMENT for table `history_kgb`
---
-ALTER TABLE `history_kgb`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
---
--- AUTO_INCREMENT for table `jabatan`
---
-ALTER TABLE `jabatan`
-  MODIFY `id_jabatan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=626;
---
--- AUTO_INCREMENT for table `jk`
---
-ALTER TABLE `jk`
-  MODIFY `id_jk` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
---
--- AUTO_INCREMENT for table `pangkat`
---
-ALTER TABLE `pangkat`
-  MODIFY `id_pangkat` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
---
--- AUTO_INCREMENT for table `t_kgb`
---
-ALTER TABLE `t_kgb`
-  MODIFY `id_kgb` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1463;
---
--- AUTO_INCREMENT for table `user`
---
-ALTER TABLE `user`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1463;
---
--- AUTO_INCREMENT for table `user_role`
---
-ALTER TABLE `user_role`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

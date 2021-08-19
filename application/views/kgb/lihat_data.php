@@ -23,7 +23,7 @@
     <div class="col-md-12">
         <div class="card shadow">
             <div class="card-body">        
-                <table class="table-striped table-bordered table-hover nowrap" id="dataTable-1" style="width: 100%;">
+                <table id="example1" class="table table-bordered table-hover" style="width: 100%;">
                         <thead>
                             <tr>
                                 <th>No.</th> 
@@ -56,8 +56,8 @@
                                     <span class="text-muted sr-only">Action</span>
                                   </button>
                                   <div class="dropdown-menu dropdown-menu-right">
-                                    <a href=" <?php echo base_url('kgb/edit/'.$r->id_kgb) ?>" class="btn btn-primary btn-small" style='margin-left: 5px;'><i class="fe fe-edit"></i> Edit</a>
-                                    <a href="<?php echo base_url('history/index/'.$r->nrp)?>" class="btn btn-info btn-small" id="" ><i class="fe fe-archive"></i> History</a>
+                                    <a href=" <?php echo base_url('kgb/edit/'.$r->id_kgb) ?>" class="btn btn-primary btn-small" style='margin-left: 5px;'><i class="fas fa-edit"></i> Edit</a>
+                                    <a href="<?php echo base_url('history/index/'.$r->nrp)?>" class="btn btn-info btn-small" id="" ><i class="fas fa-archive"></i> History</a>
                                   </div>
                                 </td>
                             </tr>

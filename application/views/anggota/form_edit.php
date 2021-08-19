@@ -118,7 +118,7 @@
                                 </select>
                         </div>
                         <div class="form-group mb-3">
-                             <label for="" class="control-label">Kode Golongan</label> 
+                             <label for="" class="control-label">Kode GAPOK</label> 
                                 <input  type="option" class="form-control"  id="title"  name="" ></input>                                    
                         </div>
                         <div class="form-group mb-3">

@@ -1,4 +1,16 @@
 
+<div class="content-header">
+  <div class="container-fluid">
+      <div class="row mb-2">
+         <div class="col-sm-6">
+           <h1 class="m-0">Profil</h1>
+      </div><!-- /.col -->
+      </div><!-- /.row -->
+  </div><!-- /.container-fluid -->
+</div>
+    <!-- /.content-header -->
+
+<br>
 <div class="alert alert-dismissible fade show">
   <strong>
     <?php echo $this->session->flashdata('msg')?>
@@ -8,118 +20,115 @@
   </button>
 </div>
 
-<div class="card shadow" style="background-color: #0275d8;">
-  <div class="card-body">
-    <h3 class="page-title my-2">Profile</h3>
-   </div>
-</div>
-<br>
-    
-<div class="row gutters-sm">
-  <div class="col-md-4 mb-3">
-    <div class="card">
-      <div class="card-body">
-        <div class="d-flex flex-column align-items-center text-center">
-          <div class="avatar avatar-xl">
-            <?php if($akun['foto'] == ''){ ?>
-              <img style="height: 255px; width: 255px;" src="<?php echo base_url(); ?>./assets/avatars/face.png" class="avatar-img rounded-circle">
-            <?php } else { ?>
-              <img style="height: 255px; width: 255px;" src="<?php echo base_url().'/assets/avatars/'.$akun['foto']  ?>" class="avatar-img rounded-circle">
-            <?php } ?>
+
+<div class="col-12">
+  <div class="row">
+    <div class="col-md-4 mb-3">
+      <div class="card">
+        <div class="card-body">
+          <div class="d-flex flex-column align-items-center text-center">
+            <div class="avatar avatar-xl">
+              <?php if($akun['foto'] == ''){ ?>
+                <img style="height: 255px; width: 255px;" src="<?php echo base_url(); ?>./assets/avatars/face.png" class="avatar-img rounded-circle">
+              <?php } else { ?>
+                <img style="height: 255px; width: 255px;" src="<?php echo base_url().'/assets/avatars/'.$akun['foto']  ?>" class="avatar-img rounded-circle">
+              <?php } ?>
+            </div>
+            <div class="mt-3">
+              <h4 style="text-transform: uppercase;"><?php echo substr($member['nama_lengkap'],0,25); ?></h4>
+                <p class="text-secondary mb-1">Admin</p>
+                <hr>
+                <a href=" <?php echo base_url('admin/profile/edit') ?>" class="btn btn-primary btn-small" style='margin-left: 5px;'><i class="fe fe-edit"></i> Edit Profile</a>
           </div>
-          <div class="mt-3">
-            <h4 style="text-transform: uppercase;"><?php echo substr($member['nama_lengkap'],0,25); ?></h4>
-              <p class="text-secondary mb-1">Admin</p>
-              <hr>
-              <a href=" <?php echo base_url('admin/profile/edit') ?>" class="btn btn-primary btn-small" style='margin-left: 5px;'><i class="fe fe-edit"></i> Edit Profile</a>
         </div>
       </div>
     </div>
   </div>
-</div>
 
-<div class="col-md-8">
-  <div class="card mb-3">
-    <div class="card-body">
-      <div class="row">
-        <div class="col-sm-3">
-         <h6 class="mb-0">Nama Lengkap</h6>
-        </div>
-          <div class="col-sm-9 text-secondary" style="text-transform: uppercase;">
-            <?php echo $member['nama_lengkap'] ?>
-        </div>
-      </div>
-      <hr>
-      <div class="row">
-        <div class="col-sm-3">
-         <h6 class="mb-0">NRP / NIP</h6>
-        </div>
-          <div class="col-sm-9 text-secondary">
-            <?php echo $member['nrp'] ?>
-        </div>
-      </div>
-      <hr>
-      <div class="row">
-        <div class="col-sm-3">
-          <h6 class="mb-0">Tempat, Tanggal Lahir</h6>
-        </div>
-        <div class="col-sm-9 text-secondary" style="text-transform:uppercase">
-          <?php echo $member['tmpt_lahir'] ?>, <?php $sampeledate = ($member['t_lahir']); 
-           $converdate = date("d-m-Y", strtotime($sampeledate));
-           echo $converdate;
-          ?>   
-        </div>
-      </div>
-      <hr>
-      <div class="row">
-        <div class="col-sm-3">
-          <h6 class="mb-0">Umur</h6>
-        </div>
-        <div class="col-sm-9 text-secondary">
-          <?php $lahir    =new DateTime($member['t_lahir']);
-            $today        =new DateTime();
-            $umur = $today->diff($lahir);
-            echo $umur->y; echo " Tahun, "; echo $umur->m; echo " Bulan, dan "; echo $umur->d; echo " Hari";
-          ?>
-        </div>
-      </div>
-      <hr>
-      <div class="row">
-        <div class="col-sm-3">
-         <h6 class="mb-0">Jenis Kelamin</h6>
-        </div>
-          <div class="col-sm-9 text-secondary">
-                      <?php echo $member['jk'] ?>
-        </div>
-      </div>
-      <hr>
+  <div class="col-md-8">
+    <div class="card mb-3">
+      <div class="card-body">
         <div class="row">
           <div class="col-sm-3">
-         <h6 class="mb-0">Agama</h6>
+           <h6 class="mb-0">Nama Lengkap</h6>
+          </div>
+            <div class="col-sm-9 text-secondary" style="text-transform: uppercase;">
+              <?php echo $member['nama_lengkap'] ?>
+          </div>
         </div>
-          <div class="col-sm-9 text-secondary">
-            <?php echo $member['agama'] ?>
-        </div>
-      </div>
-      <hr>
+        <hr>
         <div class="row">
           <div class="col-sm-3">
-         <h6 class="mb-0">No Telepon</h6>
+           <h6 class="mb-0">NRP / NIP</h6>
+          </div>
+            <div class="col-sm-9 text-secondary">
+              <?php echo $member['nrp'] ?>
+          </div>
         </div>
-          <div class="col-sm-9 text-secondary">
-            <?php echo $member['no_telp'] ?>
-        </div>
-      </div>
-      <hr>
+        <hr>
         <div class="row">
           <div class="col-sm-3">
-         <h6 class="mb-0">Alamat</h6>
+            <h6 class="mb-0">Tempat, Tanggal Lahir</h6>
+          </div>
+          <div class="col-sm-9 text-secondary" style="text-transform:uppercase">
+            <?php echo $member['tmpt_lahir'] ?>, <?php $sampeledate = ($member['t_lahir']); 
+             $converdate = date("d-m-Y", strtotime($sampeledate));
+             echo $converdate;
+            ?>   
+          </div>
         </div>
+        <hr>
+        <div class="row">
+          <div class="col-sm-3">
+            <h6 class="mb-0">Umur</h6>
+          </div>
           <div class="col-sm-9 text-secondary">
-            <?php echo $member['alamat'] ?>
+            <?php $lahir    =new DateTime($member['t_lahir']);
+              $today        =new DateTime();
+              $umur = $today->diff($lahir);
+              echo $umur->y; echo " Tahun, "; echo $umur->m; echo " Bulan, dan "; echo $umur->d; echo " Hari";
+            ?>
+          </div>
+        </div>
+        <hr>
+        <div class="row">
+          <div class="col-sm-3">
+           <h6 class="mb-0">Jenis Kelamin</h6>
+          </div>
+            <div class="col-sm-9 text-secondary">
+                        <?php echo $member['jk'] ?>
+          </div>
+        </div>
+        <hr>
+          <div class="row">
+            <div class="col-sm-3">
+           <h6 class="mb-0">Agama</h6>
+          </div>
+            <div class="col-sm-9 text-secondary">
+              <?php echo $member['agama'] ?>
+          </div>
+        </div>
+        <hr>
+          <div class="row">
+            <div class="col-sm-3">
+           <h6 class="mb-0">No Telepon</h6>
+          </div>
+            <div class="col-sm-9 text-secondary">
+              <?php echo $member['no_telp'] ?>
+          </div>
+        </div>
+        <hr>
+          <div class="row">
+            <div class="col-sm-3">
+           <h6 class="mb-0">Alamat</h6>
+          </div>
+            <div class="col-sm-9 text-secondary">
+              <?php echo $member['alamat'] ?>
+          </div>
         </div>
       </div>
     </div>
+  </div>
   </div>
 </div>
 
@@ -175,17 +184,31 @@
   </div>
 </div>
 
-<div class="card shadow" style="background-color: #0275d8;">
-   <div class="card-body">
-      <h3 class="page-title my-2">Kenaikan Gaji Berkala</h3>
-  </div>
-</div>
-<div class="row my-4">    
-  <div class="col-md-12">
-    <div class="card shadow">
-      <div class="card-body">        
-        <table class="table-striped table-bordered table-hover nowrap" id="dataTable-1" style="width: 100%;">
-            <thead>
+<div class="col-md-12">
+            <div class="card card-primary">
+              <div class="card-header">
+                <h3 class="card-title"><span class="fas fa-chart-bar"> Kenaikan Gaji Berkala</span></h3>
+
+                <div class="card-tools">
+                  <button type="button" class="btn btn-tool" data-card-widget="card-refresh" data-source="" data-source-selector="#card-refresh-content" data-load-on-init="false">
+                    <i class="fas fa-sync-alt"></i>
+                  </button>
+                  <button type="button" class="btn btn-tool" data-card-widget="maximize">
+                    <i class="fas fa-expand"></i>
+                  </button>
+                  <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                    <i class="fas fa-minus"></i>
+                  </button>
+                  <button type="button" class="btn btn-tool" data-card-widget="remove">
+                    <i class="fas fa-times"></i>
+                  </button>
+                </div>
+                <!-- /.card-tools -->
+              </div>
+              <!-- /.card-header -->
+              <div class="card-body">
+                <table id="example1" class="table table-bordered table-hover" style="width: 100%;">
+                <thead>
               <tr>
                 <th style="width: 20px;">Periode</th> 
                 <th style="width: 150px;">Masa Kerja</th>
@@ -207,9 +230,9 @@
               </td>
             </tr>
             <?php $no++; } ?>
-        </table>
-      </div>
-    </div>
-  </div>
-</div>
-<script src="<?php echo base_url(); ?>/assets/js/profil.js"></script>
+                </table>
+              </div>
+              <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+          </div>

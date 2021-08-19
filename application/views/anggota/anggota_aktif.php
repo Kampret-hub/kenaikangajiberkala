@@ -5,9 +5,8 @@
             <div class="card-body">
               <h2 class="mb-2 page-title">Data Anggota Aktif</h2>
                 <?php echo anchor('anggota/insert','Tambah Data',array('class'=>'btn btn-danger btn-sm')) ?>
-
-            </div>
-            <form action="<?= base_url('anggota/import_excel'); ?>" method="post" enctype="multipart/form-data">
+              </div>
+              <form action="<?= base_url('anggota/import_excel'); ?>" method="post" enctype="multipart/form-data">
                 <div class="form-group">
                     <label>Pilih File Excel</label>
                     <input type="file" name="fileExcel">
@@ -19,13 +18,14 @@
                     </button>
                 </div>
             </form>
+            </div>
+          </div>
         </div>
-    </div>
-</div>
 
 <div class="alert alert-dismissible fade show">
     <strong>
         <?php echo $this->session->flashdata('msg')?>
+        <?php echo $this->session->flashdata('status')?>
     </strong>
     <button type="button" class="close" data-dismiss="alert" arial-label="Close">
         <span aria-hodden="true">&times;</span>
@@ -37,7 +37,7 @@
     <div class="col-md-12">
         <div class="card shadow">
             <div class="card-body">        
-                <table class="table-striped table-bordered table-hover nowrap" id="dataTable-1" style="width: 100%;">
+                 <table id="example1" class="table table-bordered table-hover" style="width: 100%;">
                         <thead>
                             <tr>
                                 <th>No.</th> 
@@ -79,9 +79,9 @@
                                 <td><button class="btn btn-sm dropdown-toggle more-horizontal" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     <span class="text-muted sr-only">Action</span>
                                   </button>
-                                  <div class="dropdown-menu dropdown-menu-right " >
-                                    <a href=" <?php echo base_url('anggota/edit/'.$r->nrp) ?>" class="btn btn-primary btn-small" style='margin-left: 5px;'><i class="fe fe-edit"></i>Edit</a>
-                                    <a href="<?php echo base_url('anggota/delete/'.$r->nrp.'/'.$r->status)?>" class="btn btn-danger btn-small hapus" id="" ><i class="fe fe-trash"></i>Hapus</a>
+                                  <div class="dropdown-menu dropdown-menu-center" >
+                                    <a href=" <?php echo base_url('anggota/edit/'.$r->nrp) ?>" class="btn btn-primary btn-small" style='margin-left: 5px;'><i class="fas fa-edit"></i>Edit</a>
+                                    <a href="<?php echo base_url('anggota/delete/'.$r->nrp.'/'.$r->status)?>" class="btn btn-danger btn-small hapus" id="" ><i class="fas fa-trash"></i>Hapus</a>
                                 </td>
                             </tr>
                         <?php $no++; } ?>

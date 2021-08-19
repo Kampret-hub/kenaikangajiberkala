@@ -25,7 +25,7 @@
     <div class="col-md-12">
         <div class="card shadow">
             <div class="card-body">        
-                <table class="table-striped table-bordered table-hover nowrap" id="dataTable-1" style="width: 100%;">
+                <table id="example1" class="table table-bordered table-hover" style="width: 100%;">
                         <thead>
                             <tr>
                                 <th>No.</th> 
@@ -58,9 +58,9 @@
                                     <span class="text-muted sr-only">Action</span>
                                   </button>
                                   <div class="dropdown-menu dropdown-menu-center">
-                                    <a href=" <?php echo base_url('history/edit/'.$r->id) ?>" class="btn btn-primary btn-small" style='margin-left: 5px;'><i class="fe fe-edit"></i> Edit</a>
-                                    <a href="<?php echo base_url('history/lihat_cetak/'.$r->id)?>" class="btn btn-info btn-small" id="" ><i class="fe fe-eye"></i> Lihat</a>
-                                     <a href="<?php echo base_url('history/delete/'.$r->id.'/'.$r->nrp)?>" class="btn btn-danger btn-small hapus" id="" ><i class="fe fe-trash"></i>Hapus</a>
+                                    <a href=" <?php echo base_url('history/edit/'.$r->id) ?>" class="btn btn-primary btn-small" style='margin-left: 5px;'><i class="fas fa-edit"></i> Edit</a>
+                                    <a href="<?php echo base_url('history/lihat_cetak/'.$r->id)?>" class="btn btn-info btn-small" id="" ><i class="fas fa-eye"></i> Lihat</a>
+                                     <a href="<?php echo base_url('history/delete/'.$r->id.'/'.$r->nrp)?>" class="btn btn-danger btn-small hapus" id="" ><i class="fas fa-trash"></i>Hapus</a>
                                     <!--<a href="<?php echo anchor('history/pdf/'.$record['NRP'],'Export Pdf',array('class'=>'btn btn-danger btn-sm')) ?>" ></a>-->
                                   </div>
                                 </td>

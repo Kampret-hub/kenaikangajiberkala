@@ -24,7 +24,7 @@
     <div class="col-md-12">
         <div class="card shadow">
             <div class="card-body">        
-                <table class="table-striped table-bordered table-hover nowrap" id="dataTable-1" style="width: 100%;">
+                <table id="example1" class="table table-bordered table-hover" style="width: 100%;">
                         <thead>
                             <tr>
                                 <th>No.</th> 
@@ -51,8 +51,8 @@
                                     <span class="text-muted sr-only">Action</span>
                                   </button>
                                   <div class="dropdown-menu dropdown-menu-right">
-                                    <a href=" <?php echo base_url('report/lihat_data/'.$r->nrp) ?>" class="btn btn-primary btn-small" style='margin-left: 40px;'><i class="fe fe-eye"></i> Lihat</a>
-                                  <!--   <a href="<?php echo base_url('history/index/'.$r->nrp)?>" class="btn btn-info btn-small" id="" ><i class="fe fe-archive"></i> Download</a> -->
+                                    <a href=" <?php echo base_url('report/lihat_data/'.$r->nrp) ?>" class="btn btn-primary btn-small" style='margin-left: 40px;'><i class="fas fa-eye"></i> Lihat</a>
+                                  <!--   <a href="<?php echo base_url('history/index/'.$r->nrp)?>" class="btn btn-info btn-small" id="" ><i class="fas fa-archive"></i> Download</a> -->
                                   </div>
                                 </td>
                                 

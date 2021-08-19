@@ -25,7 +25,7 @@
     <div class="col-md-12">
         <div class="card shadow">
             <div class="card-body">        
-                <table class="table-striped table-bordered table-hover nowrap" id="dataTable-1" style="width: 100%;">
+                <table id="example1" class="table table-bordered table-hover" style="width: 100%;">
                         <thead>
                             <tr>
                                 <th>No.</th> 
@@ -57,7 +57,7 @@
                                 </td>
                                 <td><?php echo $r->date_created ?></td>
                                 <td class="center">
-                                    <a href=" <?php echo base_url('user/edit/'.$r->user_id) ?>" class="btn btn-primary btn-small" ><i class="fe fe-edit"></i>Edit</a>
+                                    <a href=" <?php echo base_url('user/edit/'.$r->user_id) ?>" class="btn btn-primary btn-small" ><i class="fas fa-edit"></i>Edit</a>
                                 </td>
                             </tr>
                             <?php $no++; } ?>

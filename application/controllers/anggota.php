@@ -1,4 +1,5 @@
-<?php 
+<?php
+
 class anggota extends ci_controller{
     
    function __construct() {
@@ -179,10 +180,9 @@ class anggota extends ci_controller{
                 'nama'          =>$nama_lengkap   
             );
 
-            // ini gak perlu kek nya by nanonano 19-080-2021
-            // $edit_history_kgb = array(
-            //     'nama'          =>$nama_lengkap  
-            // );
+            $edit_history_kgb = array(
+                'nama'          =>$nama_lengkap  
+            );
 
             $edit_user = array (
                 'nama_lengkap'  =>$nama_lengkap
@@ -191,7 +191,7 @@ class anggota extends ci_controller{
             $where = array ('nrp' => $nrp);
             $this->model_kgb->update_data('anggota', $edit_anggota, $where);
             $this->model_kgb->update_data('t_kgb', $edit_kgb, $where);
-            // $this->model_kgb->update_data('history_kgb', $edit_history_kgb, $where);
+            $this->model_kgb->update_data('history_kgb', $edit_history_kgb, $where);
             $this->model_kgb->update_data('user', $edit_user, $where);
             echo $this->session->set_flashdata('msg','<div class="alert alert-success text-center" role="alert">Data Berhasil Di Ubah</div>');
             redirect('anggota/index/'.$status);
@@ -255,8 +255,7 @@ class anggota extends ci_controller{
     }
   }
 
-
-  public function import_excel(){
+   public function import_excel(){
 
     $data['user'] = $this->db->get_where('user', ['nama_lengkap' => $this->session->userdata('nama_lengkap')])->row_array(); 
     $where = array ('nrp' => $this->session->userdata('username'));
@@ -311,8 +310,13 @@ class anggota extends ci_controller{
                   'status'      => $status                 
           );
 
+           $input_kgb[] = array (
+               'nrp'          => $nrp,
+               'nama'         => $nama_lengkap
+            ); 
 
-          $input_user = array (
+
+          $input_user[] = array (
                'nrp'          => $nrp,
                'nama_lengkap' => $nama_lengkap,
                'password'     => 'ee11cbb19052e40b07aac0ca060c23ee',
@@ -324,23 +328,23 @@ class anggota extends ci_controller{
       }
       
       $this->load->model('model_kgb');
-      $this->model_kgb->insert_data($input_anggota, 'user');
-      $this->model_kgb->insert($input_anggota);
+      $this->model_kgb->insert( $input_anggota, 'anggota');
+      $this->model_kgb->insert( $input_kgb, 't_kgb');
+      $insert = $this->model_kgb->insert( $input_user, 'user');
 
-        // di comment aja dulu
-    //   if($insert){
-    //     $this->session->set_flashdata('status', '<span class="glyphicon glyphicon-ok"></span> Data Berhasil di Import ke Database');
-    //     redirect($_SERVER['HTTP_REFERER']);
-    //   }else{
-    //     $this->session->set_flashdata('status', '<span class="glyphicon glyphicon-remove"></span> Terjadi Kesalahan');
-    //     redirect($_SERVER['HTTP_REFERER']);
-    //   }
-    // }else{
-    //   echo "Tidak ada file yang masuk";
-    // }
+        
+      if($insert){
+       echo $this->session->set_flashdata('status','<div class="alert alert-success text-center" role="alert">Data Berhasil Di Import</div>');
+        redirect('anggota/index/'.'aktif', $data);
+
+      }else{
+       echo $this->session->set_flashdata('msg','<div class="alert alert-danger text-center" role="alert">Terjadi Kesalahan</div>');
+         redirect('anggota/index/'.'aktif', $data);
+      }
+    }else{
+      echo "Tidak ada file yang masuk";
+    
     }
-      redirect('anggota/index/'.'aktif', $data);
+     
   }
-
-
 }

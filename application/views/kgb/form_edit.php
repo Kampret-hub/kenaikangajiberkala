@@ -201,23 +201,23 @@
                                     </div>
                                 </div>
                             </div>
-                            <br>
+                            
                             <div class="card col-md-12">
                                 <div class="form-group">
                                     <label for="date-input1" class="control-label" style="margin-top: 5px;">TMT Lama</label>
-                                    <div class="input-group">
-                                        <input type="text" class="form-control drgpicker" name="tmtl" value="<?php echo $record['tmtl']?>">
-                                        <div class="input-group-append">
-                                          <div class="input-group-text" id="button-addon-date"><span class="fe fe-calendar fe-16"></span></div>
+                                    <div class="input-group date" id="reservationdate" data-target-input="nearest">
+                                        <input type="text" class="form-control datetimepicker-input" data-target="#reservationdate"/ name="tmtl" value="<?php echo $record['tmtl']?>">
+                                        <div class="input-group-append" data-target="#reservationdate" data-toggle="datetimepicker">
+                                            <div class="input-group-text"><i class="fa fa-calendar"></i></div>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label for="date-input1" class="control-label" style="margin-top: 5px;">TMT Baru</label>
-                                    <div class="input-group">
-                                        <input type="text" class="form-control drgpicker" name="tmtb" value="<?php echo $record['tmtb']?>">
-                                        <div class="input-group-append">
-                                          <div class="input-group-text" id="button-addon-date"><span class="fe fe-calendar fe-16"></span></div>
+                                    <div class="input-group date" id="reservationdate" data-target-input="nearest">
+                                        <input type="text" class="form-control datetimepicker-input" data-target="#reservationdate"/ name="tmtb" value="<?php echo $record['tmtb']?>">
+                                        <div class="input-group-append" data-target="#reservationdate" data-toggle="datetimepicker">
+                                            <div class="input-group-text"><i class="fa fa-calendar"></i></div>
                                         </div>
                                     </div>
                                 </div>
@@ -230,13 +230,16 @@
                                 </div>
                                 <div class="form-group">
                                     <label>Nomor / Tanggal</label>
-                                    <span class="small text-muted"> (contoh input : KEP/1486/XII/2019, 13 DESEMBER 2021)</span>
+                                    <span class="small text-muted"> (Contoh input : KEP/1486/XII/2019, 13 DESEMBER 2021)</span>
                                     <input type="text" class="form-control" name="no_tgl" value="<?php echo $record['no_tgl']?>">
                                 </div>
                                 <div class="form-group">
                                     <label>KGB Berikutnya</label>
-                                    <span class="small text-muted"> (Disi dengan tanggal KGB berikutnya dan Masa Kerja berikutnya)</span>
-                                    <input type="text" class="form-control" name="kgbb" value="<?php echo $record['kgbb']?>"><br>
+                                    <span class="small text-muted"> (Input dengan format Tahun/Bulan/Tanggal. Contoh : 2021/01/01)</span>
+                                    <input type="text" class="form-control" name="kgbb" value="<?php $sampeledate = ($record['kgbb']); 
+                                $converdate = date("Y/m/d", strtotime($sampeledate));
+                                echo $converdate;
+                                ?>"><br>
                                     <div class="form-row">
                                     <label style="margin-top : 5px; margin-left: 5px;"> Tahun :</label>
                                     <div class="col-md-3 mb-3">
@@ -316,7 +319,7 @@
                                             <div class="input-group">
                                                 <input type="text" class="form-control drgpicker" name="padatanggal" value="<?php echo $record['padatanggal']?>">
                                                 <div class="input-group-append">
-                                                  <div class="input-group-text" id="button-addon-date"><span class="fe fe-calendar fe-16"></span></div>
+                                                  <div class="input-group-text" id="button-addon-date"><span class="fas fe-calendar fe-16"></span></div>
                                                 </div>
                                             </div>
                                         </div>

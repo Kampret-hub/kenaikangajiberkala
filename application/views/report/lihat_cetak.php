@@ -8,13 +8,13 @@
                     <div class="row">
                         <div class="col-md-4 my-2">
                             <h6>POLRI</h6>
-                            <?php echo anchor('report/print_data/'.$record['nrp'],' Print',array('class'=>'btn btn-info btn-sm fe fe-printer')) ?>
-                            <?php echo anchor('report/export_pdf/'.$record['nrp'],' Export Pdf',array('class'=>'btn btn-danger btn-sm fe fe-clipboard')) ?>
+                            <?php echo anchor('report/print_data/'.$record['nrp'],' Print',array('class'=>'btn btn-info btn-sm fas fa-file-alt')) ?>
+                            <?php echo anchor('report/export_pdf/'.$record['nrp'],' Export Pdf',array('class'=>'btn btn-danger btn-sm fas fa-clipboard')) ?>
                         </div>
                         <div class="col-md-4 my-2">
                             <h6>ASN</h6>
-                            <?php echo anchor('report/print_data2/'.$record['nrp'],' Print',array('class'=>'btn btn-info btn-sm fe fe-printer')) ?>
-                            <?php echo anchor('report/export_pdf2/'.$record['nrp'],' Export Pdf',array('class'=>'btn btn-danger btn-sm fe fe-clipboard')) ?>
+                            <?php echo anchor('report/print_data2/'.$record['nrp'],' Print',array('class'=>'btn btn-info btn-sm fas fa-file-alt')) ?>
+                            <?php echo anchor('report/export_pdf2/'.$record['nrp'],' Export Pdf',array('class'=>'btn btn-danger btn-sm fas fa-clipboard')) ?>
                             <?php echo form_open('report/lihat_data'); ?>
                         </div>
                     </div>

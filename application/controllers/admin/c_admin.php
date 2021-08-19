@@ -22,8 +22,9 @@ public function index() {
 	       // $where = array ('kgbb'=> '11/08/2021');
            //$data['record']= $this->model_kgb->find_data($where, 't_kgb')->result();
 
-           $data['recordBulan']= $this->db->query('SELECT * FROM t_kgb WHERE YEAR(kgbb) = YEAR(NOW()) AND MONTH(kgbb)=MONTH(NOW())')->result();
-           $data['recordTahun']= $this->db->query('SELECT * FROM t_kgb WHERE YEAR(kgbb) = YEAR(NOW())')->result();
+           $data['recordBulan']= $this->db->query('SELECT * FROM t_kgb WHERE YEAR(kgbb) = YEAR(NOW()) AND MONTH(kgbb)=MONTH(NOW()) +1')->result();
+
+           $data['recordTahun']= $this->db->query('SELECT * FROM t_kgb WHERE YEAR(kgbb) =  YEAR(NOW()) +1')->result();
 
 
 
@@ -33,4 +34,4 @@ public function index() {
 
 	}
 }
-?> 
+?>  

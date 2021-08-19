@@ -7,17 +7,13 @@
     <meta name="author" content="">
     <link rel="icon" href="<?php echo base_url() ?>favicon.ico">
     <title>SIMPEG POLRES KARAWANG</title>
-    <!-- Simple bar CSS -->
-    <link rel="stylesheet" href="<?php echo base_url() ?>assets/css/simplebar.css">
-    <!-- Fonts CSS -->
-    <link href="<?php echo base_url() ?>https://fonts.googleapis.com/css2?family=Overpass:ital,wght@0,100;0,200;0,300;0,400;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
-    <!-- Icons CSS -->
-    <link rel="stylesheet" href="<?php echo base_url() ?>assets/css/feather.css">
-    <!-- Date Range Picker CSS -->
-    <link rel="stylesheet" href="<?php echo base_url() ?>assets/css/daterangepicker.css">
-    <!-- App CSS -->
-    <link rel="stylesheet" href="<?php echo base_url() ?>assets/css/app-light.css" id="lightTheme" disabled>
-    <link rel="stylesheet" href="<?php echo base_url() ?>assets/css/app-dark.css" id="darkTheme">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="<?php echo base_url() ?>/assets/plugins/fontawesome-free/css/all.min.css">
+  <!-- icheck bootstrap -->
+  <link rel="stylesheet" href="<?php echo base_url() ?>/assets/plugins/icheck-bootstrap/icheck-bootstrap.min.css">
+  <!-- Theme style -->
+  <link rel="stylesheet" href="<?php echo base_url() ?>/assets/dist/css/adminlte.min.css">
 
     <style type="text/css">
       .special-card{
@@ -58,7 +54,7 @@
                         <div class="col-12">  
                           <div class="input-group mb-3">
                             <div class="input-group-prepend">
-                               <span class="input-group-text" id="basic-addon1"><i class="fe fe-user"></i></span>
+                               <span class="input-group-text" id="basic-addon1"><i class="fas fa-user"></i></span>
                              </div>  
                               <input class="input form-control" type="text" name="nrp" id="nrp" required="true" aria-label="password" aria-describedby="basic-addon1" placeholder="NRP / NIP Username">
                           </div>
@@ -67,13 +63,13 @@
                         <div class="col-12">  
                           <div class="input-group mb-3">
                             <div class="input-group-prepend">
-                               <span class="input-group-text" id="basic-addon1"><i class="fe fe-lock"></i></span>
+                               <span class="input-group-text" id="basic-addon1"><i class="fas fa-lock"></i></span>
                              </div>  
                               <input class="input form-control" type="password" name="password" id="password" required="true" aria-label="password" aria-describedby="basic-addon1" placeholder="Password">
                               <div class="input-group-append">
                                 <span class="input-group-text" onclick="password_show_hide();">
-                                  <i class="fe fe-eye" id="show_eye"></i>
-                                  <i class="fe fe-eye-off d-none" id="hide_eye"></i>
+                                  <i class="fas fa-eye" id="show_eye"></i>
+                                  <i class="fas fa-eye-slash d-none" id="hide_eye"></i>
                                 </span>
                              </div>
                           </div>
@@ -116,29 +112,12 @@
       }
 
     </script>
-    <script src="<?php echo base_url() ?>assets/js/jquery.min.js"></script>
-    <script src="<?php echo base_url() ?>assets/js/popper.min.js"></script>
-    <script src="<?php echo base_url() ?>assets/js/moment.min.js"></script>
-    <script src="<?php echo base_url() ?>assets/js/bootstrap.min.js"></script>
-    <script src="<?php echo base_url() ?>assets/js/simplebar.min.js"></script>
-    <script src='<?php echo base_url() ?>assets/js/daterangepicker.js'></script>
-    <script src='<?php echo base_url() ?>assets/js/jquery.stickOnScroll.js'></script>
-    <script src="<?php echo base_url() ?>assets/js/tinycolor-min.js"></script>
-    <script src="<?php echo base_url() ?>assets/js/config.js"></script>
-    <script src="<?php echo base_url() ?>assets/js/apps.js"></script>
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="<?php echo base_url() ?>https://www.googletagmanager.com/gtag/js?id=UA-56159088-1"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
 
-      function gtag()
-      {
-        dataLayer.push(arguments);
-      }
-      gtag('js', new Date());
-      gtag('config', 'UA-56159088-1');
-    </script>
-  </body>
-</html>
+<!-- jQuery -->
+<script src="<?php echo base_url() ?>/assets/plugins/jquery/jquery.min.js"></script>
+<!-- Bootstrap 4 -->
+<script src="<?php echo base_url() ?>/assets/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<!-- AdminLTE App -->
+<script src="<?php echo base_url() ?>/assets/dist/js/adminlte.min.js"></script>
 </body>
 </html>

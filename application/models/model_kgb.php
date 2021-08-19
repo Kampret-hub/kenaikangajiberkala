@@ -1,8 +1,6 @@
 <?php
 class model_kgb extends CI_Model{
-    
-    
-    
+   
     function login($username,$password)
     {
         $chek=  $this->db->get_where('user',array('username'=>$username,'password'=>  md5($password)));
@@ -25,8 +23,8 @@ class model_kgb extends CI_Model{
         $this->db->insert($table, $data);
     }
 
-    public function insert($data){
-        $insert = $this->db->insert_batch('anggota', $data);
+    public function insert($data, $table){
+        $insert = $this->db->insert_batch($table, $data);
         if($insert){
             return true;
         }
