@@ -36,4 +36,5 @@ class model_jabatan extends CI_Model{
         $this->db->where('id_jabatan',$this->input->post('id_jabatan'));
         $this->db->update('jabatan',$data);
     }
+    
 }

@@ -25,6 +25,13 @@ class model_kgb extends CI_Model{
         $this->db->insert($table, $data);
     }
 
+    public function insert($data){
+        $insert = $this->db->insert_batch('anggota', $data);
+        if($insert){
+            return true;
+        }
+    }
+
     // untuk mendapatkan 1 data yang akan di edit
     public function find_data($where, $table){
         return $this->db->get_where($table,$where);

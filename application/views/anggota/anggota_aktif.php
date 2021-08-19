@@ -5,7 +5,20 @@
             <div class="card-body">
               <h2 class="mb-2 page-title">Data Anggota Aktif</h2>
                 <?php echo anchor('anggota/insert','Tambah Data',array('class'=>'btn btn-danger btn-sm')) ?>
+
             </div>
+            <form action="<?= base_url('anggota/import_excel'); ?>" method="post" enctype="multipart/form-data">
+                <div class="form-group">
+                    <label>Pilih File Excel</label>
+                    <input type="file" name="fileExcel">
+                </div>
+                <div>
+                    <button class='btn btn-success' type="submit">
+                        <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+                        Import      
+                    </button>
+                </div>
+            </form>
         </div>
     </div>
 </div>

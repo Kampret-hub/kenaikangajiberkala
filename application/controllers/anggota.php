@@ -4,7 +4,7 @@ class anggota extends ci_controller{
    function __construct() {
         parent::__construct();
         $this->load->model('model_kgb');
-        $this->load->library('form_validation');
+        $this->load->library('form_validation', 'excel');
        if ($this->session->userdata('username')=="") {
       redirect('auth');
         }
@@ -179,9 +179,10 @@ class anggota extends ci_controller{
                 'nama'          =>$nama_lengkap   
             );
 
-            $edit_history_kgb = array(
-                'nama'          =>$nama_lengkap  
-            );
+            // ini gak perlu kek nya by nanonano 19-080-2021
+            // $edit_history_kgb = array(
+            //     'nama'          =>$nama_lengkap  
+            // );
 
             $edit_user = array (
                 'nama_lengkap'  =>$nama_lengkap
@@ -190,7 +191,7 @@ class anggota extends ci_controller{
             $where = array ('nrp' => $nrp);
             $this->model_kgb->update_data('anggota', $edit_anggota, $where);
             $this->model_kgb->update_data('t_kgb', $edit_kgb, $where);
-            $this->model_kgb->update_data('history_kgb', $edit_history_kgb, $where);
+            // $this->model_kgb->update_data('history_kgb', $edit_history_kgb, $where);
             $this->model_kgb->update_data('user', $edit_user, $where);
             echo $this->session->set_flashdata('msg','<div class="alert alert-success text-center" role="alert">Data Berhasil Di Ubah</div>');
             redirect('anggota/index/'.$status);
@@ -253,4 +254,93 @@ class anggota extends ci_controller{
       }
     }
   }
+
+
+  public function import_excel(){
+
+    $data['user'] = $this->db->get_where('user', ['nama_lengkap' => $this->session->userdata('nama_lengkap')])->row_array(); 
+    $where = array ('nrp' => $this->session->userdata('username'));
+    $data['akun']= $this->model_kgb->find_data($where, 'user')->row_array(); 
+
+    if (isset($_FILES["fileExcel"]["name"])) {
+      $path = $_FILES["fileExcel"]["tmp_name"];
+      $object = PHPExcel_IOFactory::load($path);
+      foreach($object->getWorksheetIterator() as $worksheet)
+      {
+        $highestRow = $worksheet->getHighestRow();
+        $highestColumn = $worksheet->getHighestColumn();  
+        for($row=2; $row<=$highestRow; $row++)
+        {
+          $nrp = $worksheet->getCellByColumnAndRow(1, $row)->getValue();
+          $nama_lengkap = $worksheet->getCellByColumnAndRow(2, $row)->getValue();
+          $tmpt_lahir = $worksheet->getCellByColumnAndRow(3, $row)->getValue();
+          $t_lahir = $worksheet->getCellByColumnAndRow(4, $row)->getValue();
+          $jk = $worksheet->getCellByColumnAndRow(5, $row)->getValue();
+          $agama = $worksheet->getCellByColumnAndRow(6, $row)->getValue();
+          $no_telp = $worksheet->getCellByColumnAndRow(7, $row)->getValue();
+          $alamat = $worksheet->getCellByColumnAndRow(8, $row)->getValue();
+          $pendidikan = $worksheet->getCellByColumnAndRow(9, $row)->getValue();
+          $pangkat = $worksheet->getCellByColumnAndRow(10, $row)->getValue();
+          $jabatan = $worksheet->getCellByColumnAndRow(11, $row)->getValue();
+          $bagian = $worksheet->getCellByColumnAndRow(12, $row)->getValue();
+          $golongan = $worksheet->getCellByColumnAndRow(13, $row)->getValue();
+          $masa_kerja = $worksheet->getCellByColumnAndRow(14, $row)->getValue();
+          $gaji_pokok = $worksheet->getCellByColumnAndRow(15, $row)->getValue();
+          $stat_pegawai = $worksheet->getCellByColumnAndRow(16, $row)->getValue();
+          $keterangan = $worksheet->getCellByColumnAndRow(17, $row)->getValue();
+          $status = $worksheet->getCellByColumnAndRow(18, $row)->getValue();
+
+           $input_anggota[] = array (   
+                  'nrp'         => $nrp,
+                  'nama_lengkap'=> $nama_lengkap,
+                  'tmpt_lahir'  => $tmpt_lahir,
+                  't_lahir'     => $t_lahir,
+                  'jk'          => $jk,
+                  'agama'       => $agama,
+                  'no_telp'     => $no_telp,
+                  'alamat'      => $alamat,
+                  'pendidikan'  => $pendidikan,
+                  'pangkat'     => $pangkat,
+                  'jabatan'     => $jabatan,
+                  'bagian'      => $bagian,
+                  'golongan'    => $golongan,
+                  'masa_kerja'  => $masa_kerja,
+                  'gaji_pokok'  => $gaji_pokok,
+                  'stat_pegawai'=> $stat_pegawai,
+                  'keterangan'  => $keterangan,
+                  'status'      => $status                 
+          );
+
+
+          $input_user = array (
+               'nrp'          => $nrp,
+               'nama_lengkap' => $nama_lengkap,
+               'password'     => 'ee11cbb19052e40b07aac0ca060c23ee',
+               'role_id'      => '2',
+               'status'       => '1',
+               'date_created' => date('Y-m-d H:i:s')
+          );
+        }
+      }
+      
+      $this->load->model('model_kgb');
+      $this->model_kgb->insert_data($input_anggota, 'user');
+      $this->model_kgb->insert($input_anggota);
+
+        // di comment aja dulu
+    //   if($insert){
+    //     $this->session->set_flashdata('status', '<span class="glyphicon glyphicon-ok"></span> Data Berhasil di Import ke Database');
+    //     redirect($_SERVER['HTTP_REFERER']);
+    //   }else{
+    //     $this->session->set_flashdata('status', '<span class="glyphicon glyphicon-remove"></span> Terjadi Kesalahan');
+    //     redirect($_SERVER['HTTP_REFERER']);
+    //   }
+    // }else{
+    //   echo "Tidak ada file yang masuk";
+    // }
+    }
+      redirect('anggota/index/'.'aktif', $data);
+  }
+
+
 }
